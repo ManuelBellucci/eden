@@ -16,7 +16,7 @@ const Tipologie = () => {
                 <div className="flex flex-col md:flex-row gap-10">
                     <TipologieCard title='Uffici' subtitle='11 proprietà' />
                     <TipologieCard title='Magazzini e box' subtitle='8 proprietà' />
-                </div>
+                </div> 
 
             </div>
         </div>
