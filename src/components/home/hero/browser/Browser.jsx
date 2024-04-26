@@ -1,7 +1,7 @@
 const Browser = () => {
     return (
         <form>
-            <div className="flex gap-16 text-xl font-bold text-white">
+            <div className="flex gap-16 text-xl font-bold justify-center mb-4 text-white">
                 <div>Vendita</div>
                 <div>Affitto</div>
             </div>
