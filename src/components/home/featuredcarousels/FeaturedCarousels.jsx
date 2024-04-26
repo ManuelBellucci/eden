@@ -10,28 +10,40 @@ const FeaturedCarousels = () => {
 
             <div className="flex gap-10 justify-center max-w-7xl mx-auto mt-14">
                 {/* Single card */}
-                <div className="w-1/3">
+                <div className="flex flex-col w-1/3">
                     <Tag
                         text="Libero subito"
-                        color="bg-primary-600"
+                        color="bg-primary-500"
                     />
                     <SingleCarousel />
+                    <hgroup className="mt-4">
+                        <h3 className="text-2xl font-bold">Trilocale ristrutturato</h3>
+                        <p>Via Saragozza, Bologna</p>
+                    </hgroup>
                 </div>
                 {/* Single card */}
-                <div className="w-1/3">
+                <div className="flex flex-col w-1/3">
                     <Tag
                         text="Nuova costruzione"
-                        color="bg-primary-600"
+                        color="bg-primary-500"
                     />
                     <SingleCarousel />
+                    <hgroup className="mt-4">
+                        <h3 className="text-2xl font-bold">Villa di nuova costruzione</h3>
+                        <p>Via dei Colli, Bologna</p>
+                    </hgroup>
                 </div>
                 {/* Single card */}
-                <div className="w-1/3">
+                <div className="flex flex-col w-1/3">
                     <Tag
-                        text="In vendita"
-                        color="bg-primary-600"
+                        text="Vista panoramica"
+                        color="bg-primary-500"
                     />
                     <SingleCarousel />
+                    <hgroup className="mt-4">
+                        <h3 className="text-2xl font-bold">Piano panoramico</h3>
+                        <p>Via Bellaria, Bologna</p>
+                    </hgroup>
                 </div>
             </div>
         </div>
