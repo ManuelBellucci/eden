@@ -19,10 +19,12 @@ const Featured = ({ rents, sells }) => {
 
       <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3'>
         {/* Single card */}
-        <div className='flex flex-col'>
+        <div className='flex flex-col relative'>
           <Tag
             text='Libero subito'
-            color='bg-primary-500'
+            color='bg-primary-500/75'
+            position='topLeft'
+            size='lg'
           />
           <SingleCarousel />
           <hgroup className='mt-4'>
@@ -39,10 +41,12 @@ const Featured = ({ rents, sells }) => {
           </hgroup>
         </div>
         {/* Single card */}
-        <div className='flex flex-col'>
+        <div className='flex flex-col relative'>
           <Tag
             text='Nuova costruzione'
-            color='bg-primary-500'
+            color='bg-primary-500/75'
+            position='topLeft'
+            size='lg'
           />
           <SingleCarousel />
           <hgroup className='mt-4'>
@@ -59,10 +63,12 @@ const Featured = ({ rents, sells }) => {
           </hgroup>
         </div>
         {/* Single card */}
-        <div className='flex flex-col'>
+        <div className='flex flex-col relative'>
           <Tag
             text='Vista panoramica'
-            color='bg-primary-500'
+            color='bg-primary-500/75'
+            position='topLeft'
+            size='lg'
           />
           <SingleCarousel />
           <hgroup className='mt-4'>
