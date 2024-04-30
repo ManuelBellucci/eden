@@ -11,7 +11,7 @@ const Newsletter = () => {
               Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt
               dolore.
             </p>
-            <div className='mt-6 flex max-w-md gap-x-4'>
+            <form className='mt-6 flex max-w-md gap-x-4'>
               <label htmlFor='email-address' className='sr-only'>
                 Email address
               </label>
@@ -25,12 +25,11 @@ const Newsletter = () => {
                 placeholder='Enter your email'
               />
               <CallToAction
+                asSubmit
                 text='Subscribe'
                 className='flex-none rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500'
-              >
-                Subscribe
-              </CallToAction>
-            </div>
+              />
+            </form>
           </div>
           <dl className='grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2'>
             <div className='flex flex-col items-start'>

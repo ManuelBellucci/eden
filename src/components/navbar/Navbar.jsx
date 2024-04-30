@@ -9,7 +9,11 @@ const Navbar = () => {
         <Logo src='https://th.bing.com/th?id=OIP.8vrST__G8_TvsLBvayhxUAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2' title='Eden House' />
         <div className='flex md:order-2 gap-4 rtl:space-x-reverse items-center'>
           <PhoneIcon numeroTelefonoAgenzia={3517404147} />
-          <CallToAction text='Call to Action' />
+          <CallToAction
+            anchor
+            href='https://www.youtube.com/'
+            text='Call to Action'
+          />
           <HamburgerMenu />
         </div>
         <div className='items-center justify-between hidden w-full xl:flex xl:w-auto xl:order-1' id='navbar-cta'>
