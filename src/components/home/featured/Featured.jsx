@@ -4,10 +4,18 @@ import { SingleCarousel } from "./SingleCarousel"
 const Featured = ({ rents, sells }) => {
     return (
         <div className="m-14 pt-24">
-            <h1 className="text-center mb-4 text-xl font-extrabold leading-none tracking-tight text-primary-900 md:text-2xl lg:text-3xl">Lorem ipsum 
-                <span className="underline underline-offset-4 decoration-8 decoration-primary-400">dolor asit met</span> consectetur adipisicing elit
+            <h1 className="text-center mb-4 text-xl font-extrabold leading-none tracking-tight text-primary-900 md:text-2xl lg:text-3xl">Le proposte del mese: {' '}
+                <span className="underline underline-offset-4 decoration-8 decoration-primary-400">
+                    {rents && "in affitto"}{sells && "in vendita"}  
+                </span>
             </h1>
-            <p className="text-center text-md font-normal mx-auto max-w-xl text-primary-500 lg:text-lg mb-14">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <p className="text-center text-md font-normal mx-auto max-w-xl text-primary-500 lg:text-lg mb-14">
+                Scopri le nostre proposte {
+                    rents && "in affitto"
+                }{
+                    sells && "in vendita"
+                } del mese, non fartele scappare!
+            </p>
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3">
                 {/* Single card */}
