@@ -18,8 +18,8 @@ const CallToAction = ({
   preventDefault = false
 }) => {
   const baseClasses = 'text-primary-950 bg-primary-500 hover:bg-primary-600 active:bg-primary-700 transition-all font-medium rounded-lg text-center';
-  const sizeClass = sizeStyles[size] || sizeStyles.md; // Fallback to medium if size prop is invalid
-  const combinedClasses = `${baseClasses} ${sizeClass} ${className}`; // Combine all classes
+  const sizeClass = sizeStyles[size] || sizeStyles.md
+  const combinedClasses = `${baseClasses} ${sizeClass} ${className}`
 
   const handleClick = (event) => {
     if (preventDefault) {
@@ -29,9 +29,9 @@ const CallToAction = ({
   }
 
   if (anchor) {
-    return <a href={href} className={combinedClasses} style={style} onClick={handleClick}>{text}</a>;
+    return <a href={href} className={combinedClasses} style={style} onClick={handleClick}>{text}</a>
   } else {
-    const buttonType = asSubmit ? 'submit' : type;
+    const buttonType = asSubmit ? 'submit' : type
     return (
       <button
         type={buttonType}
@@ -45,4 +45,4 @@ const CallToAction = ({
   }
 }
 
-export default CallToAction;
+export default CallToAction
