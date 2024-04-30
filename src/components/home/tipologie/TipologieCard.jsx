@@ -2,7 +2,7 @@ const TipologieCard = ({title, subtitle}) => {
     return (
         <div className="relative flex flex-col justify-center overflow-hidden">
             <div className="absolute inset-0 bg-center"></div>
-            <div className="group relative m-0 flex h-72 w-full xl:h-96 rounded-xl  ring-primary-900/5 sm:mx-auto sm:max-w-lg">
+            <div className="group relative m-0 flex h-72 w-full xl:h-96 rounded-xl ring-primary-900/5 sm:mx-auto sm:max-w-lg">
                 <div className="z-10 h-full w-full overflow-hidden rounded-xl opacity-80 transition duration-300 ease-in-out group-hover:opacity-100">
                     <img src="https://images.unsplash.com/photo-1506187334569-7596f62cf93f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3149&q=80" className="animate-fade-in block h-full w-full scale-100 transform object-cover object-center opacity-100 transition duration-300 group-hover:scale-110" alt="" />
                 </div>
