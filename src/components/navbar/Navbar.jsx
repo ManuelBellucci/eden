@@ -12,25 +12,25 @@ const Navbar = () => {
                     <CallToAction text='Call to Action' />
                     <HamburgerMenu />
                 </div>
-                <div className='items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1' id='navbar-cta'>
+                <div className='items-center justify-between hidden w-full xl:flex xl:w-auto xl:order-1' id='navbar-cta'>
                     <ul className='flex flex-col font-medium p-4 md:p-0 mt-4 border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0'>
                         <li>
-                            <a href='/' className='block py-2 px-3 md:p-0 text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700' aria-current='page'>Home</a>
+                            <a href='/' className='block py-2 px-3 md:p-0 md:text-primary-300' aria-current='page'>Home</a>
                         </li>
                         <li>
-                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 rounded md:hover:text-primary-700'>Listings</a>
+                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 md:hover:text-primary-300'>Listings</a>
                         </li>
                         <li>
-                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 rounded md:hover:text-primary-700'>Members</a>
+                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 md:hover:text-primary-300'>Members</a>
                         </li>
                         <li>
-                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 rounded md:hover:text-primary-700'>Blog</a>
+                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 md:hover:text-primary-300'>Blog</a>
                         </li>
                         <li>
-                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 rounded md:hover:text-primary-700'>Pages</a>
+                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 md:hover:text-primary-300'>Pages</a>
                         </li>
                         <li>
-                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 rounded md:hover:text-primary-700'>Contact</a>
+                            <a href='/' className='block py-2 px-3 md:p-0 text-primary-900 md:hover:text-primary-300'>Contact</a>
                         </li>
                     </ul>
                 </div>
