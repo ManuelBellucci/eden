@@ -4,6 +4,7 @@ import Hero from "../../components/home/hero/Hero"
 import HowItWorks from "../../components/home/howitworks/HowItWorks"
 import Stats from "../../components/home/stats/Stats"
 import Tipologie from "../../components/home/tipologie/Tipologie"
+import WhyWorkWithUs from "../../components/home/whyworkwithus/WhyWorkWithUs"
 
 const Home = () => {
     return (
@@ -16,7 +17,10 @@ const Home = () => {
                 <Featured rents />
                 <HowItWorks />
             </div>
-                <Banner />
+            <Banner />
+            <div className="lg:mx-14">
+                <WhyWorkWithUs />
+            </div>
         </>
     )
 
