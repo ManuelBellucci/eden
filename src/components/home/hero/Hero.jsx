@@ -21,6 +21,9 @@ const Hero = () => {
                         gradientPhrase='numero 1'
                         textTwo='per vendere, comprare e affittare casa.'
                         paragraph='Con noi troverai la casa dei tuoi sogni, in pochi click. Siamo specializzati in vendite e affitti di immobili a Bologna e provincia.'
+                        gradientFrom="rgba(81,247,246,1) 40%"
+                        gradientVia="rgba(0,140,149,1) 85%"
+                        gradientTo="rgba(0,44,51,1) 100%"
                     />
                 </div>
                 <Browser />
