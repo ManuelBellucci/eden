@@ -1,6 +1,6 @@
-const TipologieCard = ({ title, subtitle }) => {
+const TipologieCard = ({ title, subtitle, href }) => {
   return (
-    <div className='relative flex flex-col justify-center overflow-hidden'>
+    <a href={href} className='relative flex flex-col justify-center overflow-hidden'>
       <div className='absolute inset-0 bg-center' />
       <div className='group relative m-0 flex h-72 w-full xl:h-96 rounded-xl ring-primary-900/5 sm:mx-auto sm:max-w-lg'>
         <div className='z-10 h-full w-full overflow-hidden rounded-xl opacity-80 transition duration-300 ease-in-out group-hover:opacity-100'>
@@ -11,7 +11,7 @@ const TipologieCard = ({ title, subtitle }) => {
           <h1 className='text-sm font-light text-primary-200 shadow-xl'>{subtitle}</h1>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 
