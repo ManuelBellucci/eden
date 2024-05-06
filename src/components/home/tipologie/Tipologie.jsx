@@ -12,14 +12,15 @@ const Tipologie = () => {
       <div className='flex flex-col items-center xl:flex-row justify-center gap-6 mt-8'>
 
         <div className='flex flex-col md:flex-row gap-6'>
-          <TipologieCard title='Monolocali e bilocali' subtitle='18 proprietà' href='/appartamenti/monolocali' />
-          <TipologieCard title='Trilocali' subtitle='5 proprietà' href='/appartamenti/trilocali' />
+          <TipologieCard title='Monolocali' subtitle='18 proprietà' href='/appartamenti/monolocali' />
+          <TipologieCard title='Bilocali' subtitle='11 proprietà' href='/appartamenti/bilocali' />
         </div>
         <div className='flex flex-col md:flex-row gap-6'>
+          <TipologieCard title='Trilocali' subtitle='5 proprietà' href='/appartamenti/trilocali' />
           <TipologieCard title='Quadrilocali' subtitle='11 proprietà' href='/appartamenti/quadrilocali' />
-          <TipologieCard title='Cinque e più locali' subtitle='8 proprietà' href='/appartamenti/cinquelocali'/>
         </div>
-        <div>
+        <div className='flex flex-col md:flex-row gap-6'>
+          <TipologieCard title='Cinque e più locali' subtitle='8 proprietà' href='/appartamenti/cinquelocali'/>
           <TipologieCard title='Attici, ville e villini' subtitle='3 proprietà'href='/appartamenti/attici' />
         </div>
 
