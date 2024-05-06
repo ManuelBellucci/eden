@@ -6,11 +6,11 @@ const sizeStyles = {
 };
 
 const roundedStyles = {
-  'sm': 'rounded-sm',
-  'md': 'rounded-md',
-  'lg': 'rounded-lg',
-  'xl': 'rounded-xl',
-  'full': 'rounded-full'
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  xl: 'rounded-xl',
+  full: 'rounded-full'
 };
 
 const CallToAction = ({
@@ -29,7 +29,7 @@ const CallToAction = ({
   const baseClasses = 'text-primary-950 bg-primary-500 hover:bg-primary-600 active:bg-primary-700 transition-all font-medium text-center';
   const sizeClass = sizeStyles[size] || sizeStyles.md
   const roundedClass = roundedStyles[rounded] || roundedStyles.lg
-  const combinedClasses = `${baseClasses} ${sizeClass} ${className}`
+  const combinedClasses = `${baseClasses} ${sizeClass} ${roundedClass} ${className}`
 
   const handleClick = (event) => {
     if (preventDefault) {
