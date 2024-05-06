@@ -13,8 +13,7 @@ const Home = () => {
       <div className='lg:mx-14'>
         <Tipologie />
         <Stats />
-        <Featured sells />
-        <Featured rents />
+        <Featured />
         <HowItWorks />
       </div>
       <Banner />
