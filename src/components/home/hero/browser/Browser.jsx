@@ -26,7 +26,7 @@ const Browser = () => {
           ]} />
         
 
-        <CallToAction text='Cercare' asSubmit size="lg" className="w-full rounded-full"/>
+        <CallToAction text='Cercare' asSubmit rounded="full" size="lg" className="w-full rounded-full"/>
       </div>
     </div>
   )
