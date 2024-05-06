@@ -1,4 +1,3 @@
-import PhoneIcon from './PhoneIcon'
 import CallToAction from '../commons/CallToAction'
 import HamburgerMenu from './HamburgerMenu'
 import Logo from './Logo'
@@ -9,12 +8,12 @@ const Navbar = () => {
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <Logo src='/logotemp.png' title='Eden House' />
         <div className='flex md:order-2 gap-4 rtl:space-x-reverse items-center'>
-         {/* <PhoneIcon numeroTelefonoAgenzia={3517404147} /> */}
           <CallToAction
             anchor
             href='https://www.youtube.com/'
             text='Call to Action'
             size='lg'
+            rounded='xl'
           />
           <HamburgerMenu />
         </div>
@@ -24,19 +23,19 @@ const Navbar = () => {
               <a href='/' className='block transition-all py-2 px-3 md:p-0 md:text-primary-100' aria-current='page'>Home</a>
             </li>
             <li>
-              <a href='/' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Listings</a>
+              <a href='/immobili' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Immobili</a>
             </li>
             <li>
-              <a href='/' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Members</a>
+              <a href='/about' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Chi siamo?</a>
             </li>
             <li>
-              <a href='/' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Blog</a>
+              <a href='/blog' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Blog</a>
             </li>
             <li>
-              <a href='/' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Pages</a>
+              <a href='/guide' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Le guide</a>
             </li>
             <li>
-              <a href='/' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Contact</a>
+              <a href='/contact' className='block transition-all py-2 px-3 md:p-0 md:hover:text-primary-100'>Contatti</a>
             </li>
           </ul>
         </div>
