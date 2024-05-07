@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const sizeStyles = {
   sm: 'px-2 py-1 text-xs',
   md: 'px-3 py-2 text-sm',
@@ -20,7 +22,7 @@ const CallToAction = ({
   className = '',
   type = 'button',
   style = {},
-  onClick = () => {},
+  onClick = () => { },
   asSubmit = false,
   size = 'md',
   rounded = 'rounded-lg',
@@ -39,7 +41,7 @@ const CallToAction = ({
   }
 
   if (anchor) {
-    return <a href={href} className={combinedClasses} style={style} onClick={handleClick}>{text}</a>
+    return <Link to={href} className={combinedClasses} style={style} onClick={handleClick}>{text}</Link>
   } else {
     const buttonType = asSubmit ? 'submit' : type
     return (
