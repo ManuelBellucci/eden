@@ -7,7 +7,7 @@ const Logo = ({ src, title }) => {
         alt='Eden House Logo'
       />
       
-      <span className='self-center text-lg md:text-xl lg:text-3xl font-semibold whitespace-nowrap'>{title}</span>
+      <span className='self-center text-2xl lg:text-3xl font-semibold whitespace-nowrap'>{title}</span>
     </a>
   )
 }
