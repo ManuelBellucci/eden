@@ -1,44 +1,16 @@
-import { useState } from 'react';
-import useFetchListings from '../../hooks/useFetchListings';
-import Pagination from '../../components/commons/Pagination';
-import ListingItem from '../../components/commons/ListingItem';
-import CardSkeleton from '../../components/skeletons/CardSkeleton';
+import Filters from "../../components/immobili/hero/filters/Filters";
+import ImmobiliHero from "../../components/immobili/hero/ImmobiliHero";
+import ListingGrid from "../../components/immobili/listingsGrid/ListingGrid";
+import ImmobiliPagination from "../../components/immobili/pagination/ImmobiliPagination";
+
 
 const Immobili = () => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const listingsPerPage = 9;
-
-    const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage);
-    const totalPages = Math.ceil(totalListings / listingsPerPage);
-
-    const handlePageChange = (page) => {
-        setCurrentPage(page);
-    };
-
-    const skeletons = Array.from({ length: listingsPerPage });
-
     return (
         <>
-            <div className="h-screen flex flex-col justify-center items-center">
-                <h1 className="text-6xl text-center">I nostri immobili</h1>
-                <div className='mt-10'>filters</div>
-            </div>
-            <div className='m-14'>
-                <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3'>
-                    {loading ? (
-                        skeletons.map((_, index) => <CardSkeleton key={index} />)
-                    ) : error ? (
-                        <p className="text-center text-red-500">Errore nel caricamento degli immobili</p>
-                    ) : immobili.length > 0 ? (
-                        immobili.map((listing) => <ListingItem tag key={listing._id} listing={listing} />)
-                    ) : (
-                        <p className="text-center">Nessun immobile disponibile</p>
-                    )}
-                </div>
-
-                {totalPages > 1 && (
-                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-                )}
+            <div className='mx-14 mb-14'>
+            <ImmobiliHero />
+                <ListingGrid />
+                <ImmobiliPagination />
             </div>
         </>
     );
