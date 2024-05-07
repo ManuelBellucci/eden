@@ -1,14 +1,15 @@
-import useFetchListings from '../../../hooks/useFetchListings';
-import ListingItem from '../../commons/ListingItem';
+import useFetchListings from '../../../hooks/useFetchListings'
+import ListingItem from '../../commons/ListingItem'
+
 const Featured = () => {
-  const { listings: featured, loading, error } = useFetchListings(1, 5);
+  const { listings: featured, loading, error } = useFetchListings(1, 6, { featured: true })
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   if (error || !Array.isArray(featured)) {
-    return <div>Error: Unable to fetch featured listings</div>;
+    return <div>Error: Unable to fetch featured listings</div>
   }
 
 
@@ -21,7 +22,7 @@ const Featured = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Featured;
+export default Featured
