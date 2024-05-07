@@ -1,5 +1,5 @@
 import useFetchListings from '../../../hooks/useFetchListings'
-import ListingItem from '../../commons/ListingItem'
+import ListingItem from "../../immobili/listingsGrid/ListingItem"
 
 const Featured = () => {
   const { listings: featured, loading, error } = useFetchListings(1, 6, { featured: true })
