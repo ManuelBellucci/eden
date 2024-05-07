@@ -2,6 +2,7 @@ import { useState } from 'react';
 import useFetchListings from '../../hooks/useFetchListings';
 import Pagination from '../../components/commons/Pagination';
 import ListingItem from '../../components/commons/ListingItem';
+import CardSkeleton from '../../components/skeletons/CardSkeleton';
 
 const Immobili = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -12,24 +13,21 @@ const Immobili = () => {
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-    }
+    };
 
-    if (loading) {
-        return <div className="h-screen flex justify-center items-center">Loading...</div>
-    }
-
-    if (error) {
-        return <div className="h-screen flex justify-center items-center">Error: {error.message}</div>
-    }
+    const skeletons = Array.from({ length: listingsPerPage });
 
     return (
         <>
-            <div className="h-screen flex justify-center items-center">
-                <h1 className="text-6xl">I nostri immobili</h1>
+            <div className="h-screen flex flex-col justify-center items-center">
+                <h1 className="text-6xl text-center">I nostri immobili</h1>
+                <div className='mt-10'>filters</div>
             </div>
             <div className='m-14'>
                 <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3'>
-                    {error ? (
+                    {loading ? (
+                        skeletons.map((_, index) => <CardSkeleton key={index} />)
+                    ) : error ? (
                         <p className="text-center text-red-500">Errore nel caricamento degli immobili</p>
                     ) : immobili.length > 0 ? (
                         immobili.map((listing) => <ListingItem tag key={listing._id} listing={listing} />)
@@ -38,7 +36,9 @@ const Immobili = () => {
                     )}
                 </div>
 
-                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+                {totalPages > 1 && (
+                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+                )}
             </div>
         </>
     );
