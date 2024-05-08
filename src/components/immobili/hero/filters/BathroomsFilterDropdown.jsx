@@ -1,40 +1,16 @@
 import { useState } from "react";
 
-const BathroomsFilterDropdown = ({ isOpen, toggle }) => {
-    const [fromBathrooms, setFromBathrooms] = useState('');
-    const [toBathrooms, setToBathrooms] = useState('');
-
-    const bathroomsOptions = ['1', '2', '3', '>3'];
+const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelectedBathrooms }) => {
+    const bathroomsOptions = ['1', '2', '3'];
 
     const selectBathrooms = (bathrooms) => {
-        if (!fromBathrooms) {
-            setFromBathrooms(bathrooms);
-        } else {
-            setToBathrooms(bathrooms);
-        }
-
-        if (fromBathrooms && toBathrooms) {
-            applyBathroomsFilter();
-        }
+        setSelectedBathrooms(bathrooms);
+        toggle();
     };
 
     const getBathroomsLabel = () => {
-        if (!fromBathrooms && !toBathrooms) return 'Bagni';
-        if (fromBathrooms && toBathrooms) {
-            const fromLabel = `${fromBathrooms}`;
-            const toLabel = `${toBathrooms}`;
-            return `Da ${fromLabel} a ${toLabel} bagni`;
-        } else if (fromBathrooms) {
-            const fromLabel = `${fromBathrooms}`;
-            return `Da ${fromLabel} bagni`;
-        } else {
-            const toLabel = `${toBathrooms}`;
-            return `Fino a ${toLabel} bagni`;
-        }
-    };
-
-    const applyBathroomsFilter = () => {
-        toggle();
+        if (!selectedBathrooms) return 'Bagni';
+        return `Min. ${selectedBathrooms} ${selectedBathrooms === '1' ? 'bagno' : 'bagni'}`;
     };
 
     return (
@@ -62,27 +38,18 @@ const BathroomsFilterDropdown = ({ isOpen, toggle }) => {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
-                    <div className="flex flex-col mb-4 max-h-40 overflow-y-hidden">
-                        <ul className="space-y-1">
-                            {bathroomsOptions.map((bathrooms, index) => (
-                                <li
-                                    key={index}
-                                    className="cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg"
-                                    onClick={() => selectBathrooms(bathrooms)}
-                                >
-                                    {bathrooms}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <button
-                        type="button"
-                        className="w-full px-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600"
-                        onClick={applyBathroomsFilter}
-                    >
-                        Applicare filtri
-                    </button>
+                <div className="absolute -right-20 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
+                    <ul className="space-y-1">
+                        {bathroomsOptions.map((bathrooms, index) => (
+                            <li
+                                key={index}
+                                className={`cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg ${selectedBathrooms === bathrooms ? 'bg-primary-100 text-primary-900' : ''}`}
+                                onClick={() => selectBathrooms(bathrooms)}
+                            >
+                                {bathrooms}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             )}
         </div>

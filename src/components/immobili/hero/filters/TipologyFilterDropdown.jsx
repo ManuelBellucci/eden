@@ -1,23 +1,21 @@
-import { useState } from 'react';
-
-const TipologyFilterDropdown = ({ isOpen, toggle }) => {
+const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedTipology }) => {
     const tipologyOptions = [
-        'Appartamenti', 'Attici, ville e villini', 'Nuove costruzioni',
-        'Garage e posti auto', 'Uffici e negozi', 'Magazzini'
+        'Appartamenti',
+        'Attici, ville e villini',
+        'Nuove costruzioni',
+        'Garage e posti auto',
+        'Uffici e negozi',
+        'Magazzini'
     ];
 
-    const [selectedTipology, setSelectedTipology] = useState('');
+    const getTipologyLabel = () => {
+        return selectedTipology || 'Tipologia';
+    };
 
     const selectTipology = (tipology) => {
         setSelectedTipology(tipology);
-        applyTipologyFilter();
-    };
-
-    const applyTipologyFilter = () => {
         toggle();
     };
-
-    const getTipologyLabel = () => (selectedTipology ? selectedTipology : 'Tipologia');
 
     return (
         <div className="relative">
@@ -44,7 +42,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle }) => {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
+                <div className="absolute -right-20 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
                     <ul className="space-y-1">
                         {tipologyOptions.map((tipology, index) => (
                             <li
@@ -56,13 +54,6 @@ const TipologyFilterDropdown = ({ isOpen, toggle }) => {
                             </li>
                         ))}
                     </ul>
-                    <button
-                        type="button"
-                        className="w-full px-4 mt-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600"
-                        onClick={applyTipologyFilter}
-                    >
-                        Applicare filtri
-                    </button>
                 </div>
             )}
         </div>

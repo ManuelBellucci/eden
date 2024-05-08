@@ -1,9 +1,7 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const PriceFilterDropdown = ({ isOpen, toggle }) => {
-    const [fromPrice, setFromPrice] = useState('')
-    const [toPrice, setToPrice] = useState('')
-    const [focusedField, setFocusedField] = useState('')
+const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }) => {
+    const [focusedField, setFocusedField] = useState('');
 
     const priceOptions = [
         'Indifferente', '50.000 €', '60.000 €', '70.000 €', '80.000 €',
@@ -16,41 +14,41 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
         '1.500.000 €', '2.000.000 €', '2.200.000 €', '2.400.000 €',
         '2.600.000 €', '2.800.000 €', '3.000.000 €', '3.500.000 €',
         '4.000.000 €', '4.500.000 €', '5.000.000 €'
-    ]
+    ];
 
     const selectPrice = (price) => {
-        const sanitizedPrice = price.replace(' €', '').replace('.', '')
-        if (!fromPrice || focusedField === 'fromPrice') {
-            setFromPrice(price === 'Indifferente' ? '' : sanitizedPrice)
-            setFocusedField('')
-        } else if (!toPrice || focusedField === 'toPrice') {
-            setToPrice(price === 'Indifferente' ? '' : sanitizedPrice)
-            setFocusedField('')
+        const sanitizedPrice = price.replace(' €', '').replace('.', '');
+        if (!selectedPrice.from || focusedField === 'from') {
+            setSelectedPrice({ ...selectedPrice, from: price === 'Indifferente' ? '' : sanitizedPrice });
+            setFocusedField('');
+        } else if (!selectedPrice.to || focusedField === 'to') {
+            setSelectedPrice({ ...selectedPrice, to: price === 'Indifferente' ? '' : sanitizedPrice });
+            setFocusedField('');
         }
 
-        if (fromPrice && toPrice) {
-            applyPriceFilter()
+        if (selectedPrice.from && selectedPrice.to) {
+            applyPriceFilter();
         }
-    }
+    };
 
     const getPriceLabel = () => {
-        if (!fromPrice && !toPrice) return 'Prezzo'
-        if (fromPrice && toPrice) {
-            const fromLabel = `${Number(fromPrice).toLocaleString()}€`
-            const toLabel = `${Number(toPrice).toLocaleString()}€`
-            return `Da ${fromLabel} a ${toLabel}`
-        } else if (fromPrice) {
-            const fromLabel = `${Number(fromPrice).toLocaleString()}€`
-            return `Da ${fromLabel}`
+        if (!selectedPrice.from && !selectedPrice.to) return 'Prezzo';
+        if (selectedPrice.from && selectedPrice.to) {
+            const fromLabel = `${Number(selectedPrice.from).toLocaleString()}€`;
+            const toLabel = `${Number(selectedPrice.to).toLocaleString()}€`;
+            return `Da ${fromLabel} a ${toLabel}`;
+        } else if (selectedPrice.from) {
+            const fromLabel = `${Number(selectedPrice.from).toLocaleString()}€`;
+            return `Da ${fromLabel}`;
         } else {
-            const toLabel = `${Number(toPrice).toLocaleString()}€`
-            return `Fino a ${toLabel}`
+            const toLabel = `${Number(selectedPrice.to).toLocaleString()}€`;
+            return `Fino a ${toLabel}`;
         }
-    }
+    };
 
     const applyPriceFilter = () => {
-        toggle()
-    }
+        toggle();
+    };
 
     return (
         <div className="relative">
@@ -77,7 +75,7 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
+                <div className="absolute -right-20 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
                     <div className="flex flex-col mb-4">
                         <label htmlFor="fromPrice" className="mb-2 text-sm font-medium text-gray-900">
                             From
@@ -85,13 +83,11 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                         <input
                             type="number"
                             id="fromPrice"
-                            min={0}
-                            step={10000}
                             className="px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100"
                             placeholder="Minimo (€)"
-                            value={fromPrice}
-                            onChange={(e) => setFromPrice(e.target.value)}
-                            onFocus={() => setFocusedField('fromPrice')}
+                            value={selectedPrice.from}
+                            onChange={(e) => setSelectedPrice({ ...selectedPrice, from: e.target.value })}
+                            onFocus={() => setFocusedField('from')}
                         />
                     </div>
                     <div className="flex flex-col mb-4">
@@ -101,13 +97,11 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                         <input
                             type="number"
                             id="toPrice"
-                            min={0}
-                            step={10000}
                             className="px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100"
                             placeholder="Massimo (€)"
-                            value={toPrice}
-                            onChange={(e) => setToPrice(e.target.value)}
-                            onFocus={() => setFocusedField('toPrice')}
+                            value={selectedPrice.to}
+                            onChange={(e) => setSelectedPrice({ ...selectedPrice, to: e.target.value })}
+                            onFocus={() => setFocusedField('to')}
                         />
                     </div>
                     <div className="flex flex-col mb-4 max-h-40 overflow-y-scroll">
@@ -115,7 +109,7 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                             {priceOptions.map((price, index) => (
                                 <li
                                     key={index}
-                                    className="cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg"
+                                    className="cursor-pointer mr-2 py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg"
                                     onClick={() => selectPrice(price)}
                                 >
                                     {price}
@@ -128,12 +122,12 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                         className="w-full px-4 mt-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600"
                         onClick={applyPriceFilter}
                     >
-                        Applicare filtri
+                        Applica
                     </button>
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default PriceFilterDropdown
+export default PriceFilterDropdown;

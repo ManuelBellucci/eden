@@ -1,22 +1,19 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-const ContractFilterDropdown = ({ isOpen, toggle }) => {
+const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedContract }) => {
     const contractOptions = [
-        'Vendita', 'Affitto'
-    ]
+        'Vendita',
+        'Affitto'
+    ];
 
-    const [selectedContract, setSelectedContract] = useState('')
+    const getContractLabel = () => {
+        return selectedContract || 'Contratto';
+    };
 
     const selectContract = (contract) => {
-        setSelectedContract(contract)
-        applyContractFilter()
-    }
-
-    const applyContractFilter = () => {
-        toggle()
-    }
-
-    const getContractLabel = () => (selectedContract ? selectedContract : 'Contratto')
+        setSelectedContract(contract);
+        toggle();
+    };
 
     return (
         <div className="relative">
@@ -43,7 +40,7 @@ const ContractFilterDropdown = ({ isOpen, toggle }) => {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
+                <div className="absolute -right-20 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
                     <ul className="space-y-1">
                         {contractOptions.map((contract, index) => (
                             <li
@@ -55,17 +52,10 @@ const ContractFilterDropdown = ({ isOpen, toggle }) => {
                             </li>
                         ))}
                     </ul>
-                    <button
-                        type="button"
-                        className="w-full px-4 mt-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600"
-                        onClick={applyContractFilter}
-                    >
-                        Applicare filtri
-                    </button>
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default ContractFilterDropdown
+export default ContractFilterDropdown;

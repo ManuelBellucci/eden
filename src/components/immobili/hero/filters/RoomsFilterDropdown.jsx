@@ -1,26 +1,22 @@
 import { useState } from "react";
 
-const RoomsFilterDropdown = ({ isOpen, toggle }) => {
-    const [fromRooms, setFromRooms] = useState('');
-    const [toRooms, setToRooms] = useState('');
+const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }) => {
     const [focusedField, setFocusedField] = useState('');
 
-    const roomsOptions = [
-        'Indifferente', '1', '2', '3', '4', '5'
-    ];
+    const roomsOptions = ['1', '2', '3', '4', '5'];
 
     const selectRooms = (rooms) => {
         const sanitizedRooms = rooms.replace('.', '');
 
-        if (!fromRooms || focusedField === 'fromRooms') {
-            setFromRooms(rooms === 'Indifferente' ? '' : sanitizedRooms);
+        if (!selectedRooms.from || focusedField === 'fromRooms') {
+            setSelectedRooms({ ...selectedRooms, from: sanitizedRooms });
             setFocusedField('');
-        } else if (!toRooms || focusedField === 'toRooms') {
-            setToRooms(rooms === 'Indifferente' ? '' : sanitizedRooms);
+        } else if (!selectedRooms.to || focusedField === 'toRooms') {
+            setSelectedRooms({ ...selectedRooms, to: sanitizedRooms });
             setFocusedField('');
         }
 
-        if (fromRooms && toRooms) {
+        if (selectedRooms.from && selectedRooms.to) {
             applyRoomsFilter();
         }
     };
@@ -28,17 +24,17 @@ const RoomsFilterDropdown = ({ isOpen, toggle }) => {
     const formatRoomLabel = (num) => (num === '1' ? 'locale' : 'locali');
 
     const getRoomsLabel = () => {
-        if (!fromRooms && !toRooms) return 'Locali';
-        if (fromRooms && toRooms) {
-            const fromLabel = `${fromRooms}`;
-            const toLabel = `${toRooms}`;
+        if (!selectedRooms.from && !selectedRooms.to) return 'Locali';
+        if (selectedRooms.from && selectedRooms.to) {
+            const fromLabel = `${selectedRooms.from}`;
+            const toLabel = `${selectedRooms.to}`;
             return `Da ${fromLabel} a ${toLabel} ${formatRoomLabel(toLabel)}`;
-        } else if (fromRooms) {
-            const fromLabel = `${fromRooms}`;
-            return `Da ${fromLabel} ${formatRoomLabel(fromRooms)}`;
+        } else if (selectedRooms.from) {
+            const fromLabel = `${selectedRooms.from}`;
+            return `Da ${fromLabel} ${formatRoomLabel(fromLabel)}`;
         } else {
-            const toLabel = `${toRooms}`;
-            return `Fino a ${toLabel} ${formatRoomLabel(toRooms)}`;
+            const toLabel = `${selectedRooms.to}`;
+            return `Fino a ${toLabel} ${formatRoomLabel(toLabel)}`;
         }
     };
 
@@ -71,32 +67,32 @@ const RoomsFilterDropdown = ({ isOpen, toggle }) => {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
+                <div className="absolute -right-20 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
                     <div className="flex flex-col mb-4">
                         <label htmlFor="fromRooms" className="mb-2 text-sm font-medium text-gray-900">
-                            From
+                            Da
                         </label>
                         <input
                             type="number"
                             id="fromRooms"
                             className="px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100"
                             placeholder="Minimo Locali"
-                            value={fromRooms}
-                            onChange={(e) => setFromRooms(e.target.value)}
+                            value={selectedRooms.from}
+                            onChange={(e) => setSelectedRooms({ ...selectedRooms, from: e.target.value })}
                             onFocus={() => setFocusedField('fromRooms')}
                         />
                     </div>
                     <div className="flex flex-col mb-4">
                         <label htmlFor="toRooms" className="mb-2 text-sm font-medium text-gray-900">
-                            To
+                            Fino a
                         </label>
                         <input
                             type="number"
                             id="toRooms"
                             className="px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100"
                             placeholder="Massimo Locali"
-                            value={toRooms}
-                            onChange={(e) => setToRooms(e.target.value)}
+                            value={selectedRooms.to}
+                            onChange={(e) => setSelectedRooms({ ...selectedRooms, to: e.target.value })}
                             onFocus={() => setFocusedField('toRooms')}
                         />
                     </div>
@@ -105,7 +101,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle }) => {
                             {roomsOptions.map((rooms, index) => (
                                 <li
                                     key={index}
-                                    className="cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg"
+                                    className="cursor-pointer mr-2 py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg"
                                     onClick={() => selectRooms(rooms)}
                                 >
                                     {rooms}
@@ -114,11 +110,10 @@ const RoomsFilterDropdown = ({ isOpen, toggle }) => {
                         </ul>
                     </div>
                     <button
-                        type="button"
-                        className="w-full px-4 mt-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600"
+                        className="w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600"
                         onClick={applyRoomsFilter}
                     >
-                        Applicare filtri
+                        Applica
                     </button>
                 </div>
             )}
