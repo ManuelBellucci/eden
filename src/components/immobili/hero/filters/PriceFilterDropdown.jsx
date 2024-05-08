@@ -85,6 +85,8 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                         <input
                             type="number"
                             id="fromPrice"
+                            min={0}
+                            step={10000}
                             className="px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100"
                             placeholder="Minimo (€)"
                             value={fromPrice}
@@ -99,6 +101,8 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                         <input
                             type="number"
                             id="toPrice"
+                            min={0}
+                            step={10000}
                             className="px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100"
                             placeholder="Massimo (€)"
                             value={toPrice}
@@ -124,7 +128,7 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                         className="w-full px-4 mt-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600"
                         onClick={applyPriceFilter}
                     >
-                        Apply
+                        Applicare filtri
                     </button>
                 </div>
             )}
