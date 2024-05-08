@@ -1,4 +1,3 @@
-import Filters from "../../components/immobili/hero/filters/Filters";
 import ImmobiliHero from "../../components/immobili/hero/ImmobiliHero";
 import ListingGrid from "../../components/immobili/listingsGrid/ListingGrid";
 import ImmobiliPagination from "../../components/immobili/pagination/ImmobiliPagination";
