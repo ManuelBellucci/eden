@@ -54,7 +54,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
         <div className="relative">
             <button
                 onClick={toggle}
-                className="flex items-center px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600"
+                className="flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600"
             >
                 {getPriceLabel()}
                 <svg
@@ -75,7 +75,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
             </button>
 
             {isOpen && (
-                <div className="absolute -right-20 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
+                <div className="mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4">
                     <div className="flex flex-col mb-4">
                         <label htmlFor="fromPrice" className="mb-2 text-sm font-medium text-gray-900">
                             From

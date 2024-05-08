@@ -21,7 +21,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
         <div className="relative">
             <button
                 onClick={toggle}
-                className="flex items-center px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600"
+                className="flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600"
             >
                 {getTipologyLabel()}
                 <svg
@@ -42,7 +42,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
             </button>
 
             {isOpen && (
-                <div className="absolute -right-20 mt-2 w-64 bg-white border rounded-lg shadow-lg z-10 p-4">
+                <div className="mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4">
                     <ul className="space-y-1">
                         {tipologyOptions.map((tipology, index) => (
                             <li

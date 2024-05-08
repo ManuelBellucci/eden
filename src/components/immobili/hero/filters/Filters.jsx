@@ -96,7 +96,13 @@ const Filters = () => {
     return (
         <>
             {/* Desktop Filters */}
-            <div className="hidden xl:flex p-4 w-full gap-6 justify-center">
+            <button
+                className="px-4 py-2 hidden xl:block bg-red-500 text-white rounded-lg shadow hover:bg-red-600 active:bg-red-700"
+                onClick={cleanFilters}
+            >
+                Pulisci filtri
+            </button>
+            <div className="hidden xl:flex w-full gap-6 justify-center">
                 <ContractFilterDropdown
                     isOpen={openFilter === 'contract'}
                     toggle={() => toggleFilter('contract')}
@@ -145,14 +151,9 @@ const Filters = () => {
                     selectedExtras={extras}
                     setSelectedExtras={setExtras}
                 />
-                <button
-                    className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 active:bg-red-700"
-                    onClick={cleanFilters}
-                >
-                    Pulisci filtri
-                </button>
 
             </div>
+            
 
             {/* Mobile Filters Button */}
             <div className="flex xl:hidden justify-center mb-4">
@@ -169,7 +170,7 @@ const Filters = () => {
                 <div className="fixed inset-0 p-4 py-14 bg-gray-800 bg-opacity-90 z-[100] flex items-center justify-center">
                     <div className="bg-white h-full flex flex-col gap-6 relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg">
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-2xl">Filtri</h2>
+
                             <button
                                 className="text-xl px-4 py-2 absolute top-5 right-5 text-white bg-red-500 rounded-lg shadow hover:bg-red-600 active:bg-red-700"
                                 onClick={toggleModal}
@@ -177,7 +178,8 @@ const Filters = () => {
                                 &times;
                             </button>
                         </div>
-                        <div className='flex flex-col gap-4'>
+                        <div className='flex flex-col gap-4 overflow-hidden'>
+                            <h2 className="text-2xl mb-4 text-center">Trova l'immobile perfetto per te</h2>
                             <ContractFilterDropdown
                                 isOpen={openModalFilters.contract}
                                 toggle={() => toggleModalFilter('contract')}
