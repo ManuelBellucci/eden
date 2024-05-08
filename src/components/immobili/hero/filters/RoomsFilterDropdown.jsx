@@ -65,6 +65,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle }) => {
                         strokeLinejoin="round"
                         strokeWidth="2"
                         d={isOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+                        className="transition-all ease-in"
                     />
                 </svg>
             </button>
@@ -117,7 +118,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle }) => {
                         className="w-full px-4 mt-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600"
                         onClick={applyRoomsFilter}
                     >
-                        Apply
+                        Applicare filtri
                     </button>
                 </div>
             )}
