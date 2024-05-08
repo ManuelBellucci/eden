@@ -4,6 +4,7 @@ import TipologyFilterDropdown from './TipologyFilterDropdown';
 import ContractFilterDropdown from './ContractFilterDropdown';
 import SizeFilterDropdown from './SizeFilterDropdown';
 import RoomsFilterDropdown from './RoomsFilterDropdown';
+import BathroomsFilterDropdown from './BathroomsFilterDropdown';
 
 const Filters = () => {
     const [openFilter, setOpenFilter] = useState(null);
@@ -34,6 +35,10 @@ const Filters = () => {
                 isOpen={openFilter === 'rooms'}
                 toggle={() => toggleFilter('rooms')}
             />
+           <BathroomsFilterDropdown
+                isOpen={openFilter === 'bathrooms'}
+                toggle={() => toggleFilter('bathrooms')}
+            /> 
         </div>
     );
 };
