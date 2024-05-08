@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from "react"
 
 const PriceFilterDropdown = ({ isOpen, toggle }) => {
-    const [fromPrice, setFromPrice] = useState('');
-    const [toPrice, setToPrice] = useState('');
-    const [focusedField, setFocusedField] = useState('');
+    const [fromPrice, setFromPrice] = useState('')
+    const [toPrice, setToPrice] = useState('')
+    const [focusedField, setFocusedField] = useState('')
 
     const priceOptions = [
         'Indifferente', '50.000 €', '60.000 €', '70.000 €', '80.000 €',
@@ -16,41 +16,41 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
         '1.500.000 €', '2.000.000 €', '2.200.000 €', '2.400.000 €',
         '2.600.000 €', '2.800.000 €', '3.000.000 €', '3.500.000 €',
         '4.000.000 €', '4.500.000 €', '5.000.000 €'
-    ];
+    ]
 
     const selectPrice = (price) => {
-        const sanitizedPrice = price.replace(' €', '').replace('.', '');
+        const sanitizedPrice = price.replace(' €', '').replace('.', '')
         if (!fromPrice || focusedField === 'fromPrice') {
-            setFromPrice(price === 'Indifferente' ? '' : sanitizedPrice);
-            setFocusedField('');
+            setFromPrice(price === 'Indifferente' ? '' : sanitizedPrice)
+            setFocusedField('')
         } else if (!toPrice || focusedField === 'toPrice') {
-            setToPrice(price === 'Indifferente' ? '' : sanitizedPrice);
-            setFocusedField('');
+            setToPrice(price === 'Indifferente' ? '' : sanitizedPrice)
+            setFocusedField('')
         }
 
         if (fromPrice && toPrice) {
-            applyPriceFilter();
+            applyPriceFilter()
         }
-    };
+    }
 
     const getPriceLabel = () => {
-        if (!fromPrice && !toPrice) return 'Prezzo';
+        if (!fromPrice && !toPrice) return 'Prezzo'
         if (fromPrice && toPrice) {
-            const fromLabel = `${Number(fromPrice).toLocaleString()}€`;
-            const toLabel = `${Number(toPrice).toLocaleString()}€`;
-            return `Da ${fromLabel} a ${toLabel}`;
+            const fromLabel = `${Number(fromPrice).toLocaleString()}€`
+            const toLabel = `${Number(toPrice).toLocaleString()}€`
+            return `Da ${fromLabel} a ${toLabel}`
         } else if (fromPrice) {
-            const fromLabel = `${Number(fromPrice).toLocaleString()}€`;
-            return `Da ${fromLabel}`;
+            const fromLabel = `${Number(fromPrice).toLocaleString()}€`
+            return `Da ${fromLabel}`
         } else {
-            const toLabel = `${Number(toPrice).toLocaleString()}€`;
-            return `Fino a ${toLabel}`;
+            const toLabel = `${Number(toPrice).toLocaleString()}€`
+            return `Fino a ${toLabel}`
         }
-    };
+    }
 
     const applyPriceFilter = () => {
-        toggle();
-    };
+        toggle()
+    }
 
     return (
         <div className="relative">
@@ -71,6 +71,7 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                         strokeLinejoin="round"
                         strokeWidth="2"
                         d={isOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+                        className="transition-all ease-in"
                     />
                 </svg>
             </button>
@@ -128,7 +129,7 @@ const PriceFilterDropdown = ({ isOpen, toggle }) => {
                 </div>
             )}
         </div>
-    );
-};
+    )
+}
 
-export default PriceFilterDropdown;
+export default PriceFilterDropdown
