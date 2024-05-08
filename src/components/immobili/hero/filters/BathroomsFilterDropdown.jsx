@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelectedBathrooms }) => {
     const bathroomsOptions = ['1', '2', '3'];
