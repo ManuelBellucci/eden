@@ -8,28 +8,28 @@ import BathroomsFilterDropdown from './BathroomsFilterDropdown';
 import FloorFilterDropdown from './FloorFilterDropdown';
 import ExtrasFilterDropdown from './ExtrasFilterDropdown';
 
-const Filters = () => {
+const Filters = ({
+    contract,
+    setContract,
+    tipology,
+    setTipology,
+    price,
+    setPrice,
+    size,
+    setSize,
+    rooms,
+    setRooms,
+    bathrooms,
+    setBathrooms,
+    floor,
+    setFloor,
+    extras,
+    setExtras,
+    cleanFilters
+}) => {
     const [openFilter, setOpenFilter] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // States for each filter
-    const [contract, setContract] = useState('');
-    const [tipology, setTipology] = useState('');
-    const [price, setPrice] = useState({ from: '', to: '' });
-    const [size, setSize] = useState({ from: '', to: '' });
-    const [rooms, setRooms] = useState({ from: '', to: '' });
-    const [bathrooms, setBathrooms] = useState('');
-    const [floor, setFloor] = useState('');
-    const [extras, setExtras] = useState({
-        terrazzo: false,
-        balcone: false,
-        ascensore: false,
-        arredato: false,
-        cantina: false,
-        piscina: false
-    });
-
-    // Initial state: All filters are closed
     const [openModalFilters, setOpenModalFilters] = useState({
         contract: false,
         tipology: false,
@@ -72,25 +72,6 @@ const Filters = () => {
                 extras: false
             });
         }
-    };
-
-    // clean filters
-    const cleanFilters = () => {
-        setContract('');
-        setTipology('');
-        setPrice({ from: '', to: '' });
-        setSize({ from: '', to: '' });
-        setRooms({ from: '', to: '' });
-        setBathrooms('');
-        setFloor('');
-        setExtras({
-            terrazzo: false,
-            balcone: false,
-            ascensore: false,
-            arredato: false,
-            cantina: false,
-            piscina: false
-        });
     };
 
     return (
@@ -152,9 +133,7 @@ const Filters = () => {
                     selectedExtras={extras}
                     setSelectedExtras={setExtras}
                 />
-
             </div>
-            
 
             {/* Mobile Filters Button */}
             <div className="flex xl:hidden justify-center mb-4">
@@ -171,7 +150,6 @@ const Filters = () => {
                 <div className="fixed inset-0 p-4 py-14 bg-gray-800 bg-opacity-90 z-[100] flex items-center justify-center">
                     <div className="bg-white h-full flex flex-col gap-6 relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg">
                         <div className="flex justify-between items-center mb-4">
-
                             <button
                                 className="text-xl px-4 py-2 absolute top-5 right-5 text-white bg-red-500 rounded-lg shadow hover:bg-red-600 active:bg-red-700"
                                 onClick={toggleModal}
