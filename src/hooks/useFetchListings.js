@@ -13,6 +13,7 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
     const [listings, setListings] = useState([]);
     const [totalListings, setTotalListings] = useState(0);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchListings = async () => {
@@ -30,13 +31,16 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
             } catch (error) {
                 console.error('Error fetching listings:', error);
                 setError(error);
+                setLoading(false);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchListings();
     }, [page, listingsPerPage, filters]);
 
-    return { listings, totalListings, error };
+    return { listings, totalListings, error, loading };
 };
 
 export default useFetchListings;
