@@ -43,6 +43,7 @@ const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedC
                     <ul className="space-y-1">
                         {contractOptions.map((contract, index) => (
                             <li
+                                value={selectedContract.toLowerCase()}
                                 key={index}
                                 className="cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg"
                                 onClick={() => selectContract(contract)}
