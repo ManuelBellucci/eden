@@ -1,11 +1,13 @@
 const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtras }) => {
     const extrasOptions = [
-        { label: 'Terrazzo', value: 'terrazzo' },
-        { label: 'Balcone', value: 'balcone' },
-        { label: 'Ascensore', value: 'ascensore' },
-        { label: 'Arredato', value: 'arredato' },
-        { label: 'Cantina', value: 'cantina' },
-        { label: 'Piscina', value: 'piscina' }
+        { label: 'Terrazzo', value: 'terrace' },
+        { label: 'Balcone', value: 'balcony' },
+        { label: 'Ascensore', value: 'elevator' },
+        { label: 'Arredato', value: 'furnished' },
+        { label: 'Cantina', value: 'cellar' },
+        { label: 'Aria condizionata', value: 'airConditioning' },
+        { label: 'Affittato', value: 'rented' },
+        { label: 'Ripostiglio', value: 'closet' }
     ];
 
     const toggleExtra = (value) => {
@@ -52,11 +54,10 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
                         {extrasOptions.map((extra) => (
                             <button
                                 key={extra.value}
-                                className={`py-1 px-2 mr-2 rounded-lg text-center cursor-pointer transition-all ${
-                                    selectedExtras[extra.value]
-                                        ? 'bg-primary-500 text-white'
-                                        : 'bg-gray-100 text-gray-800 hover:bg-primary-100 hover:text-primary-900'
-                                }`}
+                                className={`py-1 px-2 mr-2 rounded-lg text-center cursor-pointer transition-all ${selectedExtras[extra.value]
+                                    ? 'bg-primary-500 text-white'
+                                    : 'bg-gray-100 text-gray-800 hover:bg-primary-100 hover:text-primary-900'
+                                    }`}
                                 onClick={() => toggleExtra(extra.value)}
                             >
                                 {extra.label}
