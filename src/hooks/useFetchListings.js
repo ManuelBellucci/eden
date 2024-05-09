@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const useFetchListings = (page, listingsPerPage) => {
+// Helper function to convert an object to a query string
+const objectToQueryString = (params) => {
+    return Object.entries(params)
+        .filter(([_, value]) => value !== null && value !== '' && value !== false)
+        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+        .join('&');
+};
+
+const useFetchListings = (page, listingsPerPage, filters = {}) => {
     const [listings, setListings] = useState([]);
     const [totalListings, setTotalListings] = useState(0);
     const [error, setError] = useState(null);
@@ -9,7 +17,13 @@ const useFetchListings = (page, listingsPerPage) => {
     useEffect(() => {
         const fetchListings = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/listings?page=${page}&limit=${listingsPerPage}`);
+                const queryParams = {
+                    page,
+                    limit: listingsPerPage,
+                    ...filters,
+                };
+                const queryString = objectToQueryString(queryParams);
+                const response = await axios.get(`http://localhost:5000/listings?${queryString}`);
                 setListings(response.data.listings);
                 setTotalListings(response.data.totalListings);
                 setError(null);
@@ -18,8 +32,9 @@ const useFetchListings = (page, listingsPerPage) => {
                 setError(error);
             }
         };
+
         fetchListings();
-    }, [page, listingsPerPage]);
+    }, [page, listingsPerPage, filters]);
 
     return { listings, totalListings, error };
 };

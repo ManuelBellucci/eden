@@ -1,4 +1,4 @@
-import ImmobiliHero from "../../components/immobili/hero/ImmobiliHero";
+import Filters from "../../components/immobili/filters/Filters";
 import ListingGrid from "../../components/immobili/listingsGrid/ListingGrid";
 
 
@@ -6,7 +6,7 @@ const Immobili = () => {
     return (
         <>
             <div className='mx-14 mb-14'>
-                <ImmobiliHero />
+                <Filters />
                 <ListingGrid />
             </div>
         </>

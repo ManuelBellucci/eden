@@ -1,4 +1,3 @@
-import { useState } from 'react';
 
 const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedContract }) => {
     const contractOptions = [
@@ -11,8 +10,8 @@ const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedC
     };
 
     const selectContract = (contract) => {
-        setSelectedContract(contract);
         toggle();
+        setSelectedContract(contract);
     };
 
     return (
