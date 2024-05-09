@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PriceFilterDropdown from './PriceFilterDropdown';
 import TipologyFilterDropdown from './TipologyFilterDropdown';
 import ContractFilterDropdown from './ContractFilterDropdown';
@@ -29,6 +30,7 @@ const Filters = ({
 }) => {
     const [openFilter, setOpenFilter] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
 
     const [openModalFilters, setOpenModalFilters] = useState({
         contract: false,
@@ -40,6 +42,56 @@ const Filters = ({
         floor: false,
         extras: false
     });
+
+    const updateUrlParams = () => {
+        const params = new URLSearchParams();
+
+        if (contract) params.set('c', contract.toLowerCase());
+        if (tipology) params.set('t', tipology.toLowerCase());
+
+        if (price && typeof price === 'object' && price.from !== "" && price.to !== "") {
+            params.set('p', `${price.from}-${price.to}`);
+        }
+
+        if (size && typeof size === 'object' && size.from !== "" && size.to !== "") {
+            params.set('s', `${size.from}-${size.to}`);
+        }
+
+        if (rooms && typeof rooms === 'object' && rooms.from !== "" && rooms.to !== "") {
+            params.set('l', `${rooms.from}-${rooms.to}`);
+        }
+
+        if (bathrooms) params.set('b', bathrooms);
+        if (floor) params.set('pi', floor);
+
+        if (extras && typeof extras === 'object') {
+            const selectedExtras = Object.entries(extras)
+                .filter(([_, value]) => value)
+                .map(([key, _]) => key.toLowerCase());
+    
+            if (selectedExtras.length > 0) {
+                params.set('extras', selectedExtras.join(' '));
+            }
+        }
+    
+
+        navigate(`?${params.toString()}`, { replace: true });
+    };
+
+    useEffect(updateUrlParams, [
+        contract,
+        tipology,
+        price,
+        size,
+        rooms,
+        bathrooms,
+        floor,
+        extras
+    ]);
+
+    const handleFilterChange = (setter, value) => {
+        setter(value);
+    };
 
     const toggleFilter = (filterName) => {
         setOpenFilter((prevFilter) => (prevFilter === filterName ? null : filterName));
@@ -89,49 +141,49 @@ const Filters = ({
                     isOpen={openFilter === 'contract'}
                     toggle={() => toggleFilter('contract')}
                     selectedContract={contract}
-                    setSelectedContract={setContract}
+                    setSelectedContract={(value) => handleFilterChange(setContract, value)}
                 />
                 <TipologyFilterDropdown
                     isOpen={openFilter === 'tipology'}
                     toggle={() => toggleFilter('tipology')}
                     selectedTipology={tipology}
-                    setSelectedTipology={setTipology}
+                    setSelectedTipology={(value) => handleFilterChange(setTipology, value)}
                 />
                 <PriceFilterDropdown
                     isOpen={openFilter === 'price'}
                     toggle={() => toggleFilter('price')}
                     selectedPrice={price}
-                    setSelectedPrice={setPrice}
+                    setSelectedPrice={(value) => handleFilterChange(setPrice, value)}
                 />
                 <SizeFilterDropdown
                     isOpen={openFilter === 'size'}
                     toggle={() => toggleFilter('size')}
                     selectedSize={size}
-                    setSelectedSize={setSize}
+                    setSelectedSize={(value) => handleFilterChange(setSize, value)}
                 />
                 <RoomsFilterDropdown
                     isOpen={openFilter === 'rooms'}
                     toggle={() => toggleFilter('rooms')}
                     selectedRooms={rooms}
-                    setSelectedRooms={setRooms}
+                    setSelectedRooms={(value) => handleFilterChange(setRooms, value)}
                 />
                 <BathroomsFilterDropdown
                     isOpen={openFilter === 'bathrooms'}
                     toggle={() => toggleFilter('bathrooms')}
                     selectedBathrooms={bathrooms}
-                    setSelectedBathrooms={setBathrooms}
+                    setSelectedBathrooms={(value) => handleFilterChange(setBathrooms, value)}
                 />
                 <FloorFilterDropdown
                     isOpen={openFilter === 'floor'}
                     toggle={() => toggleFilter('floor')}
                     selectedFloor={floor}
-                    setSelectedFloor={setFloor}
+                    setSelectedFloor={(value) => handleFilterChange(setFloor, value)}
                 />
                 <ExtrasFilterDropdown
                     isOpen={openFilter === 'extras'}
                     toggle={() => toggleFilter('extras')}
                     selectedExtras={extras}
-                    setSelectedExtras={setExtras}
+                    setSelectedExtras={(value) => handleFilterChange(setExtras, value)}
                 />
             </div>
 
@@ -163,49 +215,49 @@ const Filters = ({
                                 isOpen={openModalFilters.contract}
                                 toggle={() => toggleModalFilter('contract')}
                                 selectedContract={contract}
-                                setSelectedContract={setContract}
+                                setSelectedContract={(value) => handleFilterChange(setContract, value)}
                             />
                             <TipologyFilterDropdown
                                 isOpen={openModalFilters.tipology}
                                 toggle={() => toggleModalFilter('tipology')}
                                 selectedTipology={tipology}
-                                setSelectedTipology={setTipology}
+                                setSelectedTipology={(value) => handleFilterChange(setTipology, value)}
                             />
                             <PriceFilterDropdown
                                 isOpen={openModalFilters.price}
                                 toggle={() => toggleModalFilter('price')}
                                 selectedPrice={price}
-                                setSelectedPrice={setPrice}
+                                setSelectedPrice={(value) => handleFilterChange(setPrice, value)}
                             />
                             <SizeFilterDropdown
                                 isOpen={openModalFilters.size}
                                 toggle={() => toggleModalFilter('size')}
                                 selectedSize={size}
-                                setSelectedSize={setSize}
+                                setSelectedSize={(value) => handleFilterChange(setSize, value)}
                             />
                             <RoomsFilterDropdown
                                 isOpen={openModalFilters.rooms}
                                 toggle={() => toggleModalFilter('rooms')}
                                 selectedRooms={rooms}
-                                setSelectedRooms={setRooms}
+                                setSelectedRooms={(value) => handleFilterChange(setRooms, value)}
                             />
                             <BathroomsFilterDropdown
                                 isOpen={openModalFilters.bathrooms}
                                 toggle={() => toggleModalFilter('bathrooms')}
                                 selectedBathrooms={bathrooms}
-                                setSelectedBathrooms={setBathrooms}
+                                setSelectedBathrooms={(value) => handleFilterChange(setBathrooms, value)}
                             />
                             <FloorFilterDropdown
                                 isOpen={openModalFilters.floor}
                                 toggle={() => toggleModalFilter('floor')}
                                 selectedFloor={floor}
-                                setSelectedFloor={setFloor}
+                                setSelectedFloor={(value) => handleFilterChange(setFloor, value)}
                             />
                             <ExtrasFilterDropdown
                                 isOpen={openModalFilters.extras}
                                 toggle={() => toggleModalFilter('extras')}
                                 selectedExtras={extras}
-                                setSelectedExtras={setExtras}
+                                setSelectedExtras={(value) => handleFilterChange(setExtras, value)}
                             />
                         </div>
                         <div className='flex gap-4 mt-4'>
