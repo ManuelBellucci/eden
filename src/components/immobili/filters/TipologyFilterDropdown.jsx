@@ -1,7 +1,8 @@
 const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedTipology }) => {
     const tipologyOptions = [
         'Appartamenti',
-        'Attici, ville e villini',
+        'Attici',
+        'Ville e villini',
         'Nuove costruzioni',
         'Garage e posti auto',
         'Uffici e negozi',
@@ -47,6 +48,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
                         {tipologyOptions.map((tipology, index) => (
                             <li
                                 key={index}
+                                value={selectedTipology}
                                 className="cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg"
                                 onClick={() => selectTipology(tipology)}
                             >
