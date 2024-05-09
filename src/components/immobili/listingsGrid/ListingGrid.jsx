@@ -4,10 +4,10 @@ import CardSkeleton from '../../skeletons/CardSkeleton';
 import ListingItem from './ListingItem';
 import Pagination from '../../commons/Pagination'
 
-const ListingGrid = () => {
+const ListingGrid = ({ filters }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const listingsPerPage = 9;
-    const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage);
+    const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters);
     const totalPages = Math.ceil(totalListings / listingsPerPage);
 
     const handlePageChange = (page) => {
@@ -26,7 +26,10 @@ const ListingGrid = () => {
                 ) : immobili.length > 0 ? (
                     immobili.map((listing) => <ListingItem key={listing._id} listing={listing} />)
                 ) : (
-                    <p className="text-center">No listings available</p>
+                    <>
+                        <p></p>
+                        <p className="text-center text-gray-500">Nessun immobile trovato, iscriviti alla Nostra Newsletter</p>
+                    </>
                 )}
             </div>
             {totalPages > 1 && (
