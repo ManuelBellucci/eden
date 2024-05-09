@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
-// Helper function to convert an object to a query string
-const objectToQueryString = (params) => {
-    return Object.entries(params)
-        .filter(([_, value]) => value !== null && value !== '' && value !== false)
-        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-        .join('&');
-};
+import { objectToQueryString } from '../helpers/queryHelpers';
 
 const useFetchListings = (page, listingsPerPage, filters = {}) => {
     const [listings, setListings] = useState([]);

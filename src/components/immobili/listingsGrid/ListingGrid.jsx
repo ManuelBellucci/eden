@@ -7,7 +7,9 @@ import Pagination from '../../commons/Pagination'
 const ListingGrid = ({ filters }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const listingsPerPage = 9;
+
     const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters);
+    
     const totalPages = Math.ceil(totalListings / listingsPerPage);
 
     const handlePageChange = (page) => {
