@@ -8,12 +8,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
         '90.000 €', '100.000 €', '120.000 €', '140.000 €', '160.000 €',
         '180.000 €', '200.000 €', '220.000 €', '240.000 €', '260.000 €',
         '280.000 €', '300.000 €', '320.000 €', '340.000 €', '360.000 €',
-        '380.000 €', '400.000 €', '450.000 €', '500.000 €', '550.000 €',
-        '600.000 €', '650.000 €', '700.000 €', '750.000 €', '800.000 €',
-        '850.000 €', '900.000 €', '950.000 €', '1.000.000 €',
-        '1.500.000 €', '2.000.000 €', '2.200.000 €', '2.400.000 €',
-        '2.600.000 €', '2.800.000 €', '3.000.000 €', '3.500.000 €',
-        '4.000.000 €', '4.500.000 €', '5.000.000 €'
+        '380.000 €', '400.000 €', '450.000 €', '500.000 €'
     ];
 
     const selectPrice = (price) => {
@@ -78,7 +73,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
                 <div className="mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4">
                     <div className="flex flex-col mb-4">
                         <label htmlFor="fromPrice" className="mb-2 text-sm font-medium text-gray-900">
-                            From
+                            Da
                         </label>
                         <input
                             type="number"
@@ -92,7 +87,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
                     </div>
                     <div className="flex flex-col mb-4">
                         <label htmlFor="toPrice" className="mb-2 text-sm font-medium text-gray-900">
-                            To
+                            Fino a
                         </label>
                         <input
                             type="number"
