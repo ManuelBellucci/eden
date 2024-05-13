@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const PopUp = ({ text, readMore, color = 'primary-300', href }) => {
   const textColor = `hover:text-${color}`
   const ringColor = `hover:ring-${color}`
@@ -19,11 +21,11 @@ const PopUp = ({ text, readMore, color = 'primary-300', href }) => {
   return (
     <div className={containerClasses}>
       {text}
-      <a href={href} className='font-semibold text-primary-800 hover:text-primary-700 transition-all'>
+      <Link to={href} className='font-semibold text-primary-800 hover:text-primary-700 transition-all'>
         <span className='absolute inset-0' aria-hidden='true' />
         {' '} {readMore}
         <span aria-hidden='true' />
-      </a>
+      </Link>
     </div>
   )
 }
