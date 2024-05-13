@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const FooterLinks = () => {
     return (
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 p-14">
@@ -5,16 +7,16 @@ const FooterLinks = () => {
                 <h2 className="mb-6 text-md font-semibold text-primary-300 uppercase">Eden House</h2>
                 <ul className="text-gray-300 font-medium">
                     <li className="mb-4">
-                        <a href="#" className=" hover:underline">Chi siamo</a>
+                        <Link to="/immobili" className=" hover:underline">Chi siamo</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Lavora con noi</a>
+                        <Link to="#" className="hover:underline">Lavora con noi</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Le Agenzie</a>
+                        <Link to="#" className="hover:underline">Le Agenzie</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Contatti</a>
+                        <Link to="#" className="hover:underline">Contatti</Link>
                     </li>
                 </ul>
             </div>
@@ -22,16 +24,16 @@ const FooterLinks = () => {
                 <h2 className="mb-6 text-md font-semibold text-primary-300 uppercase">Magazine</h2>
                 <ul className="text-gray-300 font-medium">
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Blog</a>
+                        <Link to="#" className="hover:underline">Blog</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Notizie</a>
+                        <Link to="#" className="hover:underline">Notizie</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Agevolazioni e bonus</a>
+                        <Link to="#" className="hover:underline">Agevolazioni e bonus</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Contenuti educativi scaricabili</a>
+                        <Link to="#" className="hover:underline">Contenuti educativi scaricabili</Link>
                     </li>
                 </ul>
             </div>
@@ -39,16 +41,16 @@ const FooterLinks = () => {
                 <h2 className="mb-6 text-nowrap text-md font-semibold text-primary-300 uppercase">Guide TOP</h2>
                 <ul className="text-gray-300 font-medium">
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Come fare una permuta immobiliare?</a>
+                        <Link to="#" className="hover:underline">Come fare una permuta immobiliare?</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Mutui 2024: tutto ciò che devi sapere</a>
+                        <Link to="#" className="hover:underline">Mutui 2024: tutto ciò che devi sapere</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Come individuare un immobile con un buon rapporto qualità-prezzo?</a>
+                        <Link to="#" className="hover:underline">Come individuare un immobile con un buon rapporto qualità-prezzo?</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Come vendere casa velocemente</a>
+                        <Link to="#" className="hover:underline">Come vendere casa velocemente</Link>
                     </li>
                 </ul>
             </div>
@@ -56,16 +58,16 @@ const FooterLinks = () => {
                 <h2 className="mb-6 text-md font-semibold text-primary-300 uppercase">Privacy</h2>
                 <ul className="text-gray-300 font-medium">
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Privacy Policy</a>
+                        <Link to="#" className="hover:underline">Privacy Policy</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Cookie Policy</a>
+                        <Link to="#" className="hover:underline">Cookie Policy</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Termini e condizioni</a>
+                        <Link to="#" className="hover:underline">Termini e condizioni</Link>
                     </li>
                     <li className="mb-4">
-                        <a href="#" className="hover:underline">Informativa sulla privacy</a>
+                        <Link to="#" className="hover:underline">Informativa sulla privacy</Link>
                     </li>
 
                 </ul>
