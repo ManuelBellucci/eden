@@ -1,15 +1,41 @@
-import { useState } from 'react';
+// src/components/immobili/listingsGrid/ListingGrid.jsx
+import { useState, useContext } from 'react';
 import useFetchListings from '../../../hooks/useFetchListings';
 import CardSkeleton from '../../skeletons/CardSkeleton';
 import ListingItem from './ListingItem';
-import Pagination from '../../commons/Pagination'
+import Pagination from '../../commons/Pagination';
+import { FiltersContext } from '../../../contexts/FiltersContext';
 
-const ListingGrid = ({ filters }) => {
+const ListingGrid = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const listingsPerPage = 9;
+    const {
+        contract,
+        tipology,
+        price,
+        size,
+        rooms,
+        bathrooms,
+        floor,
+        extras
+    } = useContext(FiltersContext);
+
+    const filters = {
+        contract,
+        tipology,
+        priceFrom: price.from,
+        priceTo: price.to,
+        sizeFrom: size.from,
+        sizeTo: size.to,
+        roomsFrom: rooms.from,
+        roomsTo: rooms.to,
+        bathrooms,
+        floor,
+        ...extras
+    };
 
     const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters);
-    
+
     const totalPages = Math.ceil(totalListings / listingsPerPage);
 
     const handlePageChange = (page) => {
