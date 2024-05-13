@@ -1,5 +1,5 @@
-import { useContext, useState, useCallback } from 'react';
-import { FiltersContext } from '../contexts/FiltersContext';
+import { useContext, useState, useCallback } from 'react'
+import { FiltersContext } from '../contexts/FiltersContext'
 
 const useFilters = () => {
     const {
@@ -20,10 +20,10 @@ const useFilters = () => {
         extras,
         setExtras,
         cleanFilters
-    } = useContext(FiltersContext);
+    } = useContext(FiltersContext)
 
-    const [openFilter, setOpenFilter] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [openFilter, setOpenFilter] = useState(null)
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const [openModalFilters, setOpenModalFilters] = useState({
         contract: false,
@@ -34,28 +34,28 @@ const useFilters = () => {
         bathrooms: false,
         floor: false,
         extras: false
-    });
+    })
 
     const handleFilterChange = useCallback((setter, value) => {
-        setter(value);
-    }, []);
+        setter(value)
+    }, [])
 
     const toggleFilter = useCallback((filterName) => {
-        setOpenFilter(prevFilter => prevFilter === filterName ? null : filterName);
-    }, []);
-    
+        setOpenFilter(prevFilter => prevFilter === filterName ? null : filterName)
+    }, [])
+
     const toggleModalFilter = useCallback((filterName) => {
         setOpenModalFilters(prev => {
-            const isCurrentlyOpen = prev[filterName];
+            const isCurrentlyOpen = prev[filterName]
             const newSettings = Object.fromEntries(
                 Object.keys(prev).map(key => [key, false]) // Close all first
-            );
-            return {...newSettings, [filterName]: !isCurrentlyOpen};
-        });
-    }, []);
+            )
+            return { ...newSettings, [filterName]: !isCurrentlyOpen }
+        })
+    }, [])
 
     const toggleModal = useCallback(() => {
-        setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen);
+        setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen)
         if (!isModalOpen) {
             setOpenModalFilters({
                 contract: false,
@@ -66,9 +66,9 @@ const useFilters = () => {
                 bathrooms: false,
                 floor: false,
                 extras: false
-            });
+            })
         }
-    }, [isModalOpen]);
+    }, [isModalOpen])
 
     return {
         contract,
@@ -95,7 +95,7 @@ const useFilters = () => {
         toggleFilter,
         toggleModalFilter,
         toggleModal
-    };
-};
+    }
+}
 
-export default useFilters;
+export default useFilters 

@@ -11,12 +11,11 @@ const Navbar = () => {
         { path: '/immobili', label: 'Immobili' },
         { path: '/about', label: 'Chi siamo?' },
         { path: '/blog', label: 'Blog' },
-        { path: '/guide', label: 'Le guide' },
-        { path: '/contact', label: 'Contatti' }
+        { path: '/scaricabili', label: 'Le guide' },
+        { path: '/contatti', label: 'Contatti' }
     ]
 
     const isImmobiliPage = location.pathname === '/immobili'
-
 
     return (
         <nav className='absolute w-full z-10 border-b border-primary-200/50'>
@@ -38,13 +37,12 @@ const Navbar = () => {
                             <li key={item.path}>
                                 <Link
                                     to={item.path}
-                                    className={`block transition-all py-2 px-3 ${
-                                        location.pathname === item.path
-                                            ? isImmobiliPage
-                                                ? 'text-primary-500'
-                                                : 'xl:text-primary-100 text-primary-500'
-                                            : 'xl:hover:text-primary-100 hover:text-primary-500'
-                                    }`}
+                                    className={`block transition-all py-2 px-3 ${location.pathname === item.path
+                                        ? isImmobiliPage
+                                            ? 'text-primary-500'
+                                            : 'xl:text-primary-100 text-primary-500'
+                                        : 'xl:hover:text-primary-100 hover:text-primary-500'
+                                        }`}
                                 >
                                     {item.label}
                                 </Link>

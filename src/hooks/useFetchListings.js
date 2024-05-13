@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { objectToQueryString } from '../helpers/queryHelpers';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { objectToQueryString } from '../helpers/queryHelpers'
 
 const useFetchListings = (page, listingsPerPage, filters = {}) => {
-    const [listings, setListings] = useState([]);
-    const [totalListings, setTotalListings] = useState(0);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [cache, setCache] = useState({});
+    const [listings, setListings] = useState([])
+    const [totalListings, setTotalListings] = useState(0)
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [cache, setCache] = useState({})
 
     useEffect(() => {
         const fetchListings = async () => {
@@ -15,24 +15,24 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
                 page,
                 limit: listingsPerPage,
                 ...filters,
-            };
-            const queryString = objectToQueryString(queryParams);
-            const cacheKey = JSON.stringify(queryParams);
+            }
+            const queryString = objectToQueryString(queryParams)
+            const cacheKey = JSON.stringify(queryParams)
 
             // Controlla se i dati sono già presenti nella cache
             if (cache[cacheKey]) {
-                setListings(cache[cacheKey].listings);
-                setTotalListings(cache[cacheKey].totalListings);
-                return;
+                setListings(cache[cacheKey].listings)
+                setTotalListings(cache[cacheKey].totalListings)
+                return
             }
 
-            setLoading(true);
+            setLoading(true)
 
             try {
-                const response = await axios.get(`http://localhost:5000/listings?${queryString}`);
-                setListings(response.data.listings);
-                setTotalListings(response.data.totalListings);
-                setError(null);
+                const response = await axios.get(`http://localhost:5000/listings?${queryString}`)
+                setListings(response.data.listings)
+                setTotalListings(response.data.totalListings)
+                setError(null)
 
                 // Aggiorna la cache locale con i nuovi dati
                 setCache((prevCache) => ({
@@ -41,19 +41,19 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
                         listings: response.data.listings,
                         totalListings: response.data.totalListings
                     }
-                }));
+                }))
             } catch (error) {
-                console.error('Error fetching listings:', error);
-                setError(error);
+                console.error('Error fetching listings:', error)
+                setError(error)
             } finally {
-                setLoading(false);
+                setLoading(false)
             }
-        };
+        }
 
-        fetchListings();
-    }, [page, listingsPerPage, filters, cache]);
+        fetchListings()
+    }, [page, listingsPerPage, filters, cache])
 
-    return { listings, totalListings, error, loading };
-};
+    return { listings, totalListings, error, loading }
+}
 
-export default useFetchListings;
+export default useFetchListings 

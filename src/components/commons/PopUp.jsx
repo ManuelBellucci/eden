@@ -1,9 +1,11 @@
+import { useMemo } from "react"
 import { Link } from "react-router-dom"
 
-const PopUp = ({ text, readMore, color = 'primary-300', href }) => {
+const useDynamicClasses = (color) => {
   const textColor = `hover:text-${color}`
   const ringColor = `hover:ring-${color}`
-  const containerClasses = [
+
+  const containerClasses = useMemo(() => [
     'relative',
     'rounded-full',
     'px-3',
@@ -19,26 +21,31 @@ const PopUp = ({ text, readMore, color = 'primary-300', href }) => {
     'ring-primary-300',
     'hover:ring-primary-400',
     'transition-all'
-  ].join(' ')
+  ].join(' '), [textColor, ringColor])
 
-  const linkClasses = [
+  const linkClasses = useMemo(() => [
     'font-semibold',
     'text-primary-800',
     'hover:text-primary-700',
     'transition-all'
-  ].join(' ')
+  ].join(' '), [])
 
+  return { containerClasses, linkClasses }
+}
+
+const PopUp = ({ text, readMore, color = 'primary-300', href }) => {
+  const { containerClasses, linkClasses } = useDynamicClasses(color)
 
   return (
     <div className={containerClasses}>
       {text}
       <Link to={href} className={linkClasses}>
         <span className='absolute inset-0' aria-hidden='true' />
-        {' '} {readMore}
+        {' '}{readMore}
         <span aria-hidden='true' />
       </Link>
     </div>
   )
 }
 
-export default PopUp
+export default PopUp 

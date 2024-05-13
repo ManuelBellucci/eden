@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react'
 
 const MultiChoiceDropdown = ({
     options,
@@ -7,40 +7,40 @@ const MultiChoiceDropdown = ({
     setSelectedOptions,
     isSingleSelection = false
 }) => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const dropdownRef = useRef(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+    const dropdownRef = useRef(null)
 
     // Handle outside clicks for closing dropdown
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsDropdownOpen(false);
+                setIsDropdownOpen(false)
             }
-        };
+        }
 
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside)
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
 
     const handleSelectionChange = (option) => {
         if (isSingleSelection) {
-            setSelectedOptions([option]);
+            setSelectedOptions([option])
         } else {
             setSelectedOptions((prev) => {
                 if (prev.includes(option)) {
-                    return prev.filter((item) => item !== option);
+                    return prev.filter((item) => item !== option)
                 } else {
-                    return [...prev, option];
+                    return [...prev, option]
                 }
-            });
+            })
         }
-    };
+    }
 
     const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
+        setIsDropdownOpen(!isDropdownOpen)
+    }
 
     return (
         <div ref={dropdownRef} className="relative w-full">
@@ -57,11 +57,10 @@ const MultiChoiceDropdown = ({
                         <button
                             key={option}
                             onClick={() => handleSelectionChange(option)}
-                            className={`px-4 py-2 m-1 rounded-lg w-full ${
-                                selectedOptions.includes(option)
+                            className={`px-4 py-2 m-1 rounded-lg w-full ${selectedOptions.includes(option)
                                     ? 'bg-primary-500 text-white'
                                     : 'bg-gray-200 text-black'
-                            }`}
+                                }`}
                         >
                             {option}
                         </button>
@@ -69,7 +68,7 @@ const MultiChoiceDropdown = ({
                 </div>
             )}
         </div>
-    );
-};
+    )
+}
 
-export default MultiChoiceDropdown;
+export default MultiChoiceDropdown 

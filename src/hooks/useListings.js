@@ -1,8 +1,8 @@
-import { useState, useContext } from 'react';
-import useFetchListings from './useFetchListings';
-import { FiltersContext } from '../contexts/FiltersContext'; 
+import { useState, useContext } from 'react'
+import useFetchListings from './useFetchListings'
+import { FiltersContext } from '../contexts/FiltersContext'
 const useListings = (listingsPerPage = 9) => {
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1)
 
     const {
         contract,
@@ -13,7 +13,7 @@ const useListings = (listingsPerPage = 9) => {
         bathrooms,
         floor,
         extras
-    } = useContext(FiltersContext);
+    } = useContext(FiltersContext)
 
     const filters = {
         contract,
@@ -27,15 +27,15 @@ const useListings = (listingsPerPage = 9) => {
         bathrooms,
         floor,
         ...extras
-    };
+    }
 
-    const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters);
+    const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters)
 
-    const totalPages = Math.ceil(totalListings / listingsPerPage);
+    const totalPages = Math.ceil(totalListings / listingsPerPage)
 
     const handlePageChange = (page) => {
-        setCurrentPage(page);
-    };
+        setCurrentPage(page)
+    }
 
     return {
         immobili,
@@ -45,7 +45,7 @@ const useListings = (listingsPerPage = 9) => {
         currentPage,
         totalPages,
         handlePageChange
-    };
-};
+    }
+}
 
-export default useListings;
+export default useListings 

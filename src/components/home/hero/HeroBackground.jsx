@@ -1,10 +1,10 @@
-const HeroBackground = ({ children }) => {
+const HeroBackground = ({ children, backgroundImage, backgroundPosition = 'center 25%' }) => {
   return (
     <div
-      className='h-screen flex justify-center items-center relative' style={{
-        backgroundImage: 'url(https://static.bolognawelcome.com/immagini/8d/b5/64/bc/20200311171337.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center 25%'
+      className='h-screen flex justify-center items-center relative bg-cover'
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundPosition
       }}
     >
       {children}

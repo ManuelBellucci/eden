@@ -1,52 +1,52 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import CallToAction from "../../../commons/CallToAction"
 import MultiChoiceDropdown from "./MultiChoiceDropdown"
 import axios from 'axios'
 
 const Browser = () => {
-  const [municipalities, setMunicipalities] = useState([]);
-  const [selectedMunicipalities, setSelectedMunicipalities] = useState([]);
-  const [selectedTipology, setSelectedTipology] = useState([]);
-  const [selectedFilters, setSelectedFilters] = useState([]);
-  const [contractType, setContractType] = useState('vendita');
+  const [municipalities, setMunicipalities] = useState([])
+  const [selectedMunicipalities, setSelectedMunicipalities] = useState([])
+  const [selectedTipology, setSelectedTipology] = useState([])
+  const [selectedFilters, setSelectedFilters] = useState([])
+  const [contractType, setContractType] = useState('vendita')
 
   const fetchMunicipalities = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/municipalities');
-      setMunicipalities(response.data);   
+      const response = await axios.get('http://localhost:5000/municipalities')
+      setMunicipalities(response.data)
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  };
+  }
 
   useEffect(() => {
-    fetchMunicipalities();
-  }, []);
+    fetchMunicipalities()
+  }, [])
 
   const toggleContractType = (type) => {
-    setContractType(type);
-  };
+    setContractType(type)
+  }
 
   const generateQueryParams = () => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams()
 
     // Contract type (vendita/affitto)
     if (contractType) {
-        params.set('c', contractType);
+      params.set('c', contractType)
     }
 
     // Tipology (only one should be selected)
     if (selectedTipology.length > 0) {
-        params.set('t', selectedTipology[0].toLowerCase());
+      params.set('t', selectedTipology[0].toLowerCase())
     }
 
     // Filters (extras)
     if (selectedFilters.length > 0) {
-        params.set('extras', selectedFilters.join(' ').toLowerCase());
+      params.set('extras', selectedFilters.join(' ').toLowerCase())
     }
 
-    return `/immobili?${params.toString()}`;
-};
+    return `/immobili?${params.toString()}`
+  }
 
   return (
     <div className="w-full">
@@ -54,8 +54,8 @@ const Browser = () => {
         <button
           onClick={() => toggleContractType('vendita')}
           className={`px-4 py-2 rounded-t-lg w-full rounded-b-none rounded-tr-none ${contractType === 'vendita'
-              ? 'bg-white text-primary-500 transition-all ease-in'
-              : 'bg-primary-500 text-white transition-all ease-in'
+            ? 'bg-white text-primary-500 transition-all ease-in'
+            : 'bg-primary-500 text-white transition-all ease-in'
             }`}
         >
           Vendita
@@ -63,8 +63,8 @@ const Browser = () => {
         <button
           onClick={() => toggleContractType('affitto')}
           className={`px-4 py-2 rounded-t-lg w-full rounded-b-none rounded-tl-none ${contractType === 'affitto'
-              ? 'bg-white text-primary-500 transition-all ease-in'
-              : 'bg-primary-500 text-white transition-all ease-in'
+            ? 'bg-white text-primary-500 transition-all ease-in'
+            : 'bg-primary-500 text-white transition-all ease-in'
             }`}
         >
           Affitto
