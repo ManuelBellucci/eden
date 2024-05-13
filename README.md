@@ -1,8 +1,14 @@
-# React + Vite
+# TODO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- VIEW [] /immobili/:id 
+- VIEW [] /aboutus 
+- VIEW [] /leguide 
+- VIEW [] /contatti 
+- STYLE [] migliorare stile homepage
+- STYLE [] migliorare stile /immobili
+- FEATURE [] aggiungere sezione footer: dati societari
+- FEATURE [] logica sub newsletter
+- FEATURE [] messaggi di errore
+- VIEW [] /404 not found page
+- IMPROVE [] migliorare prestazioni filtering
+- FIX [] Extra Aria Condizionata in filtri
