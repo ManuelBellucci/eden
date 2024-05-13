@@ -64,13 +64,7 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
                             </button>
                         ))}
                     </div>
-                    <button
-                        type="button"
-                        className="w-full px-4 mt-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600"
-                        onClick={toggle}
-                    >
-                        Applica
-                    </button>
+                    
                 </div>
             )}
         </div>
