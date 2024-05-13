@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import CallToAction from '../commons/CallToAction'
 import HamburgerMenu from './HamburgerMenu'
 import Logo from './Logo'
@@ -36,8 +36,8 @@ const Navbar = () => {
                     <ul className='flex flex-col items-center justify-center xl:flex-row absolute top-0 h-screen left-0 w-screen xl:w-auto xl:relative xl:h-auto font-medium p-4 bg-white text-6xl xl:text-base xl:bg-transparent rounded-lg xl:space-x-8 rtl:space-x-reverse'>
                         {navItems.map(item => (
                             <li key={item.path}>
-                                <a
-                                    href={item.path}
+                                <Link
+                                    to={item.path}
                                     className={`block transition-all py-2 px-3 ${
                                         location.pathname === item.path
                                             ? isImmobiliPage
@@ -47,7 +47,7 @@ const Navbar = () => {
                                     }`}
                                 >
                                     {item.label}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>

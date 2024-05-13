@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Logo = ({ src, title }) => {
   return (
     <a href='/' className='flex items-center space-x-3 rtl:space-x-reverse'>
