@@ -1,7 +1,7 @@
 import GradientHeading from "../../commons/GradientHeading"
 import PopUp from "../../commons/PopUp"
 import HeroBackground from "./HeroBackground"
-import Browser from "./browser/Browser"
+// import Browser from "./browser/Browser"
 
 const Hero = () => {
     return (
@@ -26,7 +26,7 @@ const Hero = () => {
                         gradientTo="rgba(0,44,51,1) 100%"
                     />
                 </div>
-                <Browser />
+                {/* <Browser /> */}
             </div> 
         </HeroBackground>
     )
