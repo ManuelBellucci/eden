@@ -7,16 +7,16 @@ const FooterLinks = () => {
                 <h2 className="mb-6 text-md font-semibold text-primary-300 uppercase">Eden House</h2>
                 <ul className="text-gray-300 font-medium">
                     <li className="mb-4">
-                        <Link to="/immobili" className=" hover:underline">Chi siamo</Link>
+                        <Link to="/about" className=" hover:underline">Chi siamo</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Lavora con noi</Link>
+                        <Link to="/lavoro" className="hover:underline">Lavora con noi</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Le Agenzie</Link>
+                        <Link to="/agenzie" className="hover:underline">Le Agenzie</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Contatti</Link>
+                        <Link to="/contatti" className="hover:underline">Contatti</Link>
                     </li>
                 </ul>
             </div>
@@ -24,16 +24,16 @@ const FooterLinks = () => {
                 <h2 className="mb-6 text-md font-semibold text-primary-300 uppercase">Magazine</h2>
                 <ul className="text-gray-300 font-medium">
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Blog</Link>
+                        <Link to="/blog" className="hover:underline">Blog</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Notizie</Link>
+                        <Link to="/blog/notizie" className="hover:underline">Notizie</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Agevolazioni e bonus</Link>
+                        <Link to="/blog/agevolazioniebonus" className="hover:underline">Agevolazioni e bonus</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Contenuti educativi scaricabili</Link>
+                        <Link to="/scaricabili" className="hover:underline">Contenuti educativi scaricabili</Link>
                     </li>
                 </ul>
             </div>
@@ -58,16 +58,16 @@ const FooterLinks = () => {
                 <h2 className="mb-6 text-md font-semibold text-primary-300 uppercase">Privacy</h2>
                 <ul className="text-gray-300 font-medium">
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Privacy Policy</Link>
+                        <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Cookie Policy</Link>
+                        <Link to="/cookies" className="hover:underline">Cookie Policy</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Termini e condizioni</Link>
+                        <Link to="/terminiecondizioni" className="hover:underline">Termini e condizioni</Link>
                     </li>
                     <li className="mb-4">
-                        <Link to="#" className="hover:underline">Informativa sulla privacy</Link>
+                        <Link to="/informativa" className="hover:underline">Informativa sui dati</Link>
                     </li>
 
                 </ul>
