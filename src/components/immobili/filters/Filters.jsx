@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 import PriceFilterDropdown from './PriceFilterDropdown';
 import TipologyFilterDropdown from './TipologyFilterDropdown';
 import ContractFilterDropdown from './ContractFilterDropdown';
@@ -8,126 +7,43 @@ import RoomsFilterDropdown from './RoomsFilterDropdown';
 import BathroomsFilterDropdown from './BathroomsFilterDropdown';
 import FloorFilterDropdown from './FloorFilterDropdown';
 import ExtrasFilterDropdown from './ExtrasFilterDropdown';
+import useFilters from '../../../hooks/useFilters';
 
-const Filters = ({
-    contract,
-    setContract,
-    tipology,
-    setTipology,
-    price,
-    setPrice,
-    size,
-    setSize,
-    rooms,
-    setRooms,
-    bathrooms,
-    setBathrooms,
-    floor,
-    setFloor,
-    extras,
-    setExtras,
-    cleanFilters
-}) => {
-    const [openFilter, setOpenFilter] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const navigate = useNavigate();
-
-    const [openModalFilters, setOpenModalFilters] = useState({
-        contract: false,
-        tipology: false,
-        price: false,
-        size: false,
-        rooms: false,
-        bathrooms: false,
-        floor: false,
-        extras: false
-    });
-
-    const updateUrlParams = () => {
-        const params = new URLSearchParams();
-
-        if (contract) params.set('c', contract.toLowerCase());
-        if (tipology) params.set('t', tipology.toLowerCase());
-
-        if (price && typeof price === 'object' && price.from !== "" && price.to !== "") {
-            params.set('p', `${price.from}-${price.to}`);
-        }
-
-        if (size && typeof size === 'object' && size.from !== "" && size.to !== "") {
-            params.set('s', `${size.from}-${size.to}`);
-        }
-
-        if (rooms && typeof rooms === 'object' && rooms.from !== "" && rooms.to !== "") {
-            params.set('l', `${rooms.from}-${rooms.to}`);
-        }
-
-        if (bathrooms) params.set('b', bathrooms);
-        if (floor) params.set('pi', floor);
-
-        if (extras && typeof extras === 'object') {
-            const selectedExtras = Object.entries(extras)
-                .filter(([_, value]) => value)
-                .map(([key, _]) => key.toLowerCase());
-    
-            if (selectedExtras.length > 0) {
-                params.set('extras', selectedExtras.join(' '));
-            }
-        }
-    
-
-        navigate(`?${params.toString()}`, { replace: true });
-    };
-
-    useEffect(updateUrlParams, [
+const Filters = () => {
+    const {
         contract,
+        setContract,
         tipology,
+        setTipology,
         price,
+        setPrice,
         size,
+        setSize,
         rooms,
+        setRooms,
         bathrooms,
+        setBathrooms,
         floor,
-        extras
-    ]);
+        setFloor,
+        extras,
+        setExtras,
+        cleanFilters,
+        openFilter,
+        isModalOpen,
+        openModalFilters,
+        handleFilterChange,
+        toggleFilter,
+        toggleModalFilter,
+        toggleModal
+    } = useFilters();
 
-    const handleFilterChange = (setter, value) => {
-        setter(value);
-    };
-
-    const toggleFilter = (filterName) => {
-        setOpenFilter((prevFilter) => (prevFilter === filterName ? null : filterName));
-    };
-
-    const toggleModalFilter = (filterName) => {
-        setOpenModalFilters((prev) => ({
-            contract: filterName === 'contract' ? !prev.contract : false,
-            tipology: filterName === 'tipology' ? !prev.tipology : false,
-            price: filterName === 'price' ? !prev.price : false,
-            size: filterName === 'size' ? !prev.size : false,
-            rooms: filterName === 'rooms' ? !prev.rooms : false,
-            bathrooms: filterName === 'bathrooms' ? !prev.bathrooms : false,
-            floor: filterName === 'floor' ? !prev.floor : false,
-            extras: filterName === 'extras' ? !prev.extras : false
-        }));
-    };
-
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
-        if (!isModalOpen) {
-            setOpenModalFilters({
-                contract: false,
-                tipology: false,
-                price: false,
-                size: false,
-                rooms: false,
-                bathrooms: false,
-                floor: false,
-                extras: false
-            });
-        }
-    };
+    const handleCleanFilters = useCallback(() => {
+        cleanFilters();
+        toggleModal(); // Close modal after cleaning filters
+    }, [cleanFilters, toggleModal]);
 
     return (
-        <div className="h-full flex flex-col mb-20 gap-8 justify-center items-center">
+        <div className="h-screen flex flex-col mb-20 gap-8 justify-center items-center">
             <h1 className="text-6xl mt-40 text-center">I nostri immobili</h1>
             {/* Desktop Filters */}
             <button
@@ -200,7 +116,7 @@ const Filters = ({
             {/* Mobile Filters Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 p-4 py-14 bg-gray-800 bg-opacity-90 z-[100] flex items-center justify-center">
-                    <div className="bg-white h-full flex flex-col gap-6 relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg">
+                    <div className="bg-white h-full flex flex-col relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg">
                         <div className="flex justify-between items-center mb-4">
                             <button
                                 className="text-xl px-4 py-2 absolute top-5 right-5 text-white bg-red-500 rounded-lg shadow hover:bg-red-600 active:bg-red-700"
@@ -260,7 +176,7 @@ const Filters = ({
                                 setSelectedExtras={(value) => handleFilterChange(setExtras, value)}
                             />
                         </div>
-                        <div className='flex gap-4 mt-4'>
+                        <div className='flex gap-4'>
                             <button
                                 className="px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600"
                                 onClick={toggleModal}
@@ -269,7 +185,7 @@ const Filters = ({
                             </button>
                             <button
                                 className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 active:bg-red-700"
-                                onClick={cleanFilters}
+                                onClick={handleCleanFilters}
                             >
                                 Pulisci filtri
                             </button>
