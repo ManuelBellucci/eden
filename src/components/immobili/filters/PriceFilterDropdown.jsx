@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 
 const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }) => {
   const [focusedField, setFocusedField] = useState('')
@@ -11,7 +11,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
     '380.000 €', '400.000 €', '450.000 €', '500.000 €'
   ]
 
-  const selectPrice = (price) => {
+  const selectPrice = useCallback((price) => {
     const sanitizedPrice = price.replace(' €', '').replace('.', '')
     if (!selectedPrice.from || focusedField === 'from') {
       setSelectedPrice({ ...selectedPrice, from: price === 'Indifferente' ? '' : sanitizedPrice })
@@ -24,21 +24,13 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
     if (selectedPrice.from && selectedPrice.to) {
       applyPriceFilter()
     }
-  }
+  }, [setSelectedPrice, focusedField])
 
   const getPriceLabel = () => {
     if (!selectedPrice.from && !selectedPrice.to) return 'Prezzo'
-    if (selectedPrice.from && selectedPrice.to) {
-      const fromLabel = `${Number(selectedPrice.from).toLocaleString()}€`
-      const toLabel = `${Number(selectedPrice.to).toLocaleString()}€`
-      return `Da ${fromLabel} a ${toLabel}`
-    } else if (selectedPrice.from) {
-      const fromLabel = `${Number(selectedPrice.from).toLocaleString()}€`
-      return `Da ${fromLabel}`
-    } else {
-      const toLabel = `${Number(selectedPrice.to).toLocaleString()}€`
-      return `Fino a ${toLabel}`
-    }
+    const fromLabel = selectedPrice.from ? `${Number(selectedPrice.from).toLocaleString()}€` : undefined
+    const toLabel = selectedPrice.to ? `${Number(selectedPrice.to).toLocaleString()}€` : undefined
+    return fromLabel && toLabel ? `Da ${fromLabel} a ${toLabel}` : fromLabel ? `Da ${fromLabel}` : `Fino a ${toLabel}`
   }
 
   const applyPriceFilter = () => {
@@ -48,24 +40,14 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
   return (
     <div className='relative'>
       <button
+        aria-haspopup='true'
+        aria-expanded={isOpen}
         onClick={toggle}
         className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
       >
         {getPriceLabel()}
-        <svg
-          className='ml-2 w-4 h-4'
-          fill='none'
-          stroke='currentColor'
-          viewBox='0 0 24 24'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            d={isOpen ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7'}
-            className='transition-all ease-in'
-          />
+        <svg className='ml-2 w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+          <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d={isOpen ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7'} className='transition-all ease-in' />
         </svg>
       </button>
 
@@ -78,9 +60,10 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
             <input
               type='number'
               id='fromPrice'
+              aria-labelledby='fromPriceLabel'
               className='px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100'
               placeholder='Minimo (€)'
-              value={selectedPrice.from}
+              value={selectedPrice.from || ''}
               onChange={(e) => setSelectedPrice({ ...selectedPrice, from: e.target.value })}
               onFocus={() => setFocusedField('from')}
             />
@@ -92,6 +75,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
             <input
               type='number'
               id='toPrice'
+              aria-labelledby='toPriceLabel'
               className='px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100'
               placeholder='Massimo (€)'
               value={selectedPrice.to}
@@ -104,6 +88,8 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
               {priceOptions.map((price, index) => (
                 <li
                   key={index}
+                  role='option'
+                  aria-selected={selectedPrice.from === price || selectedPrice.to === price}
                   className='cursor-pointer mr-2 py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg'
                   onClick={() => selectPrice(price)}
                 >
@@ -125,4 +111,4 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
   )
 }
 
-export default PriceFilterDropdown
+export default memo(PriceFilterDropdown)

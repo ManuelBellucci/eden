@@ -1,3 +1,5 @@
+import { memo, useCallback } from 'react'
+
 const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedTipology }) => {
   const tipologyOptions = [
     'Appartamenti',
@@ -13,14 +15,16 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
     return selectedTipology || 'Tipologia'
   }
 
-  const selectTipology = (tipology) => {
+  const selectTipology = useCallback((tipology) => {
     setSelectedTipology(tipology)
     toggle()
-  }
+  }, [setSelectedTipology, toggle])
 
   return (
     <div className='relative'>
       <button
+        aria-haspopup='true'
+        aria-expanded={isOpen}
         onClick={toggle}
         className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
       >
@@ -47,6 +51,8 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
           <ul className='space-y-1'>
             {tipologyOptions.map((tipology, index) => (
               <li
+                role='option'
+                aria-selected={selectedTipology === tipology}
                 key={index}
                 value={selectedTipology}
                 className='cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg'
@@ -62,4 +68,4 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
   )
 }
 
-export default TipologyFilterDropdown
+export default memo(TipologyFilterDropdown)

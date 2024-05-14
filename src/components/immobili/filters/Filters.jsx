@@ -43,8 +43,8 @@ const Filters = () => {
   }, [cleanFilters, toggleModal])
 
   return (
-    <div className='h-screen flex flex-col mb-20 gap-8 justify-center items-center'>
-      <h1 className='text-6xl mt-40 text-center'>I nostri immobili</h1>
+    <div className='h-screen flex flex-col gap-8 justify-center items-center'>
+      <h1 className='text-6xl text-center'>I nostri immobili</h1>
       {/* Desktop Filters */}
       <button
         className='px-4 py-2 hidden xl:block bg-red-500 text-white rounded-lg shadow hover:bg-red-600 active:bg-red-700'
@@ -122,7 +122,7 @@ const Filters = () => {
                 className='text-xl px-4 py-2 absolute top-5 right-5 text-white bg-red-500 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
                 onClick={toggleModal}
               >
-                &times
+                &times;
               </button>
             </div>
             <div className='flex flex-col gap-4 overflow-hidden'>

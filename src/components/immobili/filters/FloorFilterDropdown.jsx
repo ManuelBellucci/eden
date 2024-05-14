@@ -1,10 +1,12 @@
+import { useCallback, memo } from 'react'
+
 const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }) => {
   const floorOptions = ['Piano terra', 'Piani intermedi', 'Ultimo piano']
 
-  const selectFloor = (floor) => {
+  const selectFloor = useCallback((floor) => {
     setSelectedFloor(floor)
     toggle()
-  }
+  }, [setSelectedFloor, toggle])
 
   const getFloorLabel = () => {
     if (!selectedFloor) return 'Piano'
@@ -14,6 +16,8 @@ const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }
   return (
     <div className='relative'>
       <button
+        aria-haspopup='listbox'
+        aria-expanded={isOpen}
         onClick={toggle}
         className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
       >
@@ -42,8 +46,10 @@ const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }
               {floorOptions.map((floor, index) => (
                 <li
                   key={index}
-                  className={`cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg ${selectedFloor === floor ? 'bg-primary-100 text-primary-900' : ''}`}
+                  role='option'
+                  aria-selected={selectedFloor === floor}
                   onClick={() => selectFloor(floor)}
+                  className={`cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg ${selectedFloor === floor ? 'bg-primary-100 text-primary-900' : ''}`}
                 >
                   {floor}
                 </li>
@@ -56,4 +62,4 @@ const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }
   )
 }
 
-export default FloorFilterDropdown
+export default memo(FloorFilterDropdown)

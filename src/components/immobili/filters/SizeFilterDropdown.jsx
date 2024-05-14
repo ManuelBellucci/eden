@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 
 const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) => {
   const sizeOptions = [
@@ -9,7 +9,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
   ]
   const [focusedField, setFocusedField] = useState('')
 
-  const selectSize = (size) => {
+  const selectSize = useCallback((size) => {
     const sanitizedSize = size === 'Indifferente' ? '' : size.replace(' m²', '')
     if (!selectedSize.from || focusedField === 'fromSize') {
       setSelectedSize({ ...selectedSize, from: sanitizedSize })
@@ -23,7 +23,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
     if (selectedSize.from && selectedSize.to) {
       applySizeFilter()
     }
-  }
+  }, [setSelectedSize, focusedField])
 
   const getSizeLabel = () => {
     if (!selectedSize.from && !selectedSize.to) return 'Superficie'
@@ -47,6 +47,8 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
   return (
     <div className='relative'>
       <button
+        aria-haspopup='true'
+        aria-expanded={isOpen}
         onClick={toggle}
         className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
       >
@@ -77,6 +79,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
             <input
               type='number'
               id='fromSize'
+              aria-label='Minimo Superficie'
               className='px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100'
               placeholder='Minimo (m²)'
               value={selectedSize.from}
@@ -91,6 +94,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
             <input
               type='number'
               id='toSize'
+              aria-label='Massimo Superficie'
               className='px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100'
               placeholder='Massimo (m²)'
               value={selectedSize.to}
@@ -103,6 +107,8 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
               {sizeOptions.map((size, index) => (
                 <li
                   key={index}
+                  role='option'
+                  aria-selected={selectedSize.from === size || selectedSize.to === size}
                   className='cursor-pointer mr-2 py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg'
                   onClick={() => selectSize(size)}
                 >
@@ -124,4 +130,4 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
   )
 }
 
-export default SizeFilterDropdown
+export default memo(SizeFilterDropdown)

@@ -1,10 +1,12 @@
+import { memo, useCallback } from 'react'
+
 const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelectedBathrooms }) => {
   const bathroomsOptions = ['1', '2', '3']
 
-  const selectBathrooms = (bathrooms) => {
+  const selectBathrooms = useCallback((bathrooms) => {
     setSelectedBathrooms(bathrooms)
     toggle()
-  }
+  }, [setSelectedBathrooms, toggle])
 
   const getBathroomsLabel = () => {
     if (!selectedBathrooms) return 'Bagni'
@@ -61,4 +63,4 @@ const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelecte
   )
 }
 
-export default BathroomsFilterDropdown
+export default memo(BathroomsFilterDropdown)

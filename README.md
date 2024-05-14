@@ -1,5 +1,6 @@
 # TODO
 
+- VIEW [] /immobili/:id 
 - VIEW [] /lavoro
 - VIEW [] /agenzie
 - VIEW [] /contatti 
@@ -10,13 +11,12 @@
 - VIEW [] /cookies
 - VIEW [] /terminiecondizioni
 - VIEW [] /informativa
-- VIEW [] /immobili/:id 
+- VIEW [] /404 not found page
 - STYLE [] migliorare stile /
 - STYLE [] migliorare stile /immobili
 - FEATURE [] aggiungere sezione footer: dati societari
 - FEATURE [] logica sub newsletter
 - FEATURE [] messaggi di errore
-- VIEW [] /404 not found page
 - IMPROVE [] migliorare prestazioni filtering
 
 

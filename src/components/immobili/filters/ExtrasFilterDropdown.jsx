@@ -1,3 +1,4 @@
+import { useCallback, memo } from 'react'
 const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtras }) => {
   const extrasOptions = [
     { label: 'Terrazzo', value: 'terrace' },
@@ -10,9 +11,9 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
     { label: 'Ripostiglio', value: 'closet' }
   ]
 
-  const toggleExtra = (value) => {
+  const toggleExtra = useCallback((value) => {
     setSelectedExtras((prev) => ({ ...prev, [value]: !prev[value] }))
-  }
+  }, [setSelectedExtras])
 
   const getExtrasLabel = () => {
     const selected = extrasOptions.filter((opt) => selectedExtras[opt.value]).map((opt) => opt.label)
@@ -75,4 +76,4 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
   )
 }
 
-export default ExtrasFilterDropdown
+export default memo(ExtrasFilterDropdown)

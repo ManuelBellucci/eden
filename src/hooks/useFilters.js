@@ -1,101 +1,111 @@
-import { useContext, useState, useCallback } from 'react'
+import { useContext, useState, useCallback, useReducer } from 'react'
 import { FiltersContext } from '../contexts/FiltersContext'
 
-const useFilters = () => {
-    const {
-        contract,
-        setContract,
-        tipology,
-        setTipology,
-        price,
-        setPrice,
-        size,
-        setSize,
-        rooms,
-        setRooms,
-        bathrooms,
-        setBathrooms,
-        floor,
-        setFloor,
-        extras,
-        setExtras,
-        cleanFilters
-    } = useContext(FiltersContext)
+// Define action types
+const TOGGLE_FILTER = 'TOGGLE_FILTER'
+const TOGGLE_MODAL = 'TOGGLE_MODAL'
 
-    const [openFilter, setOpenFilter] = useState(null)
-    const [isModalOpen, setIsModalOpen] = useState(false)
-
-    const [openModalFilters, setOpenModalFilters] = useState({
-        contract: false,
-        tipology: false,
-        price: false,
-        size: false,
-        rooms: false,
-        bathrooms: false,
-        floor: false,
-        extras: false
-    })
-
-    const handleFilterChange = useCallback((setter, value) => {
-        setter(value)
-    }, [])
-
-    const toggleFilter = useCallback((filterName) => {
-        setOpenFilter(prevFilter => prevFilter === filterName ? null : filterName)
-    }, [])
-
-    const toggleModalFilter = useCallback((filterName) => {
-        setOpenModalFilters(prev => {
-            const isCurrentlyOpen = prev[filterName]
-            const newSettings = Object.fromEntries(
-                Object.keys(prev).map(key => [key, false]) // Close all first
-            )
-            return { ...newSettings, [filterName]: !isCurrentlyOpen }
-        })
-    }, [])
-
-    const toggleModal = useCallback(() => {
-        setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen)
-        if (!isModalOpen) {
-            setOpenModalFilters({
-                contract: false,
-                tipology: false,
-                price: false,
-                size: false,
-                rooms: false,
-                bathrooms: false,
-                floor: false,
-                extras: false
-            })
-        }
-    }, [isModalOpen])
-
-    return {
-        contract,
-        setContract,
-        tipology,
-        setTipology,
-        price,
-        setPrice,
-        size,
-        setSize,
-        rooms,
-        setRooms,
-        bathrooms,
-        setBathrooms,
-        floor,
-        setFloor,
-        extras,
-        setExtras,
-        cleanFilters,
-        openFilter,
-        isModalOpen,
-        openModalFilters,
-        handleFilterChange,
-        toggleFilter,
-        toggleModalFilter,
-        toggleModal
-    }
+// Initial state for modal filters
+const initialModalFiltersState = {
+  contract: false,
+  tipology: false,
+  price: false,
+  size: false,
+  rooms: false,
+  bathrooms: false,
+  floor: false,
+  extras: false
 }
 
-export default useFilters 
+// Reducer to handle modal filters state
+const modalFiltersReducer = (state, action) => {
+  switch (action.type) {
+    case TOGGLE_FILTER: {
+      const { filterName } = action.payload
+      const isCurrentlyOpen = state[filterName]
+      const newSettings = Object.keys(state).reduce((acc, key) => {
+        acc[key] = false
+        return acc
+      }, {})
+      return { ...newSettings, [filterName]: !isCurrentlyOpen }
+    }
+    case TOGGLE_MODAL:
+      return initialModalFiltersState
+    default:
+      return state
+  }
+}
+
+const useFilters = () => {
+  const {
+    contract,
+    setContract,
+    tipology,
+    setTipology,
+    price,
+    setPrice,
+    size,
+    setSize,
+    rooms,
+    setRooms,
+    bathrooms,
+    setBathrooms,
+    floor,
+    setFloor,
+    extras,
+    setExtras,
+    cleanFilters
+  } = useContext(FiltersContext)
+
+  const [openFilter, setOpenFilter] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [openModalFilters, dispatch] = useReducer(modalFiltersReducer, initialModalFiltersState)
+
+  const handleFilterChange = useCallback((setter, value) => {
+    setter(value)
+  }, [])
+
+  const toggleFilter = useCallback((filterName) => {
+    setOpenFilter(prevFilter => prevFilter === filterName ? null : filterName)
+  }, [])
+
+  const toggleModalFilter = useCallback((filterName) => {
+    dispatch({ type: TOGGLE_FILTER, payload: { filterName } })
+  }, [])
+
+  const toggleModal = useCallback(() => {
+    setIsModalOpen(prevIsModalOpen => !prevIsModalOpen)
+    if (!isModalOpen) {
+      dispatch({ type: TOGGLE_MODAL })
+    }
+  }, [isModalOpen])
+
+  return {
+    contract,
+    setContract,
+    tipology,
+    setTipology,
+    price,
+    setPrice,
+    size,
+    setSize,
+    rooms,
+    setRooms,
+    bathrooms,
+    setBathrooms,
+    floor,
+    setFloor,
+    extras,
+    setExtras,
+    cleanFilters,
+    openFilter,
+    isModalOpen,
+    openModalFilters,
+    handleFilterChange,
+    toggleFilter,
+    toggleModalFilter,
+    toggleModal
+  }
+}
+
+export default useFilters

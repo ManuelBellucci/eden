@@ -5,7 +5,7 @@ import Home from './pages/home/Home'
 import Immobili from './pages/immobili/Immobili'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
+function App () {
   return (
     <div className='relative'>
       <BrowserRouter>

@@ -1,10 +1,12 @@
+import { memo, useCallback } from 'react'
+
 const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedContract }) => {
   const contractOptions = ['Vendita', 'Affitto']
 
-  const selectContract = (contract) => {
+  const selectContract = useCallback((contract) => {
     setSelectedContract(contract)
     toggle()
-  }
+  }, [setSelectedContract, toggle])
 
   return (
     <div className='relative'>
@@ -56,4 +58,4 @@ const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedC
   )
 }
 
-export default ContractFilterDropdown
+export default memo(ContractFilterDropdown)

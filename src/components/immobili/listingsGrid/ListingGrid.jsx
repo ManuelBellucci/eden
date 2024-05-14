@@ -9,16 +9,7 @@ import { FiltersContext } from '../../../contexts/FiltersContext'
 const ListingGrid = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const listingsPerPage = 9
-  const {
-    contract,
-    tipology,
-    price,
-    size,
-    rooms,
-    bathrooms,
-    floor,
-    extras
-  } = useContext(FiltersContext)
+  const { contract, tipology, price, size, rooms, bathrooms, floor, extras } = useContext(FiltersContext)
 
   const filters = {
     contract,
@@ -35,36 +26,24 @@ const ListingGrid = () => {
   }
 
   const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters)
-
   const totalPages = Math.ceil(totalListings / listingsPerPage)
 
   const handlePageChange = (page) => {
     setCurrentPage(page)
   }
 
-  const skeletons = Array.from({ length: listingsPerPage })
+  const skeletonPlaceholders = [...Array(listingsPerPage).keys()]
 
   return (
     <div>
       <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3'>
         {loading
-          ? (
-              skeletons.map((_, index) => <CardSkeleton key={index} />)
-            )
+          ? skeletonPlaceholders.map((index) => <CardSkeleton key={index} />)
           : error
-            ? (
-              <p className='text-center text-red-500'>Error loading listings</p>
-              )
+            ? <p className='text-center text-red-500'>Error loading listings</p>
             : immobili.length > 0
-              ? (
-                  immobili.map((listing) => <ListingItem key={listing._id} listing={listing} />)
-                )
-              : (
-                <>
-                  <p />
-                  <p className='text-center text-gray-500'>Nessun immobile trovato, iscriviti alla Nostra Newsletter</p>
-                </>
-                )}
+              ? immobili.map((listing) => <ListingItem key={listing._id} listing={listing} />)
+              : <p className='text-center text-gray-500'>Nessun immobile trovato, iscriviti alla Nostra Newsletter.</p>}
       </div>
       {totalPages > 1 && (
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
