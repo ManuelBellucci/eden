@@ -21,9 +21,9 @@ const Home = () => {
         />
         <Stats
           statsData={[
-            { icon: './home.png', number: 150, description: 'gli appartamenti affidati a noi dalla costituzione della nostra società' },
-            { icon: './deal.png', number: 138, description: 'gli appartamenti venduti e rogitati' },
-            { icon: './feedback.png', number: 140, description: 'clienti soddisfatti che ci hanno lasciato una recensione positiva' }
+            { icon: '/home.png', number: 150, description: 'gli appartamenti affidati a noi dalla costituzione della nostra società' },
+            { icon: '/deal.png', number: 138, description: 'gli appartamenti venduti e rogitati' },
+            { icon: '/feedback.png', number: 140, description: 'clienti soddisfatti che ci hanno lasciato una recensione positiva' }
           ]}
         />
         <Featured />

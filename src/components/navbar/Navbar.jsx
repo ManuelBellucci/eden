@@ -14,10 +14,8 @@ const Navbar = () => {
     { path: '/contatti', label: 'Contatti' }
   ]
 
-  const isImmobiliPage = location.pathname === '/immobili'
-
   return (
-    <nav className='absolute w-full z-10 border-b border-primary-200/50'>
+    <nav className='sticky top-0 bg-primary-500 w-full z-[51] border-b border-primary-200/50'>
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <Logo src='/logotemp.png' title='Eden House' />
         <div className='flex xl:order-2 gap-4 rtl:space-x-reverse items-center'>
@@ -27,6 +25,7 @@ const Navbar = () => {
             text='Call to Action'
             size='lg'
             rounded='xl'
+            className='!bg-primary-300 hover:!bg-primary-200 active:!bg-primary-100 !text-primary-900'
           />
           <HamburgerMenu />
         </div>
@@ -36,7 +35,7 @@ const Navbar = () => {
               <li key={item.path}>
                 <Link
                   to={item.path}
-                  className={`block transition-all py-2 px-3 ${location.pathname === item.path ? isImmobiliPage ? 'text-primary-500' : 'xl:text-primary-100 text-primary-500' : 'xl:hover:text-primary-100 hover:text-primary-500'}`}
+                  className={`block transition-all py-2 px-3 ${location.pathname === item.path ? 'text-primary-100' : 'text-primary-900'} hover:text-primary-100`}
                 >
                   {item.label}
                 </Link>
