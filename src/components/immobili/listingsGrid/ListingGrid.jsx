@@ -31,7 +31,6 @@ const ListingGrid = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page)
   }
-
   const skeletonPlaceholders = [...Array(listingsPerPage).keys()]
 
   return (
@@ -42,7 +41,8 @@ const ListingGrid = () => {
           : error
             ? <p className='text-center text-red-500'>Error loading listings</p>
             : immobili.length > 0
-              ? immobili.map((listing) => <ListingItem key={listing._id} listing={listing} />)
+              ? immobili.map((listing) => <ListingItem
+                  key={listing._id} listing={listing} />)
               : <p className='text-center text-gray-500'>Nessun immobile trovato, iscriviti alla Nostra Newsletter.</p>}
       </div>
       {totalPages > 1 && (

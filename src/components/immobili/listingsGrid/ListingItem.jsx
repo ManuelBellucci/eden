@@ -3,7 +3,7 @@ import Tag from '../../commons/Tag'
 import { Link } from 'react-router-dom'
 import PropertyIcons from './PropertyIcons'
 
-const ListingItem = ({ listing, tag }) => {
+const ListingItem = ({ listing }) => {
   return (
     <div className='flex flex-col relative'>
       {listing.tag && <Tag text={listing.tag} color='bg-primary-500/75' position='topLeft' size='lg' />}
