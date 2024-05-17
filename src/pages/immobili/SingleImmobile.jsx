@@ -56,7 +56,7 @@ const SingleImmobile = () => {
 
   return (
     <>
-      <div className='2xl:grid 2xl:grid-cols-4 px-4 pt-10'>
+      <div className='2xl:grid 2xl:grid-cols-4 px-4 xl:px-40 pt-10'>
         <ImageGallery listing={listing} />
         <AgencyInfo
           isMobile={isMobile}
