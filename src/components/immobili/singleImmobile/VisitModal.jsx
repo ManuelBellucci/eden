@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import Alert from '../../commons/Alert'
 
 const VisitModal = ({
   isVisible,
@@ -21,97 +22,159 @@ const VisitModal = ({
   handleTimeChange,
   isFormFilled
 }) => {
+  const [startIndex, setStartIndex] = useState(0)
+  const visibleDatesCount = 4
+  const datesContainerRef = useRef(null)
+
   if (!isVisible) return null
+
+  const handleNext = () => {
+    setStartIndex((prevIndex) => Math.min(prevIndex + 1, dates.length - visibleDatesCount))
+  }
+
+  const handlePrev = () => {
+    setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0))
+  }
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-black bg-opacity-50'>
-      <div className='bg-white rounded-lg shadow-lg p-4 w-full max-w-md'>
-        <button onClick={onClose} className='absolute top-0 right-0'>
+      <div className='bg-white rounded-lg p-10 w-full max-w-xl relative'>
+        <button onClick={onClose} className='absolute top-2 right-2 bg-red-900 text-white px-2 rounded-lg'>
           &times;
         </button>
         <form>
+          <Alert type='info' extraClassNames='mt-4'>
+            <span className='mx-2'> &#8505; </span> <b> Questa non è una prenotazione: </b> le tue disponibilità saranno inviate all'Agenzia che si occuperà di ricontattarti.
+          </Alert>
+
           <div className='flex gap-2'>
-            <input
-              className='rounded-lg border p-2 w-full'
-              type='text'
-              name='name'
-              id='modal-name'
-              placeholder='Nome'
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-            />
-            <input
-              className='rounded-lg border p-2 w-full'
-              type='text'
-              name='surname'
-              id='modal-surname'
-              placeholder='Cognome'
-              value={userSurname}
-              onChange={(e) => setUserSurname(e.target.value)}
-            />
+            <div className='relative w-full'>
+              <input
+                className='rounded-lg focus:ring-0 border-0 border-b-2 border-b-primary-300 p-2 w-full peer h-full bg-transparent text-primary-700 font-sans font-normal outline outline-0 focus:outline-0 transition-all text-sm px-3 py-2.5'
+                type='text'
+                name='name'
+                id='modal-name'
+                placeholder=' '
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+              <label
+                className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-gray-600 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-gray-600 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t-2 peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t-2 peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-primary-400 peer-focus:text-blue-600 before:border-primary-300 peer-focus:before:!border-blue-600 after:border-primary-300 peer-focus:after:!border-blue-600 transition-all ease-in"
+              >Nome
+              </label>
+            </div>
+            <div className='relative w-full'>
+              <input
+                className='rounded-lg focus:ring-0 border-0 border-b-2 border-b-primary-300 p-2 w-full peer h-full bg-transparent text-primary-700 font-sans font-normal outline outline-0 focus:outline-0 transition-all text-sm px-3 py-2.5'
+                type='text'
+                name='surname'
+                id='modal-surname'
+                placeholder=' '
+                value={userSurname}
+                onChange={(e) => setUserSurname(e.target.value)}
+              />
+              <label
+                className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-gray-600 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-gray-600 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t-2 peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t-2 peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-primary-400 peer-focus:text-blue-600 before:border-primary-300 peer-focus:before:!border-blue-600 after:border-primary-300 peer-focus:after:!border-blue-600 transition-all ease-in"
+              >Cognome
+              </label>
+            </div>
           </div>
+
           <div className='flex gap-2 mt-2'>
-            <input
-              className='rounded-lg border p-2 w-full'
-              type='text'
-              name='phone'
-              id='modal-phone'
-              placeholder='Telefono'
-              value={userPhone}
-              onChange={(e) => setUserPhone(e.target.value)}
-            />
-            <input
-              className='rounded-lg border p-2 w-full'
-              type='email'
-              name='email'
-              id='modal-email'
-              placeholder='Email'
-              value={userEmail}
-              onChange={(e) => setUserEmail(e.target.value)}
-            />
+            <div className='relative w-full'>
+              <input
+                className='rounded-lg focus:ring-0 border-0 border-b-2 border-b-primary-300 p-2 w-full peer h-full bg-transparent text-primary-700 font-sans font-normal outline outline-0 focus:outline-0 transition-all text-sm px-3 py-2.5'
+                type='tel'
+                name='phone'
+                id='modal-phone'
+                placeholder=' '
+                value={userPhone}
+                onChange={(e) => setUserPhone(e.target.value)}
+              />
+              <label
+                className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-gray-600 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-gray-600 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t-2 peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t-2 peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-primary-400 peer-focus:text-blue-600 before:border-primary-300 peer-focus:before:!border-blue-600 after:border-primary-300 peer-focus:after:!border-blue-600 transition-all ease-in"
+              >Telefono
+              </label>
+            </div>
+            <div className='relative w-full'>
+              <input
+                className='rounded-lg focus:ring-0 border-0 border-b-2 border-b-primary-300 p-2 w-full peer h-full bg-transparent text-primary-700 font-sans font-normal outline outline-0 focus:outline-0 transition-all text-sm px-3 py-2.5'
+                type='email'
+                name='email'
+                id='modal-email'
+                autoComplete='email'
+                placeholder=' '
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
+              />
+              <label
+                className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-gray-600 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-gray-600 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t-2 peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t-2 peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-primary-400 peer-focus:text-blue-600 before:border-primary-300 peer-focus:before:!border-blue-600 after:border-primary-300 peer-focus:after:!border-blue-600 transition-all ease-in"
+              >Email
+              </label>
+            </div>
           </div>
+
           <div className='mt-4'>
-            <h4 className='font-medium'>Scegli come visitare l'immobile</h4>
-            <div className='flex gap-4'>
+            <h4 className='font-bold text-center mt-6 mb-2'>Scegli come visitare l'immobile</h4>
+            <div className='flex'>
               <button
                 type='button'
-                className={`py-2 px-4 text-sm font-medium text-white rounded-lg ${visitType === 'in-person' ? 'bg-primary-400' : 'bg-gray-300 hover:bg-primary-400'}`}
+                className={`py-2 px-4 w-full border text-md  text-black rounded-lg rounded-r-none transition-all ease-in border-r-0 ${visitType === 'in-person' ? 'bg-primary-400 text-white' : 'bg-white hover:bg-primary-100 '}`}
                 onClick={() => setVisitType('in-person')}
               >
-                Di Persona
+                Visita fisica
               </button>
               <button
                 type='button'
-                className={`py-2 px-4 text-sm font-medium text-white rounded-lg ${visitType === 'remote' ? 'bg-primary-400' : 'bg-gray-300 hover:bg-primary-400'}`}
+                className={`py-2 px-4 w-full border text-md  text-black rounded-lg rounded-l-none transition-all ease-in border-l-0 ${visitType === 'remote' ? 'bg-primary-400 text-white' : 'bg-white hover:bg-primary-100 '}`}
                 onClick={() => setVisitType('remote')}
               >
-                A Distanza
+                Visita virtuale
               </button>
             </div>
           </div>
+
           <div className='mt-4'>
-            <h4 className='font-medium'>Seleziona le tue disponibilità</h4>
-            <div className='flex gap-2 overflow-x-auto'>
-              {dates.map((date) => (
-                <button
-                  key={date.value}
-                  type='button'
-                  className={`py-6 px-8 text-sm font-medium text-white rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-400' : 'bg-gray-300 hover:bg-primary-400'}`}
-                  onClick={() => handleDateChange(date.value)}
+            <h4 className='font-bold text-center mt-6 mb-2'>Seleziona le tue disponibilità</h4>
+            <div className='flex items-center gap-2'>
+              <span onClick={handlePrev} className={`px-3 py-2 rounded-full border ${startIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>
+                &lArr;
+              </span>
+              <div ref={datesContainerRef} className='relative w-full overflow-x-auto'>
+                <div
+                  className='flex transition-transform duration-500 ease-in-out'
+                  style={{ transform: `translateX(-${startIndex * (100 / visibleDatesCount)}%)` }}
                 >
-                  {date.label}
-                </button>
-              ))}
+                  {dates.map((date) => (
+                    <button
+                      key={date.value}
+                      type='button'
+                      className={`py-6 px-4 border text-md transition-all ease-in text-black rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-400 text-white' : 'bg-white hover:bg-primary-100'}`}
+                      onClick={() => handleDateChange(date.value)}
+                      style={{ minWidth: '25%', marginRight: '4px' }}
+                    >
+                      <div className='flex flex-col'>
+                        <span className='text-sm'>{date.label.split(' ')[0]}</span>
+                        <span className='text-xl font-bold'>{date.label.split(' ')[1]}</span>
+                        <span className='text-sm'>{date.label.split(' ')[2]}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <span onClick={handleNext} className={`px-3 py-2 rounded-full border ${startIndex >= dates.length - visibleDatesCount ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>
+                &rArr;
+              </span>
             </div>
           </div>
           <div className='mt-4'>
-            <h4 className='font-medium'>Seleziona le fasce orarie</h4>
+            <h4 className='font-bold text-center mt-6 mb-2'>Seleziona le fasce orarie</h4>
             <div className='flex gap-2 overflow-x-auto'>
               {times.map((time) => (
                 <button
                   key={time.value}
                   type='button'
-                  className={`py-2 px-4 text-sm font-medium text-white rounded-lg ${selectedTimes.includes(time.value) ? 'bg-primary-400' : 'bg-gray-300 hover:bg-primary-400'}`}
+                  className={`py-2 px-4 border text-md w-full transition-all ease-in text-black rounded-lg ${selectedTimes.includes(time.value) ? 'bg-primary-400 text-white transition-all ease-in' : 'bg-white hover:bg-primary-100 '}`}
                   onClick={() => handleTimeChange(time.value)}
                 >
                   {time.label}
@@ -119,15 +182,17 @@ const VisitModal = ({
               ))}
             </div>
           </div>
+
           <div className='mt-4'>
             <button
               type='submit'
-              className={`inline-flex w-full items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary-400 rounded-lg hover:bg-primary-400 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+              className={`inline-flex w-full items-center justify-center px-4 py-2 text-md  text-white bg-primary-400 rounded-lg hover:bg-primary-400  focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
             >
               Invia richiesta
             </button>
           </div>
+
         </form>
       </div>
     </div>
