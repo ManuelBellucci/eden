@@ -1,22 +1,58 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useListing from '../../hooks/useListing'
+import useMobileDetect from '../../hooks/useMobileDetect'
+import VisitModal from '../../components/immobili/singleImmobile/VisitModal'
+import { generateNextNDays } from '../../helpers/dateHelpers'
 
 const SingleImmobile = () => {
   const { id } = useParams()
   const { listing, loading, error } = useListing(id)
   const [userName, setUserName] = useState('')
   const [userSurname, setUserSurname] = useState('')
+  const [userPhone, setUserPhone] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const [visitType, setVisitType] = useState('in-person')
+  const [selectedDates, setSelectedDates] = useState([])
+  const [selectedTimes, setSelectedTimes] = useState([])
+  const isMobile = useMobileDetect()
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error loading listing: {error.message}</div>
   if (!listing) return <div>No listing found</div>
 
-  const isFormFilled = userName.trim() !== '' && userSurname.trim() !== ''
+  const isFormFilled = userName.trim() !== '' && userSurname.trim() !== '' && userPhone.trim() !== '' && userEmail.trim() !== ''
+
+  const dates = generateNextNDays(15)
+
+  const times = [
+    { label: 'Qualsiasi', value: 'any' },
+    { label: '9-11', value: '9-11' },
+    { label: '11-13', value: '11-13' },
+    { label: '15-17', value: '15-17' },
+    { label: '17-20', value: '17-20' }
+  ]
+
+  const handleDateChange = (date) => {
+    setSelectedDates((prevSelectedDates) =>
+      prevSelectedDates.includes(date)
+        ? prevSelectedDates.filter((d) => d !== date)
+        : [...prevSelectedDates, date]
+    )
+  }
+
+  const handleTimeChange = (time) => {
+    setSelectedTimes((prevSelectedTimes) =>
+      prevSelectedTimes.includes(time)
+        ? prevSelectedTimes.filter((t) => t !== time)
+        : [...prevSelectedTimes, time]
+    )
+  }
 
   return (
     <>
-      <div className='2xl:grid 2xl:grid-cols-4 px-20 pt-10'>
+      <div className='2xl:grid 2xl:grid-cols-4 px-4 pt-10'>
         <div className='grid gap-4 col-span-2'>
           <div className='relative max-w-2xl mx-auto'>
             <img className='h-auto max-w-2xl mx-auto w-full rounded-lg' src={listing.images[0]} alt='' />
@@ -24,8 +60,8 @@ const SingleImmobile = () => {
               Guarda {listing.images.length} foto
             </span>
           </div>
-          <div className='grid grid-cols-4 gap-4 max-w-2xl mx-auto'>
-            {listing.images.slice(1, 5).map((image, index) => (
+          <div className='grid grid-cols-3 gap-4 max-w-2xl mx-auto'>
+            {listing.images.slice(1, 4).map((image, index) => (
               <div key={index}>
                 <img className='h-auto max-w-full w-full rounded-lg' src={image} alt='' />
               </div>
@@ -40,27 +76,50 @@ const SingleImmobile = () => {
             <span className='text-sm text-gray-500 font-bold'>051 541 541</span>
             <form className='mt-10'>
               <h3 className='text-2xl text-center mb-2'>Ti interessa?</h3>
-              <div className='flex gap-2'>
-                <input className='rounded-lg' type='text' name='name' id='name' placeholder='Nome' value={userName} onChange={(e) => setUserName(e.target.value)} />
-                <input className='rounded-lg' type='text' name='surname' id='surname' placeholder='Cognome' value={userSurname} onChange={(e) => setUserSurname(e.target.value)} />
+              <div className='flex flex-col gap-2'>
+                <div className='flex gap-2'>
+                  <input className='rounded-lg' type='text' name='name' id='name' placeholder='Nome' value={userName} onChange={(e) => setUserName(e.target.value)} />
+                  <input className='rounded-lg' type='text' name='surname' id='surname' placeholder='Cognome' value={userSurname} onChange={(e) => setUserSurname(e.target.value)} />
+                </div>
+                <div className='flex gap-2'>
+                  <input className='rounded-lg' type='text' name='name' id='phone' placeholder='Numero di telefono' value={userPhone} onChange={(e) => setUserPhone(e.target.value)} />
+                  <input className='rounded-lg' type='email' name='email' id='email' placeholder='E-Mail' value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
+                </div>
               </div>
               <div className='flex flex-col mt-4 gap-2'>
                 <a
                   href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+chiedere+un+informazione+in+merito+all'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
-                  className={`inline-flex w-full items-center px-4 py-2 text-sm font-medium text-center text-black bg-primary-300 rounded-lg hover:bg-primary-400 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+                  className={`inline-flex w-full items-center justify-center px-4 py-2 text-sm font-medium text-center text-black bg-primary-300 rounded-lg hover:bg-primary-400 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
                   disabled={!isFormFilled}
                   onClick={(e) => !isFormFilled && e.preventDefault()}
                 >
-                  Richiedi informazioni
+                  Richiedi informazioni (WhatsApp)
                 </a>
                 <a
                   href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+prenotare+una+visione+per+l'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
-                  className={`py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70 ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+                  className={`py-2 px-4 text-sm font-medium text-center text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70 ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
                   disabled={!isFormFilled}
                   onClick={(e) => !isFormFilled && e.preventDefault()}
                 >
-                  Richiedi una visita
+                  Richiedi una visita (WhatsApp)
                 </a>
+                <button
+                  type='button'
+                  className='py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
+                  onClick={() => setIsModalVisible(true)}
+                >
+                  Richiedi una visita (Modulo)
+                </button>
+
+                {isMobile &&
+                  (
+                    <a
+                      href='tel:+393517404147'
+                      className='py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
+                    >
+                      Chiama ora
+                    </a>
+                  )}
               </div>
             </form>
           </div>
@@ -68,9 +127,9 @@ const SingleImmobile = () => {
       </div>
 
       <div className='my-10'>
-        <h1 className='text-center text-3xl'>{listing.title}</h1>
-        <p className='text-center text-gray-400'>{listing.address}, {listing.municipality}</p>
-        <p className='text-center'>{listing.description}</p>
+        <h1 className='text-center font-bold text-2xl lg:text-3xl'>{listing.title}</h1>
+        <p className='text-center font-bold text-gray-400'>{listing.address}, {listing.municipality}</p>
+        <p className='text-center text-xs md:text-sm lg:text-md mt-4 max-w-xl mx-auto'>{listing.description}</p>
         <div className='mt-10 grid grid-cols-4'>
           <p className='border'>Contratto: {listing.type}</p>
           <p className='border'>Piano: {listing.floor === 0 ? 'T' : listing.floor} di {listing.buildingFloors}</p>
@@ -164,9 +223,9 @@ const SingleImmobile = () => {
               </>
             )}
           </div>
-          <p className='border'>Riscaldamento</p>
-          <p className='border'>Ascensore</p>
-          <p className='border'>Arredato</p>
+          <p className='border'>Riscaldamento: {listing.heating}</p>
+          <p className='border'>Ascensore: {listing.elevator ? 'Si' : 'No'}</p>
+          <p className='border'>Arredato: {listing.furnished ? 'Si' : 'No'}</p>
         </div>
       </div>
 
@@ -179,30 +238,76 @@ const SingleImmobile = () => {
           <span className='text-sm text-gray-500 font-bold'>051 541 541</span>
           <form className='mt-10'>
             <h3 className='text-2xl text-center mb-2'>Ti interessa?</h3>
-            <div className='flex gap-2'>
-              <input className='rounded-lg' type='text' name='name' id='name' placeholder='Nome' value={userName} onChange={(e) => setUserName(e.target.value)} />
-              <input className='rounded-lg' type='text' name='surname' id='surname' placeholder='Cognome' value={userSurname} onChange={(e) => setUserSurname(e.target.value)} />
+            <div className='flex flex-col gap-2'>
+              <div className='flex gap-2'>
+                <input className='rounded-lg' type='text' name='name' id='name' placeholder='Nome' value={userName} onChange={(e) => setUserName(e.target.value)} />
+                <input className='rounded-lg' type='text' name='surname' id='surname' placeholder='Cognome' value={userSurname} onChange={(e) => setUserSurname(e.target.value)} />
+              </div>
+              <div className='flex gap-2'>
+                <input className='rounded-lg' type='text' name='name' id='phone' placeholder='Numero di telefono' value={userPhone} onChange={(e) => setUserPhone(e.target.value)} />
+                <input className='rounded-lg' type='email' name='email' id='email' placeholder='E-Mail' value={userEmail} onChange={(e) => setUserEmail(e.target.value)} />
+              </div>
             </div>
-            <div className='flex flex-col mt-4 gap-2'>
+            <div className='flex flex-col text-center mt-4 gap-2'>
               <a
                 href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+chiedere+un+informazione+in+merito+all'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
-                className={`inline-flex w-full items-center px-4 py-2 text-sm font-medium text-center text-black bg-primary-300 rounded-lg hover:bg-primary-400 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+                className={`inline-flex w-full items-center justify-center px-4 py-2 text-sm font-medium text-center text-black bg-primary-300 rounded-lg hover:bg-primary-400 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
                 disabled={!isFormFilled}
                 onClick={(e) => !isFormFilled && e.preventDefault()}
               >
-                Richiedi informazioni
+                Richiedi informazioni (WhatsApp)
               </a>
               <a
                 href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+prenotare+una+visione+per+l'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
                 className={`py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70 ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
                 disabled={!isFormFilled}
-                onClick={(e) => !isFormFilled && e.preventDefault()}>
-                Richiedi una visita
+                onClick={(e) => !isFormFilled && e.preventDefault()}
+              >
+                Richiedi una visita (WhatsApp)
               </a>
+              <button
+                type='button'
+                className='py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
+                onClick={() => setIsModalVisible(true)}
+              >
+                Richiedi una visita (Modulo)
+              </button>
+
+              {isMobile &&
+                  (
+                    <a
+                      href='tel:+393517404147'
+                      className='py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
+                    >
+                      Chiama ora
+                    </a>
+                  )}
             </div>
           </form>
         </div>
       </div>
+
+      <VisitModal
+        isVisible={isModalVisible}
+        onClose={() => setIsModalVisible(false)}
+        userName={userName}
+        setUserName={setUserName}
+        userSurname={userSurname}
+        setUserSurname={setUserSurname}
+        userPhone={userPhone}
+        setUserPhone={setUserPhone}
+        userEmail={userEmail}
+        setUserEmail={setUserEmail}
+        visitType={visitType}
+        setVisitType={setVisitType}
+        dates={dates}
+        selectedDates={selectedDates}
+        handleDateChange={handleDateChange}
+        times={times}
+        selectedTimes={selectedTimes}
+        handleTimeChange={handleTimeChange}
+        isFormFilled={isFormFilled}
+      />
     </>
   )
 }
