@@ -7,8 +7,8 @@ const ImageGallery = ({ listing }) => {
           Guarda {listing.images.length} foto
         </span>
       </div>
-      <div className='grid grid-cols-4 gap-4 max-w-2xl mx-auto'>
-        {listing.images.slice(1, 5).map((image, index) => (
+      <div className='grid grid-cols-3 gap-4 max-w-2xl mx-auto'>
+        {listing.images.slice(1, 4).map((image, index) => (
           <div key={index}>
             <img className='h-auto max-w-full w-full rounded-lg' src={image} alt='' />
           </div>

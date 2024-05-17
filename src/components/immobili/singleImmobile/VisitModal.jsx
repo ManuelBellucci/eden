@@ -96,7 +96,7 @@ const VisitModal = ({
                 <button
                   key={date.value}
                   type='button'
-                  className={`py-2 px-4 text-sm font-medium text-white rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-400' : 'bg-gray-300 hover:bg-primary-400'}`}
+                  className={`py-6 px-8 text-sm font-medium text-white rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-400' : 'bg-gray-300 hover:bg-primary-400'}`}
                   onClick={() => handleDateChange(date.value)}
                 >
                   {date.label}
