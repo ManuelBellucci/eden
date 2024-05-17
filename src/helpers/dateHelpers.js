@@ -1,4 +1,7 @@
 import dayjs from 'dayjs'
+import 'dayjs/locale/it'
+
+dayjs.locale('it')
 
 export const generateNextNDays = (n) => {
   const dates = []
