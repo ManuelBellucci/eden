@@ -1,8 +1,8 @@
 const AgencyInfoMobile = ({ isMobile, userName, setUserName, userSurname, setUserSurname, userPhone, setUserPhone, userEmail, setUserEmail, isFormFilled, listing, setIsModalVisible }) => {
   return (
-    <div className='2xl:hidden flex w-full h-full items-center justify-center col-span-2 bg-white rounded-lg'>
+    <div className='2xl:hidden flex w-full h-full items-center justify-center col-span-2 bg-gray-100 px-4 py-6 rounded-lg'>
       <div className='flex flex-col items-center pb-10'>
-        <img className='w-24 h-24 mb-3 rounded-full shadow-lg' src='/logotemp.png' alt='logo' />
+        <img className='w-24 h-24 mb-3 rounded-full shadow-lg' src='/logotemp.webp' alt='logo' />
         <h5 className='mb-1 text-xl font-medium text-gray-900 dark:text-white'>Eden House</h5>
         <span className='text-sm text-gray-500'>Via Saragozza 112/O, Bologna (BO)</span>
         <span className='text-sm text-gray-500 font-bold'>051 541 541</span>
@@ -45,35 +45,35 @@ const AgencyInfoMobile = ({ isMobile, userName, setUserName, userSurname, setUse
           <div className='flex flex-col text-center mt-4 gap-2'>
             <a
               href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+chiedere+un+informazione+in+merito+all'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
-              className={`inline-flex w-full items-center justify-center px-4 py-2 text-sm font-medium text-center text-black bg-primary-300 rounded-lg hover:bg-primary-400 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+              className={`flex justify-between items-center w-full px-4 py-2 text-sm font-medium text-center text-black bg-primary-300 rounded-lg hover:bg-primary-400 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
               onClick={(e) => !isFormFilled && e.preventDefault()}
             >
-              Richiedi informazioni (WhatsApp)
+              Richiedi informazioni <img src='/whatsapplogo.svg' alt='whatsapp icon' className='w-6 h-6 ml-2' />
             </a>
             <a
               href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+prenotare+una+visione+per+l'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
-              className={`py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70 ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+              className={`flex justify-between items-center py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70 ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
               onClick={(e) => !isFormFilled && e.preventDefault()}
             >
-              Richiedi una visita (WhatsApp)
+              Richiedi una visita <img src='/whatsapplogo.svg' alt='whatsapp icon' className='w-6 h-6 ml-2' />
             </a>
             <button
               type='button'
-              className='py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
+              className='flex justify-between items-center py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
               onClick={() => setIsModalVisible(true)}
             >
-              Richiedi una visita (Modulo)
+              Richiedi una visita <img src='/form.svg' alt='form icon' className='w-6 h-6 ml-2' />
             </button>
 
             {isMobile &&
                   (
                     <a
                       href='tel:+393517404147'
-                      className='py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
+                      className='flex justify-between items-center py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
                     >
-                      Chiama ora
+                      Chiama ora <img src='/call.svg' alt='phone icon' className='w-6 h-6 ml-2' />
                     </a>
                   )}
           </div>
