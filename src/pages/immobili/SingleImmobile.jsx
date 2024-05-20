@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import useListing from '../../hooks/useListing'
 import useMobileDetect from '../../hooks/useMobileDetect'
 import VisitModal from '../../components/immobili/singleImmobile/VisitModal'
-import { generateNextNDays } from '../../helpers/dateHelpers'
+import { generateNextNDays, times } from '../../helpers/dateHelpers'
 import ImageGallery from '../../components/immobili/singleImmobile/ImageGallery'
 import AgencyInfo from '../../components/immobili/singleImmobile/AgencyInfo'
 import ListingDetails from '../../components/immobili/singleImmobile/ListingDetails'
@@ -12,6 +12,8 @@ import AgencyInfoMobile from '../../components/immobili/singleImmobile/AgencyInf
 const SingleImmobile = () => {
   const { id } = useParams()
   const { listing, loading, error } = useListing(id)
+  const isMobile = useMobileDetect()
+
   const [userName, setUserName] = useState('')
   const [userSurname, setUserSurname] = useState('')
   const [userPhone, setUserPhone] = useState('')
@@ -19,7 +21,6 @@ const SingleImmobile = () => {
   const [visitType, setVisitType] = useState('in-person')
   const [selectedDates, setSelectedDates] = useState([])
   const [selectedTimes, setSelectedTimes] = useState([])
-  const isMobile = useMobileDetect()
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   if (loading) return <div>Loading...</div>
@@ -27,16 +28,7 @@ const SingleImmobile = () => {
   if (!listing) return <div>No listing found</div>
 
   const isFormFilled = userName.trim() !== '' && userSurname.trim() !== '' && userPhone.trim() !== '' && userEmail.trim() !== ''
-
   const dates = generateNextNDays(15)
-
-  const times = [
-    { label: 'Qualsiasi', value: 'any' },
-    { label: '9-11', value: '9-11' },
-    { label: '11-13', value: '11-13' },
-    { label: '15-17', value: '15-17' },
-    { label: '17-20', value: '17-20' }
-  ]
 
   const handleDateChange = (date) => {
     setSelectedDates((prevSelectedDates) =>
