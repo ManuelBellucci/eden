@@ -1,5 +1,5 @@
-import { useMemo } from "react"
-import { Link } from "react-router-dom"
+import { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 
 const useDynamicClasses = (color) => {
   const textColor = `hover:text-${color}`
@@ -48,4 +48,4 @@ const PopUp = ({ text, readMore, color = 'primary-300', href }) => {
   )
 }
 
-export default PopUp 
+export default PopUp
