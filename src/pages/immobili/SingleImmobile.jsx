@@ -8,6 +8,7 @@ import ImageGallery from '../../components/immobili/singleImmobile/ImageGallery'
 import AgencyInfo from '../../components/immobili/singleImmobile/AgencyInfo'
 import ListingDetails from '../../components/immobili/singleImmobile/ListingDetails'
 import AgencyInfoMobile from '../../components/immobili/singleImmobile/AgencyInfoMobile'
+import Plan from '../../components/immobili/singleImmobile/Plan'
 
 const SingleImmobile = () => {
   const { id } = useParams()
@@ -66,13 +67,15 @@ const SingleImmobile = () => {
         />
       </div>
 
-      <div className='my-10 bg-gray-100 px-4 py-6 mx-4 xl:mx-40 rounded-lg'>
+      <div className='my-4 bg-gray-100 px-4 py-6 mx-4 xl:mx-40 rounded-lg'>
         <h1 className='text-center font-bold text-3xl lg:text-5xl'>{listing.title} </h1>
         <p className='text-center text-md lg:text-lg font-bold text-gray-400'>{listing.address}, {listing.municipality}</p>
-        <p className='text-center text-xs md:text-sm lg:text-md mt-4 max-w-xl mx-auto'>{listing.description}</p>
+        <p className='text-justify text-sm md:text-md lg:text-lg p-8'>{listing.description}</p>
         <hr className='my-6' />
         <ListingDetails listing={listing} />
       </div>
+
+      {listing.plan && <Plan listing={listing} />}
 
       <AgencyInfoMobile
         isMobile={isMobile}
