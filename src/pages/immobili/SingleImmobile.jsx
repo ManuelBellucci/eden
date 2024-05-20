@@ -48,7 +48,7 @@ const SingleImmobile = () => {
 
   return (
     <>
-      <div className='2xl:grid 2xl:grid-cols-4 px-4 xl:px-40 pt-10'>
+      <div className='2xl:grid 2xl:grid-cols-4 px-4 xl:px-40 pt-10 gap-4'>
         <ImageGallery listing={listing} />
         <AgencyInfo
           isMobile={isMobile}
@@ -66,10 +66,11 @@ const SingleImmobile = () => {
         />
       </div>
 
-      <div className='my-10'>
-        <h1 className='text-center font-bold text-2xl lg:text-3xl'>{listing.title}</h1>
-        <p className='text-center font-bold text-gray-400'>{listing.address}, {listing.municipality}</p>
+      <div className='my-10 bg-gray-100 px-4 py-6 mx-4 xl:mx-40 rounded-lg'>
+        <h1 className='text-center font-bold text-3xl lg:text-5xl'>{listing.title} </h1>
+        <p className='text-center text-md lg:text-lg font-bold text-gray-400'>{listing.address}, {listing.municipality}</p>
         <p className='text-center text-xs md:text-sm lg:text-md mt-4 max-w-xl mx-auto'>{listing.description}</p>
+        <hr className='my-6' />
         <ListingDetails listing={listing} />
       </div>
 
