@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import Alert from '../../commons/Alert'
+import { InfoAlert } from '../../commons/Alerts'
 
 const VisitModal = ({
   isVisible,
@@ -43,9 +43,7 @@ const VisitModal = ({
           &times;
         </button>
         <form>
-          <Alert type='info' extraClassNames='mt-4'>
-            <span className='mx-2'> &#8505; </span> <b> Questa non è una prenotazione: </b> le tue disponibilità saranno inviate all'Agenzia che si occuperà di ricontattarti.
-          </Alert>
+          <InfoAlert bold='Questa non è una prenotazione:' text="le tue disponibilità saranno inviate all'Agenzia che si occuperà di ricontattarti." extraClassNames='mb-8 mt-4' />
 
           <div className='flex gap-2'>
             <div className='relative w-full'>
@@ -136,8 +134,8 @@ const VisitModal = ({
 
           <div className='mt-4'>
             <h4 className='font-bold text-center mt-6 mb-2'>Seleziona le tue disponibilità</h4>
-            <div className='flex items-center gap-2'>
-              <span onClick={handlePrev} className={`px-3 py-2 rounded-full border ${startIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>
+            <div className='flex items-center gap-2 relative'>
+              <span onClick={handlePrev} className={`px-3 py-2 absolute -left-9 z-50 ${startIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>
                 &lArr;
               </span>
               <div ref={datesContainerRef} className='relative w-full overflow-x-auto'>
@@ -151,7 +149,7 @@ const VisitModal = ({
                       type='button'
                       className={`py-6 px-4 border text-md transition-all ease-in text-black rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-400 text-white' : 'bg-white hover:bg-primary-100'}`}
                       onClick={() => handleDateChange(date.value)}
-                      style={{ minWidth: '25%', marginRight: '4px' }}
+                      style={{ minWidth: '30%', marginRight: '4px' }}
                     >
                       <div className='flex flex-col'>
                         <span className='text-sm'>{date.label.split(' ')[0]}</span>
@@ -162,7 +160,7 @@ const VisitModal = ({
                   ))}
                 </div>
               </div>
-              <span onClick={handleNext} className={`px-3 py-2 rounded-full border ${startIndex >= dates.length - visibleDatesCount ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>
+              <span onClick={handleNext} className={`px-3 py-2 absolute -right-9 z-50 ${startIndex >= dates.length - visibleDatesCount ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>
                 &rArr;
               </span>
             </div>
