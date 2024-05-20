@@ -4,7 +4,6 @@ import 'dayjs/locale/it'
 dayjs.locale('it')
 
 export const times = [
-  { label: 'Qualsiasi', value: 'any' },
   { label: '9-11', value: '9-11' },
   { label: '11-13', value: '11-13' },
   { label: '15-17', value: '15-17' },
