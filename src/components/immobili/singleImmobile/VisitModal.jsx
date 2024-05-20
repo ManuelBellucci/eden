@@ -37,7 +37,7 @@ const VisitModal = ({
   }
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-black bg-opacity-50'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center px-4 mt-20 bg-black bg-opacity-50'>
       <div className='bg-white rounded-lg p-10 w-full max-w-xl relative'>
         <button onClick={onClose} className='absolute top-2 right-2 bg-red-900 text-white px-2 rounded-lg'>
           &times;
@@ -172,7 +172,7 @@ const VisitModal = ({
                 <button
                   key={time.value}
                   type='button'
-                  className={`py-2 px-4 border text-md w-full transition-all ease-in text-black rounded-lg ${selectedTimes.includes(time.value) ? 'bg-primary-400 text-white transition-all ease-in' : 'bg-white hover:bg-primary-100 '}`}
+                  className={`py-2 px-4 border text-sm text-nowrap w-full transition-all ease-in text-black rounded-lg ${selectedTimes.includes(time.value) ? 'bg-primary-400 text-white transition-all ease-in' : 'bg-white hover:bg-primary-100 '}`}
                   onClick={() => handleTimeChange(time.value)}
                 >
                   {time.label}
