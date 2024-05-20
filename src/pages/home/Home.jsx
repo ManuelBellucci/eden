@@ -13,17 +13,17 @@ const Home = () => {
       <div className='lg:mx-14'>
         <Tipologie
           tipologieData={[
-            { title: 'Appartamenti per single', subtitle: 'Piccoli e facili da gestire', href: '/immobili?t=appartamenti&lmin=1&lmax=2', imgSrc: './single.jpg' },
-            { title: 'Appartamenti per coppie', subtitle: 'Perfetti per iniziare il vostro percorso', href: '/immobili?t=appartamenti&lmin=2&lmax=3', imgSrc: './coppia.jpg' },
-            { title: 'Appartamenti per famiglie', subtitle: 'I bambini crescono, i spazi di casa gli seguono', href: '/immobili?t=appartamenti&lmin=4', imgSrc: './famiglia.jpg' },
-            { title: 'Appartamenti per i nonni', subtitle: 'Basta scale. Vediamo case con ascensore!', href: '/immobili?t=appartamenti&extras=elevator', imgSrc: './nonni.jpg' }
+            { title: 'Appartamenti per single', subtitle: 'Piccoli e facili da gestire', href: '/immobili?t=appartamenti&lmin=1&lmax=2', imgSrc: './single.webp' },
+            { title: 'Appartamenti per coppie', subtitle: 'Perfetti per iniziare il vostro percorso', href: '/immobili?t=appartamenti&lmin=2&lmax=3', imgSrc: './coppia.webp' },
+            { title: 'Appartamenti per famiglie', subtitle: 'I bambini crescono, i spazi di casa gli seguono', href: '/immobili?t=appartamenti&lmin=4', imgSrc: './famiglia.webp' },
+            { title: 'Appartamenti per i nonni', subtitle: 'Basta scale. Vediamo case con ascensore!', href: '/immobili?t=appartamenti&extras=elevator', imgSrc: './nonni.webp' }
           ]}
         />
         <Stats
           statsData={[
-            { icon: '/home.png', number: 150, description: 'gli appartamenti affidati a noi dalla costituzione della nostra società' },
-            { icon: '/deal.png', number: 138, description: 'gli appartamenti venduti e rogitati' },
-            { icon: '/feedback.png', number: 140, description: 'clienti soddisfatti che ci hanno lasciato una recensione positiva' }
+            { icon: '/home.webp', number: 150, description: 'gli appartamenti affidati a noi dalla costituzione della nostra società' },
+            { icon: '/deal.webp', number: 138, description: 'gli appartamenti venduti e rogitati' },
+            { icon: '/feedback.webp', number: 140, description: 'clienti soddisfatti che ci hanno lasciato una recensione positiva' }
           ]}
         />
         <Featured />

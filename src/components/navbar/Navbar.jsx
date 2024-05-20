@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className='sticky top-0 bg-primary-500 w-full z-[51] border-b border-primary-200/50'>
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
-        <Logo src='/logotemp.png' title='Eden House' />
+        <Logo src='/logotemp.webp' title='Eden House' />
         <div className='flex xl:order-2 gap-4 rtl:space-x-reverse items-center'>
           <CallToAction
             anchor

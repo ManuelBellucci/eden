@@ -36,12 +36,12 @@ const NewsletterForm = () => {
 }
 const infoBlocks = [
   {
-    iconSrc: '/envelope.png',
+    iconSrc: '/envelope.webp',
     title: 'Articoli nuovi ogni settimana.',
     description: 'Ci impegniamo a studiare il mercato e proporre posta di qualità, per tenerti sempre aggiornato. Ogni settimana inviamo diversi nuovi articoli informativi e di interesse.'
   },
   {
-    iconSrc: '/spam.png',
+    iconSrc: '/spam.webp',
     title: 'No spam',
     description: 'Promettiamo di non inviarti spam. Solo contenuti di qualità, informativi e di interesse. Se non ti piace, puoi cancellarti in qualsiasi momento. Nessuna domanda. Nessun problema. Nessun rischio.'
   }
