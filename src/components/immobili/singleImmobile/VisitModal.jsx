@@ -38,11 +38,16 @@ const VisitModal = ({
 
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center px-4 mt-20 bg-black bg-opacity-50'>
-      <div className='bg-white rounded-lg p-10 w-full max-w-xl relative'>
-        <button onClick={onClose} className='absolute top-2 right-2 bg-red-900 text-white px-2 rounded-lg'>
-          &times;
-        </button>
-        <form>
+      <div className='bg-white rounded-lg w-full max-w-xl relative'>
+        <div className='px-4 py-3 rounded-t-lg bg-gray-100 flex justify-between items-center'>
+
+          <button onClick={onClose} className='w-full text-gray-400 hover:text-gray-600'>
+            <svg className='h-6 w-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
+            </svg>
+          </button>
+        </div>
+        <form className='px-10 pb-10'>
           <InfoAlert bold='Questa non è una prenotazione:' text="le tue disponibilità saranno inviate all'Agenzia che si occuperà di ricontattarti." extraClassNames='mb-8 mt-4' />
 
           <div className='flex gap-2'>
