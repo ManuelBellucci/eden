@@ -8,3 +8,25 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active{
 -webkit-box-shadow: 0 0 0 30px rgb(243 244 246) inset !important;
 }
+
+
+.fade-enter {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+  .fade-exit {
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
