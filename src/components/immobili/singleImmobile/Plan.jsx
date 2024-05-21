@@ -1,7 +1,9 @@
 const Plan = ({ listing }) => {
   return (
-    <div className='my-4 bg-gray-100 px-4 py-6 mx-4 xl:mx-40 rounded-lg'>
-      <img className='h-auto max-w-3xl mx-auto w-full rounded-lg' src={listing.plan} alt='' />
+    <div className='py-6 pl-6 rounded-lg'>
+      <div className='flex justify-center h-full rounded-lg shadow-md bg-white p-4'>
+        <img className='rounded-lg' src={listing.plan} alt='Plan' />
+      </div>
     </div>
   )
 }
