@@ -43,8 +43,8 @@ const Filters = () => {
   }, [cleanFilters, toggleModal])
 
   return (
-    <div className='h-screen flex flex-col gap-8 justify-center items-center'>
-      <h1 className='text-6xl text-center'>I nostri immobili</h1>
+    <div className='h-full p-10 flex flex-col gap-6 justify-center items-center'>
+      <h2 className='text-3xl font-extrabold text-center text-nowrap leading-none tracking-tight text-primary-700 md:text-4xl lg:text-5xl uppercase'>I nostri immobili</h2>
       {/* Desktop Filters */}
       <button
         className='px-4 py-2 hidden xl:block bg-red-500 text-white rounded-lg shadow hover:bg-red-600 active:bg-red-700'
@@ -127,6 +127,7 @@ const Filters = () => {
             </div>
             <div className='flex flex-col gap-4 overflow-hidden'>
               <h2 className='text-2xl mb-4 text-center'>Trova l'immobile perfetto per te</h2>
+
               <ContractFilterDropdown
                 isOpen={openModalFilters.contract}
                 toggle={() => toggleModalFilter('contract')}
