@@ -1,7 +1,7 @@
 const ImageGallery = ({ listing }) => {
   return (
     <>
-      <div className='grid gap-4 col-span-2 bg-gray-100 px-4 py-8 rounded-lg'>
+      <div className='grid gap-4 col-span-2 bg-gray-100 shadow-lg px-4 py-8 rounded-lg'>
         <div className='relative max-w-2xl mx-auto'>
           <div className='bg-white p-2 shadow-md rounded-lg'>
             <img className='h-auto max-w-2xl mx-auto w-full rounded-lg' src={listing.images[0]} alt='' />
@@ -10,7 +10,7 @@ const ImageGallery = ({ listing }) => {
             Guarda {listing.images.length} foto
           </span>
           <div className='absolute top-0 left-0'>
-            <p className='text-center text-xl md:text-2xl lg:text-3xl mt-4 max-w-xl mx-auto text-white font-bold bg-primary-500/40 p-2 md:p-3 lg:p-4 rounded-lg ms-4'>{listing.pubPrice.toLocaleString()},00€ {listing.type === 'affitto' && '/ mese'}</p>
+            <p className='text-center text-xl md:text-2xl lg:text-3xl mt-4 max-w-xl mx-auto text-gray-100 font-bold bg-black/20 p-2 md:p-3 lg:p-4 rounded-lg ms-4'>{listing.pubPrice.toLocaleString()},00€ {listing.type === 'affitto' && '/ mese'}</p>
 
           </div>
         </div>
