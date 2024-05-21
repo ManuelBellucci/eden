@@ -277,12 +277,12 @@ const ListingDetails = ({ listing }) => {
           </p>
           <p className='text-xl lg:text-2xl  text-black font-extrabold'>Prezzo al m² /
             <small className='ms-2 font-semibold text-primary-700'>
-              € {(listing.pubPrice / listing.commercialSqm).toLocaleString()} / m²
+              € {(listing.pubPrice / listing.commercialSqm).toLocaleString()},00 / m²
             </small>
           </p>
           <p className='text-xl lg:text-2xl  text-black font-extrabold'>Spese condominiali /
             <small className='ms-2 font-semibold text-primary-700'>
-              {listing.monthlyCondominiumFees === null || listing.monthlyCondominiumFees === 0 ? 'Assente' : `€ ${listing.monthlyCondominiumFees}/mese`}
+              {listing.monthlyCondominiumFees === null || listing.monthlyCondominiumFees === 0 ? 'Assente' : `€ ${listing.monthlyCondominiumFees},00 / mese`}
             </small>
           </p>
         </div>
