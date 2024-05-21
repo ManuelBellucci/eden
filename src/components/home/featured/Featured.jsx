@@ -15,13 +15,11 @@ const Loading = () => (
   </div>
 )
 
-const Error = ({ message }) => <div>Error: {message}</div>
-
 const Featured = () => {
   const { listings: featured, loading, error } = useFetchListings(1, 6, { featured: true })
 
   if (loading) return <Loading />
-  if (error || !Array.isArray(featured)) return <Error message='Unable to fetch featured listings' />
+  if (error || !Array.isArray(featured)) return <></>
 
   return (
     <div className='m-14 mt-24'>
