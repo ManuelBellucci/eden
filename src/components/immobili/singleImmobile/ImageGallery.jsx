@@ -1,4 +1,16 @@
+import { useState } from 'react'
+
 const ImageGallery = ({ listing }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const openModal = () => {
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
+
   return (
     <>
       <div className='grid gap-4 col-span-2 bg-gray-100 shadow-lg px-4 py-8 rounded-lg'>
@@ -6,7 +18,10 @@ const ImageGallery = ({ listing }) => {
           <div className='bg-white p-2 shadow-md rounded-lg'>
             <img className='h-auto max-w-2xl mx-auto w-full rounded-lg' src={listing.images[0]} alt='' />
           </div>
-          <span className='absolute text-primary-100 font-bold hover:text-black bottom-0 right-0 p-2 m-2 lg:p-4 lg:m-4 text-xs border border-primary-300 hover:bg-primary-300 active:bg-primary-200 cursor-pointer rounded-lg transition-all ease-in'>
+          <span
+            className='absolute text-primary-100 font-bold hover:text-black bottom-2 right-2 p-2 m-2 lg:p-4 lg:m-4 text-xs border border-primary-300 hover:bg-primary-300 active:bg-primary-200 cursor-pointer rounded-lg transition-all ease-in'
+            onClick={openModal}
+          >
             Guarda {listing.images.length} foto
           </span>
           <div className='absolute top-0 left-0'>
@@ -23,6 +38,23 @@ const ImageGallery = ({ listing }) => {
         </div>
 
       </div>
+
+      {isModalOpen && (
+        <div className='fixed inset-0 bg-red-500 z-50 flex items-center justify-center'>
+          <div className='relative w-full h-full'>
+            <button
+              className='absolute top-4 right-4 text-2xl font-bold'
+              onClick={closeModal}
+            >
+              &times;
+            </button>
+            <div className='p-4'>
+              {/* Add your image gallery component here, for now it's just a placeholder */}
+              <p className='text-center text-2xl'>Image Gallery Modal</p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
