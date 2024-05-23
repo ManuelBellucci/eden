@@ -4,7 +4,7 @@ const ListingDetails = ({ listing }) => {
     return (
       <div className='mt-10 '>
         <div className='mb-5 pb-5 text-center h-full bg-white rounded-lg p-4 shadow-md'>
-          <h3 className='mb-4 text-3xl font-extrabold leading-none tracking-tight text-primary-700 md:text-4xl lg:text-5xl uppercase'>Specifiche del garage</h3>
+          <h3 className='mb-4 text-2xl font-extrabold leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Specifiche del garage</h3>
           <div className='flex flex-col'>
             <p className='text-xl lg:text-2xl text-black font-extrabold'>Superficie /
               <small className='ms-2 font-semibold text-primary-700'>
@@ -60,18 +60,18 @@ const ListingDetails = ({ listing }) => {
     <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-4'>
       {/* Main Information */}
       <div className='mb-5 pb-5 h-full bg-white rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-3xl font-extrabold leading-none tracking-tight text-primary-700 md:text-4xl lg:text-5xl uppercase'>Caratteristiche</h3>
+        <h3 className='mb-4 text-2xl font-extrabold leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Caratteristiche</h3>
         <div className='flex flex-col'>
           <p className='text-xl lg:text-2xl  font-extrabold'>
             Contratto /
             <small className='ms-2 font-semibold text-primary-700'>
-              {listing.type.charAt(0).toUpperCase() + listing.type.slice(1)}
+              {listing.type !== null && listing.type.charAt(0).toUpperCase() + listing.type.slice(1)}
             </small>
           </p>
 
           <p className='text-xl lg:text-2xl  font-extrabold'>Tipologia /
             <small className='ms-2 font-semibold text-primary-700'>
-              {listing.tipology.charAt(0).toUpperCase() + listing.tipology.slice(1)}
+              {listing.tipology !== null && listing.tipology.charAt(0).toUpperCase() + listing.tipology.slice(1)}
             </small>
           </p>
 
@@ -108,13 +108,13 @@ const ListingDetails = ({ listing }) => {
                 <div className='flex flex-col'>
                   <p className='text-xl lg:text-2xl  text-black font-extrabold'>Rendita /
                     <small className='ms-2 font-semibold text-primary-700'>
-                      € {listing.annualRent.toLocaleString()},00
+                      € {listing.annualRent ? listing.annualRent.toLocaleString() : 'N/A'},00
                     </small>
                   </p>
 
                   <p className='text-xl lg:text-2xl  text-black font-extrabold'>Contratto /
                     <small className='ms-2 font-semibold text-primary-700'>
-                      {listing.rentContract.charAt(0).toUpperCase() + listing.rentContract.slice(1)}
+                      {listing.rentContract !== null && listing.rentContract.charAt(0).toUpperCase() + listing.rentContract.slice(1)}
                     </small>
                   </p>
 
@@ -128,9 +128,28 @@ const ListingDetails = ({ listing }) => {
             </small>
           </p>
 
-          <p className='text-xl lg:text-2xl  text-black font-extrabold'>Bagni /
+          <p className='text-xl lg:text-2xl text-black font-extrabold'>Bagni /
             <small className='ms-2 font-semibold text-primary-700'>
-              {listing.bathrooms} ({listing.windowedBathrooms} {listing.windowedBathrooms !== 1 ? 'finestrati' : 'finestrato'}, {listing.nonWindowedBathrooms} {listing.nonWindowedBathrooms !== 1 ? 'non finestrati' : 'non finestrato'})
+              {listing.windowedBathrooms > 0 && listing.nonWindowedBathrooms > 0
+                ? (
+                  <>
+                    {listing.windowedBathrooms} {listing.windowedBathrooms !== 1 ? 'finestrati' : 'finestrato'}, {listing.nonWindowedBathrooms} {listing.nonWindowedBathrooms !== 1 ? 'non finestrati' : 'non finestrato'}
+                  </>
+                  )
+                : (
+                  <>
+                    {listing.windowedBathrooms > 0 && (
+                      <>
+                        {listing.windowedBathrooms} {listing.windowedBathrooms !== 1 ? 'finestrati' : 'finestrato'}
+                      </>
+                    )}
+                    {listing.nonWindowedBathrooms > 0 && (
+                      <>
+                        {listing.nonWindowedBathrooms} {listing.nonWindowedBathrooms !== 1 ? 'non finestrati' : 'non finestrato'}
+                      </>
+                    )}
+                  </>
+                  )}
             </small>
           </p>
 
@@ -138,7 +157,7 @@ const ListingDetails = ({ listing }) => {
       </div>
 
       <div className='mb-5 pb-5 h-full bg-white rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-3xl font-extrabold leading-none tracking-tight text-primary-700 md:text-4xl lg:text-5xl uppercase'>Pertinenze</h3>
+        <h3 className='mb-4 text-2xl font-extrabold leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Pertinenze</h3>
         <div className='flex flex-col'>
           <p className='text-xl lg:text-2xl  text-black font-extrabold'>Rispostiglio /
             <small className='ms-2 font-semibold text-primary-700'>
@@ -197,14 +216,14 @@ const ListingDetails = ({ listing }) => {
           {listing.parkingSpace && listing.numParkingSpace > 1 && (
             <p className='text-xl lg:text-2xl  text-black font-extrabold'>Tipologia posti auto /
               <small className='ms-2 font-semibold text-primary-700'>
-                {listing.parkingSpaceType.map((type, index) => (<span key={index}>{type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
+                {listing.parkingSpaceType.map((type, index) => (<span key={index}>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
               </small>
             </p>
           )}
           {listing.parkingSpace && listing.numParkingSpace === 1 && (
             <p className='text-xl lg:text-2xl  text-black font-extrabold'>Tipologia posto auto /
               <small className='ms-2 font-semibold text-primary-700'>
-                {listing.parkingSpaceType.map((type, index) => (<span key={index}>{type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
+                {listing.parkingSpaceType.map((type, index) => (<span key={index}>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
               </small>
             </p>
           )}
@@ -268,7 +287,7 @@ const ListingDetails = ({ listing }) => {
 
       {/* Costs Information */}
       <div className='text-start h-full pb-5 mb-5 bg-white rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-3xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-4xl lg:text-5xl uppercase'>Costi</h3>
+        <h3 className='mb-4 text-2xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Costi</h3>
         <div className='flex flex-col items-start'>
           <p className='text-xl lg:text-2xl  text-black font-extrabold'>Prezzo /
             <small className='ms-2 font-semibold text-primary-700'>
@@ -277,7 +296,7 @@ const ListingDetails = ({ listing }) => {
           </p>
           <p className='text-xl lg:text-2xl  text-black font-extrabold'>Prezzo al m² /
             <small className='ms-2 font-semibold text-primary-700'>
-              € {(listing.pubPrice / listing.commercialSqm).toLocaleString()},00 / m²
+              € {((listing.pubPrice / listing.commercialSqm) || 0).toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / m²
             </small>
           </p>
           <p className='text-xl lg:text-2xl  text-black font-extrabold'>Spese condominiali /
@@ -287,7 +306,7 @@ const ListingDetails = ({ listing }) => {
           </p>
         </div>
 
-        <h3 className='my-4 text-3xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-4xl lg:text-5xl uppercase'>Extra</h3>
+        <h3 className='my-4 text-2xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Extra</h3>
         <div className='flex justify-center'>
           <div className='flex flex-wrap gap-2 mr-auto max-w-sm'>
             {extraFeatures.map((feature, index) => (
@@ -300,16 +319,16 @@ const ListingDetails = ({ listing }) => {
       {/* efficienza energetica */}
       <div>
         <div className='text-start pb-5 h-full bg-white rounded-lg p-4 shadow-md'>
-          <h3 className='mb-4 text-3xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-4xl lg:text-5xl uppercase'>Efficienza energetica</h3>
+          <h3 className='mb-4 text-2xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Efficienza energetica</h3>
           <div className='flex flex-col items-start'>
             <p className='text-xl lg:text-2xl  text-black font-extrabold'>Riscaldamento /
               <small className='ms-2 font-semibold text-primary-700'>
-                {listing.heating.charAt(0).toUpperCase() + listing.heating.slice(1)}, {listing.heatingType}
+                {listing.heating !== null && listing.heating.charAt(0).toUpperCase() + listing.heating.slice(1)}, {listing.heatingType}
               </small>
             </p>
-            <p className='text-xl lg:text-2xl  text-black font-extrabold'>Classe energetica /
+            <p className='text-xl lg:text-2xl  text-black font-extrabold'>Classe energetica (APE) /
               <small className='ms-2 font-semibold text-primary-700'>
-                {listing.APE ? 'Presente' + (listing.APEClass ? `(classe ${listing.APEClass})` : '') : 'In corso'}
+                {listing.APE ? 'Presente' + (listing.APEClass ? ` (classe ${listing.APEClass})` : '') : 'In corso'}
               </small>
             </p>
             <p className='text-xl lg:text-2xl  text-black font-extrabold'>RTI /
@@ -327,17 +346,37 @@ const ListingDetails = ({ listing }) => {
 
             <p className='text-xl lg:text-2xl  text-black font-extrabold'>Stato interno /
               <small className='ms-2 font-semibold text-primary-700'>
-                {listing.internalState.charAt(0).toUpperCase() + listing.internalState.slice(1)}
+                {listing.internalState !== null && listing.internalState.charAt(0).toUpperCase() + listing.internalState.slice(1)}
               </small>
             </p>
-            {listing.internalState === 'ristrutturato' &&
-                (
-                  <p className='text-xl lg:text-2xl  text-black font-extrabold'>Anno di ristrutturazione /
-                    <small className='ms-2 font-semibold text-primary-700'>
-                      {listing.yearOfRenovation}
-                    </small>
-                  </p>
-                )}
+            {listing.internalState === 'ristrutturato' && (
+              <p className='text-xl lg:text-2xl  text-black font-extrabold'>Anno di ristrutturazione /
+                <small className='ms-2 font-semibold text-primary-700'>
+                  {listing.yearOfRenovation}
+                </small>
+              </p>
+            )}
+            {listing.fixtures && (
+              <p className='text-xl lg:text-2xl  text-black font-extrabold'>Infissi /
+                <small className='ms-2 font-semibold text-primary-700'>
+                  {listing.fixtures}
+                </small>
+              </p>
+            )}
+            {listing.deliberatedCondominiumWorks && (
+              <p className='text-xl lg:text-2xl  text-black font-extrabold'>Lavori condominiali deliberati /
+                <small className='ms-2 font-semibold text-primary-700'>
+                  {listing.deliberatedCondominiumWorks}
+                </small>
+              </p>
+            )}
+            {listing.lastCondominiumWorks && (
+              <p className='text-xl lg:text-2xl  text-black font-extrabold'>Ultimi lavori condominiali /
+                <small className='ms-2 font-semibold text-primary-700'>
+                  {listing.lastCondominiumWorks}
+                </small>
+              </p>
+            )}
 
           </div>
         </div>
