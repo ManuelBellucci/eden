@@ -51,7 +51,6 @@ const SingleImmobile = () => {
     )
   }
 
-  console.log('Virtual Tour Images:', listing.virtualTour)
   return (
     <>
       <div className='2xl:grid 2xl:grid-cols-4 px-4 xl:px-40 pt-10 gap-4'>
@@ -75,24 +74,32 @@ const SingleImmobile = () => {
       <div className='my-4 bg-gray-100 shadow-md p-6 mx-4 xl:mx-40 rounded-lg'>
         <h1 className='text-center font-bold text-3xl lg:text-5xl'>{listing.title} </h1>
         <p className='text-center text-md lg:text-lg font-bold text-gray-400'>{listing.address}, {listing.municipality}</p>
-        <p className='text-center text-sm md:text-md lg:text-lg p-8'>{listing.description}</p>
+        <p className='text-center text-sm md:text-md break-words lg:text-lg p-8'>{listing.description}</p>
         <hr className='my-6' />
         <ListingDetails listing={listing} />
       </div>
 
-      <div className='mt-10 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-4 mx-4 xl:mx-40 bg-gray-100 shadow-md'>
-        <div>
-          {(listing.plan.length >= 1) && <Plan listing={listing} />}
+      <div className={`my-4 rounded-lg ${listing.video ? 'grid grid-cols-1 md:grid-cols-2' : 'flex justify-center'} gap-0 md:gap-4 mx-4 xl:mx-40 bg-gray-100 shadow-md`}>
+        <div className={`${listing.video ? '' : 'w-full flex justify-center'}`}>
+          {listing.plan.length >= 1 && <Plan listing={listing} />}
         </div>
         {listing.video && (
           <div className='pt-0 pb-6 md:pt-6 px-6 md:pl-0 rounded-lg'>
             <div className='flex justify-center h-full rounded-lg shadow-md bg-white p-4'>
-              <iframe className='rounded-xl w-full aspect-video shadow-md' src={listing.video + '?&mute=1&controls=0'} title='Video immobile' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerPolicy='strict-origin-when-cross-origin' allowFullScreen />
+              <iframe
+                className='rounded-xl w-full aspect-video shadow-md'
+                src={`${listing.video}?&mute=1&controls=0`}
+                title='Video immobile'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                referrerPolicy='strict-origin-when-cross-origin'
+                allowFullScreen
+              />
             </div>
           </div>
         )}
       </div>
-      {listing.virtualTour && (
+      {/* verify virtualTour is not an empty array */}
+      {listing.virtualTour.length > 0 && (
         <div className='my-4 bg-gray-100 shadow-md px-4 py-4 mx-4 xl:mx-40 rounded-lg'>
           <button className='text-3xl font-extrabold leading-none tracking-tight shadow-md bg-white p-4 w-full mx-auto rounded-lg text-primary-700 md:text-4xl lg:text-5xl uppercase' onClick={() => setIsTourModalVisible(true)}>Clicca qui per vedere il Virtual Tour</button>
         </div>
