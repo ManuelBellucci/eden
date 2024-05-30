@@ -24,7 +24,7 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
 
     const fetchListings = async () => {
       if (cache[cacheKey]) {
-        setListings(cache[cacheKey].listings)
+        setListings(cache[cacheKey].listings.filter(listing => listing.active))
         setTotalListings(cache[cacheKey].totalListings)
         return
       }
@@ -34,14 +34,15 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
       try {
         const response = await axios.get(`http://localhost:5000/listings?${queryString}`)
         if (isMounted) {
-          setListings(response.data.listings)
-          setTotalListings(response.data.totalListings)
+          const activeListings = response.data.listings.filter(listing => listing.active)
+          setListings(activeListings)
+          setTotalListings(activeListings.length)
           setError(null)
 
           // Update cache
           updateCache(cacheKey, {
-            listings: response.data.listings,
-            totalListings: response.data.totalListings
+            listings: activeListings,
+            totalListings: activeListings.length
           })
         }
       } catch (err) {
