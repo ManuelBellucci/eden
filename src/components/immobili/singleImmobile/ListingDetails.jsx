@@ -62,12 +62,12 @@ const ListingDetails = ({ listing }) => {
       <div className='mb-5 pb-5 h-full bg-white rounded-lg p-4 shadow-md'>
         <h3 className='mb-4 text-2xl font-extrabold leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Caratteristiche</h3>
         <div className='flex flex-col'>
-          <p className='text-xl lg:text-2xl  font-extrabold'>
+          {/* <p className='text-xl lg:text-2xl  font-extrabold'>
             Contratto /
             <small className='ms-2 font-semibold text-primary-700'>
               {listing.type !== null && listing.type.charAt(0).toUpperCase() + listing.type.slice(1)}
             </small>
-          </p>
+          </p> */}
 
           <p className='text-xl lg:text-2xl  font-extrabold'>Tipologia /
             <small className='ms-2 font-semibold text-primary-700'>
