@@ -5,7 +5,7 @@ const WhyWorkWithUs = ({ benefits }) => {
     <div className='m-14 mb-48 pt-24'>
       <h1 className='text-center mb-4 text-xl font-extrabold leading-none tracking-tight text-primary-900 md:text-2xl lg:text-3xl'>
         Perché siamo {' '}
-        <span className='underline underline-offset-4 decoration-8 decoration-primary-400'>
+        <span className='underline underline-offset-8 decoration-8 decoration-primary-400'>
           "la tua scelta ideale"
         </span>
       </h1>

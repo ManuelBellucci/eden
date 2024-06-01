@@ -30,3 +30,12 @@ input:-webkit-autofill:active{
     opacity: 0;
     transition: opacity 500ms;
   }
+
+  .invisible-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .invisible-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }

@@ -2,7 +2,7 @@ import CallToAction from '../commons/CallToAction'
 
 const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
-    <div className='rounded-md bg-white/5 p-2 ring-1 ring-white/10'>
+    <div className='rounded-lg bg-white/5 p-2 ring-1 ring-white/10'>
       <div className='h-6 w-6' aria-hidden='true'>
         <img src={iconSrc} alt={`${title} icon`} />
       </div>
@@ -24,12 +24,13 @@ const NewsletterForm = () => {
         autoComplete='email'
         required
         placeholder='La tua migliore email'
-        className='min-w-0 placeholder:text-primary-300 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6'
+        className='min-w-0 placeholder:text-primary-300 flex-auto rounded-lg border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6'
       />
       <CallToAction
         asSubmit
         text='Iscriviti'
-        className='flex-none rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500'
+        rounded='md'
+        className='flex-none bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500'
       />
     </form>
   )

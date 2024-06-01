@@ -11,7 +11,7 @@ import AgencyInfoMobile from '../../components/immobili/singleImmobile/AgencyInf
 import Plan from '../../components/immobili/singleImmobile/Plan'
 import VirtualTour from '../../components/immobili/singleImmobile/VirtualTour'
 
-const SingleImmobile = () => {
+const SingleImmobile = ({ setIsNavbarVisible }) => {
   const { id } = useParams()
   const { listing, loading, error } = useListing(id)
   const isMobile = useMobileDetect()
@@ -51,6 +51,16 @@ const SingleImmobile = () => {
     )
   }
 
+  const handleModalVisibility = (isVisible) => {
+    setIsModalVisible(isVisible)
+    setIsNavbarVisible(!isVisible)
+  }
+
+  const handleTourModalVisibility = (isVisible) => {
+    setIsTourModalVisible(isVisible)
+    setIsNavbarVisible(!isVisible)
+  }
+
   return (
     <>
       <div className='2xl:grid 2xl:grid-cols-4 px-4 xl:px-40 pt-10 gap-4'>
@@ -59,7 +69,7 @@ const SingleImmobile = () => {
           isMobile={isMobile}
           isFormFilled={isFormFilled}
           listing={listing}
-          setIsModalVisible={setIsModalVisible}
+          setIsModalVisible={() => handleModalVisibility(true)}
           setUserEmail={setUserEmail}
           setUserName={setUserName}
           setUserPhone={setUserPhone}
@@ -87,7 +97,7 @@ const SingleImmobile = () => {
           <div className='pt-0 pb-6 md:pt-6 px-6 md:pl-0 rounded-lg'>
             <div className='flex justify-center h-full rounded-lg shadow-md bg-white p-4'>
               <iframe
-                className='rounded-xl w-full aspect-video shadow-md'
+                className='rounded-lg w-full aspect-video shadow-md'
                 src={`${listing.video}?&mute=1&controls=0`}
                 title='Video immobile'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
@@ -101,14 +111,14 @@ const SingleImmobile = () => {
       {/* verify virtualTour is not an empty array */}
       {listing.virtualTour.length > 0 && (
         <div className='my-4 bg-gray-100 shadow-md px-4 py-4 mx-4 xl:mx-40 rounded-lg'>
-          <button className='text-3xl font-extrabold leading-none tracking-tight shadow-md bg-white p-4 w-full mx-auto rounded-lg text-primary-700 md:text-4xl lg:text-5xl uppercase' onClick={() => setIsTourModalVisible(true)}>Clicca qui per vedere il Virtual Tour</button>
+          <button className='text-3xl font-extrabold leading-none tracking-tight shadow-md bg-white p-4 w-full mx-auto rounded-lg text-primary-700 md:text-4xl lg:text-5xl uppercase' onClick={() => handleTourModalVisibility(true)}>Clicca qui per vedere il Virtual Tour</button>
         </div>
       )}
       <AgencyInfoMobile
         isMobile={isMobile}
         isFormFilled={isFormFilled}
         listing={listing}
-        setIsModalVisible={setIsModalVisible}
+        setIsModalVisible={() => handleModalVisibility(true)}
         setUserEmail={setUserEmail}
         setUserName={setUserName}
         setUserPhone={setUserPhone}
@@ -120,7 +130,7 @@ const SingleImmobile = () => {
       />
       <VisitModal
         isVisible={isModalVisible}
-        onClose={() => setIsModalVisible(false)}
+        onClose={() => handleModalVisibility(false)}
         userName={userName}
         setUserName={setUserName}
         userSurname={userSurname}
@@ -141,7 +151,7 @@ const SingleImmobile = () => {
       />
       <VirtualTour
         isVisible={isTourModalVisible}
-        onClose={() => setIsTourModalVisible(false)}
+        onClose={() => handleTourModalVisibility(false)}
         images={listing.virtualTour}
         currentSceneIndex={currentSceneIndex}
         setCurrentSceneIndex={setCurrentSceneIndex}

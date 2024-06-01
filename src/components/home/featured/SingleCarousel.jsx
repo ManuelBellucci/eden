@@ -46,7 +46,7 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
 export function SingleCarousel ({ images, id }) {
   return (
     <Carousel
-      className='rounded-xl'
+      className='rounded-lg'
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <NavigationDots totalSlides={length} activeIndex={activeIndex} setActiveIndex={setActiveIndex} visibleDots={5} />
       )}

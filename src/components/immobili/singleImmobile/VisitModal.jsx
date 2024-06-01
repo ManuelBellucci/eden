@@ -37,8 +37,8 @@ const VisitModal = ({
   }
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center px-4 mt-20 bg-black bg-opacity-50'>
-      <div className='bg-white rounded-lg w-full max-w-xl relative'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-black bg-opacity-50'>
+      <div className='bg-white rounded-lg w-full max-w-xl max-h-[calc(100%-40px)] overflow-y-auto invisible-scrollbar relative'>
         <div className='px-4 py-3 rounded-t-lg bg-gray-100 flex justify-between items-center'>
 
           <button onClick={onClose} className='w-full text-gray-400 hover:text-gray-600'>

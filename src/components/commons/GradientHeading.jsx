@@ -7,7 +7,7 @@ import React from 'react'
  * @returns {string} - Complete class string for heading
  */
 const generateHeadingClass = (sizeClasses, additionalClasses) => {
-  return `mb-4 font-extrabold leading-none tracking-tight text-primary-50 ${sizeClasses} ${additionalClasses}`
+  return `mb-4 font-extrabold leading-none tracking-tight text-white ${sizeClasses} ${additionalClasses}`
 }
 
 /**
@@ -32,7 +32,7 @@ const generateGradientStyle = (to, from, via) => {
  * @returns {string} - Complete class string for paragraph
  */
 const generateParagraphClass = (sizeClasses) => {
-  return `font-medium text-primary-100 ${sizeClasses}`
+  return `text-white ${sizeClasses}`
 }
 
 /**

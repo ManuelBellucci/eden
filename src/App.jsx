@@ -6,18 +6,21 @@ import Immobili from './pages/immobili/Immobili'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SingleImmobile from './pages/immobili/SingleImmobile'
 import ScrollToTop from './helpers/scrollToTop'
+import { useState } from 'react'
 
 function App () {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true)
+
   return (
     <div className='relative'>
       <BrowserRouter>
         <ScrollToTop />
         <FiltersProvider>
-          <Navbar />
+          {isNavbarVisible && <Navbar />}
           <Routes>
             <Route exact index path='/' element={<Home />} />
             <Route exact path='/immobili' element={<Immobili />} />
-            <Route exact path='/immobili/:id' element={<SingleImmobile />} />
+            <Route exact path='/immobili/:id' element={<SingleImmobile setIsNavbarVisible={setIsNavbarVisible} />} />
           </Routes>
           <Footer />
         </FiltersProvider>

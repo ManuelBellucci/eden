@@ -1,9 +1,9 @@
 const positions = {
-  topLeft: 'top-4 left-4',
-  topRight: 'top-4 right-4',
-  topCenter: 'top-4 left-1/2 transform -translate-x-1/2',
-  bottomLeft: 'bottom-4 left-4',
-  bottomRight: 'bottom-4 right-4'
+  topLeft: 'top-2 left-2',
+  topRight: 'top-2 right-2',
+  topCenter: 'top-2 left-1/2 transform -translate-x-1/2',
+  bottomLeft: 'bottom-2 left-2',
+  bottomRight: 'bottom-2 right-2'
 }
 
 const sizes = {
@@ -22,7 +22,7 @@ const Tag = ({
 }) => {
   const positionClasses = positions[position] || positions.topLeft
   const sizeClasses = sizes[size] || sizes.md
-  const combinedClasses = `absolute text-white font-bold rounded-full z-10 ${positionClasses} ${sizeClasses} ${color}`
+  const combinedClasses = `absolute text-white font-bold rounded-lg z-10 ${positionClasses} ${sizeClasses} ${color}`
 
   return (
     <div className={combinedClasses} style={style}>

@@ -12,7 +12,7 @@ const useDynamicClasses = (color) => {
     'py-1',
     'text-sm',
     'leading-6',
-    'text-primary-300',
+    'text-white',
     'hover:bg-primary-400',
     'hover:text-white',
     'ring-1',
