@@ -54,6 +54,7 @@ export function SingleCarousel ({ images, id }) {
       {images.map((image, index) => (
         <Link key={`${id}-${index}`} to={`/immobili/${id}`}>
           <img
+            loading='lazy'
             src={image}
             alt={`image ${index + 1}`}
             className='h-full w-full object-cover'

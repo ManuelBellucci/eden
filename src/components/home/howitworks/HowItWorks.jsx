@@ -17,7 +17,7 @@ const HowItWorks = ({ processSteps }) => (
         {processSteps.map(step => <ProcessStep key={step.title} {...step} />)}
       </div>
       <div className='md:flex md:items-center'>
-        <img src='https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80' alt='Image' className='w-full h-full rounded-lg object-cover min-h-80' />
+        <img loading='lazy' src='https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80' alt='Image' className='w-full h-full rounded-lg object-cover min-h-80' />
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@ const WhyWorkWithUs = ({ benefits }) => {
       </p>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-14'>
         <div className='md:flex md:items-center'>
-          <img src='/whyworkwithus.jpg' alt='Professional gentleman' className='w-full rounded-lg object-cover h-96 object-top' />
+          <img loading='lazy' src='/whyworkwithus.jpg' alt='Professional gentleman' className='w-full rounded-lg object-cover h-96 object-top' />
         </div>
         <div className='flex flex-col gap-10 justify-center'>
           <h3 className='text-3xl font-bold max-w-lg'>La nostra identità</h3>

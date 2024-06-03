@@ -1,7 +1,7 @@
 const Logo = ({ src, title }) => {
   return (
     <a href='/' className='flex items-center space-x-3 rtl:space-x-reverse'>
-      <img
+      <img loading='lazy'
         src={src}
         className='h-14 md:h-10 lg:h-20'
         alt='Eden House Logo'

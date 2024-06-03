@@ -4,7 +4,7 @@ const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
     <div className='rounded-lg bg-white/5 p-2 ring-1 ring-white/10'>
       <div className='h-6 w-6' aria-hidden='true'>
-        <img src={iconSrc} alt={`${title} icon`} />
+        <img loading='lazy' src={iconSrc} alt={`${title} icon`} />
       </div>
     </div>
     <dt className='mt-4 font-semibold text-white'>{title}</dt>

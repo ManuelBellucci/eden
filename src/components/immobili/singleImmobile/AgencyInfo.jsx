@@ -3,6 +3,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
     <div className='hidden 2xl:flex w-full h-full items-center justify-center col-span-2 bg-gray-100 shadow-md px-4 py-6 rounded-lg'>
       <div className='flex flex-col items-center pb-10'>
         <img
+          loading='lazy'
           className='w-24 h-24 mb-3 rounded-full bg-gradient-to-t from-white to-transparent shadow-lg' src='/logotemp.webp' alt='logo'
         />
         <h5 className='mb-1 text-xl font-medium text-gray-900 dark:text-white'>Eden House</h5>
@@ -51,7 +52,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
               disabled={!isFormFilled}
               onClick={(e) => !isFormFilled && e.preventDefault()}
             >
-              Richiedi informazioni <img src='/whatsapplogo.svg' alt='whatsapp icon' className='w-6 h-6 ml-2' />
+              Richiedi informazioni <img loading='lazy' src='/whatsapplogo.svg' alt='whatsapp icon' className='w-6 h-6 ml-2' />
             </a>
             <a
               href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+prenotare+una+visione+per+l'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
@@ -59,14 +60,14 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
               disabled={!isFormFilled}
               onClick={(e) => !isFormFilled && e.preventDefault()}
             >
-              Richiedi una visita <img src='/whatsapplogo.svg' alt='whatsapp icon' className='w-6 h-6 ml-2' />
+              Richiedi una visita <img loading='lazy' src='/whatsapplogo.svg' alt='whatsapp icon' className='w-6 h-6 ml-2' />
             </a>
             <button
               type='button'
               className='flex items-center justify-between py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
               onClick={() => setIsModalVisible(true)}
             >
-              Richiedi una visita <img src='/form.svg' alt='form icon' className='w-6 h-6 ml-2' />
+              Richiedi una visita <img loading='lazy' src='/form.svg' alt='form icon' className='w-6 h-6 ml-2' />
             </button>
 
             {isMobile &&
@@ -75,7 +76,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
                       href='tel:+393517404147'
                       className='flex justify-between items-center py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-white rounded-lg border w-full border-gray-200 hover:bg-gray-100 hover:text-primary-70'
                     >
-                      Chiama ora <img src='/call.svg' alt='phone icon' className='w-6 h-6 ml-2' />
+                      Chiama ora <img loading='lazy' src='/call.svg' alt='phone icon' className='w-6 h-6 ml-2' />
                     </a>
                   )}
           </div>
