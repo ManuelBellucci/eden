@@ -96,14 +96,16 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
         {listing.video && (
           <div className='pt-0 pb-6 md:pt-6 px-6 md:pl-0 rounded-lg'>
             <div className='flex justify-center h-full rounded-lg shadow-md bg-white p-4'>
-              <iframe
-                className='rounded-lg w-full aspect-video shadow-md'
-                src={`${listing.video}?&mute=1&controls=0`}
-                title='Video immobile'
-                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                referrerPolicy='strict-origin-when-cross-origin'
-                allowFullScreen
-              />
+              <video
+                className='rounded-lg w-full shadow-md'
+                controls
+                muted
+                autoPlay
+                loop
+              >
+                <source src={listing.video} type='video/mp4' />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         )}
