@@ -55,7 +55,7 @@ export function SingleCarousel ({ images, id }) {
         <Link key={`${id}-${index}`} to={`/immobili/${id}`}>
           <img
             loading='lazy'
-            src={image}
+            src={image.url}
             alt={`image ${index + 1}`}
             className='h-full w-full object-cover'
           />

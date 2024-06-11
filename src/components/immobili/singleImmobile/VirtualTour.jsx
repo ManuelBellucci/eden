@@ -36,7 +36,7 @@ const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrent
                 <Pannellum
                   width='100%'
                   height='100%'
-                  image={images[currentSceneIndex]}
+                  image={images[currentSceneIndex].url}
                   pitch={0}
                   yaw={180}
                   hfov={100}
