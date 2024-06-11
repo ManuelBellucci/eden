@@ -22,8 +22,8 @@ const Navbar = () => {
           <CallToAction
             anchor
             href='https://www.youtube.com/'
-            text='Call to Action'
-            size='lg'
+            text='Valuta il tuo immobile'
+            size='md'
             rounded='xl'
             className='!bg-primary-300 hover:!bg-primary-200 active:!bg-primary-100 !text-primary-900'
           />
