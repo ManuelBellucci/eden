@@ -7,7 +7,7 @@ import React from 'react'
  * @returns {string} - Complete class string for heading
  */
 const generateHeadingClass = (sizeClasses, additionalClasses) => {
-  return `mb-4 font-extrabold leading-none tracking-tight text-white ${sizeClasses} ${additionalClasses}`
+  return `mb-4 font-base leading-none text-primary-200 ${sizeClasses} ${additionalClasses}`
 }
 
 /**
@@ -22,7 +22,7 @@ const generateGradientStyle = (to, from, via) => {
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     color: 'transparent',
-    backgroundImage: `linear-gradient(to bottom, ${from}, ${via}, ${to})`
+    backgroundImage: `linear-gradient(150deg, ${from}, ${via}, ${to})`
   }
 }
 
@@ -32,7 +32,7 @@ const generateGradientStyle = (to, from, via) => {
  * @returns {string} - Complete class string for paragraph
  */
 const generateParagraphClass = (sizeClasses) => {
-  return `text-white ${sizeClasses}`
+  return `text-primary-50 ${sizeClasses}`
 }
 
 /**
