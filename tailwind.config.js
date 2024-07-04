@@ -23,6 +23,9 @@ module.exports = withMT({
           900: '#0d4e54',
           950: '#002c33'
         }
+      },
+      fontFamily: {
+        catchyMager: ['Catchy Mager', 'sans-serif']
       }
     }
   },

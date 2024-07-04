@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'CatchyMager';
+  src: url('/src/assets/fonts/CatchyMagerRegular.woff') format('woff'),
+       url('/src/assets/fonts/CatchyMagerRegular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'CatchyMager', sans-serif;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
