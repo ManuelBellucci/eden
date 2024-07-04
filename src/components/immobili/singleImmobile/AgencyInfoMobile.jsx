@@ -2,7 +2,7 @@ const AgencyInfoMobile = ({ isMobile, userName, setUserName, userSurname, setUse
   return (
     <div className='2xl:hidden flex w-full h-full items-center justify-center col-span-2 bg-gray-100 px-4 py-6 mt-10 rounded-t-[200px]'>
       <div className='flex flex-col items-center pb-10'>
-        <img loading='lazy' className='w-24 h-24 mb-3 rounded-full bg-gradient-to-t from-white to-transparent shadow-lg' src='/logotemp.webp' alt='logo' />
+        <img loading='lazy' className='w-24 h-24 mb-3 rounded-full bg-gradient-to-t from-white to-transparent shadow-lg' src='/logo.webp' alt='logo' />
         <h5 className='mb-1 text-xl font-medium text-gray-900 dark:text-white'>Eden House</h5>
         <span className='text-sm text-gray-500'>Via Saragozza 112/O, Bologna (BO)</span>
         <span className='text-sm text-gray-500 font-bold'>051 541 541</span>

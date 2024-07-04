@@ -4,7 +4,7 @@ const ListingDetails = ({ listing }) => {
     return (
       <div className='mt-10 '>
         <div className='mb-5 pb-5 text-center h-full bg-white rounded-lg p-4 shadow-md'>
-          <h3 className='mb-4 text-2xl font-extrabold leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Specifiche del garage</h3>
+          <h3 className='mb-4 text-2xl font-extrabold leading-none   text-primary-700 md:text-3xl lg:text-4xl uppercase'>Specifiche del garage</h3>
           <div className='flex flex-col'>
             <p className='text-xl lg:text-2xl text-black font-extrabold'>Superficie
               <small className='italic ms-2 font-semibold text-primary-700'>
@@ -60,7 +60,7 @@ const ListingDetails = ({ listing }) => {
     <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-4'>
       {/* Main Information */}
       <div className='mb-5 pb-5 h-full bg-white rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-2xl font-extrabold leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Caratteristiche</h3>
+        <h3 className='mb-4 text-2xl font-extrabold leading-none   text-primary-700 md:text-3xl lg:text-4xl uppercase'>Caratteristiche</h3>
         <div className='flex flex-col'>
           {/* <p className='text-xl lg:text-2xl  font-extrabold'>
             Contratto /
@@ -157,7 +157,7 @@ const ListingDetails = ({ listing }) => {
       </div>
 
       <div className='mb-5 pb-5 h-full bg-white rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-2xl font-extrabold leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Pertinenze</h3>
+        <h3 className='mb-4 text-2xl font-extrabold leading-none   text-primary-700 md:text-3xl lg:text-4xl uppercase'>Pertinenze</h3>
         <div className='flex flex-col'>
           <p className='text-xl lg:text-2xl  text-black font-extrabold'>Rispostiglio
             <small className='italic ms-2 font-semibold text-primary-700'>
@@ -287,7 +287,7 @@ const ListingDetails = ({ listing }) => {
 
       {/* Costs Information */}
       <div className='text-start h-full pb-5 mb-5 bg-white rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-2xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Costi</h3>
+        <h3 className='mb-4 text-2xl font-extrabold text-start leading-none   text-primary-700 md:text-3xl lg:text-4xl uppercase'>Costi</h3>
         <div className='flex flex-col items-start'>
           <p className='text-xl lg:text-2xl  text-black font-extrabold'>Prezzo
             <small className='italic ms-2 font-semibold text-primary-700'>
@@ -306,7 +306,7 @@ const ListingDetails = ({ listing }) => {
           </p>
         </div>
 
-        <h3 className='my-4 text-2xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Extra</h3>
+        <h3 className='my-4 text-2xl font-extrabold text-start leading-none   text-primary-700 md:text-3xl lg:text-4xl uppercase'>Extra</h3>
         <div className='flex justify-center'>
           <div className='flex flex-wrap gap-2 mr-auto max-w-sm'>
             {extraFeatures.map((feature, index) => (
@@ -319,7 +319,7 @@ const ListingDetails = ({ listing }) => {
       {/* efficienza energetica */}
       <div>
         <div className='text-start pb-5 h-full bg-white rounded-lg p-4 shadow-md'>
-          <h3 className='mb-4 text-2xl font-extrabold text-start leading-none tracking-tight text-primary-700 md:text-3xl lg:text-4xl uppercase'>Efficienza energetica</h3>
+          <h3 className='mb-4 text-2xl font-extrabold text-start leading-none   text-primary-700 md:text-3xl lg:text-4xl uppercase'>Efficienza energetica</h3>
           <div className='flex flex-col items-start'>
             <p className='text-xl lg:text-2xl  text-black font-extrabold'>Riscaldamento
               <small className='italic ms-2 font-semibold text-primary-700'>

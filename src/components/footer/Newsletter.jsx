@@ -54,7 +54,7 @@ const Newsletter = () => {
       <div className='mx-auto max-w-7xl'>
         <div className='grid max-w-2xl grid-cols-1 gap-y-16 lg:max-w-none lg:grid-cols-2'>
           <div className='max-w-xl lg:max-w-lg'>
-            <h2 className='text-3xl font-bold tracking-tight text-primary-300 sm:text-4xl'>Iscriviti alla Nostra Newsletter.</h2>
+            <h2 className='text-3xl font-bold   text-primary-300 sm:text-4xl'>Iscriviti alla Nostra Newsletter.</h2>
             <p className='mt-4 text-lg leading-8 text-primary-100'>
               Informati sulle ultime novità e promozioni, immobili nuovi, notizie, agevolazioni e molte altre situazioni di interesse, gratuitamente. Non invieremo spam, promesso!
             </p>

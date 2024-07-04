@@ -9,7 +9,7 @@ const Tipologie = ({ tipologieData }) => {
 
   return (
     <div className='h-full m-14'>
-      <h1 className='text-center mb-4 text-xl font-extrabold leading-none tracking-tight text-primary-900 md:text-2xl lg:text-3xl'>
+      <h1 className='text-center mb-4 text-xl font-extrabold leading-none   text-primary-900 md:text-2xl lg:text-3xl'>
         Dai un'occhiata alle <span className='underline underline-offset-8 decoration-8 decoration-primary-400'>nostre proprietà in vendita</span>
       </h1>
       <p className='text-center text-md font-normal mx-auto max-w-xl text-primary-500 lg:text-lg mb-14'>

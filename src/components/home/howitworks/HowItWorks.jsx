@@ -2,7 +2,7 @@ import ProcessStep from './ProcessStep'
 
 const HowItWorks = ({ processSteps }) => (
   <div className='m-14 mb-48 pt-24'>
-    <h1 className='text-center mb-4 text-xl font-extrabold leading-none tracking-tight text-primary-900 md:text-2xl lg:text-3xl'>
+    <h1 className='text-center mb-4 text-xl font-extrabold leading-none   text-primary-900 md:text-2xl lg:text-3xl'>
       Come funziona? {' '}
       <span className='underline underline-offset-8 decoration-8 decoration-primary-400'>
         acquisto e vendita

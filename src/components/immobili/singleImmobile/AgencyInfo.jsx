@@ -4,7 +4,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
       <div className='flex flex-col items-center pb-10'>
         <img
           loading='lazy'
-          className='w-24 h-24 mb-3 rounded-full bg-gradient-to-t from-white to-transparent shadow-lg' src='/logotemp.webp' alt='logo'
+          className='w-24 h-24 mb-3 rounded-full bg-gradient-to-t from-white to-transparent shadow-lg' src='/logo.webp' alt='logo'
         />
         <h5 className='mb-1 text-xl font-medium text-gray-900 dark:text-white'>Eden House</h5>
         <span className='text-sm text-gray-500'>Via Saragozza 112/O, Bologna (BO)</span>
