@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <div className='lg:mx-14'>
+      <div className='lg:mx-14 bg-primary-950'>
         <Tipologie
           tipologieData={[
             { title: 'Per single', subtitle: 'Piccoli e facili da gestire', href: '/immobili?t=appartamenti&lmin=1&lmax=2', imgSrc: './single.webp' },
@@ -22,7 +22,7 @@ const Home = () => {
         <Stats
           statsData={[
             { icon: '/home.webp', number: 150, description: 'gli appartamenti affidati a noi dalla costituzione della nostra società' },
-            { icon: '/deal.webp', number: 138, description: 'gli appartamenti venduti e rogitati' },
+            { icon: '/deal.webp', number: 138, description: 'gli appartamenti venduti e rogitati con successo dai nostri agenti immobiliari professionali e competenti' },
             { icon: '/feedback.webp', number: 140, description: 'clienti soddisfatti che ci hanno lasciato una recensione positiva' }
           ]}
         />

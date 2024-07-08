@@ -4,7 +4,7 @@ import SocialMediaIcons from './SocialMediaIcons'
 
 export default function Footer () {
   return (
-    <footer className='relative isolate overflow-hidden bg-primary-900 lg:p-28'>
+    <footer className='relative isolate overflow-hidden bg-primary-950 lg:p-28'>
       <Newsletter />
       <FooterLinks />
       <SocialMediaIcons />

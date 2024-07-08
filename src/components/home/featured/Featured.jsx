@@ -4,8 +4,8 @@ import CardSkeleton from '../../skeletons/CardSkeleton'
 
 const Loading = () => (
   <div className='m-14 mt-24'>
-    <h2 className='text-center mb-20 text-xl font-extrabold leading-none   text-primary-900 md:text-2xl lg:text-3xl'>
-      Le proposte del mese: <span className='underline underline-offset-8 decoration-8 decoration-primary-400'>in vendita</span>
+    <h2 className='text-center mb-20 text-xl font-extrabold leading-none   text-primary-50 md:text-2xl lg:text-3xl'>
+      Le proposte del mese: <span className='text-primary-400'>in vendita</span>
     </h2>
     <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3'>
       {[1, 2, 3, 4, 5, 6].map(index => (
@@ -23,8 +23,8 @@ const Featured = () => {
 
   return (
     <div className='m-14 mt-24'>
-      <h2 className='text-center mb-20 text-xl font-extrabold leading-none   text-primary-900 md:text-2xl lg:text-3xl'>
-        Le proposte del mese: <span className='underline underline-offset-8 decoration-8 decoration-primary-400'>in vendita</span>
+      <h2 className='text-center mb-20 text-xl font-extrabold leading-none   text-primary-50 md:text-2xl lg:text-3xl'>
+        Le proposte del mese: <span className='text-primary-400'>in vendita</span>
       </h2>
       <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3'>
         {featured.map(listing => (

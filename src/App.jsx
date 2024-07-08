@@ -12,7 +12,7 @@ function App () {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
 
   return (
-    <div className='relative'>
+    <div className='relative bg-primary-950'>
       <BrowserRouter>
         <ScrollToTop />
         <FiltersProvider>
