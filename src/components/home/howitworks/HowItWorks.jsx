@@ -2,13 +2,13 @@ import ProcessStep from './ProcessStep'
 
 const HowItWorks = ({ processSteps }) => (
   <div className='m-14 mb-48 pt-24'>
-    <h1 className='text-center mb-4 text-xl font-extrabold leading-none   text-primary-900 md:text-2xl lg:text-3xl'>
+    <h1 className='text-center mb-4 text-xl font-extrabold leading-none   text-primary-50 md:text-2xl lg:text-3xl'>
       Come funziona? {' '}
-      <span className='underline underline-offset-8 decoration-8 decoration-primary-400'>
+      <span className='text-primary-400'>
         acquisto e vendita
       </span> di immobili
     </h1>
-    <p className='text-center text-md font-normal mx-auto max-w-xl text-primary-500 lg:text-lg mb-14'>
+    <p className='text-center text-md font-normal mx-auto max-w-xl text-primary-50 lg:text-lg mb-14'>
       Scopri come funziona il nostro servizio di acquisto e vendita di immobili. Siamo specializzati in vendite e affitti di immobili a Bologna e provincia.
     </p>
 

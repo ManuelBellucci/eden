@@ -15,6 +15,7 @@ const Banner = ({ bgImage, title, description, buttonText, buttonLink }) => {
           anchor
           size='xl'
           rounded='lg'
+          className='!bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
         />
       </div>
     </div>

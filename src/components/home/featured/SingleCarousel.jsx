@@ -11,7 +11,7 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
     if (from > 1) {
       dots.push(
         <span key='0' className='block h-2 w-4 cursor-pointer rounded-2xl bg-white/50' onClick={() => setActiveIndex(0)} />,
-        <span key='ellipsis-pre' className='text-white'>...</span>
+        <span key='ellipsis-pre' className='text-primary-50'>...</span>
       )
     }
 
@@ -28,8 +28,8 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
 
     if (to < totalSlides) {
       dots.push(
-        <span key='ellipsis-post' className='text-white'>...</span>,
-        <span key={totalSlides - 1} className='block h-2 w-4 cursor-pointer rounded-2xl bg-white/50' onClick={() => setActiveIndex(totalSlides - 1)} />
+        <span key='ellipsis-post' className='text-primary-50'>...</span>,
+        <span key={totalSlides - 1} className='block h-2 w-4 cursor-pointer rounded-2xl bg-primary-50/50' onClick={() => setActiveIndex(totalSlides - 1)} />
       )
     }
 
