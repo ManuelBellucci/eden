@@ -1,8 +1,8 @@
 const PropertyIcon = ({ src, label, value }) => {
   return (
     <span className='px-1 flex flex-col items-center gap-2 text-xs'>
-      <img loading='lazy' src={src} className='object-contain h-6' alt={`${label} icon`} />
-      <span className='text-primary-50'>
+      <img loading='lazy' src={src} className='object-contain h-8' alt={`${label} icon`} />
+      <span className='text-primary-50 text-lg'>
         {value}
       </span>
     </span>
