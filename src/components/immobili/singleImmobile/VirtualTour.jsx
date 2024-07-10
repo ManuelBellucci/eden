@@ -49,10 +49,20 @@ const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrent
             </CSSTransition>
           </TransitionGroup>
 
-          <CallToAction className='absolute top-1/2 left-4 transform -translate-y-1/2' text='<' onClick={handlePrev} size='xl'>
+          <CallToAction
+            className='!bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50 absolute top-1/2 left-4 transform -translate-y-1/2'
+            text='<'
+            onClick={handlePrev}
+            size='xl'
+          >
             Previous
           </CallToAction>
-          <CallToAction className='absolute top-1/2 right-4 transform -translate-y-1/2' text='>' onClick={handleNext} size='xl'>
+          <CallToAction
+            className='!bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50 absolute top-1/2 right-4 transform -translate-y-1/2'
+            text='>'
+            onClick={handleNext}
+            size='xl'
+          >
             Next
           </CallToAction>
         </div>

@@ -52,7 +52,7 @@ export function PlanCarousel ({ images }) {
       prevArrow={({ handlePrev }) => (
         <button
           onClick={handlePrev}
-          className='absolute top-1/2 left-2 transform -translate-y-1/2 p-2 bg-primary-400 rounded-full text-white'
+          className='absolute top-1/2 left-2 transform -translate-y-1/2 p-2 bg-primary-500 rounded-full text-white'
         >
           &lt;
         </button>
@@ -60,7 +60,7 @@ export function PlanCarousel ({ images }) {
       nextArrow={({ handleNext }) => (
         <button
           onClick={handleNext}
-          className='absolute top-1/2 right-2 transform -translate-y-1/2 p-2 bg-primary-400 text-white rounded-full'
+          className='absolute top-1/2 right-2 transform -translate-y-1/2 p-2 bg-primary-500 text-white rounded-full'
         >
           &gt;
         </button>

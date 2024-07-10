@@ -10,9 +10,9 @@ const Tipologie = ({ tipologieData }) => {
   return (
     <div className='h-full m-14'>
       <h2 className='text-center mb-4 text-xl font-extrabold leading-none text-primary-50 md:text-2xl lg:text-4xl'>
-        Dai un'occhiata alle <span className='text-primary-400'>nostre proprietà in vendita</span>
+        Dai un'occhiata alle <span className='text-primary-500'>nostre proprietà in vendita</span>
       </h2>
-      <p className='text-center text-md md:text-lg font-normal mx-auto max-w-xl text-primary-50 lg:text-2xl mb-14'>
+      <p className='text-center text-md md:text-lg font-normal mx-auto max-w-xl text-primary-50/75 lg:text-2xl mb-14'>
         Abbiamo una vasta gamma di proprietà in vendita e in affitto, per soddisfare le esigenze di tutti i nostri clienti.
       </p>
       <div className='flex flex-col items-center xl:flex-row justify-center gap-6 mt-8'>

@@ -7,8 +7,8 @@ const Banner = ({ bgImage, title, description, buttonText, buttonLink }) => {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className='p-32 flex flex-col items-center text-center gap-6 justify-center'>
-        <h3 className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold max-w-2xl'>{title}</h3>
-        <p className='text-xl md:text-2xl lg:text-3xl'>{description}</p>
+        <h2 className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold max-w-2xl text-primary-950'>{title}</h2>
+        <p className='text-xl md:text-2xl lg:text-3xl text-primary-950'>{description}</p>
         <CallToAction
           href={buttonLink}
           text={buttonText}

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import CallToAction from "../../../commons/CallToAction"
-import MultiChoiceDropdown from "./MultiChoiceDropdown"
+import { useEffect, useState } from 'react'
+import CallToAction from '../../../commons/CallToAction'
+import MultiChoiceDropdown from './MultiChoiceDropdown'
 import axios from 'axios'
 
 const Browser = () => {
@@ -49,7 +49,7 @@ const Browser = () => {
   }
 
   return (
-    <div className="w-full">
+    <div className='w-full'>
       <div className='flex  text-xl font-bold justify-center text-white'>
         <button
           onClick={() => toggleContractType('vendita')}
@@ -96,8 +96,14 @@ const Browser = () => {
           setSelectedOptions={setSelectedFilters}
         />
 
-
-        <CallToAction text='Cercare' anchor rounded="lg" size="lg" className="w-full rounded-full" href={generateQueryParams()} />
+        <CallToAction
+          text='Cercare'
+          anchor
+          rounded='lg'
+          size='lg'
+          className='w-full rounded-full !bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
+          href={generateQueryParams()}
+        />
       </div>
     </div>
   )

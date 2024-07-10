@@ -3,12 +3,12 @@ import CallToAction from '../commons/CallToAction'
 const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
     <div className='rounded-lg bg-white/5 p-2 ring-1 ring-white/10'>
-      <div className='h-6 w-6' aria-hidden='true'>
+      <div className='h-10 w-10' aria-hidden='true'>
         <img loading='lazy' src={iconSrc} alt={`${title} icon`} />
       </div>
     </div>
-    <dt className='mt-4 font-semibold text-white'>{title}</dt>
-    <dd className='mt-2 leading-7 text-gray-400'>{description}</dd>
+    <dt className='mt-4 font-semibold text-xl text-white'>{title}</dt>
+    <dd className='mt-2 leading-7 text-xl text-primary-50/75'>{description}</dd>
   </div>
 )
 const NewsletterForm = () => {
@@ -24,12 +24,13 @@ const NewsletterForm = () => {
         autoComplete='email'
         required
         placeholder='La tua migliore email'
-        className='min-w-0 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-white/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-400 sm:text-sm sm:leading-6'
+        className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-white/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
       />
       <CallToAction
         asSubmit
         text='Iscriviti'
         rounded='md'
+        size='lg'
         className='flex-none px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 !bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
       />
     </form>
@@ -54,8 +55,8 @@ const Newsletter = () => {
       <div className='mx-auto max-w-7xl'>
         <div className='grid max-w-2xl grid-cols-1 gap-y-16 lg:max-w-none lg:grid-cols-2'>
           <div className='max-w-xl lg:max-w-lg'>
-            <h2 className='text-3xl font-bold   text-primary-50 sm:text-4xl'>Iscriviti alla Nostra Newsletter.</h2>
-            <p className='mt-4 text-lg leading-8 text-primary-50'>
+            <h2 className='font-bold text-primary-50 text-xl md:text-2xl lg:text-3xl'>Iscriviti alla Nostra Newsletter.</h2>
+            <p className='mt-4 text-lg md:text-xl lg:text-2xl leading-8 text-primary-50/75'>
               Informati sulle ultime novità e promozioni, immobili nuovi, notizie, agevolazioni e molte altre situazioni di interesse, gratuitamente. Non invieremo spam, promesso!
             </p>
             <NewsletterForm />

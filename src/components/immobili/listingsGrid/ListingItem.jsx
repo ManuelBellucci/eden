@@ -6,7 +6,7 @@ import PropertyIcons from './PropertyIcons'
 const ListingItem = ({ listing }) => {
   return (
     <div className='flex flex-col relative'>
-      {listing.tag && <Tag text={listing.tag} color='bg-primary-400/50' position='topLeft' size='lg' />}
+      {listing.tag && <Tag text={listing.tag} color='bg-primary-500/50' position='topLeft' size='lg' />}
       <SingleCarousel images={listing.images} id={listing._id} />
 
       <Link to={`/immobili/${listing._id}`}>
@@ -18,7 +18,7 @@ const ListingItem = ({ listing }) => {
           </div>
           <div className='border-t mt-2 pt-2 text-lg flex justify-between'>
             <PropertyIcons listing={listing} />
-            <span className='text-lg lg:text-2xl underline underline-offset-4 self-center font-extrabold text-primary-50'>{listing.pubPrice.toLocaleString()}€</span>
+            <span className='text-lg lg:text-2xl self-center font-extrabold text-primary-50'>{listing.pubPrice.toLocaleString()}€</span>
           </div>
         </hgroup>
       </Link>

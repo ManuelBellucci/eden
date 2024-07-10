@@ -13,13 +13,13 @@ const useDynamicClasses = (color) => {
     'text-sm',
     'leading-6',
     'text-white',
-    'hover:bg-primary-400',
+    'hover:bg-primary-500',
     'hover:text-white',
     'ring-1',
     textColor,
     ringColor,
     'ring-primary-300',
-    'hover:ring-primary-400',
+    'hover:ring-primary-500',
     'transition-all'
   ].join(' '), [textColor, ringColor])
 

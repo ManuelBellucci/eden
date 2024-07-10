@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 
 const LinkColumn = ({ title, links }) => (
   <div className='lg:mr-8 lg:pl-28'>
-    <h2 className='mb-6 text-md font-semibold text-primary-300 uppercase'>{title}</h2>
-    <ul className='text-gray-300 font-medium'>
+    <h2 className='mb-6 text-3xl font-semibold text-primary-500 uppercase'>{title}</h2>
+    <ul className='text-primary-50 text-xl font-medium'>
       {links.map((link) => (
         <li key={link.text} className='mb-4'>
           <Link to={link.href} className='hover:underline'>{link.text}</Link>

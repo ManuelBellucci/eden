@@ -82,7 +82,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
       </div>
 
       <div className='my-4 bg-gray-100 shadow-md p-6 mx-4 xl:mx-40 rounded-lg'>
-        <h1 className='text-center font-bold text-3xl lg:text-5xl'>{listing.title} </h1>
+        <h2 className='text-center font-bold text-3xl lg:text-5xl'>{listing.title} </h2>
         <p className='text-center text-md lg:text-lg font-bold text-gray-400'>{listing.address}, {listing.municipality}</p>
         <p className='text-center text-sm md:text-md break-words lg:text-lg p-8'>{listing.description}</p>
         <hr className='my-6' />

@@ -1,6 +1,6 @@
 const SocialIcon = ({ href, svgContent, label }) => (
-  <a href={href} className='text-white hover:text-primary-300 hover:scale-150 transition-all ease-in'>
-    <svg className='w-6 h-6' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox={svgContent.viewBox} dangerouslySetInnerHTML={{ __html: svgContent.path }} />
+  <a href={href} className='text-primary-50 hover:text-primary-500 hover:scale-150 transition-all ease-in'>
+    <svg className='w-8 h-8' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox={svgContent.viewBox} dangerouslySetInnerHTML={{ __html: svgContent.path }} />
     <span className='sr-only'>{label}</span>
   </a>
 )
@@ -49,8 +49,8 @@ const socialMedia = [
 const SocialMediaIcons = () => {
   return (
     <div className='flex justify-between items-center px-14 py-6 lg:py-8'>
-      <span className='text-sm text-primary-300 dark:text-primary-300 sm:text-center'>© 2024 <a href='https://flowbite.com/'>Eden srl</a>. All Rights Reserved.</span>
-      <div className='flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse'>
+      <span className='text-sm text-primary-50'>© 2024 <a href='https://edenhouse.me'>Eden srl</a>. All Rights Reserved.</span>
+      <div className='flex sm:justify-center space-x-5 rtl:space-x-reverse'>
         {socialMedia.map((media, index) => (
           <SocialIcon key={index} {...media} />
         ))}
