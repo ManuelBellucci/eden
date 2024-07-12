@@ -56,7 +56,7 @@ const Browser = () => {
           className={`px-4 py-2 rounded-t-lg w-full rounded-b-none rounded-tr-none ${contractType === 'vendita'
             ? 'bg-white text-primary-500 transition-all ease-in'
             : 'bg-primary-500 text-white transition-all ease-in'
-            }`} 
+            }`}
         >
           Vendita
         </button>

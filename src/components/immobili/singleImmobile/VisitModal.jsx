@@ -122,14 +122,14 @@ const VisitModal = ({
             <div className='flex'>
               <button
                 type='button'
-                className={`py-2 px-4 w-full border text-md  text-black rounded-lg rounded-r-none transition-all ease-in border-r-0 ${visitType === 'in-person' ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100 '}`}
+                className={`py-2 px-4 w-full border text-base  text-black rounded-lg rounded-r-none transition-all ease-in border-r-0 ${visitType === 'in-person' ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100 '}`}
                 onClick={() => setVisitType('in-person')}
               >
                 Visita fisica
               </button>
               <button
                 type='button'
-                className={`py-2 px-4 w-full border text-md  text-black rounded-lg rounded-l-none transition-all ease-in border-l-0 ${visitType === 'remote' ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100 '}`}
+                className={`py-2 px-4 w-full border text-base  text-black rounded-lg rounded-l-none transition-all ease-in border-l-0 ${visitType === 'remote' ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100 '}`}
                 onClick={() => setVisitType('remote')}
               >
                 Visita virtuale
@@ -152,7 +152,7 @@ const VisitModal = ({
                     <button
                       key={date.value}
                       type='button'
-                      className={`py-6 px-4 border text-md transition-all ease-in text-black rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100'}`}
+                      className={`py-6 px-4 border text-base transition-all ease-in text-black rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100'}`}
                       onClick={() => handleDateChange(date.value)}
                       style={{ minWidth: '30%', marginRight: '4px' }}
                     >
@@ -189,7 +189,7 @@ const VisitModal = ({
           <div className='mt-4'>
             <button
               type='submit'
-              className={`inline-flex w-full items-center justify-center px-4 py-2 text-md  text-white bg-primary-500 rounded-lg hover:bg-primary-500  focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+              className={`inline-flex w-full items-center justify-center px-4 py-2 text-base  text-white bg-primary-500 rounded-lg hover:bg-primary-500  focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
             >
               Invia richiesta
