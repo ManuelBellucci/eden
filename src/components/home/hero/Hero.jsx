@@ -20,7 +20,7 @@ const Hero = () => {
           <GradientHeading
             textOne='La realtà immobiliare'
             gradientPhrase='numero 1'
-            paragraphSizeClasses='text-lg md:text-xl lg:text-2xl text-balance'
+            paragraphSizeClasses='text-2xl text-balance'
             textTwo='per vendere, comprare e affittare casa.'
             paragraph='Con noi troverai la casa dei tuoi sogni, in pochi click. Siamo specializzati in vendite e affitti di immobili a Bologna e provincia.'
             gradientFrom='rgba(87,239,241,1) 0%'

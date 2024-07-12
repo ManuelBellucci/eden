@@ -3,13 +3,13 @@ import InfoBlock from './InfoBlock'
 const WhyWorkWithUs = ({ benefits }) => {
   return (
     <div className='m-14 mb-48 pt-24'>
-      <h2 className='text-center mb-4 text-xl font-extrabold leading-none text-primary-50 md:text-2xl lg:text-4xl'>
+      <h2 className='text-center text-balance mb-4 text-3xl font-extrabold leading-none text-primary-50 lg:text-4xl'>
         Perché siamo {' '}
         <span className='text-primary-500'>
           "la tua scelta ideale"
         </span>
       </h2>
-      <p className='text-center text-md md:text-lg font-normal mx-auto max-w-3xl text-primary-50/75 lg:text-2xl mb-14'>
+      <p className='text-center text-balance text-lg  font-normal mx-auto max-w-xl text-primary-50/75 lg:text-2xl mb-14'>
         La nostra missione è creare un ponte tra il passato e il futuro, riportando al centro della nostra attività quei valori umani che si sono persi con l'avvento delle nuove tecnologie. Eden House non è solo un'agenzia immobiliare, ma un partner di fiducia nel vostro percorso immobiliare.
       </p>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-14'>

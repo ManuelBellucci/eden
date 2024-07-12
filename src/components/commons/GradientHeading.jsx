@@ -47,8 +47,8 @@ const GradientHeading = ({
   gradientVia,
   gradientTo,
   className = '',
-  headingSizeClasses = 'text-4xl md:text-5xl lg:text-6xl',
-  paragraphSizeClasses = 'text-lg lg:text-xl'
+  headingSizeClasses = 'text-6xl text-balance',
+  paragraphSizeClasses = 'text-2xl'
 }) => {
   const headingClass = generateHeadingClass(headingSizeClasses, className)
   const gradientStyle = generateGradientStyle(gradientTo, gradientFrom, gradientVia)
