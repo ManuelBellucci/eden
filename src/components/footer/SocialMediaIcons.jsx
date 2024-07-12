@@ -1,5 +1,5 @@
 const SocialIcon = ({ href, svgContent, label }) => (
-  <a href={href} className='text-primary-50 hover:text-primary-500 hover:scale-150 transition-all ease-in'>
+  <a href={href} className='text-primary-50 hover:text-primary-500 transition-all ease-in'>
     <svg className='w-8 h-8' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox={svgContent.viewBox} dangerouslySetInnerHTML={{ __html: svgContent.path }} />
     <span className='sr-only'>{label}</span>
   </a>
@@ -25,8 +25,8 @@ const socialMedia = [
     href: '#',
     label: 'Twitter page',
     svgContent: {
-      viewBox: '0 0 20 20',
-      path: '<path fillRule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clipRule="evenodd" />'
+      viewBox: '0 0 24 24',
+      path: '<path fillRule="evenodd" d="M22.46 6.011c-.793.351-1.645.588-2.538.694.912-.546 1.613-1.41 1.946-2.444-.853.505-1.798.872-2.804 1.071a4.496 4.496 0 0 0-7.662 4.093 12.727 12.727 0 0 1-9.244-4.683 4.499 4.499 0 0 0 1.392 6.011 4.439 4.439 0 0 1-2.035-.563v.057a4.503 4.503 0 0 0 3.607 4.41c-.79.215-1.617.246-2.42.093a4.514 4.514 0 0 0 4.208 3.125A9.03 9.03 0 0 1 1.5 18.897a12.695 12.695 0 0 0 6.88 2.018c8.258 0 12.775-6.84 12.775-12.774 0-.195-.004-.39-.012-.583a9.127 9.127 0 0 0 2.247-2.32l-.022-.01Z" clipRule="evenodd" />'
     }
   },
   {
@@ -46,11 +46,12 @@ const socialMedia = [
     }
   }
 ]
+
 const SocialMediaIcons = () => {
   return (
-    <div className='flex justify-between items-center px-14 py-6 lg:py-8'>
+    <div className='flex justify-between items-center px-8 lg:px-14 py-6 lg:py-8'>
       <span className='text-sm text-primary-50'>© 2024 <a href='https://edenhouse.me'>Eden srl</a>. All Rights Reserved.</span>
-      <div className='flex sm:justify-center space-x-5 rtl:space-x-reverse'>
+      <div className='flex justify-center items-center space-x-5 rtl:space-x-reverse'>
         {socialMedia.map((media, index) => (
           <SocialIcon key={index} {...media} />
         ))}
