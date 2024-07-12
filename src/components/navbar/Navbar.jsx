@@ -22,14 +22,14 @@ const Navbar = () => {
           <CallToAction
             anchor
             href='https://www.youtube.com/'
-            text={window.innerWidth > 1250 ? 'Valuta il tuo immobile' : 'Valutare casa'}
+            text='Valutare casa'
             size='lg'
             rounded='xl'
             className='!bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
           />
           <HamburgerMenu />
         </div>
-        <div className='items-center justify-between hidden w-full xl:flex xl:w-auto xl:order-1' id='navbar-cta'>
+        <div className='items-center justify-between w-full xl:flex xl:w-auto xl:order-1' id='navbar-cta'>
           <ul className='flex flex-col items-center justify-center xl:flex-row absolute top-0 h-screen left-0 w-screen xl:w-auto xl:relative xl:h-auto p-4 bg-primary-950 text-primary-50 font-bold text-6xl xl:text-xl xl:bg-transparent rounded-lg xl:space-x-8 rtl:space-x-reverse'>
             {navItems.map(item => (
               <li key={item.path}>
