@@ -50,13 +50,13 @@ const Browser = () => {
 
   return (
     <div className='w-full'>
-      <div className='flex  text-xl font-bold justify-center text-white'>
+      <div className='flex text-xl font-bold justify-center text-white'>
         <button
           onClick={() => toggleContractType('vendita')}
           className={`px-4 py-2 rounded-t-lg w-full rounded-b-none rounded-tr-none ${contractType === 'vendita'
             ? 'bg-white text-primary-500 transition-all ease-in'
             : 'bg-primary-500 text-white transition-all ease-in'
-            }`}
+            }`} 
         >
           Vendita
         </button>
