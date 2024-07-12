@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
 const LinkColumn = ({ title, links }) => (
-  <div className='lg:mr-8 lg:pl-28'>
-    <h2 className='mb-6 text-3xl font-semibold text-primary-500 uppercase'>{title}</h2>
-    <ul className='text-primary-50 text-xl font-medium'>
+  <div className='text-center'>
+    <h2 className='mb-2 text-xl md:text-2xl font-semibold text-primary-500 uppercase'>{title}</h2>
+    <ul className='text-primary-50 text-lg mb-10 font-medium'>
       {links.map((link) => (
         <li key={link.text} className='mb-4'>
           <Link to={link.href} className='hover:underline'>{link.text}</Link>
@@ -54,7 +54,7 @@ const links = [
 
 const FooterLinks = () => {
   return (
-    <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 p-14'>
+    <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 pl-8 md:pl-0'>
       {links.map((section) => (
         <LinkColumn key={section.title} title={section.title} links={section.links} />
       ))}
