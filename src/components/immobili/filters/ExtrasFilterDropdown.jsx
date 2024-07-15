@@ -31,7 +31,7 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
-        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
+        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600 transition-all text-xl'
       >
         {getExtrasLabel()}
         <svg
@@ -52,7 +52,7 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
       </button>
 
       {isOpen && (
-        <div className='mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4'>
+        <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <div className='flex flex-col max-h-40 overflow-y-scroll space-y-2'>
             {extrasOptions.map((extra) => (
               <button
@@ -60,7 +60,7 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
                 aria-checked={selectedExtras[extra.value]}
                 role='checkbox'
                 className={`py-1 px-2 mr-2 rounded-lg text-center cursor-pointer transition-all ${selectedExtras[extra.value]
-                                    ? 'bg-primary-500 text-white'
+                                    ? 'bg-primary-500 text-primary-50'
                                     : 'bg-gray-100 text-gray-800 hover:bg-primary-100 hover:text-primary-900'
                                     }`}
                 onClick={() => toggleExtra(extra.value)}

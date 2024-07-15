@@ -50,7 +50,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
-        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
+        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600 transition-all text-xl'
       >
         {getSizeLabel()}
         <svg
@@ -71,7 +71,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
       </button>
 
       {isOpen && (
-        <div className='mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4'>
+        <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <div className='flex flex-col mb-4'>
             <label htmlFor='fromSize' className='mb-2 text-sm font-medium text-gray-900'>
               Da
@@ -109,7 +109,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
                   key={index}
                   role='option'
                   aria-selected={selectedSize.from === size || selectedSize.to === size}
-                  className='cursor-pointer mr-2 py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg'
+                  className='cursor-pointer mr-2 py-1 px-2 bg-primary-100 hover:bg-primary-200 text-primary-950  rounded-lg'
                   onClick={() => selectSize(size)}
                 >
                   {size}
@@ -119,7 +119,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
           </div>
           <button
             type='button'
-            className='w-full px-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600'
+            className='w-full px-4 py-2 text-primary-50 bg-primary-500 rounded-lg hover:bg-primary-600'
             onClick={applySizeFilter}
           >
             Applica

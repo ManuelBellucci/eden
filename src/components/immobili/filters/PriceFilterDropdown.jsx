@@ -43,7 +43,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
-        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
+        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600 transition-all text-xl'
       >
         {getPriceLabel()}
         <svg className='ml-2 w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
@@ -52,7 +52,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
       </button>
 
       {isOpen && (
-        <div className='mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4'>
+        <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <div className='flex flex-col mb-4'>
             <label htmlFor='fromPrice' className='mb-2 text-sm font-medium text-gray-900'>
               Da
@@ -90,7 +90,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
                   key={index}
                   role='option'
                   aria-selected={selectedPrice.from === price || selectedPrice.to === price}
-                  className='cursor-pointer mr-2 py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg'
+                  className='cursor-pointer mr-2 py-1 px-2 bg-primary-100 hover:bg-primary-200 text-primary-950  rounded-lg'
                   onClick={() => selectPrice(price)}
                 >
                   {price}
@@ -100,7 +100,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
           </div>
           <button
             type='button'
-            className='w-full px-4 mt-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600'
+            className='w-full px-4 mt-4 py-2 text-primary-50 bg-primary-500 rounded-lg hover:bg-primary-600'
             onClick={applyPriceFilter}
           >
             Applica

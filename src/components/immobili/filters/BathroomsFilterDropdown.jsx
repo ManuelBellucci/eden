@@ -19,7 +19,7 @@ const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelecte
         aria-expanded={isOpen}
         aria-controls='bathrooms-dropdown'
         onClick={toggle}
-        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
+        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600 transition-all text-xl'
       >
         {getBathroomsLabel()}
         <svg
@@ -40,7 +40,7 @@ const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelecte
       </button>
 
       {isOpen && (
-        <div className='mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4'>
+        <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <ul
             className='space-y-1'
             id='bathrooms-dropdown'
@@ -49,7 +49,7 @@ const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelecte
             {bathroomsOptions.map((bathrooms, index) => (
               <li
                 key={index}
-                className={`cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg ${selectedBathrooms === bathrooms ? 'bg-primary-100 text-primary-900' : ''}`}
+                className={`cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg ${selectedBathrooms === bathrooms ? 'bg-primary-100 text-primary-900' : ''}`}
                 onClick={() => selectBathrooms(bathrooms)}
                 role='menuitem'
               >

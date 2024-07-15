@@ -26,7 +26,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
-        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
+        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600 transition-all text-xl'
       >
         {getTipologyLabel()}
         <svg
@@ -47,7 +47,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
       </button>
 
       {isOpen && (
-        <div className='mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4'>
+        <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <ul className='space-y-1'>
             {tipologyOptions.map((tipology, index) => (
               <li
@@ -55,7 +55,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
                 aria-selected={selectedTipology === tipology}
                 key={index}
                 value={selectedTipology}
-                className='cursor-pointer py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg'
+                className='cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg'
                 onClick={() => selectTipology(tipology)}
               >
                 {tipology}

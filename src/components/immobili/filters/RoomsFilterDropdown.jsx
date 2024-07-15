@@ -47,7 +47,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
-        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
+        className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600 transition-all text-xl'
       >
         {getRoomsLabel()}
         <svg className='ml-2 w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
@@ -56,7 +56,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
       </button>
 
       {isOpen && (
-        <div className='mt-2 w-full bg-white border rounded-lg shadow-lg z-10 p-4'>
+        <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <div className='flex flex-col mb-4'>
             <label htmlFor='fromRooms' className='mb-2 text-sm font-medium text-gray-900'>
               Da
@@ -94,7 +94,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
                   key={index}
                   role='option'
                   aria-selected={selectedRooms.from === rooms || selectedRooms.to === rooms}
-                  className='cursor-pointer mr-2 py-1 px-2 bg-gray-100 hover:bg-primary-100 text-gray-800 hover:text-primary-900 rounded-lg'
+                  className='cursor-pointer mr-2 py-1 px-2 bg-primary-100 hover:bg-primary-200 text-primary-950  rounded-lg'
                   onClick={() => selectRooms(rooms)}
                 >
                   {rooms}
@@ -103,7 +103,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
             </ul>
           </div>
           <button
-            className='w-full px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600'
+            className='w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600'
             onClick={applyRoomsFilter}
           >
             Applica
