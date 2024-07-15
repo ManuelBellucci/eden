@@ -2,13 +2,13 @@ import CallToAction from '../commons/CallToAction'
 
 const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
-    <div className='rounded-lg bg-white/5 p-2 ring-1 ring-white/10'>
+    <div className='rounded-lg bg-primary-50/5 p-2 ring-1 ring-primary-50/10'>
       <div className='h-10 w-10' aria-hidden='true'>
         <img loading='lazy' src={iconSrc} alt={`${title} icon`} />
       </div>
     </div>
-    <dt className='mt-4 font-semibold text-xl text-white'>{title}</dt>
-    <dd className='mt-2 leading-7 text-xl text-primary-50/75'>{description}</dd>
+    <dt className='mt-4 font-semibold text-3xl text-primary-50'>{title}</dt>
+    <dd className='mt-2 leading-7 text-2xl text-primary-50/75'>{description}</dd>
   </div>
 )
 const NewsletterForm = () => {
@@ -24,7 +24,7 @@ const NewsletterForm = () => {
         autoComplete='email'
         required
         placeholder='La tua migliore email'
-        className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-white/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
+        className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
       />
       <CallToAction
         asSubmit
@@ -53,15 +53,15 @@ const Newsletter = () => {
   return (
     <div className='p-14'>
       <div className='mx-auto max-w-7xl'>
-        <div className='grid max-w-2xl grid-cols-1 gap-y-16 lg:max-w-none lg:grid-cols-2'>
-          <div className='max-w-xl lg:max-w-lg'>
+        <div className='grid max-w-2xl grid-cols-1 gap-y-16 lg:max-w-none 2xl:grid-cols-2'>
+          <div className='max-w-xl p-8 lg:max-w-lg'>
             <h2 className='font-bold text-primary-50 text-xl md:text-2xl lg:text-3xl'>Iscriviti alla Nostra Newsletter.</h2>
             <p className='mt-4 text-lg md:text-xl lg:text-2xl leading-8 text-primary-50/75'>
               Informati sulle ultime novità e promozioni, immobili nuovi, notizie, agevolazioni e molte altre situazioni di interesse, gratuitamente. Non invieremo spam, promesso!
             </p>
             <NewsletterForm />
           </div>
-          <dl className='grid grid-cols-1 gap-x-16 gap-y-10 sm:grid-cols-2 lg:pt-2'>
+          <dl className='grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2 lg:pt-2 pl-10'>
             {infoBlocks.map((block, index) => (
               <InfoBlock key={index} {...block} />
             ))}
