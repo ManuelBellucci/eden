@@ -44,10 +44,10 @@ const Filters = () => {
 
   return (
     <div className='h-full p-10 flex flex-col gap-6 justify-center items-center'>
-      <h2 className='text-3xl font-extrabold text-center text-nowrap leading-none   text-primary-50 md:text-4xl lg:text-6xl uppercase'>I nostri immobili</h2>
+      <h2 className='text-4xl font-extrabold text-center text-nowrap leading-none   text-primary-50 md:text-6xl uppercase xl:text-7xl'>I nostri immobili</h2>
       {/* Desktop Filters */}
       <button
-        className='px-4 py-2 hidden xl:block bg-red-500 text-white rounded-lg shadow hover:bg-red-600 active:bg-red-700'
+        className='px-4 py-2 hidden xl:block bg-red-500 text-primary-50 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
         onClick={cleanFilters}
       >
         Pulisci filtri
@@ -106,7 +106,7 @@ const Filters = () => {
       {/* Mobile Filters Button */}
       <div className='flex xl:hidden justify-center mb-4'>
         <button
-          className='px-4 py-2 bg-primary-500 text-white rounded-lg shadow hover:bg-primary-600 active:bg-primary-700'
+          className='px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600 active:bg-primary-700'
           onClick={toggleModal}
         >
           Filtra Annunci
@@ -116,10 +116,10 @@ const Filters = () => {
       {/* Mobile Filters Modal */}
       {isModalOpen && (
         <div className='fixed inset-0 p-4 py-14 bg-gray-800 bg-opacity-90 z-[100] flex items-center justify-center'>
-          <div className='bg-white h-full flex flex-col relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg'>
+          <div className='bg-primary-50 h-full flex flex-col relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg'>
             <div className='flex justify-between items-center mb-4'>
               <button
-                className='text-xl px-4 py-2 absolute top-5 right-5 text-white bg-red-500 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
+                className='text-xl px-4 py-2 absolute top-5 right-5 text-primary-50 bg-red-500 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
                 onClick={toggleModal}
               >
                 &times;
@@ -179,13 +179,13 @@ const Filters = () => {
             </div>
             <div className='flex gap-4'>
               <button
-                className='px-4 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600'
+                className='px-4 py-2 bg-green-500 text-primary-50 rounded-lg shadow hover:bg-green-600'
                 onClick={toggleModal}
               >
                 Applica filtri
               </button>
               <button
-                className='px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 active:bg-red-700'
+                className='px-4 py-2 bg-red-500 text-primary-50 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
                 onClick={handleCleanFilters}
               >
                 Pulisci filtri
