@@ -3,8 +3,8 @@ const ProcessStep = ({ title, description, src }) => (
     <div className='text-center'>
       <img loading='lazy' className='h-14 w-14' src={src} />
     </div>
-    <h2 className='text-lg md:text-2xl lg:text-3xl font-semibold mt-2 text-primary-50 group-hover:text-primary-500'>{title}</h2>
-    <p className='text-sm md:text-base lg:text-lg text-primary-50 mt-1'>{description}</p>
+    <h2 className='text-xl md:text-2xl lg:text-3xl font-semibold mt-2 text-primary-50 group-hover:text-primary-500'>{title}</h2>
+    <p className='text-lg md:text-xl lg:text-2xl text-primary-50 mt-1'>{description}</p>
   </div>
 )
 
