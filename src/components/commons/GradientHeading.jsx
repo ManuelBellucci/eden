@@ -7,7 +7,7 @@ import React from 'react'
  * @returns {string} - Complete class string for heading
  */
 const generateHeadingClass = (sizeClasses, additionalClasses) => {
-  return `mb-4 font-base leading-none text-primary-200 ${sizeClasses} ${additionalClasses}`
+  return `mb-4 font-base leading-none text-primary-50 ${sizeClasses} ${additionalClasses}`
 }
 
 /**
