@@ -32,7 +32,7 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
       setLoading(true)
 
       try {
-        const response = await axios.get(`http://localhost:5000/listings?${queryString}`)
+        const response = await axios.get(`https://eden-backend-p2qt7sfpg-manuelbelluccis-projects.vercel.app/listings?${queryString}`)
         if (isMounted) {
           const activeListings = response.data.listings.filter(listing => listing.active)
           setListings(activeListings)
