@@ -9,8 +9,8 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
 
     if (from > 1) {
       dots.push(
-        <span key='0' className='block h-2 w-4 cursor-pointer rounded-2xl bg-white/50' onClick={() => setActiveIndex(0)} />,
-        <span key='ellipsis-pre' className='text-white'>...</span>
+        <span key='0' className='block h-2 w-4 cursor-pointer rounded-2xl bg-primary-50/50' onClick={() => setActiveIndex(0)} />,
+        <span key='ellipsis-pre' className='text-primary-50'>...</span>
       )
     }
 
@@ -19,7 +19,7 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
       dots.push(
         <span
           key={i}
-          className={`block h-2 w-${isActive ? '8' : '4'} cursor-pointer rounded-2xl transition-all bg-white${isActive ? '' : '/50'}`}
+          className={`block h-2 w-${isActive ? '8' : '4'} cursor-pointer rounded-2xl transition-all bg-primary-50${isActive ? '' : '/50'}`}
           onClick={() => setActiveIndex(i)}
         />
       )
@@ -27,8 +27,8 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
 
     if (to < totalSlides) {
       dots.push(
-        <span key='ellipsis-post' className='text-white'>...</span>,
-        <span key={totalSlides - 1} className='block h-2 w-4 cursor-pointer rounded-2xl bg-white/50' onClick={() => setActiveIndex(totalSlides - 1)} />
+        <span key='ellipsis-post' className='text-primary-50'>...</span>,
+        <span key={totalSlides - 1} className='block h-2 w-4 cursor-pointer rounded-2xl bg-primary-50/50' onClick={() => setActiveIndex(totalSlides - 1)} />
       )
     }
 
@@ -52,7 +52,7 @@ export function PlanCarousel ({ images }) {
       prevArrow={({ handlePrev }) => (
         <button
           onClick={handlePrev}
-          className='absolute top-1/2 left-2 transform -translate-y-1/2 p-2 bg-primary-500 rounded-full text-white'
+          className='absolute top-1/2 left-2 transform -translate-y-1/2 p-2 bg-primary-500 rounded-full text-primary-50'
         >
           &lt;
         </button>
@@ -60,7 +60,7 @@ export function PlanCarousel ({ images }) {
       nextArrow={({ handleNext }) => (
         <button
           onClick={handleNext}
-          className='absolute top-1/2 right-2 transform -translate-y-1/2 p-2 bg-primary-500 text-white rounded-full'
+          className='absolute top-1/2 right-2 transform -translate-y-1/2 p-2 bg-primary-500 text-primary-50 rounded-full'
         >
           &gt;
         </button>

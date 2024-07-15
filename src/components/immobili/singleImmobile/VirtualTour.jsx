@@ -20,8 +20,8 @@ const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrent
   }
 
   return (
-    <div className='fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75'>
-      <div className='bg-white rounded-lg overflow-hidden shadow-xl transform transition-all w-full h-full flex flex-col'>
+    <div className='fixed inset-0 flex items-center justify-center z-50 bg-primary-950 bg-opacity-75'>
+      <div className='bg-primary-50 rounded-lg overflow-hidden shadow-xl transform transition-all w-full h-full flex flex-col'>
         <div className='px-4 py-3 bg-gray-100 flex justify-between items-center'>
           <button onClick={onClose} className='text-gray-400 hover:text-gray-600'>
             <svg className='h-6 w-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>

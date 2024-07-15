@@ -15,7 +15,7 @@ const ImageGallery = ({ listing }) => {
     <>
       <div className='grid gap-4 col-span-2 bg-gray-100 shadow-lg px-4 py-8 rounded-lg'>
         <div className='relative max-w-2xl mx-auto'>
-          <div className='bg-white h-full p-2 shadow-md rounded-lg'>
+          <div className='bg-primary-50 h-full p-2 shadow-md rounded-lg'>
             <img
               loading='lazy'
               className='h-full max-w-2xl mx-auto w-full rounded-lg'
@@ -24,20 +24,20 @@ const ImageGallery = ({ listing }) => {
             />
           </div>
           <span
-            className='absolute text-primary-100 font-bold hover:text-black bottom-2 right-2 p-2 m-2 lg:p-4 lg:m-4 text-xs border border-primary-300 hover:bg-primary-300 active:bg-primary-200 cursor-pointer rounded-lg transition-all ease-in'
+            className='absolute text-primary-100 font-bold hover:text-primary-950 bottom-2 right-2 p-2 m-2 lg:p-4 lg:m-4 text-xs border border-primary-300 hover:bg-primary-300 active:bg-primary-200 cursor-pointer rounded-lg transition-all ease-in'
             onClick={openModal}
           >
             Guarda {listing.images.length} foto
           </span>
           <div className='absolute top-0 left-0'>
-            <p className='text-center text-xl md:text-2xl lg:text-3xl mt-4 max-w-xl mx-auto text-gray-100 font-bold bg-black/20 p-2 md:p-3 lg:p-4 rounded-lg ms-4'>
+            <p className='text-center text-xl md:text-2xl lg:text-3xl mt-4 max-w-xl mx-auto text-gray-100 font-bold bg-primary-950/20 p-2 md:p-3 lg:p-4 rounded-lg ms-4'>
               {listing.pubPrice.toLocaleString()},00€ {listing.type === 'affitto' && '/ mese'}
             </p>
           </div>
         </div>
         <div className='grid grid-cols-3 gap-4 max-w-2xl mx-auto'>
           {listing.images.slice(1, 4).map((image, index) => (
-            <div key={index} className='bg-white p-2 shadow-md rounded-lg'>
+            <div key={index} className='bg-primary-50 p-2 shadow-md rounded-lg'>
               <img
                 loading='lazy'
                 className='h-full object-cover max-w-full w-full rounded-lg'

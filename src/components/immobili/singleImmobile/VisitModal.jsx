@@ -37,8 +37,8 @@ const VisitModal = ({
   }
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-black bg-opacity-50'>
-      <div className='bg-white rounded-lg w-full max-w-xl max-h-[calc(100%-40px)] overflow-y-auto invisible-scrollbar relative'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-primary-950 bg-opacity-50'>
+      <div className='bg-primary-50 rounded-lg w-full max-w-xl max-h-[calc(100%-40px)] overflow-y-auto invisible-scrollbar relative'>
         <div className='px-4 py-3 rounded-t-lg bg-gray-100 flex justify-between items-center'>
 
           <button onClick={onClose} className='w-full text-gray-400 hover:text-gray-600'>
@@ -122,14 +122,14 @@ const VisitModal = ({
             <div className='flex'>
               <button
                 type='button'
-                className={`py-2 px-4 w-full border text-base  text-black rounded-lg rounded-r-none transition-all ease-in border-r-0 ${visitType === 'in-person' ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100 '}`}
+                className={`py-2 px-4 w-full border text-base  text-primary-950 rounded-lg rounded-r-none transition-all ease-in border-r-0 ${visitType === 'in-person' ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100 '}`}
                 onClick={() => setVisitType('in-person')}
               >
                 Visita fisica
               </button>
               <button
                 type='button'
-                className={`py-2 px-4 w-full border text-base  text-black rounded-lg rounded-l-none transition-all ease-in border-l-0 ${visitType === 'remote' ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100 '}`}
+                className={`py-2 px-4 w-full border text-base  text-primary-950 rounded-lg rounded-l-none transition-all ease-in border-l-0 ${visitType === 'remote' ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100 '}`}
                 onClick={() => setVisitType('remote')}
               >
                 Visita virtuale
@@ -152,7 +152,7 @@ const VisitModal = ({
                     <button
                       key={date.value}
                       type='button'
-                      className={`py-6 px-4 border text-base transition-all ease-in text-black rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-500 text-white' : 'bg-white hover:bg-primary-100'}`}
+                      className={`py-6 px-4 border text-base transition-all ease-in text-primary-950 rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100'}`}
                       onClick={() => handleDateChange(date.value)}
                       style={{ minWidth: '30%', marginRight: '4px' }}
                     >
@@ -177,7 +177,7 @@ const VisitModal = ({
                 <button
                   key={time.value}
                   type='button'
-                  className={`py-2 px-4 border text-sm text-nowrap w-full transition-all ease-in text-black rounded-lg ${selectedTimes.includes(time.value) ? 'bg-primary-500 text-white transition-all ease-in' : 'bg-white hover:bg-primary-100 '}`}
+                  className={`py-2 px-4 border text-sm text-nowrap w-full transition-all ease-in text-primary-950 rounded-lg ${selectedTimes.includes(time.value) ? 'bg-primary-500 text-primary-50 transition-all ease-in' : 'bg-primary-50 hover:bg-primary-100 '}`}
                   onClick={() => handleTimeChange(time.value)}
                 >
                   {time.label}
@@ -189,7 +189,7 @@ const VisitModal = ({
           <div className='mt-4'>
             <button
               type='submit'
-              className={`inline-flex w-full items-center justify-center px-4 py-2 text-base  text-white bg-primary-500 rounded-lg hover:bg-primary-500  focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+              className={`inline-flex w-full items-center justify-center px-4 py-2 text-base  text-primary-50 bg-primary-500 rounded-lg hover:bg-primary-500  focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
             >
               Invia richiesta

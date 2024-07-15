@@ -22,7 +22,7 @@ const Tag = ({
 }) => {
   const positionClasses = positions[position] || positions.topLeft
   const sizeClasses = sizes[size] || sizes.md
-  const combinedClasses = `absolute text-white font-bold rounded-lg z-10 ${positionClasses} ${sizeClasses} ${color}`
+  const combinedClasses = `absolute text-primary-50 font-bold rounded-lg z-10 ${positionClasses} ${sizeClasses} ${color}`
 
   return (
     <div className={combinedClasses} style={style}>
