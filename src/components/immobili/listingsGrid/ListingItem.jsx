@@ -18,7 +18,7 @@ const ListingItem = ({ listing }) => {
           </div>
           <div className='border-t mt-2 pt-2 text-lg flex justify-between'>
             <PropertyIcons listing={listing} />
-            <span className='text-lg lg:text-2xl self-center font-extrabold text-primary-50'>{listing.pubPrice.toLocaleString()}€</span>
+            <span className='text-lg xl:text-xl self-center font-extrabold text-primary-50'>{listing.pubPrice.toLocaleString()}€</span>
           </div>
         </hgroup>
       </Link>

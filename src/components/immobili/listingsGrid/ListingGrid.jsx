@@ -35,7 +35,7 @@ const ListingGrid = () => {
 
   return (
     <div>
-      <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-x-8 gap-y-16 xl:grid-cols-3'>
         {loading
           ? skeletonPlaceholders.map((index) => <CardSkeleton key={index} />)
           : error
