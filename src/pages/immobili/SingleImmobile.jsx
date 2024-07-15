@@ -95,7 +95,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
         </div>
         {listing.video && (
           <div className='pt-0 pb-6 md:pt-6 px-6 md:pl-0 rounded-lg'>
-            <div className='flex justify-center h-full rounded-lg shadow-md bg-white p-4'>
+            <div className='flex justify-center h-full rounded-lg shadow-md bg-primary-50 p-4'>
               <video
                 className='rounded-lg w-full shadow-md'
                 controls
@@ -113,7 +113,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
       {/* verify virtualTour is not an empty array */}
       {listing.virtualTour.length > 0 && (
         <div className='my-4 bg-gray-100 shadow-md px-4 py-4 mx-4 xl:mx-40 rounded-lg'>
-          <button className='text-3xl font-extrabold leading-none   shadow-md bg-white p-4 w-full mx-auto rounded-lg text-primary-700 md:text-4xl lg:text-5xl uppercase' onClick={() => handleTourModalVisibility(true)}>Clicca qui per vedere il Virtual Tour</button>
+          <button className='text-3xl font-extrabold leading-none   shadow-md bg-primary-50 p-4 w-full mx-auto rounded-lg text-primary-700 md:text-4xl lg:text-5xl uppercase' onClick={() => handleTourModalVisibility(true)}>Clicca qui per vedere il Virtual Tour</button>
         </div>
       )}
       <AgencyInfoMobile
