@@ -44,7 +44,7 @@ const Filters = () => {
 
   return (
     <div className='h-full p-10 flex flex-col gap-6 justify-center items-center'>
-      <h2 className='text-3xl font-extrabold text-center text-nowrap leading-none   text-primary-700 md:text-4xl lg:text-5xl uppercase'>I nostri immobili</h2>
+      <h2 className='text-3xl font-extrabold text-center text-nowrap leading-none   text-primary-50 md:text-4xl lg:text-6xl uppercase'>I nostri immobili</h2>
       {/* Desktop Filters */}
       <button
         className='px-4 py-2 hidden xl:block bg-red-500 text-white rounded-lg shadow hover:bg-red-600 active:bg-red-700'
