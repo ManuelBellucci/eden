@@ -50,12 +50,12 @@ const Browser = () => {
 
   return (
     <div className='w-full'>
-      <div className='flex text-xl font-bold justify-center text-white'>
+      <div className='flex text-xl font-bold justify-center text-primary-50'>
         <button
           onClick={() => toggleContractType('vendita')}
           className={`px-4 py-2 rounded-t-lg w-full rounded-b-none rounded-tr-none ${contractType === 'vendita'
-            ? 'bg-white text-primary-500 transition-all ease-in'
-            : 'bg-primary-500 text-white transition-all ease-in'
+            ? 'bg-primary-50 text-primary-500 transition-all ease-in'
+            : 'bg-primary-500 text-primary-50 transition-all ease-in'
             }`}
         >
           Vendita
@@ -63,14 +63,14 @@ const Browser = () => {
         <button
           onClick={() => toggleContractType('affitto')}
           className={`px-4 py-2 rounded-t-lg w-full rounded-b-none rounded-tl-none ${contractType === 'affitto'
-            ? 'bg-white text-primary-500 transition-all ease-in'
-            : 'bg-primary-500 text-white transition-all ease-in'
+            ? 'bg-primary-50 text-primary-500 transition-all ease-in'
+            : 'bg-primary-500 text-primary-50 transition-all ease-in'
             }`}
         >
           Affitto
         </button>
       </div>
-      <div className='h-full w-full flex flex-col md:flex-row gap-4 rounded-lg rounded-t-none md:rounded-t-none bg-white py-4 px-4'>
+      <div className='h-full w-full flex flex-col md:flex-row gap-4 rounded-lg rounded-t-none md:rounded-t-none bg-primary-50 py-4 px-4'>
         <MultiChoiceDropdown
           label='Zona (disponibili)'
           className='w-full'
