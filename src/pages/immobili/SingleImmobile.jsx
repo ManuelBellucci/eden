@@ -81,15 +81,15 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
         />
       </div>
 
-      <div className='my-4 bg-primary-100/75 shadow-md p-6 mx-4 xl:mx-40 rounded-lg'>
+      <div className='my-4 bg-primary-100 shadow-md p-6 mx-4 xl:mx-40 rounded-lg'>
         <h2 className='text-center font-bold text-3xl lg:text-5xl'>{listing.title} </h2>
-        <p className='text-center text-base lg:text-lg font-bold text-gray-400'>{listing.address}, {listing.municipality}</p>
+        <p className='text-center text-base lg:text-lg font-bold text-primary-950'>{listing.address}, {listing.municipality}</p>
         <p className='text-center text-sm md:text-base break-words lg:text-lg p-8'>{listing.description}</p>
         <hr className='my-6' />
         <ListingDetails listing={listing} />
       </div>
 
-      <div className={`my-4 rounded-lg ${listing.video ? 'grid grid-cols-1 md:grid-cols-2' : 'flex justify-center'} gap-0 md:gap-4 mx-4 xl:mx-40 bg-primary-100/75 shadow-md`}>
+      <div className={`my-4 rounded-lg ${listing.video ? 'grid grid-cols-1 md:grid-cols-2' : 'flex justify-center'} gap-0 md:gap-4 mx-4 xl:mx-40 bg-primary-100 shadow-md`}>
         <div className={`${listing.video ? '' : 'w-full flex justify-center'}`}>
           {listing.plan.length >= 1 && <Plan listing={listing} />}
         </div>
@@ -112,7 +112,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
       </div>
       {/* verify virtualTour is not an empty array */}
       {listing.virtualTour.length > 0 && (
-        <div className='my-4 bg-primary-100/75 shadow-md px-4 py-4 mx-4 xl:mx-40 rounded-lg'>
+        <div className='my-4 bg-primary-100 shadow-md px-4 py-4 mx-4 xl:mx-40 rounded-lg'>
           <button className='text-3xl font-extrabold leading-none   shadow-md bg-primary-50 p-4 w-full mx-auto rounded-lg text-primary-700 md:text-4xl lg:text-5xl uppercase' onClick={() => handleTourModalVisibility(true)}>Clicca qui per vedere il Virtual Tour</button>
         </div>
       )}
