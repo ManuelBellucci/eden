@@ -26,7 +26,7 @@ const Featured = () => {
       <h2 className='text-center mb-20 text-xl font-extrabold leading-none text-primary-50 md:text-2xl lg:text-4xl'>
         Le proposte del mese: <span className='text-primary-500'>in vendita</span>
       </h2>
-      <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-x-8 gap-y-16 xl:grid-cols-3'>
         {featured.map(listing => (
           <ListingItem key={listing._id} listing={listing} />
         ))}

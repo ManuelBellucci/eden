@@ -12,7 +12,7 @@ const Browser = () => {
 
   const fetchMunicipalities = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/municipalities')
+      const response = await axios.get('https://eden-backend.vercel.app/municipalities')
       setMunicipalities(response.data)
     } catch (error) {
       console.error(error)

@@ -38,7 +38,7 @@ const Home = () => {
       <Banner
         bgImage='/banner.jpg'
         title='Scopri la casa dove amerai vivere.'
-        description='Lorem ipsum dolor sit amet.'
+        description='Non aspettare, il tuo futuro inizia oggi.'
         buttonText='Vedi le proprietà'
         buttonLink='/immobili'
       />
