@@ -8,7 +8,7 @@ const Alert = ({ type, children, extraClassNames }) => {
     danger: 'text-red-800 bg-red-50',
     success: 'text-green-800 bg-green-50',
     warning: 'text-yellow-800 bg-yellow-50',
-    dark: 'text-gray-800 bg-gray-50'
+    dark: 'text-gray-800 bg-primary-50/75'
   }
 
   return (
