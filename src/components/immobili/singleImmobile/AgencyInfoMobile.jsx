@@ -1,9 +1,9 @@
 const AgencyInfoMobile = ({ isMobile, userName, setUserName, userSurname, setUserSurname, userPhone, setUserPhone, userEmail, setUserEmail, isFormFilled, listing, setIsModalVisible }) => {
   return (
-    <div className='2xl:hidden flex w-full h-full items-center justify-center col-span-2 bg-primary-100/75 px-4 py-6 mt-10 rounded-t-[200px]'>
+    <div className='2xl:hidden flex w-full h-full items-center justify-center col-span-2 bg-primary-100 px-4 py-6 mt-10 rounded-t-[200px]'>
       <div className='flex flex-col items-center pb-10'>
         <img loading='lazy' className='w-24 h-24 mb-3 rounded-full bg-gradient-to-t from-primary-50 to-transparent shadow-lg' src='/logo.webp' alt='logo' />
-        <h5 className='mb-1 text-xl font-medium text-primary-950 dark:text-primary-50'>Eden House</h5>
+        <h5 className='mb-1 text-xl font-medium text-primary-950'>Eden House</h5>
         <span className='text-sm text-gray-500'>Via Saragozza 112/O, Bologna (BO)</span>
         <span className='text-sm text-gray-500 font-bold'>051 541 541</span>
         <form className='mt-10'>
