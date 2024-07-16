@@ -16,8 +16,9 @@ const WhyWorkWithUs = ({ benefits }) => {
         <div className='md:flex md:items-center'>
           <img loading='lazy' src='/whyworkwithus.jpg' alt='Professional gentleman' className='w-full rounded-lg object-cover h-96 object-top' />
         </div>
-        <div className='flex flex-col gap-10 justify-center'>
-          <h3 className='text-3xl font-bold max-w-lg text-primary-50'>La nostra identità</h3>
+        <div className='flex flex-col gap-6 justify-center'>
+          <h3 className='text-3xl lg:text-4xl font-bold max-w-lg text-primary-50'>La nostra identità
+          </h3>
           <p className='text-xl max-w-2xl text-primary-50/75'>Eden House si distingue per la sua dedizione a pochi, ma fondamentali, principi: professionalità, educazione e rispetto per il cliente. Crediamo che la base di ogni relazione di successo sia la fiducia, il rispetto reciproco, e ci impegnamo a costruire legami duraturi con ogni cliente.</p>
           <div className='grid grid-cols-2 gap-8'>
             {benefits.map((benefit, index) => (

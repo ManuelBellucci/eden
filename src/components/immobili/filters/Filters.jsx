@@ -115,7 +115,7 @@ const Filters = () => {
 
       {/* Mobile Filters Modal */}
       {isModalOpen && (
-        <div className='fixed inset-0 p-4 py-14 bg-gray-800 bg-opacity-90 z-[100] flex items-center justify-center'>
+        <div className='fixed inset-0 p-4 py-14 bg-primary-800 bg-opacity-90 z-[100] flex items-center justify-center'>
           <div className='bg-primary-50 h-full flex flex-col relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg'>
             <div className='flex justify-between items-center mb-4'>
               <button
