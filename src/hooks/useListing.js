@@ -9,7 +9,7 @@ const useListing = (id) => {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/listings/${id}`)
+        const response = await axios.get(`https://eden-backend.vercel.app/listings/${id}`)
         setListing(response.data)
       } catch (error) {
         setError(error)
