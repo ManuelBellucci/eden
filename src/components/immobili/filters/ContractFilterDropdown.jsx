@@ -46,7 +46,7 @@ const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedC
                 aria-selected={selectedContract === contract}
                 key={index}
                 onClick={() => selectContract(contract)}
-                className='cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg'
+                className='cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg text-lg'
               >
                 {contract}
               </li>

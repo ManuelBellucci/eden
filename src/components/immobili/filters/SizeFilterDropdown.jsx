@@ -73,7 +73,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
       {isOpen && (
         <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <div className='flex flex-col mb-4'>
-            <label htmlFor='fromSize' className='mb-2 text-sm font-medium text-gray-900'>
+            <label htmlFor='fromSize' className='mb-2 text-sm font-medium text-primary-950'>
               Da
             </label>
             <input
@@ -88,7 +88,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
             />
           </div>
           <div className='flex flex-col mb-4'>
-            <label htmlFor='toSize' className='mb-2 text-sm font-medium text-gray-900'>
+            <label htmlFor='toSize' className='mb-2 text-sm font-medium text-primary-950'>
               Fino a
             </label>
             <input

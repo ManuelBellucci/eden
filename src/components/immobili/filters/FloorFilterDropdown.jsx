@@ -49,7 +49,7 @@ const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }
                   role='option'
                   aria-selected={selectedFloor === floor}
                   onClick={() => selectFloor(floor)}
-                  className={`cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg ${selectedFloor === floor ? 'bg-primary-100 text-primary-900' : ''}`}
+                  className={`cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg text-lg ${selectedFloor === floor ? 'bg-primary-100 text-primary-900' : ''}`}
                 >
                   {floor}
                 </li>

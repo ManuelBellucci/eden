@@ -59,9 +59,9 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
                 key={extra.value}
                 aria-checked={selectedExtras[extra.value]}
                 role='checkbox'
-                className={`py-1 px-2 mr-2 rounded-lg text-center cursor-pointer transition-all ${selectedExtras[extra.value]
+                className={`py-1 px-2 mr-2 text-lg rounded-lg text-center cursor-pointer transition-all ${selectedExtras[extra.value]
                                     ? 'bg-primary-500 text-primary-50'
-                                    : 'bg-gray-100 text-gray-800 hover:bg-primary-100 hover:text-primary-900'
+                                    : 'text-primary-950 bg-primary-100/75 hover:bg-primary-200'
                                     }`}
                 onClick={() => toggleExtra(extra.value)}
               >

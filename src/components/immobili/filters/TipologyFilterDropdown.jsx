@@ -55,7 +55,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
                 aria-selected={selectedTipology === tipology}
                 key={index}
                 value={selectedTipology}
-                className='cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg'
+                className='cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg text-lg'
                 onClick={() => selectTipology(tipology)}
               >
                 {tipology}

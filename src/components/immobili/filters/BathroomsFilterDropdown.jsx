@@ -49,7 +49,7 @@ const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelecte
             {bathroomsOptions.map((bathrooms, index) => (
               <li
                 key={index}
-                className={`cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg ${selectedBathrooms === bathrooms ? 'bg-primary-100 text-primary-900' : ''}`}
+                className={`cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg text-lg ${selectedBathrooms === bathrooms ? 'bg-primary-100 text-primary-900' : ''}`}
                 onClick={() => selectBathrooms(bathrooms)}
                 role='menuitem'
               >

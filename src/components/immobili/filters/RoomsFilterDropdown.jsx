@@ -58,7 +58,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
       {isOpen && (
         <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <div className='flex flex-col mb-4'>
-            <label htmlFor='fromRooms' className='mb-2 text-sm font-medium text-gray-900'>
+            <label htmlFor='fromRooms' className='mb-2 text-sm font-medium text-primary-950'>
               Da
             </label>
             <input
@@ -73,7 +73,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
             />
           </div>
           <div className='flex flex-col mb-4'>
-            <label htmlFor='toRooms' className='mb-2 text-sm font-medium text-gray-900'>
+            <label htmlFor='toRooms' className='mb-2 text-sm font-medium text-primary-950'>
               Fino a
             </label>
             <input

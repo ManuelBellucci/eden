@@ -59,7 +59,7 @@ const MultiChoiceDropdown = ({
               onClick={() => handleSelectionChange(option)}
               className={`px-4 py-2 m-1 rounded-lg w-full ${selectedOptions.includes(option)
                                     ? 'bg-primary-500 text-primary-50'
-                                    : 'bg-gray-200 text-primary-950'
+                                    : 'bg-primary-50/75 text-primary-950'
                                 }`}
             >
               {option}

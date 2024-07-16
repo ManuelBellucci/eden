@@ -54,7 +54,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
       {isOpen && (
         <div className='mt-2 w-full bg-primary-50 border rounded-lg shadow-lg z-10 p-4'>
           <div className='flex flex-col mb-4'>
-            <label htmlFor='fromPrice' className='mb-2 text-sm font-medium text-gray-900'>
+            <label htmlFor='fromPrice' className='mb-2 text-sm font-medium text-primary-950'>
               Da
             </label>
             <input
@@ -69,7 +69,7 @@ const PriceFilterDropdown = ({ isOpen, toggle, selectedPrice, setSelectedPrice }
             />
           </div>
           <div className='flex flex-col mb-4'>
-            <label htmlFor='toPrice' className='mb-2 text-sm font-medium text-gray-900'>
+            <label htmlFor='toPrice' className='mb-2 text-sm font-medium text-primary-950'>
               Fino a
             </label>
             <input
