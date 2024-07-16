@@ -39,7 +39,7 @@ const VisitModal = ({
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-primary-950 bg-opacity-50'>
       <div className='bg-primary-50 rounded-lg w-full max-w-xl max-h-[calc(100%-40px)] overflow-y-auto invisible-scrollbar relative'>
-        <div className='px-4 py-3 rounded-t-lg bg-gray-100 flex justify-between items-center'>
+        <div className='px-4 py-3 rounded-t-lg bg-primary-100/75 flex justify-between items-center'>
 
           <button onClick={onClose} className='w-full text-gray-400 hover:text-gray-600'>
             <svg className='h-6 w-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>

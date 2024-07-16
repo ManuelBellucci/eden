@@ -13,7 +13,7 @@ const ImageGallery = ({ listing }) => {
 
   return (
     <>
-      <div className='grid gap-4 col-span-2 bg-gray-100 shadow-lg px-4 py-8 rounded-lg'>
+      <div className='grid gap-4 col-span-2 bg-primary-100/75 shadow-lg px-4 py-8 rounded-lg'>
         <div className='relative max-w-2xl mx-auto'>
           <div className='bg-primary-50 h-full p-2 shadow-md rounded-lg'>
             <img
