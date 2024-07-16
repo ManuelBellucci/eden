@@ -310,9 +310,9 @@ const ListingDetails = ({ listing }) => {
         <div className='flex justify-center'>
           <div className='flex flex-wrap gap-2 mr-auto max-w-sm'>
             {extraFeatures.map((feature, index) => (
-              feature.value && <span key={index} className='px-3 py-1 border rounded-lg bg-gray-100'>{feature.label}</span>
+              feature.value && <span key={index} className='px-3 py-1 border rounded-lg bg-primary-100/75'>{feature.label}</span>
             ))}
-            {exposureTag && <span className='px-3 py-1 border rounded-lg bg-gray-100'>{exposureTag}</span>}
+            {exposureTag && <span className='px-3 py-1 border rounded-lg bg-primary-100/75'>{exposureTag}</span>}
           </div>
         </div>
       </div>

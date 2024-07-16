@@ -39,12 +39,12 @@ const ListingGrid = () => {
         {loading
           ? skeletonPlaceholders.map((index) => <CardSkeleton key={index} />)
           : error
-            ? <p className='text-center text-red-500'>Error loading listings</p>
+            ? <p className='text-center text-3xl text-red-500 col-span-3'>Errore nel caricamento degli immobili. Riprova più tardi o segnala l'errore all'Ufficio.</p>
             : immobili.length > 0
               ? immobili.map((listing) =>
                 <ListingItem key={listing._id} listing={listing} />
               )
-              : <p className='text-center text-gray-500'>Nessun immobile trovato, iscriviti alla Nostra Newsletter.</p>}
+              : <p className='text-center text-3xl text-primary-50 col-span-3'>Nessun immobile trovato, prova con un altra ricerca o iscriviti alla Nostra Newsletter per rimanere aggiornato.</p>}
       </div>
       {totalPages > 1 && (
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
