@@ -61,7 +61,7 @@ const Newsletter = () => {
             </p>
             <NewsletterForm />
           </div>
-          <dl className='grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2 lg:pt-2 pl-10'>
+          <dl className='grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2 lg:pt-2'>
             {infoBlocks.map((block, index) => (
               <InfoBlock key={index} {...block} />
             ))}
