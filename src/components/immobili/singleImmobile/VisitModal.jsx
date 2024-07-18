@@ -50,7 +50,7 @@ const VisitModal = ({
         <form className='px-10 pb-10'>
           <InfoAlert bold='Questa non è una prenotazione:' text="le tue disponibilità saranno inviate all'Agenzia che si occuperà di ricontattarti." extraClassNames='mb-8 mt-4' />
 
-          <div className='flex gap-2'>
+          <div className='flex gap-2' id='autocomplete-input-mobile'>
             <div className='relative w-full'>
               <input
                 className='rounded-lg focus:ring-0 border-0 border-b-2 border-b-primary-300 p-2 w-full peer h-full bg-transparent text-primary-700 font-sans font-normal outline outline-0 focus:outline-0 transition-all text-sm px-3 py-2.5'
@@ -83,7 +83,7 @@ const VisitModal = ({
             </div>
           </div>
 
-          <div className='flex gap-2 mt-2'>
+          <div className='flex gap-2 mt-2' id='autocomplete-input-mobile'>
             <div className='relative w-full'>
               <input
                 className='rounded-lg focus:ring-0 border-0 border-b-2 border-b-primary-300 p-2 w-full peer h-full bg-transparent text-primary-700 font-sans font-normal outline outline-0 focus:outline-0 transition-all text-sm px-3 py-2.5'

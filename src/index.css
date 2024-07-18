@@ -5,7 +5,7 @@
 @font-face {
   font-family: 'CatchyMager';
   src: url('/src/assets/fonts/CatchyMagerRegular.woff') format('woff'),
-       url('/src/assets/fonts/CatchyMagerRegular.woff2') format('woff2');
+    url('/src/assets/fonts/CatchyMagerRegular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,58 +14,107 @@
   font-family: 'CatchyMager', sans-serif;
 }
 
+#autocomplete-input-mobile {
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active { 
+    -webkit-box-shadow: 0 0 0px 1000px #effefd inset !important;
+    /* Cambia #effefd con il colore di sfondo desiderato */
+    box-shadow: 0 0 0px 1000px #effefd inset !important;
+    /* Cambia #effefd con il colore di sfondo desiderato */
+    background-clip: content-box !important;
+    -webkit-text-fill-color: #002c33 !important;
+    /* Cambia #FFFFFF con il colore del testo desiderato */
+    transition: background-color 5000s ease-in-out 0s !important;
+  }
+
+  /* Per i browser che non supportano -webkit-autofill */
+  input:-moz-autofill {
+    box-shadow: 0 0 0px 1000px #effefd inset !important;
+    /* Cambia #effefd con il colore di sfondo desiderato */
+    background-clip: content-box !important;
+    -webkit-text-fill-color: #002c33 !important;
+    /* Cambia #FFFFFF con il colore del testo desiderato */
+    transition: background-color 5000s ease-in-out 0s !important;
+  }
+
+  input:-o-autofill {
+    box-shadow: 0 0 0px 1000px #effefd inset !important;
+    /* Cambia #effefd con il colore di sfondo desiderato */
+    background-clip: content-box !important;
+    -webkit-text-fill-color: #002c33 !important;
+    /* Cambia #FFFFFF con il colore del testo desiderato */
+    transition: background-color 5000s ease-in-out 0s !important;
+  }
+}
+
 /* Stili per l'auto completamento */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #0d4e54 inset !important; /* Cambia #0d4e54 con il colore di sfondo desiderato */
-  box-shadow: 0 0 0px 1000px #0d4e54 inset !important; /* Cambia #0d4e54 con il colore di sfondo desiderato */
+  -webkit-box-shadow: 0 0 0px 1000px #0d4e54 inset !important;
+  /* Cambia #0d4e54 con il colore di sfondo desiderato */
+  box-shadow: 0 0 0px 1000px #0d4e54 inset !important;
+  /* Cambia #0d4e54 con il colore di sfondo desiderato */
   background-clip: content-box !important;
-  -webkit-text-fill-color: #FFFFFF !important; /* Cambia #FFFFFF con il colore del testo desiderato */
+  -webkit-text-fill-color: #FFFFFF !important;
+  /* Cambia #FFFFFF con il colore del testo desiderato */
   transition: background-color 5000s ease-in-out 0s !important;
 }
 
 /* Per i browser che non supportano -webkit-autofill */
 input:-moz-autofill {
-  box-shadow: 0 0 0px 1000px #0d4e54 inset !important; /* Cambia #0d4e54 con il colore di sfondo desiderato */
+  box-shadow: 0 0 0px 1000px #0d4e54 inset !important;
+  /* Cambia #0d4e54 con il colore di sfondo desiderato */
   background-clip: content-box !important;
-  -webkit-text-fill-color: #FFFFFF !important; /* Cambia #FFFFFF con il colore del testo desiderato */
+  -webkit-text-fill-color: #FFFFFF !important;
+  /* Cambia #FFFFFF con il colore del testo desiderato */
   transition: background-color 5000s ease-in-out 0s !important;
 }
 
 input:-o-autofill {
-  box-shadow: 0 0 0px 1000px #0d4e54 inset !important; /* Cambia #0d4e54 con il colore di sfondo desiderato */
+  box-shadow: 0 0 0px 1000px #0d4e54 inset !important;
+  /* Cambia #0d4e54 con il colore di sfondo desiderato */
   background-clip: content-box !important;
-  -webkit-text-fill-color: #FFFFFF !important; /* Cambia #FFFFFF con il colore del testo desiderato */
+  -webkit-text-fill-color: #FFFFFF !important;
+  /* Cambia #FFFFFF con il colore del testo desiderato */
   transition: background-color 5000s ease-in-out 0s !important;
 }
-.fade-enter {
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 500ms;
-  }
-  .fade-exit {
-    opacity: 1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 500ms;
-  }
 
-  .invisible-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .invisible-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+.fade-enter {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.invisible-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
