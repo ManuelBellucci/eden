@@ -1,5 +1,8 @@
 import React, { useRef, useState } from 'react'
+import axios from 'axios'
 import { InfoAlert } from '../../commons/Alerts'
+import validateEmail from '../../../helpers/validateEmail'
+import { sendEmail } from '../../../helpers/sendEmail'
 
 const VisitModal = ({
   isVisible,
@@ -23,6 +26,7 @@ const VisitModal = ({
   isFormFilled
 }) => {
   const [startIndex, setStartIndex] = useState(0)
+  const [message, setMessage] = useState('')
   const visibleDatesCount = 4
   const datesContainerRef = useRef(null)
 
@@ -36,18 +40,59 @@ const VisitModal = ({
     setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0))
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!validateEmail(userEmail)) {
+      setMessage('Inserisci un indirizzo email valido.')
+      return
+    }
+
+    const templateParams = {
+      nome: userName,
+      cognome: userSurname,
+      telefono: userPhone,
+      email: userEmail,
+      visita: visitType,
+      disponibilita: selectedDates.join(', '),
+      fasceOrarie: selectedTimes.join(', ')
+    }
+
+    try {
+      await sendEmail(templateParams)
+      onClose()
+    } catch (error) {
+      console.error('Error sending email:', error)
+    }
+
+    try {
+      const payload = {
+        nome: userName,
+        cognome: userSurname,
+        telefono: userPhone,
+        email: userEmail,
+        visita: visitType,
+        disponibilita: selectedDates,
+        fasceOrarie: selectedTimes
+      }
+      await axios.post('http://localhost:5000/richieste-visite', payload)
+      setMessage('Richiesta inviata con successo!')
+    } catch (error) {
+      console.error('Errore durante l\'invio della richiesta: ', error)
+      setMessage('Errore durante l\'invio della richiesta. Riprova più tardi.')
+    }
+  }
+
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-primary-950 bg-opacity-50'>
       <div className='bg-primary-50 rounded-lg w-full max-w-xl max-h-[calc(100%-40px)] overflow-y-auto invisible-scrollbar relative'>
         <div className='px-4 py-3 rounded-t-lg bg-primary-100/75 flex justify-between items-center'>
-
           <button onClick={onClose} className='w-full text-gray-400 hover:text-gray-600'>
             <svg className='h-6 w-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
             </svg>
           </button>
         </div>
-        <form className='px-10 pb-10'>
+        <form className='px-10 pb-10' onSubmit={handleSubmit}>
           <InfoAlert bold='Questa non è una prenotazione:' text="le tue disponibilità saranno inviate all'Agenzia che si occuperà di ricontattarti." extraClassNames='mb-8 mt-4' />
 
           <div className='flex gap-2' id='autocomplete-input-mobile'>
@@ -194,8 +239,8 @@ const VisitModal = ({
             >
               Invia richiesta
             </button>
+            {message && <p className='mt-2 text-primary-950'>{message}</p>}
           </div>
-
         </form>
       </div>
     </div>
