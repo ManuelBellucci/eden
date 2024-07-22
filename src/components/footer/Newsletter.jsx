@@ -17,6 +17,8 @@ const InfoBlock = ({ iconSrc, title, description }) => (
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [surname, setSurname] = useState('')
   const [message, setMessage] = useState('')
 
   const handleSubmit = async (e) => {
@@ -27,7 +29,11 @@ const NewsletterForm = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/iscrizione-newsletter', { email })
+      await axios.post('http://localhost:5000/iscrizione-newsletter', {
+        email,
+        name,
+        surname
+      })
       setMessage('Iscrizione avvenuta con successo!')
       setEmail('')
     } catch (error) {
@@ -38,20 +44,52 @@ const NewsletterForm = () => {
 
   return (
     <form className='mt-6 flex max-w-md gap-x-4' onSubmit={handleSubmit}>
-      <label htmlFor='email-address' className='sr-only'>
-        Email
-      </label>
-      <input
-        id='email-address'
-        name='email'
-        type='email'
-        autoComplete='email'
-        required
-        placeholder='La tua migliore email'
-        className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+      {/* nome e cognome */}
+      <div className='flex flex-col gap-y-2 w-full'>
+        <label htmlFor='name' className='sr-only'>
+          Nome
+        </label>
+        <input
+          id='name'
+          name='name'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          type='text'
+          autoComplete='name'
+          required
+          placeholder='Il tuo nome'
+          className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
+        />
+        <label htmlFor='surname' className='sr-only'>
+          Cognome
+        </label>
+        <input
+          id='surname'
+          name='surname'
+          value={surname}
+          onChange={(e) => setSurname(e.target.value)}
+          type='text'
+          autoComplete='family-name'
+          required
+          placeholder='Il tuo cognome'
+          className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
+        />
+
+        <label htmlFor='email-address' className='sr-only'>
+          Email
+        </label>
+        <input
+          id='email-address'
+          name='email'
+          type='email'
+          autoComplete='email'
+          required
+          placeholder='La tua migliore email'
+          className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
       <CallToAction
         asSubmit
         text='Iscriviti'
