@@ -17,8 +17,8 @@ const InfoBlock = ({ iconSrc, title, description }) => (
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [surname, setSurname] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [message, setMessage] = useState('')
 
   const handleSubmit = async (e) => {
@@ -31,8 +31,8 @@ const NewsletterForm = () => {
     try {
       await axios.post('http://localhost:5000/iscrizione-newsletter', {
         email,
-        name,
-        surname
+        firstName,
+        lastName
       })
       setMessage('Iscrizione avvenuta con successo!')
       setEmail('')
@@ -50,29 +50,29 @@ const NewsletterForm = () => {
           Nome
         </label>
         <input
-          id='name'
-          name='name'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          id='firstName'
+          name='firstName'
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
           type='text'
           autoComplete='name'
           required
           placeholder='Il tuo nome'
-          className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
+          className='min-w-0 h-10 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
         />
         <label htmlFor='surname' className='sr-only'>
           Cognome
         </label>
         <input
-          id='surname'
-          name='surname'
-          value={surname}
-          onChange={(e) => setSurname(e.target.value)}
+          id='lastName'
+          name='lastName'
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
           type='text'
           autoComplete='family-name'
           required
           placeholder='Il tuo cognome'
-          className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
+          className='min-w-0 h-10 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
         />
 
         <label htmlFor='email-address' className='sr-only'>
@@ -85,7 +85,7 @@ const NewsletterForm = () => {
           autoComplete='email'
           required
           placeholder='La tua migliore email'
-          className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
+          className='min-w-0 h-10 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
