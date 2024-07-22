@@ -36,6 +36,8 @@ const NewsletterForm = () => {
       })
       setMessage('Iscrizione avvenuta con successo!')
       setEmail('')
+      setFirstName('')
+      setLastName('')
     } catch (error) {
       console.error('Errore durante l\'iscrizione alla newsletter:', error)
       setMessage('Errore durante l\'iscrizione. Riprova più tardi.')
@@ -44,11 +46,8 @@ const NewsletterForm = () => {
 
   return (
     <form className='mt-6 flex max-w-md gap-x-4' onSubmit={handleSubmit}>
-      {/* nome e cognome */}
       <div className='flex flex-col gap-y-2 w-full'>
-        <label htmlFor='name' className='sr-only'>
-          Nome
-        </label>
+        <label htmlFor='firstName' className='sr-only'>Nome</label>
         <input
           id='firstName'
           name='firstName'
@@ -60,9 +59,7 @@ const NewsletterForm = () => {
           placeholder='Il tuo nome'
           className='min-w-0 h-10 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
         />
-        <label htmlFor='surname' className='sr-only'>
-          Cognome
-        </label>
+        <label htmlFor='lastName' className='sr-only'>Cognome</label>
         <input
           id='lastName'
           name='lastName'
@@ -75,9 +72,7 @@ const NewsletterForm = () => {
           className='min-w-0 h-10 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
         />
 
-        <label htmlFor='email-address' className='sr-only'>
-          Email
-        </label>
+        <label htmlFor='email-address' className='sr-only'>Email</label>
         <input
           id='email-address'
           name='email'
