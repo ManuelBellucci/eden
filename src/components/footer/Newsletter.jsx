@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import CallToAction from '../commons/CallToAction'
+import validateEmail from '../../helpers/validateEmail'
 
 const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
@@ -18,17 +19,19 @@ const NewsletterForm = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  const handleChange = (e) => {
-    setEmail(e.target.value)
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!validateEmail(email)) {
+      setMessage('Inserisci un indirizzo email valido.')
+      return
+    }
+
     try {
       await axios.post('http://localhost:5000/iscrizione-newsletter', { email })
       setMessage('Iscrizione avvenuta con successo!')
+      setEmail('')
     } catch (error) {
-      console.error('Errore durante l\'iscrizione: ', error)
+      console.error('Errore durante l\'iscrizione alla newsletter:', error)
       setMessage('Errore durante l\'iscrizione. Riprova più tardi.')
     }
   }
@@ -47,7 +50,7 @@ const NewsletterForm = () => {
         placeholder='La tua migliore email'
         className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
         value={email}
-        onChange={handleChange}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <CallToAction
         asSubmit
