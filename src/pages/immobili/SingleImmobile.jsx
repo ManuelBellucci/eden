@@ -20,7 +20,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
   const [userSurname, setUserSurname] = useState('')
   const [userPhone, setUserPhone] = useState('')
   const [userEmail, setUserEmail] = useState('')
-  const [visitType, setVisitType] = useState('in-person')
+  const [visitType, setVisitType] = useState('visita fisica')
   const [selectedDates, setSelectedDates] = useState([])
   const [selectedTimes, setSelectedTimes] = useState([])
 

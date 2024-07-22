@@ -3,6 +3,7 @@ import axios from 'axios'
 import { InfoAlert } from '../../commons/Alerts'
 import validateEmail from '../../../helpers/validateEmail'
 import { sendEmail } from '../../../helpers/sendEmail'
+import { useParams } from 'react-router-dom'
 
 const VisitModal = ({
   isVisible,
@@ -30,6 +31,8 @@ const VisitModal = ({
   const visibleDatesCount = 4
   const datesContainerRef = useRef(null)
 
+  const { id } = useParams()
+
   if (!isVisible) return null
 
   const handleNext = () => {
@@ -54,7 +57,8 @@ const VisitModal = ({
       email: userEmail,
       visita: visitType,
       disponibilita: selectedDates.join(', '),
-      fasceOrarie: selectedTimes.join(', ')
+      fasceOrarie: selectedTimes.join(', '),
+      id
     }
 
     try {
@@ -72,7 +76,8 @@ const VisitModal = ({
         email: userEmail,
         visita: visitType,
         disponibilita: selectedDates,
-        fasceOrarie: selectedTimes
+        fasceOrarie: selectedTimes,
+        id
       }
       await axios.post('http://localhost:5000/richieste-visite', payload)
       setMessage('Richiesta inviata con successo!')
@@ -167,15 +172,15 @@ const VisitModal = ({
             <div className='flex'>
               <button
                 type='button'
-                className={`py-2 px-4 w-full border text-base  text-primary-950 rounded-lg rounded-r-none transition-all ease-in border-r-0 ${visitType === 'in-person' ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100 '}`}
-                onClick={() => setVisitType('in-person')}
+                className={`py-2 px-4 w-full border text-base  text-primary-950 rounded-lg rounded-r-none transition-all ease-in border-r-0 ${visitType === 'visita fisica' ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100 '}`}
+                onClick={() => setVisitType('visita fisica')}
               >
                 Visita fisica
               </button>
               <button
                 type='button'
-                className={`py-2 px-4 w-full border text-base  text-primary-950 rounded-lg rounded-l-none transition-all ease-in border-l-0 ${visitType === 'remote' ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100 '}`}
-                onClick={() => setVisitType('remote')}
+                className={`py-2 px-4 w-full border text-base  text-primary-950 rounded-lg rounded-l-none transition-all ease-in border-l-0 ${visitType === 'visita virtuale' ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100 '}`}
+                onClick={() => setVisitType('visita virtuale')}
               >
                 Visita virtuale
               </button>
