@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+import axios from 'axios'
 import CallToAction from '../commons/CallToAction'
 
 const InfoBlock = ({ iconSrc, title, description }) => (
@@ -11,9 +13,28 @@ const InfoBlock = ({ iconSrc, title, description }) => (
     <dd className='mt-2 leading-7 text-xl text-primary-50/75'>{description}</dd>
   </div>
 )
+
 const NewsletterForm = () => {
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleChange = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await axios.post('http://localhost:5000/iscrizione-newsletter', { email })
+      setMessage('Iscrizione avvenuta con successo!')
+    } catch (error) {
+      console.error('Errore durante l\'iscrizione: ', error)
+      setMessage('Errore durante l\'iscrizione. Riprova più tardi.')
+    }
+  }
+
   return (
-    <form className='mt-6 flex max-w-md gap-x-4'>
+    <form className='mt-6 flex max-w-md gap-x-4' onSubmit={handleSubmit}>
       <label htmlFor='email-address' className='sr-only'>
         Email
       </label>
@@ -25,6 +46,8 @@ const NewsletterForm = () => {
         required
         placeholder='La tua migliore email'
         className='min-w-0 h-14 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
+        value={email}
+        onChange={handleChange}
       />
       <CallToAction
         asSubmit
@@ -33,9 +56,11 @@ const NewsletterForm = () => {
         size='lg'
         className='flex-none px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 !bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
       />
+      {message && <p className='mt-2 text-primary-50'>{message}</p>}
     </form>
   )
 }
+
 const infoBlocks = [
   {
     iconSrc: '/envelope.webp',

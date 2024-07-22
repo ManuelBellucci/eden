@@ -1,6 +1,5 @@
 # TODO
 
-- VIEW [x] /immobili/:id 
 - VIEW [] /contatti
 - VIEW [] /about
 - VIEW [] /blog
@@ -10,14 +9,13 @@
 - VIEW [] /terminiecondizioni
 - VIEW [] /informativa
 - VIEW [] /404 not found page
-- STYLE [] migliorare stile /
-- STYLE [] migliorare stile /immobili
-- STYLE [] migliorare stile /immobili/:id
 - FEATURE [] aggiungere sezione footer: dati societari
-- FEATURE [] logica sub newsletter
+- FEATURE [] collegare sub newsletter a gestore email marketing quando lo avremmo
 - FEATURE [] messaggi di errore
-- FEATURE [] guarda tutte le foto
-- FIX [] freccette selezione data disponibilità
-
-
+- VIEW [x] /immobili/:id
+- STYLE [x] migliorare stile /
+- STYLE [x] migliorare stile /immobili
+- STYLE [x] migliorare stile /immobili/:id
+- FEATURE [x] logica sub newsletter
+- FEATURE [x] guarda tutte le foto
 - FIX [X] Extra Aria Condizionata, elevator, extras in filtri
