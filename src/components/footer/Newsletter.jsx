@@ -29,7 +29,7 @@ const NewsletterForm = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/iscrizione-newsletter', {
+      await axios.post('https://eden-backend.vercel.app/iscrizione-newsletter', {
         email,
         firstName,
         lastName

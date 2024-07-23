@@ -79,7 +79,7 @@ const VisitModal = ({
         fasceOrarie: selectedTimes,
         id
       }
-      await axios.post('http://localhost:5000/richieste-visite', payload)
+      await axios.post('https://eden-backend.vercel.app/richieste-visite', payload)
       setMessage('Richiesta inviata con successo!')
     } catch (error) {
       console.error('Errore durante l\'invio della richiesta: ', error)
