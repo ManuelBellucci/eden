@@ -1,16 +1,24 @@
 import { memo, useCallback } from 'react'
 
 const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelectedBathrooms }) => {
-  const bathroomsOptions = ['1', '2', '3']
+  const bathroomsOptions = ['Indifferente', '1', '2', '3']
 
   const selectBathrooms = useCallback((bathrooms) => {
-    setSelectedBathrooms(bathrooms)
+    if (bathrooms === 'Indifferente') {
+      setSelectedBathrooms('')
+    } else {
+      setSelectedBathrooms(bathrooms)
+    }
     toggle()
   }, [setSelectedBathrooms, toggle])
 
   const getBathroomsLabel = () => {
     if (!selectedBathrooms) return 'Bagni'
-    return `Min. ${selectedBathrooms} ${selectedBathrooms === '1' ? 'bagno' : 'bagni'}`
+    return selectedBathrooms === 'Indifferente' ? 'Indifferente' : `Min. ${selectedBathrooms} ${selectedBathrooms === '1' ? 'bagno' : 'bagni'}`
+  }
+
+  const isSelected = (bathrooms) => {
+    return selectedBathrooms === bathrooms || (!selectedBathrooms && bathrooms === 'Indifferente')
   }
 
   return (
@@ -49,7 +57,7 @@ const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelecte
             {bathroomsOptions.map((bathrooms, index) => (
               <li
                 key={index}
-                className={`cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg text-lg ${selectedBathrooms === bathrooms ? 'bg-primary-100 text-primary-900' : ''}`}
+                className={`cursor-pointer py-1 px-2 rounded-lg text-lg transition-all ${isSelected(bathrooms) ? 'bg-primary-500 text-primary-50' : 'bg-primary-100/75 text-primary-950 hover:bg-primary-200'}`}
                 onClick={() => selectBathrooms(bathrooms)}
                 role='menuitem'
               >

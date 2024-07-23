@@ -1,16 +1,23 @@
 import { useCallback, memo } from 'react'
 
 const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }) => {
-  const floorOptions = ['Piano terra', 'Piani intermedi', 'Ultimo piano']
+  const floorOptions = ['Indifferente', 'Piano terra', 'Piani intermedi', 'Ultimo piano']
 
   const selectFloor = useCallback((floor) => {
-    setSelectedFloor(floor)
+    if (floor === 'Indifferente') {
+      setSelectedFloor('')
+    } else {
+      setSelectedFloor(floor)
+    }
     toggle()
   }, [setSelectedFloor, toggle])
 
   const getFloorLabel = () => {
-    if (!selectedFloor) return 'Piano'
-    return selectedFloor
+    return selectedFloor || 'Piano'
+  }
+
+  const isSelected = (floor) => {
+    return selectedFloor === floor || (!selectedFloor && floor === 'Indifferente')
   }
 
   return (
@@ -47,9 +54,9 @@ const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }
                 <li
                   key={index}
                   role='option'
-                  aria-selected={selectedFloor === floor}
+                  aria-selected={isSelected(floor)}
                   onClick={() => selectFloor(floor)}
-                  className={`cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg text-lg ${selectedFloor === floor ? 'bg-primary-100 text-primary-900' : ''}`}
+                  className={`cursor-pointer py-1 px-2 rounded-lg text-lg transition-all ${isSelected(floor) ? 'bg-primary-500 text-primary-50' : 'bg-primary-100/75 text-primary-950 hover:bg-primary-200'}`}
                 >
                   {floor}
                 </li>

@@ -2,23 +2,26 @@ import { memo, useCallback } from 'react'
 
 const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedTipology }) => {
   const tipologyOptions = [
-    'Appartamenti',
-    'Attici',
-    'Ville e villini',
-    'Nuove costruzioni',
-    'Garage e posti auto',
-    'Uffici e negozi',
-    'Magazzini'
+    'Indifferente', 'Appartamenti', 'Attici', 'Ville e villini',
+    'Nuove costruzioni', 'Garage e posti auto', 'Uffici e negozi', 'Magazzini'
   ]
+
+  const selectTipology = useCallback((tipology) => {
+    if (tipology === 'Indifferente') {
+      setSelectedTipology('')
+    } else {
+      setSelectedTipology(tipology)
+    }
+    toggle()
+  }, [setSelectedTipology, toggle])
 
   const getTipologyLabel = () => {
     return selectedTipology || 'Tipologia'
   }
 
-  const selectTipology = useCallback((tipology) => {
-    setSelectedTipology(tipology)
-    toggle()
-  }, [setSelectedTipology, toggle])
+  const isSelected = (tipology) => {
+    return selectedTipology === tipology || (!selectedTipology && tipology === 'Indifferente')
+  }
 
   return (
     <div className='relative'>
@@ -52,10 +55,9 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
             {tipologyOptions.map((tipology, index) => (
               <li
                 role='option'
-                aria-selected={selectedTipology === tipology}
+                aria-selected={isSelected(tipology)}
                 key={index}
-                value={selectedTipology}
-                className='cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg text-lg'
+                className={`cursor-pointer py-1 px-2 rounded-lg text-lg transition-all ${isSelected(tipology) ? 'bg-primary-500 text-primary-50' : 'bg-primary-100/75 text-primary-950 hover:bg-primary-200'}`}
                 onClick={() => selectTipology(tipology)}
               >
                 {tipology}

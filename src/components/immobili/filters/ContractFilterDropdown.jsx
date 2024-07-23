@@ -1,12 +1,24 @@
 import { memo, useCallback } from 'react'
 
 const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedContract }) => {
-  const contractOptions = ['Vendita', 'Affitto']
+  const contractOptions = ['Indifferente', 'Vendita', 'Affitto']
 
   const selectContract = useCallback((contract) => {
-    setSelectedContract(contract)
+    if (contract === 'Indifferente') {
+      setSelectedContract('')
+    } else {
+      setSelectedContract(contract)
+    }
     toggle()
   }, [setSelectedContract, toggle])
+
+  const getContractLabel = () => {
+    return selectedContract || 'Contratto'
+  }
+
+  const isSelected = (contract) => {
+    return selectedContract === contract || (!selectedContract && contract === 'Indifferente')
+  }
 
   return (
     <div className='relative'>
@@ -16,7 +28,7 @@ const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedC
         onClick={toggle}
         className='flex justify-center items-center w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600 transition-all text-xl'
       >
-        {selectedContract || 'Contratto'}
+        {getContractLabel()}
         <svg
           className='ml-2 w-4 h-4'
           fill='none'
@@ -43,10 +55,10 @@ const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedC
             {contractOptions.map((contract, index) => (
               <li
                 role='option'
-                aria-selected={selectedContract === contract}
+                aria-selected={isSelected(contract)}
                 key={index}
                 onClick={() => selectContract(contract)}
-                className='cursor-pointer py-1 px-2 bg-primary-100/75 hover:bg-primary-200 text-primary-950 rounded-lg text-lg'
+                className={`cursor-pointer py-1 px-2 rounded-lg text-lg transition-all ${isSelected(contract) ? 'bg-primary-500 text-primary-50' : 'bg-primary-100/75 text-primary-950 hover:bg-primary-200'}`}
               >
                 {contract}
               </li>

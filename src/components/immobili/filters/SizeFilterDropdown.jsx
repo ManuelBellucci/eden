@@ -10,7 +10,13 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
   const [focusedField, setFocusedField] = useState('')
 
   const selectSize = useCallback((size) => {
-    const sanitizedSize = size === 'Indifferente' ? '' : size.replace(' m²', '')
+    if (size === 'Indifferente') {
+      setSelectedSize({ from: '', to: '' })
+      setFocusedField('')
+      return
+    }
+
+    const sanitizedSize = size.replace(' m²', '')
     if (!selectedSize.from || focusedField === 'fromSize') {
       setSelectedSize({ ...selectedSize, from: sanitizedSize })
       setFocusedField('')
@@ -23,7 +29,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
     if (selectedSize.from && selectedSize.to) {
       applySizeFilter()
     }
-  }, [setSelectedSize, focusedField])
+  }, [setSelectedSize, focusedField, selectedSize])
 
   const getSizeLabel = () => {
     if (!selectedSize.from && !selectedSize.to) return 'Superficie'
@@ -42,6 +48,16 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
 
   const applySizeFilter = () => {
     toggle()
+  }
+
+  const isSelected = (size) => {
+    const sanitizedSize = size === 'Indifferente' ? '' : size.replace(' m²', '')
+    return selectedSize.from === sanitizedSize || selectedSize.to === sanitizedSize || (!selectedSize.from && !selectedSize.to && size === 'Indifferente')
+  }
+
+  const isDisabled = (size) => {
+    const sanitizedSize = size === 'Indifferente' ? '' : size.replace(' m²', '')
+    return selectedSize.from && sanitizedSize && parseInt(sanitizedSize) < parseInt(selectedSize.from)
   }
 
   return (
@@ -82,7 +98,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
               aria-label='Minimo Superficie'
               className='px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100'
               placeholder='Minimo (m²)'
-              value={selectedSize.from}
+              value={selectedSize.from || ''}
               onChange={(e) => setSelectedSize({ ...selectedSize, from: e.target.value })}
               onFocus={() => setFocusedField('fromSize')}
             />
@@ -97,7 +113,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
               aria-label='Massimo Superficie'
               className='px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100'
               placeholder='Massimo (m²)'
-              value={selectedSize.to}
+              value={selectedSize.to || ''}
               onChange={(e) => setSelectedSize({ ...selectedSize, to: e.target.value })}
               onFocus={() => setFocusedField('toSize')}
             />
@@ -108,9 +124,10 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
                 <li
                   key={index}
                   role='option'
-                  aria-selected={selectedSize.from === size || selectedSize.to === size}
-                  className='cursor-pointer mr-2 py-1 px-2 bg-primary-100 hover:bg-primary-200 text-primary-950  rounded-lg'
-                  onClick={() => selectSize(size)}
+                  aria-selected={isSelected(size)}
+                  aria-disabled={isDisabled(size)}
+                  className={`cursor-pointer mr-2 py-1 px-2 rounded-lg text-lg transition-all ${isSelected(size) ? 'bg-primary-500 text-primary-50' : isDisabled(size) ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-primary-100/75 text-primary-950 hover:bg-primary-200'}`}
+                  onClick={() => !isDisabled(size) && selectSize(size)}
                 >
                   {size}
                 </li>

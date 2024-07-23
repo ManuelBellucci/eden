@@ -42,16 +42,22 @@ const Filters = () => {
     toggleModal()
   }, [cleanFilters, toggleModal])
 
+  const areFiltersSet = () => {
+    return contract || tipology || price.from || price.to || size.from || size.to || rooms.from || rooms.to || bathrooms || floor || (Array.isArray(extras) && extras.some(extra => extra))
+  }
+
   return (
     <div className='h-full p-10 flex flex-col gap-6 justify-center items-center'>
-      <h2 className='text-4xl font-extrabold text-center text-nowrap leading-none   text-primary-50 md:text-6xl uppercase xl:text-7xl'>I nostri immobili</h2>
+      <h2 className='text-4xl font-extrabold text-center text-nowrap leading-none text-primary-50 md:text-6xl uppercase xl:text-7xl'>I nostri immobili</h2>
       {/* Desktop Filters */}
-      <button
-        className='px-4 py-2 hidden xl:block bg-red-500 text-primary-50 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
-        onClick={cleanFilters}
-      >
-        Pulisci filtri
-      </button>
+      {areFiltersSet() && (
+        <button
+          className='px-4 py-2 hidden xl:block bg-red-500 text-primary-50 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
+          onClick={cleanFilters}
+        >
+          Pulisci filtri
+        </button>
+      )}
       <div className='hidden xl:flex w-full gap-6 justify-center'>
         <ContractFilterDropdown
           isOpen={openFilter === 'contract'}
@@ -184,12 +190,14 @@ const Filters = () => {
               >
                 Applica filtri
               </button>
-              <button
-                className='px-4 py-2 bg-red-500 text-primary-50 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
-                onClick={handleCleanFilters}
-              >
-                Pulisci filtri
-              </button>
+              {areFiltersSet() && (
+                <button
+                  className='px-4 py-2 bg-red-500 text-primary-50 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
+                  onClick={handleCleanFilters}
+                >
+                  Pulisci filtri
+                </button>
+              )}
             </div>
           </div>
         </div>

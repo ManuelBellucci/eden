@@ -2,9 +2,15 @@ import { memo, useCallback, useState } from 'react'
 
 const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }) => {
   const [focusedField, setFocusedField] = useState('')
-  const roomsOptions = ['1', '2', '3', '4', '5']
+  const roomsOptions = ['Indifferente', '1', '2', '3', '4', '5']
 
   const selectRooms = useCallback((rooms) => {
+    if (rooms === 'Indifferente') {
+      setSelectedRooms({ from: '', to: '' })
+      setFocusedField('')
+      return
+    }
+
     const sanitizedRooms = rooms.replace('.', '')
 
     if (!selectedRooms.from || focusedField === 'fromRooms') {
@@ -18,7 +24,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
     if (selectedRooms.from && selectedRooms.to) {
       applyRoomsFilter()
     }
-  }, [setSelectedRooms, focusedField])
+  }, [setSelectedRooms, focusedField, selectedRooms])
 
   const formatRoomLabel = (num) => (num === '1' ? 'locale' : 'locali')
 
@@ -39,6 +45,15 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
 
   const applyRoomsFilter = () => {
     toggle()
+  }
+
+  const isSelected = (rooms) => {
+    return selectedRooms.from === rooms || selectedRooms.to === rooms || (!selectedRooms.from && !selectedRooms.to && rooms === 'Indifferente')
+  }
+
+  const isDisabled = (rooms) => {
+    const sanitizedRooms = rooms === 'Indifferente' ? '' : rooms
+    return selectedRooms.from && sanitizedRooms && parseInt(sanitizedRooms) < parseInt(selectedRooms.from)
   }
 
   return (
@@ -67,7 +82,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
               aria-label='Minimo Locali'
               className='px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100'
               placeholder='Minimo Locali'
-              value={selectedRooms.from}
+              value={selectedRooms.from || ''}
               onChange={(e) => setSelectedRooms({ ...selectedRooms, from: e.target.value })}
               onFocus={() => setFocusedField('fromRooms')}
             />
@@ -82,7 +97,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
               aria-label='Massimo Locali'
               className='px-2 py-1 border rounded-lg focus:outline-none focus:ring focus:ring-primary-100'
               placeholder='Massimo Locali'
-              value={selectedRooms.to}
+              value={selectedRooms.to || ''}
               onChange={(e) => setSelectedRooms({ ...selectedRooms, to: e.target.value })}
               onFocus={() => setFocusedField('toRooms')}
             />
@@ -93,9 +108,10 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
                 <li
                   key={index}
                   role='option'
-                  aria-selected={selectedRooms.from === rooms || selectedRooms.to === rooms}
-                  className='cursor-pointer mr-2 py-1 px-2 bg-primary-100 hover:bg-primary-200 text-primary-950  rounded-lg'
-                  onClick={() => selectRooms(rooms)}
+                  aria-selected={isSelected(rooms)}
+                  aria-disabled={isDisabled(rooms)}
+                  className={`cursor-pointer mr-2 py-1 px-2 rounded-lg text-lg transition-all ${isSelected(rooms) ? 'bg-primary-500 text-primary-50' : isDisabled(rooms) ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-primary-100/75 text-primary-950 hover:bg-primary-200'}`}
+                  onClick={() => !isDisabled(rooms) && selectRooms(rooms)}
                 >
                   {rooms}
                 </li>
