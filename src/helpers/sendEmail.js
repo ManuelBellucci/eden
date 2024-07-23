@@ -6,8 +6,7 @@ export const sendEmail = async (templateParams) => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
     const userId = import.meta.env.VITE_EMAILJS_USER_ID
 
-    const result = await emailjs.send(serviceId, templateId, templateParams, userId)
-    console.log('Email sent:', result.text)
+    await emailjs.send(serviceId, templateId, templateParams, userId)
   } catch (error) {
     console.error('Error sending email:', error)
   }
