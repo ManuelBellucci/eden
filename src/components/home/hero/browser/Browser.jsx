@@ -3,6 +3,8 @@ import CallToAction from '../../../commons/CallToAction'
 import MultiChoiceDropdown from './MultiChoiceDropdown'
 import axios from 'axios'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 const Browser = () => {
   const [municipalities, setMunicipalities] = useState([])
   const [selectedMunicipalities, setSelectedMunicipalities] = useState([])
@@ -12,7 +14,7 @@ const Browser = () => {
 
   const fetchMunicipalities = async () => {
     try {
-      const response = await axios.get('https://eden-backend.vercel.app/municipalities')
+      const response = await axios.get(`${API_URL}/municipalities`)
       setMunicipalities(response.data)
     } catch (error) {
       console.error(error)

@@ -3,6 +3,8 @@ import axios from 'axios'
 import CallToAction from '../commons/CallToAction'
 import validateEmail from '../../helpers/validateEmail'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
     <div className='rounded-lg bg-primary-50/5 p-2 ring-1 ring-primary-50/10'>
@@ -29,7 +31,7 @@ const NewsletterForm = () => {
     }
 
     try {
-      await axios.post('https://eden-backend.vercel.app/iscrizione-newsletter', {
+      await axios.post(`${API_URL}/iscrizione-newsletter`, {
         email,
         firstName,
         lastName

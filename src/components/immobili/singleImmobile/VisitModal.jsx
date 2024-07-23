@@ -5,6 +5,8 @@ import validateEmail from '../../../helpers/validateEmail'
 import { sendEmail } from '../../../helpers/sendEmail'
 import { useParams } from 'react-router-dom'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 const VisitModal = ({
   isVisible,
   onClose,
@@ -79,7 +81,7 @@ const VisitModal = ({
         fasceOrarie: selectedTimes,
         id
       }
-      await axios.post('https://eden-backend.vercel.app/richieste-visite', payload)
+      await axios.post(`${API_URL}/richieste-visite`, payload)
       setMessage('Richiesta inviata con successo!')
     } catch (error) {
       console.error('Errore durante l\'invio della richiesta: ', error)

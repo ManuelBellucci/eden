@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import axios from 'axios'
 import { objectToQueryString } from '../helpers/queryHelpers'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 const useFetchListings = (page, listingsPerPage, filters = {}) => {
   const [listings, setListings] = useState([])
   const [totalListings, setTotalListings] = useState(0)
@@ -32,7 +34,7 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
       setLoading(true)
 
       try {
-        const response = await axios.get(`https://eden-backend.vercel.app/listings?${queryString}`)
+        const response = await axios.get(`${API_URL}/listings?${queryString}`)
         if (isMounted) {
           const activeListings = response.data.listings.filter(listing => listing.active)
           setListings(activeListings)
