@@ -12,8 +12,8 @@ const Navbar = () => {
     { path: '/', label: 'Home' },
     { path: '/immobili', label: 'Immobili' },
     { path: '/about', label: 'Chi siamo?' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/scaricabili', label: 'Le guide' },
+    // { path: '/blog', label: 'Blog' },
+    // { path: '/scaricabili', label: 'Le guide' },
     { path: '/contatti', label: 'Contatti' }
   ]
 
