@@ -8,6 +8,7 @@ import SingleImmobile from './pages/immobili/SingleImmobile'
 import ScrollToTop from './helpers/scrollToTop'
 import { useState } from 'react'
 import About from './pages/about/About'
+import Contatti from './pages/contatti/Contatti'
 
 function App () {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
