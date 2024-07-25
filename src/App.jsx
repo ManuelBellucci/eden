@@ -20,9 +20,10 @@ function App () {
           {isNavbarVisible && <Navbar />}
           <Routes>
             <Route exact index path='/' element={<Home />} />
-            <Route exact path='/about' element={<About />} />
             <Route exact path='/immobili' element={<Immobili />} />
             <Route exact path='/immobili/:id' element={<SingleImmobile setIsNavbarVisible={setIsNavbarVisible} />} />
+            <Route exact path='/about' element={<About />} />
+            <Route exact path='/contatti' element={<Contatti />} />
           </Routes>
           <Footer />
         </FiltersProvider>
