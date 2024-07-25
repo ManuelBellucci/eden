@@ -14,8 +14,8 @@
   font-family: 'CatchyMager', sans-serif;
 }
 
-#autocomplete-input-mobile {
 
+#autocomplete-input-mobile {
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
