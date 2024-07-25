@@ -25,9 +25,9 @@ const About = () => {
     <div className='flex flex-col items-center'>
       <img
         loading='lazy'
-        src='https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80'
+        src='/NEGATIVO_VERTICALE_CON_SFONDO.jpg'
         alt='Image'
-        className='w-full h-full object-cover max-h-[500px]'
+        className='object-cover center h-96 '
       />
       <Caption
         text='Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application.'
