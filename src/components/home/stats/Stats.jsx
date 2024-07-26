@@ -6,7 +6,7 @@ const Stats = ({ statsData }) => (
       <span className='text-primary-500'>Professionalità dimostrata</span> dopo
       anni di esperienza e soddisfazione dei nostri clienti
     </h2>
-    <p className='text-center text-balance text-lg  font-normal mx-auto max-w-xl text-primary-50/75 lg:text-2xl mb-14'>
+    <p className='text-center text-balance text-lg font-normal mx-auto max-w-xl text-primary-50/75 lg:text-2xl mb-14'>
       Siamo orgogliosi di aver soddisfatto le esigenze di tanti clienti, grazie
       alla nostra professionalità e competenza nel settore immobiliare.
     </p>
