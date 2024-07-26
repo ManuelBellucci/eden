@@ -14,7 +14,7 @@ const teamMembers = [
 ]
 
 const partners = [
-  { name: 'Simone Barbi', role: 'Fotografo', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
+  { name: 'Studio Photozen', role: 'Fotografi', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
   { name: 'Laura Colella', role: 'Consulente Credipass', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
   { name: 'Chiara Masinara', role: 'Ingegnere e architetto', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
   { name: 'Alex Berselli', role: 'Consulente PMC', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' }
@@ -30,20 +30,20 @@ const About = () => {
         className='object-cover center h-96 '
       />
       <Caption
-        text='Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application.'
+        text='La casa è il nostro Eden personale, un rifugio di serenità e felicità, il nostro angolo di paradiso.'
         name='Giulio A. Stefanini'
         role='Co-Founder Eden House'
       />
       <ol className='relative border-s-4 border-primary-500 p-4 m-4 max-w-2xl'>
         <AboutSection
           title='La nostra missione'
-          text='Perchè siamo qui'
-          body='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, hic adipisci debitis minima iste eveniet nobis sed dolor quidem accusamus aspernatur, similique sapiente provident. Dolorum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et distinctio ad quaerat culpa enim temporibus assumenda eligendi accusamus eveniet. Quaerat, perspiciatis iure saepe sapiente beatae architecto quam. Iusto similique at quo? Recusandae nostrum quaerat nam consequatur voluptas, ea facilis error amet animi libero dolor rerum optio ex id, quae pariatur!'
+          text=''
+          body="La nostra missione è aiutare le persone a trovare la casa perfetta, offrendo soluzioni innovative e un servizio impeccabile che supera le aspettative. Crediamo che ogni cliente meriti un'attenzione personalizzata e un'esperienza senza stress. Per questo, investiamo continuamente in tecnologia avanzata e formazione del personale, garantendo un processo di acquisto, vendita o affitto che sia trasparente e soddisfacente. La nostra dedizione alla qualità e alla cura dei dettagli ci consente di trasformare ogni interazione in una relazione di fiducia duratura, accompagnando i nostri clienti in ogni fase del loro percorso immobiliare."
         />
         <AboutSection
           title='La nostra identità'
-          text='Cosa ci contraddistingue'
-          body='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, hic adipisci debitis minima iste eveniet nobis sed dolor quidem accusamus aspernatur, similique sapiente provident. Dolorum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et distinctio ad quaerat culpa enim temporibus assumenda eligendi accusamus eveniet. Quaerat, perspiciatis iure saepe sapiente beatae architecto quam. Iusto similique at quo? Recusandae nostrum quaerat nam consequatur voluptas, ea facilis error amet animi libero dolor rerum optio ex id, quae pariatur!'
+          text=''
+          body="Siamo una realtà immobiliare che pone al centro le esigenze dei clienti, combinando competenza, integrità e passione per trasformare ogni transazione in una storia di successo. La nostra forza risiede nella profonda conoscenza del mercato e nella capacità di ascoltare attentamente i desideri e le necessità di chi si affida a noi. Lavoriamo con trasparenza e onestà, costruendo relazioni basate sulla fiducia reciproca e l'affidabilità. Ogni membro del nostro team è animato da una genuina passione per l'immobiliare e un impegno costante nel superare le aspettative, offrendo soluzioni su misura e consulenze esperte. Crediamo che il successo non sia solo misurato in termini di vendite, ma nella soddisfazione e nel benessere dei nostri clienti, per i quali ogni casa rappresenta un nuovo capitolo della loro vita."
         />
         <Team members={teamMembers} />
         <Partners partners={partners} />
