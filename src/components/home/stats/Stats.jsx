@@ -10,11 +10,11 @@ const Stats = ({ statsData }) => (
       Siamo orgogliosi di aver soddisfatto le esigenze di tanti clienti, grazie
       alla nostra professionalità e competenza nel settore immobiliare.
     </p>
-    <dl className='grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3'>
+    <div className='grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3'>
       {statsData.map((stat) => (
         <StatBlock key={stat.description} {...stat} />
       ))}
-    </dl>
+    </div>
   </div>
 )
 

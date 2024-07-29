@@ -7,13 +7,17 @@ const API_URL = import.meta.env.VITE_API_URL
 
 const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
-    <div className='rounded-lg bg-primary-50/5 p-2 ring-1 ring-primary-50/10'>
-      <div className='h-10 w-10' aria-hidden='true'>
-        <img loading='lazy' src={iconSrc} alt={`${title} icon`} />
-      </div>
-    </div>
-    <dt className='mt-4 font-semibold text-3xl text-primary-50'>{title}</dt>
-    <dd className='mt-2 leading-7 text-xl text-primary-50/75'>{description}</dd>
+    <dl>
+      <dt className='mt-4 font-semibold text-3xl text-primary-50'>
+        <div className='rounded-lg bg-primary-50/5 p-2 ring-1 ring-primary-50/10'>
+          <div className='h-10 w-10' aria-hidden='true'>
+            <img loading='lazy' src={iconSrc} alt={`${title} icon`} />
+          </div>
+        </div>
+        {title}
+      </dt>
+      <dd className='mt-2 leading-7 text-xl text-primary-50/75'>{description}</dd>
+    </dl>
   </div>
 )
 
@@ -124,11 +128,11 @@ const Newsletter = () => {
             </p>
             <NewsletterForm />
           </div>
-          <dl className='grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2 lg:pt-2'>
+          <div className='grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2 lg:pt-2'>
             {infoBlocks.map((block, index) => (
               <InfoBlock key={index} {...block} />
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ const Navbar = () => {
             text='Valutare casa'
             size='lg'
             rounded='xl'
-            className='!bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
+            className='!bg-secondary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
           />
           <HamburgerMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
         </div>
