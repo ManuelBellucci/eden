@@ -25,7 +25,7 @@ const About = () => {
     <div className='flex flex-col items-center'>
       <img
         loading='lazy'
-        src='/NEGATIVO_VERTICALE_CON_SFONDO.jpg'
+        src='/NEGATIVO_VERTICALE_SENZA_SFONDO.webp'
         alt='Image'
         className='object-cover center h-96 '
       />

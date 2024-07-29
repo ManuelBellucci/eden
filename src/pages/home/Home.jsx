@@ -36,7 +36,7 @@ const Home = () => {
         />
       </div>
       <Banner
-        bgImage='/banner.jpg'
+        bgImage='/banner.webp'
         title='Scopri la casa dove amerai vivere.'
         description='Non aspettare, il tuo futuro inizia oggi.'
         buttonText='Vedi le proprietà'

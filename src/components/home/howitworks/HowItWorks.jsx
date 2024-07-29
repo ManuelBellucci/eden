@@ -40,7 +40,7 @@ const HowItWorks = ({ processSteps }) => {
         <div className='md:flex md:items-center'>
           <img
             loading='lazy'
-            src='/howitworks.jpg'
+            src='/howitworks.webp'
             alt='Image'
             className='rounded-lg object-cover min-h-80'
           />
