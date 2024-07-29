@@ -7,9 +7,9 @@
         }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "index.js"
-        }
-    ]
+    {
+      "src": "/(.*).html",
+      "dest": "/index.html"
+    }
+  ]
 }
