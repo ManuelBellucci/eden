@@ -5,7 +5,7 @@ import HeroBackground from './HeroBackground'
 
 const Hero = () => {
   return (
-    <HeroBackground backgroundPosition='25%' backgroundImage='https://static.bolognawelcome.com/immagini/8d/b5/64/bc/20200311171337.jpg'>
+    <HeroBackground backgroundPosition='25%' backgroundImage='./hero.webp'>
       <div className='flex flex-col items-center text-center gap-6 mx-8'>
         <div className='mx-auto max-w-2xl py-10 sm:py-12 lg:py-14'>
 
