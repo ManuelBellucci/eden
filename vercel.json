@@ -1,5 +1,4 @@
 {
-    "version": 2,
     "builds": [
       {
         "src": "package.json",
@@ -14,8 +13,6 @@
         "src": "/(.*)",
         "dest": "/index.html"
       }
-    ],
-    "env": {
-      "VITE_API_URL": "https://eden-backend.vercel.app"
-    }
+    ]
   }
+  
