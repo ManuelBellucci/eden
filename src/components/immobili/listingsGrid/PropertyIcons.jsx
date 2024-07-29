@@ -12,11 +12,11 @@ const PropertyIcon = ({ src, label, value }) => {
 const PropertyIcons = ({ listing }) => {
   return (
     <div className='flex'>
-      <PropertyIcon src='/double-bed.webp' label='Beds' value={listing.singleBedrooms + listing.doubleBedrooms} />
-      <PropertyIcon src='/toilet.webp' label='Bathrooms' value={listing.bathrooms} />
-      <PropertyIcon src='/ruler.webp' label='Size' value={`${listing.commercialSqm}mq`} />
-      <PropertyIcon src='/floor.webp' label='Floor' value={`${listing.floor === 0 ? 'T' : listing.floor}`} />
-      <PropertyIcon src='/elevator.webp' label='Elevator' value={listing.elevator ? 'Si' : 'No'} />
+      <PropertyIcon src='/double-bed.svg' label='Beds' value={listing.singleBedrooms + listing.doubleBedrooms} />
+      <PropertyIcon src='/toilet.svg' label='Bathrooms' value={listing.bathrooms} />
+      <PropertyIcon src='/ruler.svg' label='Size' value={`${listing.commercialSqm}mq`} />
+      <PropertyIcon src='/floor.svg' label='Floor' value={`${listing.floor === 0 ? 'T' : listing.floor}`} />
+      <PropertyIcon src='/elevator.svg' label='Elevator' value={listing.elevator ? 'Si' : 'No'} />
     </div>
   )
 }
