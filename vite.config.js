@@ -6,15 +6,15 @@ export default defineConfig({
   plugins: [
     react(),
     compression({
-      algorithm: 'brotliCompress', // You can use 'gzip' or 'deflate' as well
-      ext: '.br', // Use .gz for gzip
+      algorithm: 'brotliCompress', // Use 'gzip' or 'deflate' if preferred
+      ext: '.br', // For Brotli compression, use .gz for gzip
       deleteOriginalAssets: false // Keep the original files
     })
   ],
   build: {
     outDir: 'dist',
     // Ensure that Vite compresses large text assets
-    assetsInlineLimit: 0,
+    assetsInlineLimit: 0, // Inline everything (default is 4096 bytes)
     rollupOptions: {
       output: {
         manualChunks (id) {
