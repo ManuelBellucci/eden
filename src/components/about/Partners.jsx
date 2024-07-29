@@ -9,7 +9,7 @@ const Partners = ({ partners }) => {
       <div className=' gap-4 md:gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {partners.map((partner, index) => (
           <div key={index} className='flex items-center gap-4'>
-            <img className='w-10 h-10 rounded-full border-2 border-primary-500' src={partner.imgSrc} alt={partner.name} />
+            <img className='w-10 h-10 rounded-full border-2 border-primary-500' src={partner.imgSrc} alt={partner.name} loading='lazy' />
             <div className='font-medium text-primary-500'>
               <div className='text-nowrap'>{partner.name}</div>
               <div className='text-sm text-primary-50'>{partner.role}</div>

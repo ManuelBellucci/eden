@@ -42,7 +42,7 @@ const HowItWorks = ({ processSteps }) => {
             loading='lazy'
             src='/howitworks.webp'
             alt='Image'
-            className='rounded-lg object-cover min-h-80'
+            className='rounded-lg object-cover'
           />
         </div>
       </div>
