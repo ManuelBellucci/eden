@@ -1,18 +1,15 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": "dist/index.html",
-        "use": "@vercel/static-build"
-      }
+        {
+            "src": "index.js",
+            "use": "@vercel/node"
+        }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ],
-    "env": {
-      "VITE_API_URL": "https://api.example.com"
-    }
-  }
+        {
+            "src": "/(.*)",
+            "dest": "index.js"
+        }
+    ]
+}
