@@ -1,9 +1,8 @@
-import { Suspense, lazy } from 'react'
+import React from 'react'
+import { Pannellum } from 'pannellum-react'
+import 'pannellum-react/es/pannellum/css/pannellum.css'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import CallToAction from '../../commons/CallToAction'
-import 'pannellum-react/es/pannellum/css/pannellum.css'
-
-const Pannellum = lazy(() => import('pannellum-react'))
 
 const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrentSceneIndex }) => {
   if (!isVisible) return null
@@ -38,20 +37,18 @@ const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrent
           <TransitionGroup className='h-full'>
             <CSSTransition key={currentSceneIndex} timeout={500} classNames='fade' className='h-full'>
               <div className='h-full'>
-                <Suspense fallback={<div>Loading Panorama...</div>}>
-                  <Pannellum
-                    width='100%'
-                    height='100%'
-                    image={images[currentSceneIndex].url}
-                    pitch={0}
-                    yaw={180}
-                    hfov={100}
-                    minHfov={90}
-                    maxHfov={110}
-                    autoLoad
-                    showZoomCtrl={false}
-                  />
-                </Suspense>
+                <Pannellum
+                  width='100%'
+                  height='100%'
+                  image={images[currentSceneIndex].url}
+                  pitch={0}
+                  yaw={180}
+                  hfov={100}
+                  minHfov={90}
+                  maxHfov={110}
+                  autoLoad
+                  showZoomCtrl={false}
+                />
               </div>
             </CSSTransition>
           </TransitionGroup>
