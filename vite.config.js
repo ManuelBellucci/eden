@@ -23,7 +23,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           tailwind: ['@material-tailwind/react'],
-          pannellum: ['pannellum'],
+          pannellum: ['pannellum-react'],
           react: ['react', 'react-dom']
         }
       }
