@@ -26,9 +26,9 @@ export default defineConfig({
             if (id.includes('video.js') || id.includes('pannellum-react')) {
               return 'pannellum'
             }
-            if (id.includes('@material-tailwind/react')) {
-              return 'material-tailwind'
-            }
+            // if (id.includes('@material-tailwind/react')) {
+            //   return 'material-tailwind'
+            // }
             return 'vendor'
           }
         }
