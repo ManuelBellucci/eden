@@ -21,9 +21,9 @@ const Home = () => {
         />
         <Stats
           statsData={[
-            { icon: '/home.webp', number: 150, description: 'appartamenti affidati a noi dalla costituzione della nostra società' },
-            { icon: '/deal.svg', number: 138, description: 'appartamenti venduti e rogitati con successo dai nostri agenti immobiliari ' },
-            { icon: '/feedback.webp', number: 140, description: 'clienti soddisfatti che ci hanno lasciato una recensione positiva' }
+            { icon: '/home.webp', number: 75, description: 'appartamenti affidati a noi dalla costituzione della nostra società' },
+            { icon: '/deal.svg', number: 68, description: 'appartamenti venduti e rogitati con successo dai nostri agenti immobiliari ' },
+            { icon: '/feedback.webp', number: 222, description: 'clienti soddisfatti che ci hanno lasciato una recensione positiva' }
           ]}
         />
         <Featured />
