@@ -1,17 +1,23 @@
 # TODO
 
-- VIEW [] /contatti
-- VIEW [] /about
-- VIEW [] /blog
-- VIEW [] /scaricabili
+v1
 - VIEW [] /privacy
 - VIEW [] /cookies
 - VIEW [] /terminiecondizioni
 - VIEW [] /informativa
 - VIEW [] /404 not found page
 - FEATURE [] aggiungere sezione footer: dati societari
-- FEATURE [] collegare sub newsletter a gestore email marketing quando lo avremmo
 - FEATURE [] messaggi di errore
+- CHORE [] allegare landing page a CTA
+
+v2
+- VIEW [] /blog
+- VIEW [] /scaricabili
+
+fatto
+- VIEW [x] /contatti
+- VIEW [x] /about
+- FEATURE [x] collegare sub newsletter a gestore email marketing quando lo avremmo
 - VIEW [x] /immobili/:id
 - STYLE [x] migliorare stile /
 - STYLE [x] migliorare stile /immobili
