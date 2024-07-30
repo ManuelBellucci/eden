@@ -170,7 +170,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
           isFormFilled={isFormFilled}
         />
       </Suspense>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading Virtual Tour...</div>}>
         <VirtualTour
           isVisible={isTourModalVisible}
           onClose={() => handleTourModalVisibility(false)}
