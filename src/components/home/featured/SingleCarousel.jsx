@@ -1,5 +1,7 @@
-import { Carousel } from '@material-tailwind/react'
+import React, { Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
+
+const Carousel = lazy(() => import('@material-tailwind/react').then(module => ({ default: module.Carousel })))
 
 const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots = 5 }) => {
   const createDots = () => {
@@ -45,22 +47,24 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
 
 export function SingleCarousel ({ images, id }) {
   return (
-    <Carousel
-      className='rounded-lg'
-      navigation={({ setActiveIndex, activeIndex, length }) => (
-        <NavigationDots totalSlides={length} activeIndex={activeIndex} setActiveIndex={setActiveIndex} visibleDots={5} />
-      )}
-    >
-      {images.map((image, index) => (
-        <Link key={`${id}-${index}`} to={`/immobili/${id}`}>
-          <img
-            loading='lazy'
-            src={image.url}
-            alt={`image ${index + 1}`}
-            className='h-full w-full object-cover'
-          />
-        </Link>
-      ))}
-    </Carousel>
+    <Suspense fallback={<div>Loading Carousel...</div>}>
+      <Carousel
+        className='rounded-lg'
+        navigation={({ setActiveIndex, activeIndex, length }) => (
+          <NavigationDots totalSlides={length} activeIndex={activeIndex} setActiveIndex={setActiveIndex} visibleDots={5} />
+        )}
+      >
+        {images.map((image, index) => (
+          <Link key={`${id}-${index}`} to={`/immobili/${id}`}>
+            <img
+              loading='lazy'
+              src={image.url}
+              alt={`image ${index + 1}`}
+              className='h-full w-full object-cover'
+            />
+          </Link>
+        ))}
+      </Carousel>
+    </Suspense>
   )
 }
