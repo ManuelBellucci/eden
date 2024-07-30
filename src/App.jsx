@@ -9,6 +9,7 @@ import ScrollToTop from './helpers/scrollToTop'
 import { useState } from 'react'
 import About from './pages/about/About'
 import Contatti from './pages/contatti/Contatti'
+import LavoraConNoi from './pages/lavoraConNoi/LavoraConNoi'
 
 function App () {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
@@ -25,6 +26,7 @@ function App () {
             <Route exact path='/immobili/:id' element={<SingleImmobile setIsNavbarVisible={setIsNavbarVisible} />} />
             <Route exact path='/about' element={<About />} />
             <Route exact path='/contatti' element={<Contatti />} />
+            <Route exact path='/lavoro' element={<LavoraConNoi />} />
           </Routes>
           <Footer />
         </FiltersProvider>
