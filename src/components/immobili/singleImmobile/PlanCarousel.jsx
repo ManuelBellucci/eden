@@ -1,6 +1,4 @@
-import React, { Suspense, lazy } from 'react'
-
-const Carousel = lazy(() => import('@material-tailwind/react').then(module => ({ default: module.Carousel })))
+import { Carousel } from '@material-tailwind/react'
 
 const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots = 5 }) => {
   const createDots = () => {
@@ -46,42 +44,40 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
 
 export function PlanCarousel ({ images }) {
   return (
-    <Suspense fallback={<div>Loading Carousel...</div>}>
-      <Carousel
-        className='rounded-lg relative h-full'
-        navigation={({ setActiveIndex, activeIndex, length }) => (
-          <NavigationDots totalSlides={length} activeIndex={activeIndex} setActiveIndex={setActiveIndex} visibleDots={5} />
-        )}
-        prevArrow={({ handlePrev }) => (
-          <button
-            aria-label='Previous slide'
-            onClick={handlePrev}
-            className='absolute top-1/2 left-2 transform -translate-y-1/2 p-2 bg-primary-500 rounded-full text-primary-50'
-          >
-            &lt;
-          </button>
-        )}
-        nextArrow={({ handleNext }) => (
-          <button
-            aria-label='Next slide'
-            onClick={handleNext}
-            className='absolute top-1/2 right-2 transform -translate-y-1/2 p-2 bg-primary-500 text-primary-50 rounded-full'
-          >
-            &gt;
-          </button>
-        )}
-      >
-        {images.map((image, index) => (
-          <div key={index} className='h-full w-full flex justify-center items-center'>
-            <img
-              loading='lazy'
-              src={image.url}
-              alt={`Plan ${index + 1}`}
-              className='h-full w-full object-contain rounded-lg'
-            />
-          </div>
-        ))}
-      </Carousel>
-    </Suspense>
+    <Carousel
+      className='rounded-lg relative h-full'
+      navigation={({ setActiveIndex, activeIndex, length }) => (
+        <NavigationDots totalSlides={length} activeIndex={activeIndex} setActiveIndex={setActiveIndex} visibleDots={5} />
+      )}
+      prevArrow={({ handlePrev }) => (
+        <button
+          aria-label='Previous slide'
+          onClick={handlePrev}
+          className='absolute top-1/2 left-2 transform -translate-y-1/2 p-2 bg-primary-500 rounded-full text-primary-50'
+        >
+          &lt;
+        </button>
+      )}
+      nextArrow={({ handleNext }) => (
+        <button
+          aria-label='Next slide'
+          onClick={handleNext}
+          className='absolute top-1/2 right-2 transform -translate-y-1/2 p-2 bg-primary-500 text-primary-50 rounded-full'
+        >
+          &gt;
+        </button>
+      )}
+    >
+      {images.map((image, index) => (
+        <div key={index} className='h-full w-full flex justify-center items-center'>
+          <img
+            loading='lazy'
+            src={image.url}
+            alt={`Plan ${index + 1}`}
+            className='h-full w-full object-contain rounded-lg'
+          />
+        </div>
+      ))}
+    </Carousel>
   )
 }
