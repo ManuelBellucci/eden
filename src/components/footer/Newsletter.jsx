@@ -35,11 +35,12 @@ const NewsletterForm = () => {
     }
 
     try {
-      await axios.post(`${API_URL}/iscrizione-newsletter`, {
+      const response = await axios.post(`${API_URL}/iscrizione-newsletter`, {
         email,
         firstName,
         lastName
       })
+      console.log('Risposta dal server:', response.data) // Log della risposta dal server
       setMessage('Iscrizione avvenuta con successo!')
       setEmail('')
       setFirstName('')
