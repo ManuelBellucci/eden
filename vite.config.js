@@ -12,7 +12,7 @@ export default defineConfig({
       deleteOriginalAssets: false
     }),
     visualizer({
-      filename: './dist/stats.html',
+      filename: './dist/bundle-stats.html',
       open: true
     })
   ],
