@@ -1,20 +1,24 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import compression from 'vite-plugin-compression'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig({
   plugins: [
     react(),
     compression({
-      algorithm: 'brotliCompress', // Use 'gzip' or 'deflate' if preferred
-      ext: '.br', // For Brotli compression, use .gz for gzip
-      deleteOriginalAssets: false // Keep the original files
+      algorithm: 'brotliCompress',
+      ext: '.br',
+      deleteOriginalAssets: false
+    }),
+    visualizer({
+      filename: './dist/stats.html',
+      open: true
     })
   ],
   build: {
     outDir: 'dist',
-    // Ensure that Vite compresses large text assets
-    assetsInlineLimit: 0, // Inline everything (default is 4096 bytes)
+    assetsInlineLimit: 0,
     rollupOptions: {
       output: {
         manualChunks (id) {
