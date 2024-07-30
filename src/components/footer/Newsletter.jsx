@@ -66,10 +66,10 @@ const NewsletterForm = () => {
           placeholder='Il tuo nome'
           className='min-w-0 h-10 placeholder:text-primary-50 flex-auto rounded-lg border-0 bg-primary-50/5 px-3.5 py-2 text-primary-50 shadow-sm ring-1 ring-inset ring-primary-50/10 focus:ring-2 focus:ring-inset focus:ring-primary-500 text-sm md:text-base lg:text-lg sm:leading-6'
         />
-        <label htmlFor='lastName' className='sr-only'>Cognome</label>
+        <label htmlFor='family-name' className='sr-only'>Cognome</label>
         <input
-          id='lastName'
-          name='lastName'
+          id='family-name'
+          name='family-name'
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           type='text'
