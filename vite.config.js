@@ -23,6 +23,12 @@ export default defineConfig({
       output: {
         manualChunks (id) {
           if (id.includes('node_modules')) {
+            if (id.includes('video.js') || id.includes('pannellum-react')) {
+              return 'pannellum'
+            }
+            if (id.includes('@material-tailwind/react')) {
+              return 'material-tailwind'
+            }
             return 'vendor'
           }
         }

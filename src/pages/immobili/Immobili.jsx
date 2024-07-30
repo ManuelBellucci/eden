@@ -1,15 +1,18 @@
-// src/pages/immobili/Immobili.jsx
+import { Suspense, lazy } from 'react'
 
-import Filters from '../../components/immobili/filters/Filters'
-import ListingGrid from '../../components/immobili/listingsGrid/ListingGrid'
+const Filters = lazy(() => import('../../components/immobili/filters/Filters'))
+const ListingGrid = lazy(() => import('../../components/immobili/listingsGrid/ListingGrid'))
 
 const Immobili = () => {
   return (
     <div className='mx-14 mb-14'>
-      <Filters />
-      <ListingGrid />
+      <Suspense fallback={<div>Loading Filters...</div>}>
+        <Filters />
+      </Suspense>
+      <Suspense fallback={<div>Loading Listings...</div>}>
+        <ListingGrid />
+      </Suspense>
     </div>
-
   )
 }
 

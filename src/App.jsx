@@ -1,15 +1,17 @@
+import { useState, Suspense, lazy } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import { FiltersProvider } from './contexts/FiltersContext'
-import Home from './pages/home/Home'
-import Immobili from './pages/immobili/Immobili'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import SingleImmobile from './pages/immobili/SingleImmobile'
 import ScrollToTop from './helpers/scrollToTop'
-import { useState } from 'react'
-import About from './pages/about/About'
-import Contatti from './pages/contatti/Contatti'
-import LavoraConNoi from './pages/lavoraConNoi/LavoraConNoi'
+
+// Lazy load the route components
+const Home = lazy(() => import('./pages/home/Home'))
+const Immobili = lazy(() => import('./pages/immobili/Immobili'))
+const SingleImmobile = lazy(() => import('./pages/immobili/SingleImmobile'))
+const About = lazy(() => import('./pages/about/About'))
+const Contatti = lazy(() => import('./pages/contatti/Contatti'))
+const LavoraConNoi = lazy(() => import('./pages/lavoraConNoi/LavoraConNoi'))
 
 function App () {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
@@ -20,14 +22,16 @@ function App () {
         <ScrollToTop />
         <FiltersProvider>
           {isNavbarVisible && <Navbar />}
-          <Routes>
-            <Route exact index path='/' element={<Home />} />
-            <Route exact path='/immobili' element={<Immobili />} />
-            <Route exact path='/immobili/:id' element={<SingleImmobile setIsNavbarVisible={setIsNavbarVisible} />} />
-            <Route exact path='/about' element={<About />} />
-            <Route exact path='/contatti' element={<Contatti />} />
-            <Route exact path='/lavoro' element={<LavoraConNoi />} />
-          </Routes>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route exact index path='/' element={<Home />} />
+              <Route exact path='/immobili' element={<Immobili />} />
+              <Route exact path='/immobili/:id' element={<SingleImmobile setIsNavbarVisible={setIsNavbarVisible} />} />
+              <Route exact path='/about' element={<About />} />
+              <Route exact path='/contatti' element={<Contatti />} />
+              <Route exact path='/lavoro' element={<LavoraConNoi />} />
+            </Routes>
+          </Suspense>
           <Footer />
         </FiltersProvider>
       </BrowserRouter>

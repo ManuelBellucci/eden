@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense, lazy } from 'react'
 import { useParams } from 'react-router-dom'
 import useListing from '../../hooks/useListing'
 import useMobileDetect from '../../hooks/useMobileDetect'
-import VisitModal from '../../components/immobili/singleImmobile/VisitModal'
 import { generateNextNDays, times } from '../../helpers/dateHelpers'
-import ImageGallery from '../../components/immobili/singleImmobile/ImageGallery'
-import AgencyInfo from '../../components/immobili/singleImmobile/AgencyInfo'
-import ListingDetails from '../../components/immobili/singleImmobile/ListingDetails'
-import AgencyInfoMobile from '../../components/immobili/singleImmobile/AgencyInfoMobile'
-import Plan from '../../components/immobili/singleImmobile/Plan'
-import VirtualTour from '../../components/immobili/singleImmobile/VirtualTour'
+
+const VisitModal = lazy(() => import('../../components/immobili/singleImmobile/VisitModal'))
+const ImageGallery = lazy(() => import('../../components/immobili/singleImmobile/ImageGallery'))
+const AgencyInfo = lazy(() => import('../../components/immobili/singleImmobile/AgencyInfo'))
+const ListingDetails = lazy(() => import('../../components/immobili/singleImmobile/ListingDetails'))
+const AgencyInfoMobile = lazy(() => import('../../components/immobili/singleImmobile/AgencyInfoMobile'))
+const Plan = lazy(() => import('../../components/immobili/singleImmobile/Plan'))
+const VirtualTour = lazy(() => import('../../components/immobili/singleImmobile/VirtualTour'))
 
 const SingleImmobile = ({ setIsNavbarVisible }) => {
   const { id } = useParams()
@@ -64,21 +65,25 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
   return (
     <>
       <div className='2xl:grid 2xl:grid-cols-4 px-4 xl:px-40 pt-10 gap-4'>
-        <ImageGallery listing={listing} />
-        <AgencyInfo
-          isMobile={isMobile}
-          isFormFilled={isFormFilled}
-          listing={listing}
-          setIsModalVisible={() => handleModalVisibility(true)}
-          setUserEmail={setUserEmail}
-          setUserName={setUserName}
-          setUserPhone={setUserPhone}
-          setUserSurname={setUserSurname}
-          userEmail={userEmail}
-          userName={userName}
-          userPhone={userPhone}
-          userSurname={userSurname}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ImageGallery listing={listing} />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <AgencyInfo
+            isMobile={isMobile}
+            isFormFilled={isFormFilled}
+            listing={listing}
+            setIsModalVisible={() => handleModalVisibility(true)}
+            setUserEmail={setUserEmail}
+            setUserName={setUserName}
+            setUserPhone={setUserPhone}
+            setUserSurname={setUserSurname}
+            userEmail={userEmail}
+            userName={userName}
+            userPhone={userPhone}
+            userSurname={userSurname}
+          />
+        </Suspense>
       </div>
 
       <div className='my-4 bg-primary-900 shadow-md p-6 mx-4 xl:mx-40 rounded-lg'>
@@ -86,12 +91,18 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
         <p className='text-primary-50 text-center text-base lg:text-lg font-bold '>{listing.address}, {listing.municipality}</p>
         <p className='text-primary-50 text-center text-sm md:text-base break-words lg:text-lg p-8'>{listing.description}</p>
         <hr className='my-6' />
-        <ListingDetails listing={listing} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ListingDetails listing={listing} />
+        </Suspense>
       </div>
 
       <div className={`my-4 rounded-lg ${listing.video ? 'grid grid-cols-1 md:grid-cols-2' : 'flex justify-center'} gap-0 md:gap-4 mx-4 xl:mx-40 bg-primary-900 shadow-md`}>
-        <div className={`${listing.video ? '' : 'w-full flex justify-center'}`}>
-          {listing.plan.length >= 1 && <Plan listing={listing} />}
+        <div className={`${listing.plan.length >= 1 ? '' : 'w-full flex justify-center'}`}>
+          {listing.plan.length >= 1 && (
+            <Suspense fallback={<div>Loading...</div>}>
+              <Plan listing={listing} />
+            </Suspense>
+          )}
         </div>
         {listing.video && (
           <div className='pt-0 pb-6 md:pt-6 px-6 md:pl-0 rounded-lg'>
@@ -110,7 +121,6 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
           </div>
         )}
       </div>
-      {/* verify virtualTour is not an empty array */}
       {listing.virtualTour.length > 0 && (
         <div className='my-4 bg-primary-900 shadow-md px-2 py-2 mx-4 xl:mx-40 rounded-lg'>
           <button
@@ -121,48 +131,54 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
           </button>
         </div>
       )}
-      <AgencyInfoMobile
-        isMobile={isMobile}
-        isFormFilled={isFormFilled}
-        listing={listing}
-        setIsModalVisible={() => handleModalVisibility(true)}
-        setUserEmail={setUserEmail}
-        setUserName={setUserName}
-        setUserPhone={setUserPhone}
-        setUserSurname={setUserSurname}
-        userEmail={userEmail}
-        userName={userName}
-        userPhone={userPhone}
-        userSurname={userSurname}
-      />
-      <VisitModal
-        isVisible={isModalVisible}
-        onClose={() => handleModalVisibility(false)}
-        userName={userName}
-        setUserName={setUserName}
-        userSurname={userSurname}
-        setUserSurname={setUserSurname}
-        userPhone={userPhone}
-        setUserPhone={setUserPhone}
-        userEmail={userEmail}
-        setUserEmail={setUserEmail}
-        visitType={visitType}
-        setVisitType={setVisitType}
-        dates={dates}
-        selectedDates={selectedDates}
-        handleDateChange={handleDateChange}
-        times={times}
-        selectedTimes={selectedTimes}
-        handleTimeChange={handleTimeChange}
-        isFormFilled={isFormFilled}
-      />
-      <VirtualTour
-        isVisible={isTourModalVisible}
-        onClose={() => handleTourModalVisibility(false)}
-        images={listing.virtualTour}
-        currentSceneIndex={currentSceneIndex}
-        setCurrentSceneIndex={setCurrentSceneIndex}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <AgencyInfoMobile
+          isMobile={isMobile}
+          isFormFilled={isFormFilled}
+          listing={listing}
+          setIsModalVisible={() => handleModalVisibility(true)}
+          setUserEmail={setUserEmail}
+          setUserName={setUserName}
+          setUserPhone={setUserPhone}
+          setUserSurname={setUserSurname}
+          userEmail={userEmail}
+          userName={userName}
+          userPhone={userPhone}
+          userSurname={userSurname}
+        />
+      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <VisitModal
+          isVisible={isModalVisible}
+          onClose={() => handleModalVisibility(false)}
+          userName={userName}
+          setUserName={setUserName}
+          userSurname={userSurname}
+          setUserSurname={setUserSurname}
+          userPhone={userPhone}
+          setUserPhone={setUserPhone}
+          userEmail={userEmail}
+          setUserEmail={setUserEmail}
+          visitType={visitType}
+          setVisitType={setVisitType}
+          dates={dates}
+          selectedDates={selectedDates}
+          handleDateChange={handleDateChange}
+          times={times}
+          selectedTimes={selectedTimes}
+          handleTimeChange={handleTimeChange}
+          isFormFilled={isFormFilled}
+        />
+      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <VirtualTour
+          isVisible={isTourModalVisible}
+          onClose={() => handleTourModalVisibility(false)}
+          images={listing.virtualTour}
+          currentSceneIndex={currentSceneIndex}
+          setCurrentSceneIndex={setCurrentSceneIndex}
+        />
+      </Suspense>
     </>
   )
 }
