@@ -5,7 +5,7 @@ const LavoraConNoi = () => {
       <p className='text-primary-50'>Sei interessato a lavorare con noi? Contattaci subito!</p>
       <p className='text-primary-50'>Invia una mail a
         <span className='text-primary-500 italic'>
-          <a href='mailto:edenhousebologna.com'>edenhousebologna@gmail.com</a>
+          <a href='mailto:edenhousebologna.com'> edenhousebologna@gmail.com</a>
         </span>
         con allegato il tuo CV e spiegaci in che mansioni vorresti esserci di aiuto!
       </p>
