@@ -122,7 +122,7 @@ const Filters = () => {
       {/* Mobile Filters Modal */}
       {isModalOpen && (
         <div className='fixed inset-0 p-4 py-14 bg-primary-800 bg-opacity-90 z-[100] flex items-center justify-center'>
-          <div className='bg-primary-50 h-full flex flex-col relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg'>
+          <div className='bg-primary-50 h-full max-h-full flex flex-col relative justify-between items-center p-6 rounded-lg shadow-lg w-full max-w-lg overflow-y-auto'>
             <div className='flex justify-between items-center mb-4'>
               <button
                 className='text-xl px-4 py-2 absolute top-5 right-5 text-primary-50 bg-red-500 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
@@ -131,7 +131,7 @@ const Filters = () => {
                 &times;
               </button>
             </div>
-            <div className='flex flex-col gap-4 overflow-hidden'>
+            <div className='flex flex-col gap-4'>
               <h2 className='text-2xl mb-4 text-center'>Trova l'immobile perfetto per te</h2>
 
               <ContractFilterDropdown
@@ -183,7 +183,7 @@ const Filters = () => {
                 setSelectedExtras={(value) => handleFilterChange(setExtras, value)}
               />
             </div>
-            <div className='flex gap-4'>
+            <div className='flex gap-4 mt-4'>
               <button
                 className='px-4 py-2 bg-green-500 text-primary-50 rounded-lg shadow hover:bg-green-600'
                 onClick={toggleModal}
