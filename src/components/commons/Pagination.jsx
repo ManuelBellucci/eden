@@ -3,6 +3,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     <div className='mt-8 flex justify-center items-center'>
       {Array.from({ length: totalPages }, (_, index) => (
         <button
+          aria-label='Go to page'
           key={index}
           className={`px-3 py-1 mx-1 border rounded ${index + 1 === currentPage ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 text-primary-500'}`}
           onClick={() => onPageChange(index + 1)}

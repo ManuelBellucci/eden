@@ -24,6 +24,7 @@ const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelecte
   return (
     <div className='relative'>
       <button
+        aria-label='Open bathrooms dropdown'
         aria-expanded={isOpen}
         aria-controls='bathrooms-dropdown'
         onClick={toggle}

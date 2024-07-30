@@ -46,6 +46,7 @@ const CallToAction = ({
     const buttonType = asSubmit ? 'submit' : type
     return (
       <button
+        aria-label='submitButton'
         type={buttonType}
         className={combinedClasses}
         style={style}

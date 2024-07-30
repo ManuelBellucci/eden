@@ -99,6 +99,7 @@ const ImageGallery = ({ listing }) => {
         <div className='fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center'>
           <div className='relative bg-white p-4 rounded-none lg:rounded-lg w-full h-full overflow-y-auto lg:w-11/12 lg:max-w-[11/12] lg:h-5/6'>
             <button
+              aria-label='Close modal'
               className='absolute top-0 right-0 lg:right-1 text-3xl font-extrabold text-black'
               onClick={closeModal}
             >

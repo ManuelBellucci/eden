@@ -113,7 +113,12 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
       {/* verify virtualTour is not an empty array */}
       {listing.virtualTour.length > 0 && (
         <div className='my-4 bg-primary-900 shadow-md px-2 py-2 mx-4 xl:mx-40 rounded-lg'>
-          <button className='text-3xl font-extrabold leading-none shadow-md bg-primary-50 p-4 w-full mx-auto rounded-lg text-primary-950 md:text-4xl lg:text-5xl uppercase' onClick={() => handleTourModalVisibility(true)}>Clicca qui per vedere il Virtual Tour</button>
+          <button
+            aria-label='Open virtual tour'
+            className='text-3xl font-extrabold leading-none shadow-md bg-primary-50 p-4 w-full mx-auto rounded-lg text-primary-950 md:text-4xl lg:text-5xl uppercase'
+            onClick={() => handleTourModalVisibility(true)}
+          >Clicca qui per vedere il Virtual Tour
+          </button>
         </div>
       )}
       <AgencyInfoMobile

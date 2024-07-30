@@ -52,6 +52,7 @@ const Filters = () => {
       {/* Desktop Filters */}
       {areFiltersSet() && (
         <button
+          aria-label='Clean filters'
           className='px-4 py-2 hidden xl:block bg-red-500 text-primary-50 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
           onClick={cleanFilters}
         >

@@ -63,6 +63,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
               Richiedi una visita su WhatsApp <img loading='lazy' src='/whatsapplogo.svg' alt='whatsapp icon' className='w-6 h-6 ml-2' />
             </a>
             <button
+              aria-label='Richiedi una visita tramite modulo'
               type='button'
               className='flex items-center justify-between py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-100/75 hover:text-primary-70'
               onClick={() => setIsModalVisible(true)}

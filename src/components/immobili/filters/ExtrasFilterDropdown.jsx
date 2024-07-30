@@ -28,6 +28,7 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
   return (
     <div className='relative'>
       <button
+        aria-label='Open extras dropdown'
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
@@ -56,6 +57,7 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
           <div className='flex flex-col max-h-40 overflow-y-scroll space-y-2'>
             {extrasOptions.map((extra) => (
               <button
+                aria-label='Select extra'
                 key={extra.value}
                 aria-checked={selectedExtras[extra.value]}
                 role='checkbox'

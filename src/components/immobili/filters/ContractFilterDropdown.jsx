@@ -23,6 +23,7 @@ const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedC
   return (
     <div className='relative'>
       <button
+        aria-label='Open contract dropdown'
         aria-expanded={isOpen}
         aria-haspopup='listbox'
         onClick={toggle}

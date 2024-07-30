@@ -51,6 +51,7 @@ export function PlanCarousel ({ images }) {
       )}
       prevArrow={({ handlePrev }) => (
         <button
+          aria-label='Previous slide'
           onClick={handlePrev}
           className='absolute top-1/2 left-2 transform -translate-y-1/2 p-2 bg-primary-500 rounded-full text-primary-50'
         >
@@ -59,6 +60,7 @@ export function PlanCarousel ({ images }) {
       )}
       nextArrow={({ handleNext }) => (
         <button
+          aria-label='Next slide'
           onClick={handleNext}
           className='absolute top-1/2 right-2 transform -translate-y-1/2 p-2 bg-primary-500 text-primary-50 rounded-full'
         >

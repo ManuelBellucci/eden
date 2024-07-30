@@ -117,6 +117,7 @@ const Contacts = () => {
           </label>
         </div>
         <button
+          aria-label='Invia'
           type='submit'
           className='bg-primary-500 text-primary-50 font-semibold py-2 px-4 rounded-lg hover:bg-primary-600 transition-colors'
         >

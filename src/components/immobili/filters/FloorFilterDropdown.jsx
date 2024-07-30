@@ -23,6 +23,7 @@ const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }
   return (
     <div className='relative'>
       <button
+        aria-label='Open floor dropdown'
         aria-haspopup='listbox'
         aria-expanded={isOpen}
         onClick={toggle}

@@ -26,6 +26,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
   return (
     <div className='relative'>
       <button
+        aria-label='Open tipology dropdown'
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}

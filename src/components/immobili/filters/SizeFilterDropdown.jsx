@@ -63,6 +63,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
   return (
     <div className='relative'>
       <button
+        aria-label='Open size dropdown'
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
@@ -135,6 +136,7 @@ const SizeFilterDropdown = ({ isOpen, toggle, selectedSize, setSelectedSize }) =
             </ul>
           </div>
           <button
+            aria-label='Apply size filter'
             type='button'
             className='w-full px-4 py-2 text-primary-50 bg-primary-500 rounded-lg hover:bg-primary-600'
             onClick={applySizeFilter}

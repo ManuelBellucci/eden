@@ -54,6 +54,7 @@ const Browser = () => {
     <div className='w-full'>
       <div className='flex text-xl font-bold justify-center text-primary-50'>
         <button
+          aria-label='Vendita'
           onClick={() => toggleContractType('vendita')}
           className={`px-4 py-2 rounded-t-lg w-full rounded-b-none rounded-tr-none ${contractType === 'vendita'
             ? 'bg-primary-50 text-primary-500 transition-all ease-in'
@@ -63,6 +64,7 @@ const Browser = () => {
           Vendita
         </button>
         <button
+          aria-label='Affitto'
           onClick={() => toggleContractType('affitto')}
           className={`px-4 py-2 rounded-t-lg w-full rounded-b-none rounded-tl-none ${contractType === 'affitto'
             ? 'bg-primary-50 text-primary-500 transition-all ease-in'

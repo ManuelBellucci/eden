@@ -93,7 +93,11 @@ const VisitModal = ({
     <div className='fixed inset-0 z-50 flex items-center justify-center px-4 bg-primary-950 bg-opacity-50'>
       <div className='bg-primary-50 rounded-lg w-full max-w-xl max-h-[calc(100%-40px)] overflow-y-auto invisible-scrollbar relative'>
         <div className='px-4 py-3 rounded-t-lg bg-primary-100/75 flex justify-between items-center'>
-          <button onClick={onClose} className='w-full text-gray-400 hover:text-gray-600'>
+          <button
+            aria-label='Close modal'
+            onClick={onClose}
+            className='w-full text-gray-400 hover:text-gray-600'
+          >
             <svg className='h-6 w-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
             </svg>
@@ -173,6 +177,7 @@ const VisitModal = ({
             <h4 className='font-bold text-center mt-6 mb-2'>Scegli come visitare l'immobile</h4>
             <div className='flex'>
               <button
+                aria-label='Visita fisica'
                 type='button'
                 className={`py-2 px-4 w-full border text-base  text-primary-950 rounded-lg rounded-r-none transition-all ease-in border-r-0 ${visitType === 'visita fisica' ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100 '}`}
                 onClick={() => setVisitType('visita fisica')}
@@ -180,6 +185,7 @@ const VisitModal = ({
                 Visita fisica
               </button>
               <button
+                aria-label='Visita virtuale'
                 type='button'
                 className={`py-2 px-4 w-full border text-base  text-primary-950 rounded-lg rounded-l-none transition-all ease-in border-l-0 ${visitType === 'visita virtuale' ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100 '}`}
                 onClick={() => setVisitType('visita virtuale')}
@@ -202,6 +208,7 @@ const VisitModal = ({
                 >
                   {dates.map((date) => (
                     <button
+                      aria-label='Seleziona data'
                       key={date.value}
                       type='button'
                       className={`py-6 px-4 border text-base transition-all ease-in text-primary-950 rounded-lg ${selectedDates.includes(date.value) ? 'bg-primary-500 text-primary-50' : 'bg-primary-50 hover:bg-primary-100'}`}
@@ -227,6 +234,7 @@ const VisitModal = ({
             <div className='flex gap-2 overflow-x-auto'>
               {times.map((time) => (
                 <button
+                  aria-label='Seleziona fascia oraria'
                   key={time.value}
                   type='button'
                   className={`py-2 px-4 border text-sm text-nowrap w-full transition-all ease-in text-primary-950 rounded-lg ${selectedTimes.includes(time.value) ? 'bg-primary-500 text-primary-50 transition-all ease-in' : 'bg-primary-50 hover:bg-primary-100 '}`}
@@ -240,6 +248,7 @@ const VisitModal = ({
 
           <div className='mt-4'>
             <button
+              aria-label='Invia richiesta'
               type='submit'
               className={`inline-flex w-full items-center justify-center px-4 py-2 text-base  text-primary-50 bg-primary-500 rounded-lg hover:bg-primary-500  focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}

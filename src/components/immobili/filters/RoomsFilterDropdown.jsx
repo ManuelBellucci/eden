@@ -59,6 +59,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
   return (
     <div className='relative'>
       <button
+        aria-label='Open rooms dropdown'
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
@@ -119,6 +120,7 @@ const RoomsFilterDropdown = ({ isOpen, toggle, selectedRooms, setSelectedRooms }
             </ul>
           </div>
           <button
+            aria-label='Apply rooms filter'
             className='w-full px-4 py-2 bg-primary-500 text-primary-50 rounded-lg shadow hover:bg-primary-600'
             onClick={applyRoomsFilter}
           >
