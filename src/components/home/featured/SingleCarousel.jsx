@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
 
 const Carousel = lazy(() => import('@material-tailwind/react').then(module => ({ default: module.Carousel })))
