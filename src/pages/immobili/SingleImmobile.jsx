@@ -87,9 +87,9 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
       </div>
 
       <div className='my-4 bg-primary-900 shadow-md p-6 mx-4 xl:mx-40 rounded-lg'>
-        <h2 className='text-primary-50 text-center font-bold text-3xl lg:text-5xl'>{listing.title} </h2>
-        <p className='text-primary-50 text-center text-base lg:text-lg font-bold '>{listing.address}, {listing.municipality}</p>
-        <p className='text-primary-50 text-center text-sm md:text-base break-words lg:text-lg p-8'>{listing.description}</p>
+        <h2 className='text-primary-50 text-center font-bold text-3xl md:text-4xl lg:text-5xl'>{listing.title} </h2>
+        <p className='text-primary-50/75 text-center text-lg lg:text-xl font-bold '>{listing.address}, {listing.municipality}</p>
+        <p className='text-primary-50 text-center text-base break-words lg:text-lg p-8'>{listing.description}</p>
         <hr className='my-6' />
         <Suspense fallback={<div>Loading...</div>}>
           <ListingDetails listing={listing} />
