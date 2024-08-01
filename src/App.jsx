@@ -30,6 +30,14 @@ function App () {
               <Route exact path='/about' element={<About />} />
               <Route exact path='/contatti' element={<Contatti />} />
               <Route exact path='/lavoro' element={<LavoraConNoi />} />
+              <Route
+                exact path='/404' element={
+                  <div className='text-center mt-20'>
+                    <h1 className='text-3xl font-bold'>404</h1>
+                    <p>Page not found</p>
+                  </div>
+              }
+              />
             </Routes>
           </Suspense>
           <Footer />
