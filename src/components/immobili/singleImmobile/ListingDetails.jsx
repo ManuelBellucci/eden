@@ -2,8 +2,8 @@ const ListingDetails = ({ listing }) => {
   const renderFloor = () => {
     if (!listing.floor || listing.floor.length === 0) return 'N/A'
     return listing.floor
-      .map((floor) => (floor === 0 ? 'Piano terra' : floor))
-      .join(', ')
+      .map((floor) => (floor === 0 ? 'T' : floor))
+      .join('-')
   }
 
   if (listing.tipology === 'Garage e posti auto') {
