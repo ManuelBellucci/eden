@@ -12,6 +12,7 @@ const SingleImmobile = lazy(() => import('./pages/immobili/SingleImmobile'))
 const About = lazy(() => import('./pages/about/About'))
 const Contatti = lazy(() => import('./pages/contatti/Contatti'))
 const LavoraConNoi = lazy(() => import('./pages/lavoraConNoi/LavoraConNoi'))
+const Page404 = lazy(() => import('./pages/404/Page404'))
 
 function App () {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
@@ -30,14 +31,7 @@ function App () {
               <Route exact path='/about' element={<About />} />
               <Route exact path='/contatti' element={<Contatti />} />
               <Route exact path='/lavoro' element={<LavoraConNoi />} />
-              <Route
-                exact path='/404' element={
-                  <div className='text-center mt-20'>
-                    <h1 className='text-3xl font-bold'>404</h1>
-                    <p>Page not found</p>
-                  </div>
-              }
-              />
+              <Route exact path='/404' element={<Page404 />} />
             </Routes>
           </Suspense>
           <Footer />
