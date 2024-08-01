@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import useListing from '../../hooks/useListing'
 import useMobileDetect from '../../hooks/useMobileDetect'
 import { generateNextNDays, times } from '../../helpers/dateHelpers'
@@ -31,7 +31,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error loading listing: {error.message}</div>
-  if (!listing) return <div>No listing found</div>
+  if (!listing || !listing.active) return <Navigate to='/404' replace />
 
   const isFormFilled = userName.trim() !== '' && userSurname.trim() !== '' && userPhone.trim() !== '' && userEmail.trim() !== ''
   const dates = generateNextNDays(15)
