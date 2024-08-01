@@ -1,7 +1,7 @@
 import { useCallback, memo } from 'react'
 
 const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }) => {
-  const floorOptions = ['Indifferente', 'Piano terra', 'Piani intermedi', 'Ultimo piano']
+  const floorOptions = ['Indifferente', 'Piano terra', 'Piani intermedi', 'Ultimo piano', 'Multilivello']
 
   const selectFloor = useCallback((floor) => {
     if (floor === 'Indifferente') {

@@ -36,7 +36,7 @@ export const FiltersProvider = ({ children }) => {
   const [size, setSize] = useState({ from: '', to: '' })
   const [rooms, setRooms] = useState({ from: '', to: '' })
   const [bathrooms, setBathrooms] = useState('')
-  const [floor, setFloor] = useState('')
+  const [floor, setFloor] = useState([])
   const [extras, setExtras] = useState({
     terrace: false,
     balcony: false,
@@ -58,7 +58,7 @@ export const FiltersProvider = ({ children }) => {
     setSize({ from: '', to: '' })
     setRooms({ from: '', to: '' })
     setBathrooms('')
-    setFloor('')
+    setFloor([])
     setExtras({
       terrace: false,
       balcony: false,
@@ -99,7 +99,9 @@ export const FiltersProvider = ({ children }) => {
     }
 
     bathrooms && params.set('b', bathrooms)
-    floor && params.set('pi', floor)
+    if (floor.length > 0) {
+      params.set('pi', floor.join(','))
+    }
 
     if (extras && typeof extras === 'object') {
       const selectedExtras = Object.entries(extras)
@@ -124,7 +126,7 @@ export const FiltersProvider = ({ children }) => {
     const lmin = params.lmin || ''
     const lmax = params.lmax || ''
     const b = params.b || ''
-    const pi = params.pi || ''
+    const pi = params.pi ? params.pi.split(',').map(floor => parseInt(floor, 10)) : []
     const extrasString = params.extras || ''
 
     setContract(c.charAt(0).toUpperCase() + c.slice(1))

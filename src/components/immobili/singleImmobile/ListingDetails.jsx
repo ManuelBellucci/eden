@@ -1,4 +1,11 @@
 const ListingDetails = ({ listing }) => {
+  const renderFloor = () => {
+    if (!listing.floor || listing.floor.length === 0) return 'N/A'
+    return listing.floor
+      .map((floor) => (floor === 0 ? 'Piano terra' : floor))
+      .join(', ')
+  }
+
   if (listing.tipology === 'Garage e posti auto') {
     // Render the specific content for garage
     return (
@@ -26,12 +33,14 @@ const ListingDetails = ({ listing }) => {
                 {listing.numGarage}
               </small>
             </div>
-            <div className='text-xl lg:text-2xl text-primary-950 font-extrabold'>Piano
-              <small className='italic ms-2 font-semibold text-primary-800'>
-                {listing.floor}
-              </small>
-            </div>
-            {/* Add any other garage-specific details here */}
+            {listing.floor && listing.floor.length > 0 && (
+              <div className='text-xl lg:text-2xl font-extrabold'>Piano
+                <small className='italic ms-2 font-semibold text-primary-800'>
+                  {renderFloor()}
+                </small>
+              </div>
+            )}
+
           </div>
         </div>
       </div>
@@ -91,13 +100,14 @@ const ListingDetails = ({ listing }) => {
               </small>
             </div>
           )}
-          {(listing.floor !== undefined && listing.floor !== null) && listing.buildingFloors && listing.elevator !== null && (
+          {(listing.floor !== undefined && listing.floor !== null && listing.floor.length > 0) && listing.buildingFloors && listing.elevator !== null && (
             <div className='text-xl lg:text-2xl font-extrabold'>Piano
               <small className='italic ms-2 font-semibold text-primary-800'>
-                {listing.floor === 0 ? 'T' : listing.floor} di {listing.buildingFloors} {listing.elevator ? 'con ascensore' : 'senza ascensore'}
+                {renderFloor()} di {listing.buildingFloors} {listing.elevator ? 'con ascensore' : 'senza ascensore'}
               </small>
             </div>
           )}
+
           {listing.expositions && (
             <div className='text-xl lg:text-2xl font-extrabold'>Esposizioni
               <small className='italic ms-2 font-semibold text-primary-800'>
