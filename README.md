@@ -5,7 +5,7 @@ v1
 - VIEW [] /cookies
 - VIEW [] /terminiecondizioni
 - VIEW [] /informativa
-- VIEW [] /404 not found page
+- VIEW [x] /404 not found page
 - FEATURE [] aggiungere sezione footer: dati societari
 - FEATURE [] messaggi di errore
 - CHORE [] allegare landing page a CTA

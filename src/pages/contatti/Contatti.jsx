@@ -31,8 +31,8 @@ const Contacts = () => {
   }
 
   return (
-    <li className='mb-10 mx-auto max-w-xl text-center p-10'>
-      <div className='absolute w-3 h-3 bg-primary-500 rounded-full mt-1.5 -start-2 border-2 border-primary-50' />
+    <li className='mb-10 mx-auto max-w-xl text-center p-4'>
+      <img className='max-w-72 lg:max-w-96 mx-auto' alt='lavora con noi' src='/contact.svg' />
       <h2 className='mb-1 text-2xl md:text-3xl lg:text-4xl font-bold text-primary-500 uppercase'>Contattaci</h2>
       <h3 className='text-lg md:text-xl lg:text-2xl font-semibold text-primary-50 mb-4'>
         Restiamo in contatto
