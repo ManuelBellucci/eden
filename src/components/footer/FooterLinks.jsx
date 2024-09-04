@@ -56,11 +56,13 @@ const links = [
 const FooterLinks = () => {
   return (
     // <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1'>
-    <div className='grid grid-cols-2'>
-      {links.map((section) => (
-        <LinkColumn key={section.title} title={section.title} links={section.links} />
-      ))}
-    </div>
+    <>
+      <div className='grid grid-cols-2'>
+        {links.map((section) => (
+          <LinkColumn key={section.title} title={section.title} links={section.links} />
+        ))}
+      </div>
+    </>
   )
 }
 
