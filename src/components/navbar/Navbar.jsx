@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className='flex xl:order-2 gap-4 rtl:space-x-reverse items-center relative'>
           <CallToAction
             anchor
-            href='https://www.youtube.com/'
+            href='https://eden-landing-page.vercel.app/'
             text='Valutare casa'
             size='lg'
             rounded='xl'
