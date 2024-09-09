@@ -195,7 +195,7 @@ const ListingDetails = ({ listing }) => {
           {listing.cellar && listing.cellarSqm.length > 1 && (
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Metrature cantine
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.cellarSqm.map((sqm, index) => (<span key={index}>{sqm}m²{index < listing.cellarSqm.length - 1 ? ', ' : ''}</span>))}
+                {listing.cellarSqm.map((sqm, index) => (<span key={index} className='font-sans'>{sqm}m²{index < listing.cellarSqm.length - 1 ? ', ' : ''}</span>))}
               </small>
             </div>
           )}
@@ -218,7 +218,7 @@ const ListingDetails = ({ listing }) => {
           {listing.garage && listing.numGarage > 1 && (
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Superficie garage
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.garageSqm.map((sqm, index) => (<span key={index}>{sqm}m²{index < listing.garageSqm.length - 1 ? ', ' : ''}</span>))}
+                {listing.garageSqm.map((sqm, index) => (<span key={index} className='font-sans'>{sqm}m²{index < listing.garageSqm.length - 1 ? ', ' : ''}</span>))}
               </small>
             </div>
           )}
@@ -241,14 +241,14 @@ const ListingDetails = ({ listing }) => {
           {listing.parkingSpace && listing.numParkingSpace > 1 && (
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Tipologia posti auto
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.parkingSpaceType.map((type, index) => (<span key={index} className='font-sans'>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
+                {listing.parkingSpaceType.map((type, index) => (<span key={index} className='font-sans' className='font-sans'>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
               </small>
             </div>
           )}
           {listing.parkingSpace && listing.numParkingSpace === 1 && (
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Tipologia posto auto
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.parkingSpaceType.map((type, index) => (<span key={index}>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
+                {listing.parkingSpaceType.map((type, index) => (<span key={index} className='font-sans'>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
               </small>
             </div>
           )}
@@ -279,7 +279,7 @@ const ListingDetails = ({ listing }) => {
           {listing.terrace && listing.numTerrace > 1 && (
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Superficie terrazzi
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.terraceSqm.map((sqm, index) => (<span key={index}>{sqm}m²{index < listing.terraceSqm.length - 1 ? ', ' : ''}</span>))}
+                {listing.terraceSqm.map((sqm, index) => (<span key={index} className='font-sans'>{sqm}m²{index < listing.terraceSqm.length - 1 ? ', ' : ''}</span>))}
               </small>
             </div>
           )}
@@ -302,7 +302,7 @@ const ListingDetails = ({ listing }) => {
           {listing.balcony && listing.numBalcony > 1 && (
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Superficie balconi
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.balconySqm.map((sqm, index) => (<span key={index}>{sqm}m²{index < listing.balconySqm.length - 1 ? ', ' : ''}</span>))}
+                {listing.balconySqm.map((sqm, index) => (<span key={index} className='font-sans'>{sqm}m²{index < listing.balconySqm.length - 1 ? ', ' : ''}</span>))}
               </small>
             </div>
           )}
@@ -343,7 +343,7 @@ const ListingDetails = ({ listing }) => {
         <div className='flex justify-center'>
           <div className='flex flex-wrap gap-2 mr-auto max-w-sm'>
             {extraFeatures.map((feature, index) => (
-              feature.value && <span key={index} className='px-3 py-1 border rounded-lg bg-primary-500'>{feature.label}</span>
+              feature.value && <span key={index} className='font-sans' className='px-3 py-1 border rounded-lg bg-primary-500'>{feature.label}</span>
             ))}
             {exposureTag && <span className='px-3 py-1 border rounded-lg bg-primary-500'>{exposureTag}</span>}
           </div>
