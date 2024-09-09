@@ -241,7 +241,7 @@ const ListingDetails = ({ listing }) => {
           {listing.parkingSpace && listing.numParkingSpace > 1 && (
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Tipologia posti auto
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.parkingSpaceType.map((type, index) => (<span key={index} className='font-sans' className='font-sans'>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
+                {listing.parkingSpaceType.map((type, index) => (<span key={index} className='font-sans'>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
               </small>
             </div>
           )}
@@ -343,7 +343,7 @@ const ListingDetails = ({ listing }) => {
         <div className='flex justify-center'>
           <div className='flex flex-wrap gap-2 mr-auto max-w-sm'>
             {extraFeatures.map((feature, index) => (
-              feature.value && <span key={index} className='font-sans' className='px-3 py-1 border rounded-lg bg-primary-500'>{feature.label}</span>
+              feature.value && <span key={index} className='px-3 py-1 border rounded-lg bg-primary-500'>{feature.label}</span>
             ))}
             {exposureTag && <span className='px-3 py-1 border rounded-lg bg-primary-500'>{exposureTag}</span>}
           </div>
