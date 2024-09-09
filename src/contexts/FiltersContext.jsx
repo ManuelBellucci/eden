@@ -99,6 +99,7 @@ export const FiltersProvider = ({ children }) => {
     }
 
     bathrooms && params.set('b', bathrooms)
+
     if (floor.length > 0) {
       params.set('pi', floor.join(','))
     }
@@ -126,7 +127,7 @@ export const FiltersProvider = ({ children }) => {
     const lmin = params.lmin || ''
     const lmax = params.lmax || ''
     const b = params.b || ''
-    const pi = params.pi ? params.pi.split(',').map(floor => parseInt(floor, 10)) : []
+    const pi = params.pi ? params.pi.split(',').map(floor => floor.trim()) : []
     const extrasString = params.extras || ''
 
     setContract(c.charAt(0).toUpperCase() + c.slice(1))

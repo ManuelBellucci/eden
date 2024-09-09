@@ -5,17 +5,17 @@ const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }
 
   const selectFloor = useCallback((floor) => {
     if (floor === 'Indifferente') {
-      setSelectedFloor('')
+      setSelectedFloor([])
     } else {
-      setSelectedFloor(floor)
+      setSelectedFloor([floor])
     }
     toggle()
   }, [setSelectedFloor, toggle])
 
   const getFloorLabel = () => {
-    return selectedFloor || 'Piano'
+    return selectedFloor.length > 0 ? selectedFloor.join(', ') : 'Piano'
   }
-
+  
   const isSelected = (floor) => {
     return selectedFloor === floor || (!selectedFloor && floor === 'Indifferente')
   }
