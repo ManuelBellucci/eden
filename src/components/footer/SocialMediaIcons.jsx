@@ -51,6 +51,11 @@ const socialMedia = [
 const SocialMediaIcons = () => {
   return (
     <>
+      <div className='text-white text-center mb-4 px-10 text-pretty'>
+        <p>P.IVA 123456789 Cod. Fisc 123456789 | Sede legale: Via Saragozza n.112/O - 40135 Bologna (BO)
+        </p>
+        <p>edenhousebologna@gmail.com</p>
+      </div>
       <div className='flex justify-between items-center px-8 lg:px-14 py-6 lg:py-8'>
         <span className='text-sm text-primary-50'>© 2024 <a href='https://edenhouse.me'>Eden srl</a>. All Rights Reserved.</span>
         <div className='flex justify-center items-center space-x-5 rtl:space-x-reverse'>
@@ -59,11 +64,7 @@ const SocialMediaIcons = () => {
           ))}
         </div>
       </div>
-      <div className='text-white text-center mb-4'>
-        <p>P.IVA 123456789 Cod. Fisc 123456789 | Sede legale: Via Saragozza n.112/O - 40135 Bologna (BO)
-        </p>
-        <p>edenhousebologna@gmail.com</p>
-      </div>
+
     </>
   )
 }
