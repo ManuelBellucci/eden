@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import axios from 'axios'
 import { objectToQueryString } from '../helpers/queryHelpers'
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
 const useFetchListings = (page, listingsPerPage, filters = {}) => {
   const [listings, setListings] = useState([])
