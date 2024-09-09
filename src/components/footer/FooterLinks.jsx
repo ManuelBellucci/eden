@@ -6,7 +6,7 @@ const LinkColumn = ({ title, links }) => (
     <ul className='text-primary-50 text-lg mb-10 font-medium'>
       {links.map((link) => (
         <li key={link.text} className='mb-4'>
-          <Link to={link.href} className='hover:underline'>{link.text}</Link>
+          <Link to={link.href} className='hover:underline font-serif'>{link.text}</Link>
         </li>
       ))}
     </ul>

@@ -37,7 +37,7 @@ const Contacts = () => {
       <h3 className='text-lg md:text-xl lg:text-2xl font-semibold text-primary-50 mb-4'>
         Restiamo in contatto
       </h3>
-      <p className='text-primary-50 mb-4'>
+      <p className='font-serif text-primary-50 mb-4'>
         Se hai domande o vuoi saperne di più, compila il modulo qui sotto e ti risponderemo al più presto.
       </p>
       <form className='space-y-4' onSubmit={handleSubmit}>

@@ -8,7 +8,7 @@ const AboutSection = ({ title, text, body }) => {
       <h3 className='text-lg md:text-xl lg:text-2xl font-semibold text-primary-50'>
         {text}
       </h3>
-      <p className='text-base md:text-lg lg:text-xl font-normal text-primary-50/75'>
+      <p className='font-serif text-base md:text-lg lg:text-xl font-normal text-primary-50/75'>
         {body}
       </p>
     </li>

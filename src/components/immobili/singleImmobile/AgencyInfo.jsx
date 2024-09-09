@@ -48,7 +48,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
           <div className='flex flex-col mt-4 gap-2'>
             <a
               href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+chiedere+un+informazione+in+merito+all'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
-              className={`flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-center text-primary-950 bg-primary-50 rounded-lg hover:bg-primary-500 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+              className={`font-serif flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-center text-primary-950 bg-primary-50 rounded-lg hover:bg-primary-500 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
               onClick={(e) => !isFormFilled && e.preventDefault()}
             >
@@ -56,7 +56,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
             </a>
             <a
               href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+prenotare+una+visione+per+l'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
-              className={`flex items-center justify-between py-2 px-4 text-sm font-medium text-center text-primary-900 focus:outline-none bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-100/75 hover:text-primary-70 ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
+              className={`font-serif flex items-center justify-between py-2 px-4 text-sm font-medium text-center text-primary-900 focus:outline-none bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-100/75 hover:text-primary-70 ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
               onClick={(e) => !isFormFilled && e.preventDefault()}
             >
@@ -65,7 +65,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
             <button
               aria-label='Richiedi una visita tramite modulo'
               type='button'
-              className='flex items-center justify-between py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-100/75 hover:text-primary-70'
+              className='font-serif flex items-center justify-between py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-100/75 hover:text-primary-70'
               onClick={() => setIsModalVisible(true)}
             >
               Richiedi una visita tramite modulo <img loading='lazy' src='/form.svg' alt='form icon' className='w-6 h-6 ml-2' />
@@ -75,7 +75,7 @@ const AgencyInfo = ({ isMobile, userName, setUserName, userSurname, setUserSurna
                   (
                     <a
                       href='tel:+393517404147'
-                      className='flex justify-between items-center py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-100/75 hover:text-primary-70'
+                      className='font-serif flex justify-between items-center py-2 px-4 text-sm font-medium text-primary-900 focus:outline-none bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-100/75 hover:text-primary-70'
                     >
                       Chiama ora <img loading='lazy' src='/call.svg' alt='phone icon' className='w-6 h-6 ml-2' />
                     </a>

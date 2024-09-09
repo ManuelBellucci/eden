@@ -17,7 +17,7 @@ const HowItWorks = ({ processSteps }) => {
         Come funziona?{' '}
         <span className='text-primary-500'>acquisto e vendita</span> di immobili
       </h2>
-      <p className='text-center text-balance text-lg font-normal mx-auto max-w-xl text-primary-50/75 lg:text-2xl mb-14'>
+      <p className='font-serif text-center text-balance text-lg font-normal mx-auto max-w-xl text-primary-50/75 lg:text-2xl mb-14'>
         Scopri come funziona il nostro servizio di acquisto e vendita di immobili.
         Siamo specializzati in vendite e affitti di immobili a Bologna e
         provincia.
