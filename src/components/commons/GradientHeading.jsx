@@ -32,7 +32,7 @@ const generateGradientStyle = (to, from, via) => {
  * @returns {string} - Complete class string for paragraph
  */
 const generateParagraphClass = (sizeClasses) => {
-  return `text-primary-50 font-serif ${sizeClasses}`
+  return `text-primary-50 font-sans ${sizeClasses}`
 }
 
 /**

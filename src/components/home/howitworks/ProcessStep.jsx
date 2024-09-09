@@ -64,7 +64,7 @@ const ProcessStep = ({ title, description, src, index, activeStep, setActiveStep
       >
         {title}
       </h2>
-      <p className='font-serif text-lg md:text-xl lg:text-2xl text-primary-50 mt-1'>
+      <p className='font-sans text-lg md:text-xl lg:text-2xl text-primary-50 mt-1'>
         {description}
       </p>
     </div>
