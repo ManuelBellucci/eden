@@ -69,7 +69,7 @@ const ListingDetails = ({ listing }) => {
     <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-4'>
       {/* Main Information */}
       <div className='mb-5 pb-5 h-full bg-primary-50 rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-2xl  leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Caratteristiche</h3>
+        <h3 className='mb-4 text-2xl font-extrabold leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Caratteristiche</h3>
         <div className='flex flex-col'>
           {listing.type && (
             <div className='text-xl lg:text-2xl font-extrabold'>
@@ -175,7 +175,7 @@ const ListingDetails = ({ listing }) => {
       </div>
 
       <div className='mb-5 pb-5 h-full bg-primary-50 rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-2xl  leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Pertinenze</h3>
+        <h3 className='mb-4 text-2xl font-extrabold leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Pertinenze</h3>
         <div className='flex flex-col'>
           {listing.closet && (
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Rispostiglio
@@ -318,7 +318,7 @@ const ListingDetails = ({ listing }) => {
 
       {/* Costs Information */}
       <div className='text-start h-full pb-5 mb-5 bg-primary-50 rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-2xl  text-start leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Costi</h3>
+        <h3 className='mb-4 text-2xl font-extrabold text-start leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Costi</h3>
         <div className='flex flex-col items-start'>
           <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Prezzo
             <small className='font-normal font-sans ms-2 text-primary-800'>
@@ -339,7 +339,7 @@ const ListingDetails = ({ listing }) => {
           )}
         </div>
 
-        <h3 className='my-4 text-2xl  text-start leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Extra</h3>
+        <h3 className='my-4 text-2xl font-extrabold text-start leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Extra</h3>
         <div className='flex justify-center'>
           <div className='flex flex-wrap gap-2 mr-auto max-w-sm'>
             {extraFeatures.map((feature, index) => (
@@ -352,7 +352,7 @@ const ListingDetails = ({ listing }) => {
       {/* efficienza energetica */}
       <div>
         <div className='text-start pb-5 h-full bg-primary-50 rounded-lg p-4 shadow-md'>
-          <h3 className='mb-4 text-2xl  text-start leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Efficienza energetica</h3>
+          <h3 className='mb-4 text-2xl font-extrabold text-start leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Efficienza energetica</h3>
           <div className='flex flex-col items-start'>
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Riscaldamento
               <small className='font-normal font-sans ms-2 text-primary-800'>
