@@ -241,7 +241,7 @@ const ListingDetails = ({ listing }) => {
           {listing.parkingSpace && listing.numParkingSpace > 1 && (
             <div className='text-xl lg:text-2xl text-primary-950 '>Tipologia posti auto
               <small className='font-sans ms-2 text-primary-800'>
-                {listing.parkingSpaceType.map((type, index) => (<span key={index}>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
+                {listing.parkingSpaceType.map((type, index) => (<span key={index} className='font-sans'>{type !== null && type.charAt(0).toUpperCase() + type.slice(1)}{index < listing.parkingSpaceType.length - 1 ? ', ' : ''}</span>))}
               </small>
             </div>
           )}
