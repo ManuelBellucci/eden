@@ -188,7 +188,7 @@ const ListingDetails = ({ listing }) => {
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Cantina
               <small className='font-normal font-sans ms-2 text-primary-800'>
                 {listing.cellar ? 'Si' : 'No'}
-                {listing.cellar && listing.cellarSqm.length > 1 && <span> ({listing.cellarSqm.length})</span>}
+                {listing.cellar && listing.cellarSqm.length > 1 && <span className='font-sans'> ({listing.cellarSqm.length})</span>}
               </small>
             </div>
           )}
@@ -234,7 +234,7 @@ const ListingDetails = ({ listing }) => {
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '> Posto auto
               <small className='font-normal font-sans ms-2 text-primary-800'>
                 {listing.parkingSpace ? 'Si' : 'No'}
-                {listing.parkingSpace && listing.numParkingSpace > 1 && <span> ({listing.numParkingSpace})</span>}
+                {listing.parkingSpace && listing.numParkingSpace > 1 && <span className='font-sans'> ({listing.numParkingSpace})</span>}
               </small>
             </div>
           )}
@@ -257,7 +257,7 @@ const ListingDetails = ({ listing }) => {
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Giardino
               <small className='font-normal font-sans ms-2 text-primary-800'>
                 {listing.privateGarden ? 'Si' : 'No'}
-                {listing.privateGarden && <span> ({listing.gardenSqm}m²)</span>}
+                {listing.privateGarden && <span className='font-sans'> ({listing.gardenSqm}m²)</span>}
               </small>
             </div>
           )}
@@ -272,7 +272,7 @@ const ListingDetails = ({ listing }) => {
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Terrazzo
               <small className='font-normal font-sans ms-2 text-primary-800'>
                 {listing.terrace ? 'Si' : 'No'}
-                {listing.terrace && listing.numTerrace > 1 && <span> ({listing.numTerrace})</span>}
+                {listing.terrace && listing.numTerrace > 1 && <span className='font-sans'> ({listing.numTerrace})</span>}
               </small>
             </div>
           )}
@@ -295,7 +295,7 @@ const ListingDetails = ({ listing }) => {
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Balcone
               <small className='font-normal font-sans ms-2 text-primary-800'>
                 {listing.balcony ? 'Si' : 'No'}
-                {listing.balcony && listing.numBalcony > 1 && <span> ({listing.numBalcony})</span>}
+                {listing.balcony && listing.numBalcony > 1 && <span className='font-sans'> ({listing.numBalcony})</span>}
               </small>
             </div>
           )}
