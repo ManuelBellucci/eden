@@ -16,7 +16,7 @@ const InfoBlock = ({ iconSrc, title, description }) => (
         </div>
         <p className='block'>{title}</p>
       </dt>
-      <dd className='mt-2 leading-7 text-xl text-primary-50/75'>{description}</dd>
+      <dd className='font-sans mt-2 leading-7 text-xl text-primary-50/75'>{description}</dd>
     </dl>
   </div>
 )
@@ -124,7 +124,7 @@ const Newsletter = () => {
         <div className='grid max-w-2xl grid-cols-1 gap-y-16 lg:max-w-none 2xl:grid-cols-2'>
           <div className='max-w-xl p-8 lg:max-w-lg'>
             <h2 className='font-bold text-primary-50 text-3xl'>Iscriviti alla Nostra Newsletter.</h2>
-            <p className='mt-4 text-xl leading-8 text-primary-50/75'>
+            <p className='font-sans mt-4 text-xl leading-8 text-primary-50/75'>
               Informati sulle ultime novità e promozioni, immobili nuovi, notizie, agevolazioni e molte altre situazioni di interesse, gratuitamente. Non invieremo spam, promesso!
             </p>
             <NewsletterForm />

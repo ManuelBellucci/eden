@@ -15,7 +15,7 @@ const FloorFilterDropdown = ({ isOpen, toggle, selectedFloor, setSelectedFloor }
   const getFloorLabel = () => {
     return selectedFloor.length > 0 ? selectedFloor.join(', ') : 'Piano'
   }
-  
+
   const isSelected = (floor) => {
     return selectedFloor === floor || (!selectedFloor && floor === 'Indifferente')
   }
