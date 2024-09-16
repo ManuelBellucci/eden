@@ -11,7 +11,7 @@ const ListingItem = ({ listing }) => {
 
       <Link to={`/immobili/${listing._id}`}>
         <hgroup className='mt-4'>
-          <h3 className='text-xl lg:text-2xl font-bold text-primary-50 line-clamp-2'> {/* Limit title to 2 lines */}
+          <h3 className='text-xl lg:text-2xl font-bold text-primary-50 line-clamp-1'> {/* Limit title to 2 lines */}
             {listing.title}
           </h3>
           <div className='flex justify-between items-center'>
