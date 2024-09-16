@@ -11,14 +11,18 @@ const ListingItem = ({ listing }) => {
 
       <Link to={`/immobili/${listing._id}`}>
         <hgroup className='mt-4'>
-          <h3 className='text-xl lg:text-2xl font-bold text-primary-50'>{listing.title}</h3>
+          <h3 className='text-xl lg:text-2xl font-bold text-primary-50 line-clamp-2'> {/* Limit title to 2 lines */}
+            {listing.title}
+          </h3>
           <div className='flex justify-between items-center'>
             <p className='text-lg text-primary-50'>{listing.address}, {listing.municipality}</p>
             <div className='italic text-base text-primary-50'>Rif. {listing._id}</div>
           </div>
           <div className='border-t mt-2 pt-2 text-lg flex justify-between'>
             <PropertyIcons listing={listing} />
-            <span className='text-lg xl:text-xl self-center font-extrabold text-primary-50'>{listing.pubPrice.toLocaleString()}€</span>
+            <span className='text-lg xl:text-xl self-center font-extrabold text-primary-50'>
+              {listing.pubPrice.toLocaleString()}€
+            </span>
           </div>
         </hgroup>
       </Link>
