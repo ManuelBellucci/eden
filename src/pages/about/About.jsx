@@ -31,11 +31,18 @@ const About = () => {
         className='object-cover center h-96 '
       />
       <Suspense fallback={<div>Loading...</div>}>
-        <Caption
-          text='La casa è il nostro Eden personale, un rifugio di serenità e felicità, il nostro angolo di paradiso.'
-          name='Giulio A. Stefanini'
-          role='Co-Founder Eden House'
-        />
+        <div className='flex flex-col md:flex-row gap-4'>
+          <Caption
+            text='La casa è il nostro Eden personale, un rifugio di serenità e felicità, il nostro angolo di paradiso.'
+            name='Giulio A. Stefanini'
+            role='Co-Founder Eden House'
+          />
+          <Caption
+            text='La casa è il nostro Eden personale, un rifugio di serenità e felicità, il nostro angolo di paradiso.'
+            name='Matteo Lolli'
+            role='Co-Founder Eden House'
+          />
+        </div>
       </Suspense>
       <ol className='relative border-s-4 border-primary-500 p-4 m-4 max-w-2xl'>
         <Suspense fallback={<div>Loading...</div>}>
