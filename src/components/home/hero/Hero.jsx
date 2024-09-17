@@ -18,10 +18,9 @@ const Hero = () => {
             />
           </div> */}
           <GradientHeading
-            textOne='La realtà immobiliare'
-            gradientPhrase='numero 1'
+            gradientPhrase='Eden House'
+            text='La giusta scelta per vendere, comprare e affittare casa.'
             paragraphSizeClasses='text-2xl text-balance'
-            textTwo='per vendere, comprare e affittare casa.'
             paragraph='Con noi troverai la casa dei tuoi sogni, in pochi click. Siamo specializzati in vendite e affitti di immobili a Bologna e provincia.'
             gradientFrom='rgba(87,239,241,1) 0%'
             gradientVia='rgba(3, 201, 217, 1) 35%'

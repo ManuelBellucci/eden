@@ -1,5 +1,3 @@
-import React from 'react'
-
 /**
  * Generate complete heading class
  * @param {string} sizeClasses - Tailwind size classes for heading
@@ -7,7 +5,7 @@ import React from 'react'
  * @returns {string} - Complete class string for heading
  */
 const generateHeadingClass = (sizeClasses, additionalClasses) => {
-  return `mb-4 font-base leading-none text-primary-50 ${sizeClasses} ${additionalClasses}`
+  return `mb-2 font-base leading-none text-primary-50 ${sizeClasses} ${additionalClasses}`
 }
 
 /**
@@ -39,15 +37,14 @@ const generateParagraphClass = (sizeClasses) => {
  * Component for displaying headings with gradient effect
  */
 const GradientHeading = ({
-  textOne,
+  text,
   gradientPhrase,
-  textTwo,
   paragraph,
   gradientFrom,
   gradientVia,
   gradientTo,
   className = '',
-  headingSizeClasses = 'text-6xl text-balance',
+  headingSizeClasses = 'text-6xl text-balance flex flex-col gap-16',
   paragraphSizeClasses = 'text-2xl'
 }) => {
   const headingClass = generateHeadingClass(headingSizeClasses, className)
@@ -55,14 +52,13 @@ const GradientHeading = ({
   const paragraphClass = generateParagraphClass(paragraphSizeClasses)
 
   return (
-    <>
+    <div className='mb-8'>
       <h2 className={headingClass}>
-        {textOne}
         <span className='font-extrabold' style={gradientStyle}>{` ${gradientPhrase} `}</span>
-        {textTwo}
+        <p>{text}</p>
       </h2>
       <p className={paragraphClass}>{paragraph}</p>
-    </>
+    </div>
   )
 }
 
