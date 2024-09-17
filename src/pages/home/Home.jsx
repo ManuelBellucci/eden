@@ -41,7 +41,7 @@ const Home = () => {
           <HowItWorks
             processSteps={[
               { title: 'Facci sapere le tue esigenze', description: 'Contattaci per farci sapere cosa stai cercando e spiegarci le tue esigenze.', src: '/esigenze.svg' },
-              { title: 'Capisci il tuo budget', description: 'Omagiamo per i nostri acquirenti una consulenza di mutuo o di vendita in base alle necessità in modo di darvi a conoscere il budget preciso ed effettivo che avete per l\'acquisto.', src: '/budget.svg' },
+              { title: 'Capisci il tuo budget', description: 'Omaggiamo per i nostri acquirenti una consulenza di mutuo o di vendita in base alle necessità in modo di darvi a conoscere il budget preciso ed effettivo che avete per l\'acquisto.', src: '/budget.svg' },
               { title: 'Visioniamo l\'immobile', description: 'Dopo aver capito le tue esigenze e il tuo budget, ti mostriamo gli immobili che fanno al caso tuo. Se non trovi quello che cerchi, non preoccuparti, continueremo a cercare per te fino a quando non troveremo la casa dei tuoi sogni.', src: '/visione.svg' }
             ]}
           />
