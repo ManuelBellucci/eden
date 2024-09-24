@@ -1,5 +1,15 @@
 import { useState, useRef, useEffect } from 'react'
 
+/*
+* Componente MultiChoiceDropdown - Consente la selezione multipla di opzioni da un elenco
+* @props {Array} options - Opzioni disponibili per la selezione
+* @props {string} label - Etichetta del dropdown
+* @props {Array} selectedOptions - Opzioni attualmente selezionate
+* @props {function} setSelectedOptions - Funzione per aggiornare le opzioni selezionate
+* @props {boolean} isSingleSelection - Indica se è consentita solo una selezione
+* @returns {JSX.Element} - Elemento React per la selezione multipla di opzioni
+*/
+
 const MultiChoiceDropdown = ({
   options,
   label,
@@ -7,10 +17,10 @@ const MultiChoiceDropdown = ({
   setSelectedOptions,
   isSingleSelection = false
 }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const dropdownRef = useRef(null)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false) // Stato per gestire l'apertura del dropdown
+  const dropdownRef = useRef(null) // Riferimento per il dropdown
 
-  // Handle outside clicks for closing dropdown
+  // Gestione dei clic al di fuori del dropdown per chiuderlo
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -18,26 +28,28 @@ const MultiChoiceDropdown = ({
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside) // Aggiungi l'event listener
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside) // Rimuovi l'event listener
     }
   }, [])
 
+  // Gestisce il cambiamento di selezione
   const handleSelectionChange = (option) => {
     if (isSingleSelection) {
-      setSelectedOptions([option])
+      setSelectedOptions([option]) // Solo una selezione consentita
     } else {
       setSelectedOptions((prev) => {
         if (prev.includes(option)) {
-          return prev.filter((item) => item !== option)
+          return prev.filter((item) => item !== option) // Rimuovi se già selezionato
         } else {
-          return [...prev, option]
+          return [...prev, option] // Aggiungi se non selezionato
         }
       })
     }
   }
 
+  // Alterna l'apertura del dropdown
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen)
   }
@@ -60,9 +72,9 @@ const MultiChoiceDropdown = ({
               key={option}
               onClick={() => handleSelectionChange(option)}
               className={`px-4 py-2 m-1 rounded-lg w-full ${selectedOptions.includes(option)
-                                    ? 'bg-primary-500 text-primary-50'
-                                    : 'bg-primary-50/75 text-primary-950'
-                                }`}
+                ? 'bg-primary-500 text-primary-50'
+                : 'bg-primary-50/75 text-primary-950'
+                }`}
             >
               {option}
             </button>

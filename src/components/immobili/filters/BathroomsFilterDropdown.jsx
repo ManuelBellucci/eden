@@ -1,22 +1,46 @@
 import { memo, useCallback } from 'react'
 
+/**
+ * Componente dropdown per selezionare il numero di bagni.
+ * @param {Object} props - Proprietà del componente.
+ * @param {boolean} props.isOpen - Indica se il dropdown è aperto.
+ * @param {function} props.toggle - Funzione per attivare/disattivare la visibilità del dropdown.
+ * @param {string} props.selectedBathrooms - Opzione dei bagni attualmente selezionata.
+ * @param {function} props.setSelectedBathrooms - Funzione per impostare l'opzione dei bagni selezionata.
+ * @returns {JSX.Element} Componente renderizzato.
+ */
 const BathroomsFilterDropdown = ({ isOpen, toggle, selectedBathrooms, setSelectedBathrooms }) => {
+  // Opzioni per il numero di bagni
   const bathroomsOptions = ['Indifferente', '1', '2', '3']
 
+  /**
+   * Gestisce la selezione dell'opzione dei bagni.
+   *
+   * @param {string} bathrooms - Opzione dei bagni selezionata.
+   */
   const selectBathrooms = useCallback((bathrooms) => {
     if (bathrooms === 'Indifferente') {
-      setSelectedBathrooms('')
+      setSelectedBathrooms('') // Resetta la selezione se è 'Indifferente'
     } else {
-      setSelectedBathrooms(bathrooms)
+      setSelectedBathrooms(bathrooms) // Imposta l'opzione selezionata
     }
-    toggle()
+    toggle() // Chiudi il dropdown
   }, [setSelectedBathrooms, toggle])
 
+  /**
+   * Ottiene l'etichetta da visualizzare sul pulsante in base all'opzione selezionata.
+   * @returns {string} Etichetta per il pulsante.
+   */
   const getBathroomsLabel = () => {
-    if (!selectedBathrooms) return 'Bagni'
+    if (!selectedBathrooms) return 'Bagni' // Etichetta predefinita
     return selectedBathrooms === 'Indifferente' ? 'Indifferente' : `Min. ${selectedBathrooms} ${selectedBathrooms === '1' ? 'bagno' : 'bagni'}`
   }
 
+  /**
+    * Controlla se l'opzione è attualmente selezionata.
+    * @param {string} bathrooms - Opzione bagni da controllare.
+    * @returns {boolean} True se selezionata, altrimenti false.
+    */
   const isSelected = (bathrooms) => {
     return selectedBathrooms === bathrooms || (!selectedBathrooms && bathrooms === 'Indifferente')
   }

@@ -1,8 +1,17 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
 
+// Lazy Load del Carousel
 const Carousel = lazy(() => import('@material-tailwind/react').then(module => ({ default: module.Carousel })))
 
+/**
+ * Componente NavigationDots
+ * @props {number} activeIndex - Indice dell'immagine attiva
+ * @props {function} setActiveIndex - Funzione per impostare l'indice attivo
+ * @props {number} totalSlides - Numero totale di immagini nel carosello
+ * @props {number} visibleDots - Numero di punti di navigazione visibili
+ * @returns {JSX.Element} - Elemento React per la visualizzazione dei punti di navigazione
+*/
 const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots = 5 }) => {
   const createDots = () => {
     const dots = []
@@ -10,6 +19,7 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
     const from = Math.max(activeIndex - sideDots, 0)
     const to = Math.min(from + visibleDots, totalSlides)
 
+    // Aggiungi ellissi se ci sono immagini non visibili a sinistra
     if (from > 1) {
       dots.push(
         <span key='0' className='block h-2 w-4 cursor-pointer rounded-2xl bg-primary-50/50' onClick={() => setActiveIndex(0)} />,
@@ -17,17 +27,19 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
       )
     }
 
+    // Aggiungi i punti di navigazione
     for (let i = from; i < to; i++) {
-      const isActive = activeIndex === i
+      const isActive = activeIndex === i // COntrolla se il punto è attivo
       dots.push(
         <span
           key={i}
           className={`block h-2 w-${isActive ? '8' : '4'} cursor-pointer rounded-2xl transition-all bg-primary-50${isActive ? '' : '/50'}`}
-          onClick={() => setActiveIndex(i)}
+          onClick={() => setActiveIndex(i)} // Imposta l'indice attivo
         />
       )
     }
 
+    // Aggiungi ellissi se ci sono immagini non visibili a destra
     if (to < totalSlides) {
       dots.push(
         <span key='ellipsis-post' className='text-primary-50'>...</span>,
@@ -35,7 +47,7 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
       )
     }
 
-    return dots
+    return dots // Restituisci i punti di navigazione
   }
 
   return (
@@ -45,14 +57,21 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
   )
 }
 
+/**
+ * Componente SingleCarousel
+ * @props {Array} images - Array di immagini da visualizzare
+ * @props {string} id - ID del carosello
+ * @returns {JSX.Element} - Elemento React per la visualizzazione di un carosello
+ */
 export function SingleCarousel ({ images, id }) {
   return (
-    <Suspense fallback={<div>Loading Carousel...</div>}>
+    // Messaggio di caricamento
+    <Suspense fallback={<div>Caricando...</div>}>
       <Carousel
-        className='rounded-lg'
+        className='rounded-lg' // Classi di stile per il carosello
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <NavigationDots totalSlides={length} activeIndex={activeIndex} setActiveIndex={setActiveIndex} visibleDots={5} />
-        )}
+        )} // Imposta i punti di navigazione
       >
         {images.map((image, index) => (
           <Link key={`${id}-${index}`} to={`/immobili/${id}`}>

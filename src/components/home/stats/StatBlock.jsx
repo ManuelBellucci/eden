@@ -1,48 +1,51 @@
 import { useEffect, useState, useRef } from 'react'
 
+// Componente per visualizzare una statistica
 const StatBlock = ({ icon, number, description }) => {
-  const [isVisible, setIsVisible] = useState(false)
-  const [count, setCount] = useState(0)
-  const ref = useRef()
+  const [isVisible, setIsVisible] = useState(false) // Stato per controllare la visibilità
+  const [count, setCount] = useState(0) // Contatore per la statistica
+  const ref = useRef() // Riferimento per il blocco statistico
 
+  // Osservatore per gestire la visibilità della statistica
   useEffect(() => {
     const observer = new window.IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true)
-            observer.unobserve(entry.target)
+            setIsVisible(true) // Imposta la statistica come visibile
+            observer.unobserve(entry.target) // Ferma l'osservazione
           }
         })
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 } // Trigger per la visibilità
     )
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current) // Inizia a osservare il blocco statistico
     }
 
     return () => {
       if (ref.current) {
-        observer.unobserve(ref.current)
+        observer.unobserve(ref.current) // Ferma l'osservazione del blocco
       }
     }
   }, [])
 
+  // Incremento del contatore quando la statistica è visibile
   useEffect(() => {
     if (isVisible) {
       let start = 0
-      const end = number
+      const end = number // Valore finale per il contatore
       if (start === end) return
 
-      const totalDuration = 800
-      const incrementTime = (totalDuration / end) * 5
+      const totalDuration = 800 // Durata totale dell'animazione
+      const incrementTime = (totalDuration / end) * 5 // Tempo di incremento
 
       const timer = setInterval(() => {
-        start += 2
-        setCount((prev) => (prev + 2 > end ? end : prev + 2))
+        start += 2 // Incremento del contatore
+        setCount((prev) => (prev + 2 > end ? end : prev + 2)) // Aggiorna il contatore
 
-        if (start >= end) clearInterval(timer)
+        if (start >= end) clearInterval(timer) // Ferma l'incremento se raggiunto il valore finale
       }, incrementTime)
     }
   }, [isVisible, number])

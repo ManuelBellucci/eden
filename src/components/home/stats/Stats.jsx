@@ -1,5 +1,6 @@
 import StatBlock from './StatBlock'
 
+// Componente per visualizzare un insieme di statistiche
 const Stats = ({ statsData }) => (
   <div className='bg-primary-950 m-14 pt-24'>
     <h2 className='text-center text-balance mb-4 text-3xl font-extrabold leading-none text-primary-50 lg:text-4xl'>
@@ -12,6 +13,7 @@ const Stats = ({ statsData }) => (
     </p>
     <div className='grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3'>
       {statsData.map((stat) => (
+        // Renderizza ogni blocco statistico
         <StatBlock key={stat.description} {...stat} />
       ))}
     </div>

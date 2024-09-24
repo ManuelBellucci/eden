@@ -5,54 +5,65 @@ import axios from 'axios'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
+// Componente Browser: consente la ricerca di immobili in base a vari criteri.
 const Browser = () => {
+  // Stato per memorizzare le informazioni sui comuni
   const [municipalities, setMunicipalities] = useState([])
+  // Stato per le municipalità selezionate
   const [selectedMunicipalities, setSelectedMunicipalities] = useState([])
+  // Stato per la tipologia selezionata
   const [selectedTipology, setSelectedTipology] = useState([])
+  // Stato per i filtri selezionati
   const [selectedFilters, setSelectedFilters] = useState([])
+  // Stato per il tipo di contratto (vendita/affitto)
   const [contractType, setContractType] = useState('vendita')
 
+  // Funzione per recuperare i comuni da un'API
   const fetchMunicipalities = async () => {
     try {
       const response = await axios.get(`${API_URL}/municipalities`)
-      setMunicipalities(response.data)
+      setMunicipalities(response.data) // Imposta i comuni nello stato
     } catch (error) {
-      console.error(error)
+      console.error(error) // Gestione degli errori
     }
   }
 
+  // Effetto per caricare i comuni all'avvio del componente
   useEffect(() => {
     fetchMunicipalities()
   }, [])
 
+  // Funzione per alternare il tipo di contratto selezionato
   const toggleContractType = (type) => {
     setContractType(type)
   }
 
+  // Genera i parametri della query per la ricerca degli immobili
   const generateQueryParams = () => {
     const params = new URLSearchParams()
 
-    // Contract type (vendita/affitto)
+    // Tipo di contratto (vendita/affitto)
     if (contractType) {
       params.set('c', contractType)
     }
 
-    // Tipology (only one should be selected)
+    // Tipologia (solo una dovrebbe essere selezionata)
     if (selectedTipology.length > 0) {
       params.set('t', selectedTipology[0].toLowerCase())
     }
 
-    // Filters (extras)
+    // Filtri (opzioni extra)
     if (selectedFilters.length > 0) {
       params.set('extras', selectedFilters.join(' ').toLowerCase())
     }
 
-    return `/immobili?${params.toString()}`
+    return `/immobili?${params.toString()}` // Restituisce la stringa della query
   }
 
   return (
     <div className='w-full'>
       <div className='flex text-xl font-bold justify-center text-primary-50'>
+        {/* Pulsante per Vendita */}
         <button
           aria-label='Vendita'
           onClick={() => toggleContractType('vendita')}
@@ -63,6 +74,7 @@ const Browser = () => {
         >
           Vendita
         </button>
+        {/* Pulsante per Affitto */}
         <button
           aria-label='Affitto'
           onClick={() => toggleContractType('affitto')}
@@ -75,6 +87,7 @@ const Browser = () => {
         </button>
       </div>
       <div className='h-full w-full flex flex-col md:flex-row gap-4 rounded-lg rounded-t-none md:rounded-t-none bg-primary-50 py-4 px-4'>
+        {/* Dropdown per le municipalità */}
         <MultiChoiceDropdown
           label='Zona (disponibili)'
           className='w-full'
@@ -82,6 +95,7 @@ const Browser = () => {
           selectedOptions={selectedMunicipalities}
           setSelectedOptions={setSelectedMunicipalities}
         />
+        {/* Dropdown per la tipologia */}
         <MultiChoiceDropdown
           label='Tipologia'
           className='w-full'
@@ -90,6 +104,7 @@ const Browser = () => {
           setSelectedOptions={setSelectedTipology}
           isSingleSelection
         />
+        {/* Dropdown per i filtri */}
         <MultiChoiceDropdown
           label='Filtri'
           className='w-full'
@@ -100,6 +115,7 @@ const Browser = () => {
           setSelectedOptions={setSelectedFilters}
         />
 
+        {/* Pulsante per cercare immobili */}
         <CallToAction
           text='Cercare'
           anchor

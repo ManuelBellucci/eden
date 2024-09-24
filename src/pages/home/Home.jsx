@@ -1,5 +1,6 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 
+// Caricamento dinamico dei componenti per ottimizzare il caricamento della pagina
 const Banner = lazy(() => import('../../components/home/banner/Banner'))
 const Featured = lazy(() => import('../../components/home/featured/Featured'))
 const Hero = lazy(() => import('../../components/home/hero/Hero'))
@@ -8,13 +9,16 @@ const Stats = lazy(() => import('../../components/home/stats/Stats'))
 const Tipologie = lazy(() => import('../../components/home/tipologie/Tipologie'))
 const WhyWorkWithUs = lazy(() => import('../../components/home/whyworkwithus/WhyWorkWithUs'))
 
+// Definizione del componente Home
 const Home = () => {
   return (
     <>
+      {/* Componente Hero con caricamento sospeso */}
       <Suspense fallback={<div>Loading...</div>}>
         <Hero />
       </Suspense>
       <div className='lg:mx-14 bg-primary-950'>
+        {/* Componente Tipologie con dati specifici */}
         <Suspense fallback={<div>Loading...</div>}>
           <Tipologie
             tipologieData={[
@@ -25,6 +29,7 @@ const Home = () => {
             ]}
           />
         </Suspense>
+        {/* Componente Stats con dati sulle statistiche */}
         <Suspense fallback={<div>Loading...</div>}>
           <Stats
             statsData={[
@@ -34,9 +39,11 @@ const Home = () => {
             ]}
           />
         </Suspense>
+        {/* Componente Featured per gli immobili in evidenza */}
         <Suspense fallback={<div>Loading...</div>}>
           <Featured />
         </Suspense>
+        {/* Componente HowItWorks che descrive il processo */}
         <Suspense fallback={<div>Loading...</div>}>
           <HowItWorks
             processSteps={[
@@ -47,6 +54,7 @@ const Home = () => {
           />
         </Suspense>
       </div>
+      {/* Componente Banner per promuovere la scoperta di nuove case */}
       <Suspense fallback={<div>Loading...</div>}>
         <Banner
           bgImage='/banner.webp'
@@ -57,6 +65,7 @@ const Home = () => {
         />
       </Suspense>
       <div className='lg:mx-14'>
+        {/* Componente WhyWorkWithUs che elenca i vantaggi */}
         <Suspense fallback={<div>Loading...</div>}>
           <WhyWorkWithUs
             benefits={[

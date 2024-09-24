@@ -1,21 +1,44 @@
 import { memo, useCallback } from 'react'
 
+/**
+ * Componente dropdown per selezionare il tipo di contratto.
+ * @param {Object} props - Proprietà del componente.
+ * @param {boolean} props.isOpen - Indica se il dropdown è aperto.
+ * @param {function} props.toggle - Funzione per attivare/disattivare la visibilità del dropdown.
+ * @param {string} props.selectedContract - Contratto attualmente selezionato.
+ * @param {function} props.setSelectedContract - Funzione per impostare il contratto selezionato.
+ * @returns {JSX.Element} Componente renderizzato.
+ */
 const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedContract }) => {
+  // Opzioni per i contratti
   const contractOptions = ['Indifferente', 'Vendita', 'Affitto']
 
+  /**
+   * Gestisce la selezione dell'opzione del contratto.
+   * @param {string} contract - Opzione contratto selezionata.
+   */
   const selectContract = useCallback((contract) => {
     if (contract === 'Indifferente') {
-      setSelectedContract('')
+      setSelectedContract('') // Resetta la selezione per 'Indifferente'
     } else {
-      setSelectedContract(contract)
+      setSelectedContract(contract) // Imposta il contratto selezionato
     }
-    toggle()
+    toggle() // Chiude il dropdown
   }, [setSelectedContract, toggle])
 
+  /**
+   * Ottiene l'etichetta da visualizzare sul pulsante in base all'opzione selezionata.
+   * @returns {string} Etichetta per il pulsante.
+   */
   const getContractLabel = () => {
-    return selectedContract || 'Contratto'
+    return selectedContract || 'Contratto' // Etichetta predefinita
   }
 
+  /**
+   * Controlla se l'opzione è attualmente selezionata.
+   * @param {string} contract - Opzione contratto da controllare.
+   * @returns {boolean} True se selezionata, altrimenti false.
+   */
   const isSelected = (contract) => {
     return selectedContract === contract || (!selectedContract && contract === 'Indifferente')
   }
@@ -23,7 +46,7 @@ const ContractFilterDropdown = ({ isOpen, toggle, selectedContract, setSelectedC
   return (
     <div className='relative'>
       <button
-        aria-label='Open contract dropdown'
+        aria-label='Apri dropdown contratto'
         aria-expanded={isOpen}
         aria-haspopup='listbox'
         onClick={toggle}

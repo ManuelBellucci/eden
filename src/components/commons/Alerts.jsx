@@ -1,8 +1,17 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Alert - Componente generico per visualizzare messaggi di avviso con diversi stili (info, danger, success, warning, dark).
+ * @param {string} type - Tipo di avviso (info, danger, success, warning, dark).
+ * @param {node} children - Contenuto da visualizzare all'interno dell'avviso.
+ * @param {string} extraClassNames - Classi CSS aggiuntive opzionali.
+ * @returns {JSX.Element} - Elemento React per la visualizzazione di un avviso.
+ */
+export
 const Alert = ({ type, children, extraClassNames }) => {
+  // CLassi base per il componente alert
   const baseClasses = 'p-4 mb-4 text-sm rounded-lg role="alert"'
+  // Classi specifiche per il tipo di alert
   const typeClasses = {
     info: 'text-blue-800 bg-blue-50',
     danger: 'text-red-800 bg-red-50',
@@ -18,13 +27,21 @@ const Alert = ({ type, children, extraClassNames }) => {
   )
 }
 Alert.propTypes = {
-  type: PropTypes.oneOf(['info', 'danger', 'success', 'warning', 'dark']).isRequired,
-  children: PropTypes.node.isRequired,
-  extraClassNames: PropTypes.string
+  type: PropTypes.oneOf(['info', 'danger', 'success', 'warning', 'dark']).isRequired, // il tipo è obbligatorio
+  children: PropTypes.node.isRequired, // il contenuto è obbligatorio
+  extraClassNames: PropTypes.string // classi CSS aggiuntive opzionali
 }
 Alert.defaultProps = {
   extraClassNames: ''
 }
+
+/**
+ * InfoAlert - Alert preconfigurato di tipo "info".
+ * @param {string} bold - Testo in grassetto.
+ * @param {string} text - Testo normale.
+ * @param {string} extraClassNames - Classi CSS aggiuntive opzionali.
+ * @returns {JSX.Element} - Elemento React per la visualizzazione di un avviso di tipo "info".
+ */
 
 export const InfoAlert = ({ bold, text, extraClassNames }) => {
   return (
@@ -38,6 +55,7 @@ InfoAlert.propTypes = {
   text: PropTypes.string.isRequired
 }
 
+// Componenti simili per Danger, Success, Warning e Dark Alert
 export const DangerAlert = ({ bold, text, extraClassNames }) => {
   return (
     <Alert type='danger' extraClassNames={extraClassNames}>

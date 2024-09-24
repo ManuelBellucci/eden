@@ -1,11 +1,11 @@
 import { useContext, useState, useCallback, useReducer } from 'react'
 import { FiltersContext } from '../contexts/FiltersContext'
 
-// Define action types
+// Tipi di azione per il riduttore
 const TOGGLE_FILTER = 'TOGGLE_FILTER'
 const TOGGLE_MODAL = 'TOGGLE_MODAL'
 
-// Initial state for modal filters
+// Stato iniziale per i filtri del modulo
 const initialModalFiltersState = {
   contract: false,
   tipology: false,
@@ -17,7 +17,7 @@ const initialModalFiltersState = {
   extras: false
 }
 
-// Reducer to handle modal filters state
+// Riduttore per gestire lo stato dei filtri del modulo
 const modalFiltersReducer = (state, action) => {
   switch (action.type) {
     case TOGGLE_FILTER: {
@@ -27,16 +27,17 @@ const modalFiltersReducer = (state, action) => {
         acc[key] = false
         return acc
       }, {})
-      return { ...newSettings, [filterName]: !isCurrentlyOpen }
+      return { ...newSettings, [filterName]: !isCurrentlyOpen } // Inverte lo stato del filtro
     }
     case TOGGLE_MODAL:
-      return initialModalFiltersState
+      return initialModalFiltersState // Resetta i filtri del modulo
     default:
       return state
   }
 }
 
 const useFilters = () => {
+  // Estrae i valori dal contesto dei filtri
   const {
     contract,
     setContract,
@@ -57,26 +58,30 @@ const useFilters = () => {
     cleanFilters
   } = useContext(FiltersContext)
 
-  const [openFilter, setOpenFilter] = useState(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [openModalFilters, dispatch] = useReducer(modalFiltersReducer, initialModalFiltersState)
+  const [openFilter, setOpenFilter] = useState(null) // Stato per il filtro attualmente aperto
+  const [isModalOpen, setIsModalOpen] = useState(false) // Stato per la visibilità del modulo
+  const [openModalFilters, dispatch] = useReducer(modalFiltersReducer, initialModalFiltersState) // Stato per i filtri del modulo
 
+  // Gestisce le modifiche ai filtri
   const handleFilterChange = useCallback((setter, value) => {
     setter(value)
   }, [])
 
+  // Alterna la visibilità di un filtro
   const toggleFilter = useCallback((filterName) => {
     setOpenFilter(prevFilter => prevFilter === filterName ? null : filterName)
   }, [])
 
+  // Alterna la visibilità di un filtro nel modulo
   const toggleModalFilter = useCallback((filterName) => {
     dispatch({ type: TOGGLE_FILTER, payload: { filterName } })
   }, [])
 
+  // Alterna la visibilità del modulo dei filtri
   const toggleModal = useCallback(() => {
     setIsModalOpen(prevIsModalOpen => !prevIsModalOpen)
     if (!isModalOpen) {
-      dispatch({ type: TOGGLE_MODAL })
+      dispatch({ type: TOGGLE_MODAL }) // Resetta i filtri se il modulo si apre
     }
   }, [isModalOpen])
 

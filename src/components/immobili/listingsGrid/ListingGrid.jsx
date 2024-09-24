@@ -1,16 +1,22 @@
-// src/components/immobili/listingsGrid/ListingGrid.jsx
 import { useState, useContext } from 'react'
+// Hook personalizzato per recuperare le proprietà in base ai filtri
 import useFetchListings from '../../../hooks/useFetchListings'
+// Componente per mostrare uno scheletro di caricamento mentre gli immobili vengono caricati
 import CardSkeleton from '../../skeletons/CardSkeleton'
+// Componente per visualizzare un singolo annuncio immobiliare
 import ListingItem from './ListingItem'
+// Componente di paginazione per gestire la navigazione tra le pagine
 import Pagination from '../../commons/Pagination'
+// Contesto per accedere allo stato dei filtri
 import { FiltersContext } from '../../../contexts/FiltersContext'
 
 const ListingGrid = () => {
+  // Stato per gestire la pagina corrente nella paginazione
   const [currentPage, setCurrentPage] = useState(1)
+  // Numero di annunci da mostrare per pagina
   const listingsPerPage = 9
+  // Destruttura i filtri dal FiltersContext
   const { contract, tipology, price, size, rooms, bathrooms, floor, extras } = useContext(FiltersContext)
-
   const filters = {
     contract,
     tipology,
@@ -26,11 +32,14 @@ const ListingGrid = () => {
   }
 
   const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters)
+  // Calcola il numero totale di pagine
   const totalPages = Math.ceil(totalListings / listingsPerPage)
 
+  // Funzione per cambiare pagina
   const handlePageChange = (page) => {
     setCurrentPage(page)
   }
+  // Crea dei segnaposto per lo scheletro durante il caricamento
   const skeletonPlaceholders = [...Array(listingsPerPage).keys()]
 
   return (

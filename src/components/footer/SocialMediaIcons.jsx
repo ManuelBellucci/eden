@@ -1,9 +1,4 @@
-const SocialIcon = ({ href, svgContent, label }) => (
-  <a href={href} target='_blank' className='text-primary-50 hover:text-primary-500 transition-all ease-in' rel='noreferrer'>
-    <svg className='w-8 h-8' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox={svgContent.viewBox} dangerouslySetInnerHTML={{ __html: svgContent.path }} />
-    <span className='sr-only'>{label}</span>
-  </a>
-)
+// Array di oggetti che contengono le informazioni delle icone social
 const socialMedia = [
   {
     href: 'https://www.facebook.com/edenhousebologna',
@@ -48,6 +43,21 @@ const socialMedia = [
   }
 ]
 
+/**
+* Componente per le icone dei social media
+* @param {string} href - URL del social media
+* @param {string} svgContent - Contenuto del file SVG
+* @param {string} label - Etichetta del social media
+* @returns {JSX.Element} - Icona del social media
+*/
+const SocialIcon = ({ href, svgContent, label }) => (
+  <a href={href} target='_blank' className='text-primary-50 hover:text-primary-500 transition-all ease-in' rel='noreferrer'>
+    <svg className='w-8 h-8' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox={svgContent.viewBox} dangerouslySetInnerHTML={{ __html: svgContent.path }} />
+    <span className='sr-only'>{label}</span>
+  </a>
+)
+
+// Componente per le icone dei social media
 const SocialMediaIcons = () => {
   return (
     <>

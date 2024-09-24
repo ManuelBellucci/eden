@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom'
 
+/**
+ * LinkColumn - Componente per la visualizzazione di una colonna di link.
+ * @param {string} title - Titolo della colonna.
+ * @param {Array} links - Array di oggetti link, ciascuno contenente testo e href.
+ * @returns {JSX.Element} - Componente per la visualizzazione di una colonna di link
+ */
 const LinkColumn = ({ title, links }) => (
   <div className='text-center'>
     <h2 className='mb-2 text-xl md:text-2xl font-semibold text-primary-500 underline underline-offset-4 uppercase'>{title}</h2>
     <ul className='text-primary-50 text-lg mb-10 font-medium'>
       {links.map((link) => (
         <li key={link.text} className='mb-4'>
+          {/* Collegamento a ciascun link della colonna */}
           <Link to={link.href} className='hover:underline font-sans'>{link.text}</Link>
         </li>
       ))}
@@ -13,6 +20,7 @@ const LinkColumn = ({ title, links }) => (
   </div>
 )
 
+// Links da visualizzare nel footer. Ogni oggetto rappresenta una sezione con titolo e array di link.
 const links = [
   {
     title: 'Eden House',
@@ -53,6 +61,7 @@ const links = [
   }
 ]
 
+// FooterLinks - Componente per visualizzare tutte le colonne di link nel footer.
 const FooterLinks = () => {
   return (
     // <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1'>

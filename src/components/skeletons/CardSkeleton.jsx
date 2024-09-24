@@ -1,3 +1,4 @@
+// componente che mostra un placeholder di caricamento per le card
 const CardSkeleton = () => {
   return (
     <div role='status' className='w-full p-4 border border-primary-300/50 rounded shadow animate-pulse md:p-6'>

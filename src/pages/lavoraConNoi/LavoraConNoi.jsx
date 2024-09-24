@@ -1,3 +1,4 @@
+// Pagina per chi vuole lavorare con noi
 const LavoraConNoi = () => {
   return (
     <div className='flex flex-col justify-center items-center p-4 text-center text-balance'>

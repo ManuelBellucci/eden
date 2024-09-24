@@ -1,18 +1,29 @@
-import React from 'react'
 import { Pannellum } from 'pannellum-react'
 import 'pannellum-react/es/pannellum/css/pannellum.css'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import CallToAction from '../../commons/CallToAction'
 
+/**
+ * componente per la visualizzazione di un tour virtuale
+ * @param {boolean} isVisible - Indica se il tour virtuale è visibile.
+ * @param {function} onClose - Funzione per chiudere il tour virtuale.
+ * @param {Array<Object>} images - Array di immagini per il tour virtuale.
+ * @param {number} currentSceneIndex - Indice della scena attuale.
+ * @param {function} setCurrentSceneIndex - Funzione per impostare l'indice della scena attuale.
+ * @returns {JSX.Element} Il componente per il tour virtuale.
+ */
 const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrentSceneIndex }) => {
+  // Se il tour virtuale non è visibile, restituisci null
   if (!isVisible) return null
 
+  // Funzione per passare alla scena successiva
   const handleNext = () => {
     setTimeout(() => {
       setCurrentSceneIndex((prevIndex) => (prevIndex + 1) % images.length)
     }, 500)
   }
 
+  // Funzione per passare alla scena precedente
   const handlePrev = () => {
     setTimeout(() => {
       setCurrentSceneIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
@@ -38,21 +49,22 @@ const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrent
             <CSSTransition key={currentSceneIndex} timeout={500} classNames='fade' className='h-full'>
               <div className='h-full'>
                 <Pannellum
-                  width='100%'
-                  height='100%'
-                  image={images[currentSceneIndex].url}
-                  pitch={0}
-                  yaw={180}
-                  hfov={100}
-                  minHfov={90}
-                  maxHfov={110}
-                  autoLoad
-                  showZoomCtrl={false}
+                  width='100%' // Larghezza del tour virtuale
+                  height='100%' // Altezza del tour virtuale
+                  image={images[currentSceneIndex].url} // URL dell'immagine
+                  pitch={0} // Inclinazione dell'immagine
+                  yaw={180} // Angolo di rotazione dell'immagine
+                  hfov={100} // Campo visivo orizzontale
+                  minHfov={90} // Campo visivo orizzontale minimo
+                  maxHfov={110} // Campo visivo orizzontale massimo
+                  autoLoad // Carica automaticamente l'immagine
+                  showZoomCtrl={false} // Nasconde il controllo dello zoom
                 />
               </div>
             </CSSTransition>
           </TransitionGroup>
 
+          {/* Pulsanti per passare alla scena precedente e successiva */}
           <CallToAction
             className='!bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50 absolute top-1/2 left-4 transform -translate-y-1/2'
             text='<'

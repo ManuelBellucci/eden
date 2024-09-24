@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import CallToAction from '../commons/CallToAction'
 import validateEmail from '../../helpers/validateEmail'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
+/**
+ * InfoBlock - Componente per visualizzare blocchi informativi.
+ * @param {string} iconSrc - Path dell'icona da visualizzare.
+ * @param {string} title - Titolo del blocco.
+ * @param {string} description - Descrizione del blocco.
+ * @returns {JSX.Element} - Elemento React per la visualizzazione del blocco informativo.
+ */
 const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
     <dl>
@@ -21,12 +28,18 @@ const InfoBlock = ({ iconSrc, title, description }) => (
   </div>
 )
 
+// NewsletterForm - Componente per la gestione del form di iscrizione alla newsletter.
 const NewsletterForm = () => {
   const [email, setEmail] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [message, setMessage] = useState('')
 
+  /**
+   * Gestione dell'invio del form di iscrizione.
+   * @param {object} e - Evento dell'invio del form.
+   * @returns {Promise<void>} - Nessun valore di ritorno.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!validateEmail(email)) {
@@ -104,6 +117,7 @@ const NewsletterForm = () => {
   )
 }
 
+// Dati per i blocchi informativi della newsletter.
 const infoBlocks = [
   {
     iconSrc: '/envelope.webp',
@@ -117,6 +131,7 @@ const infoBlocks = [
   }
 ]
 
+// Newsletter - Componente principale per la sezione della newsletter. Include un form di iscrizione e blocchi informativi.
 const Newsletter = () => {
   return (
     <div className='p-14'>

@@ -1,5 +1,16 @@
 import { useCallback, memo } from 'react'
+
+/**
+ * Componente dropdown per selezionare le caratteristiche aggiuntive.
+ * @param {Object} props - Proprietà del componente.
+ * @param {boolean} props.isOpen - Indica se il dropdown è aperto.
+ * @param {function} props.toggle - Funzione per attivare/disattivare la visibilità del dropdown.
+ * @param {Object} props.selectedExtras - Oggetto contenente le caratteristiche aggiuntive selezionate.
+ * @param {function} props.setSelectedExtras - Funzione per impostare le caratteristiche aggiuntive selezionate.
+ * @returns {JSX.Element} Componente renderizzato.
+ */
 const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtras }) => {
+  // Opzioni per le caratteristiche aggiuntive
   const extrasOptions = [
     { label: 'Terrazzo', value: 'terrace' },
     { label: 'Balcone', value: 'balcony' },
@@ -11,24 +22,32 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
     { label: 'Ripostiglio', value: 'closet' }
   ]
 
+  /**
+   * Attiva/disattiva una caratteristica aggiuntiva selezionata.
+   * @param {string} value - Valore della caratteristica aggiuntiva.
+   */
   const toggleExtra = useCallback((value) => {
-    setSelectedExtras((prev) => ({ ...prev, [value]: !prev[value] }))
+    setSelectedExtras((prev) => ({ ...prev, [value]: !prev[value] })) // Inverte lo stato della caratteristica
   }, [setSelectedExtras])
 
+  /**
+   * Ottiene l'etichetta da visualizzare sul pulsante in base alle caratteristiche selezionate.
+   * @returns {string} Etichetta per il pulsante.
+   */
   const getExtrasLabel = () => {
     const selected = extrasOptions.filter((opt) => selectedExtras[opt.value]).map((opt) => opt.label)
     if (selected.length === 0) {
-      return 'Extra'
+      return 'Extra' // Etichetta predefinita
     }
-    const firstExtra = selected[0]
-    const extraCount = selected.length - 1
-    return extraCount > 0 ? `${firstExtra} (+${extraCount})` : firstExtra
+    const firstExtra = selected[0] // Primo extra selezionato
+    const extraCount = selected.length - 1 // Conteggio degli extra aggiuntivi
+    return extraCount > 0 ? `${firstExtra} (+${extraCount})` : firstExtra // Mostra il conteggio se ci sono più extra
   }
 
   return (
     <div className='relative'>
       <button
-        aria-label='Open extras dropdown'
+        aria-label='Apri dropdown extra'
         aria-haspopup='true'
         aria-expanded={isOpen}
         onClick={toggle}
@@ -57,7 +76,7 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
           <div className='flex flex-col max-h-40 overflow-y-scroll space-y-2'>
             {extrasOptions.map((extra) => (
               <button
-                aria-label='Select extra'
+                aria-label='Seleziona extra'
                 key={extra.value}
                 aria-checked={selectedExtras[extra.value]}
                 role='checkbox'
@@ -71,7 +90,6 @@ const ExtrasFilterDropdown = ({ isOpen, toggle, selectedExtras, setSelectedExtra
               </button>
             ))}
           </div>
-
         </div>
       )}
     </div>

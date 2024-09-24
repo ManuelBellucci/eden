@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import ProcessStep from './ProcessStep'
 
+// Componente principale per visualizzare i passaggi del processo di acquisto e vendita di immobili
 const HowItWorks = ({ processSteps }) => {
-  const [activeStep, setActiveStep] = useState(0)
-  const [visibleSteps, setVisibleSteps] = useState([])
+  const [activeStep, setActiveStep] = useState(0) // Passo attivo corrente
+  const [visibleSteps, setVisibleSteps] = useState([]) // Passi visibili in base alla scroll
 
+  // Imposta il primo passo visibile come attivo
   useEffect(() => {
     if (visibleSteps.length > 0) {
       setActiveStep(visibleSteps[0])
@@ -26,21 +28,22 @@ const HowItWorks = ({ processSteps }) => {
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-14'>
         <div className='grid grid-rows-3'>
           {processSteps.map((step, index) => (
+            // Renderizza i passaggi del processo
             <ProcessStep
-              key={step.title}
+              key={step.title} // Chiave unica per l'elemento
               index={index}
               activeStep={activeStep}
               setActiveStep={setActiveStep}
               visibleSteps={visibleSteps}
               setVisibleSteps={setVisibleSteps}
-              {...step}
+              {...step} // Spread delle proprietà del passo
             />
           ))}
         </div>
         <div className='md:flex md:items-center'>
           <img
             loading='lazy'
-            src='/howitworks.webp'
+            src='/howitworks.webp' // Immagine informativa
             alt='Image'
             className='rounded-lg object-cover'
           />

@@ -4,10 +4,14 @@ import HamburgerMenu from './HamburgerMenu'
 import Logo from './Logo'
 import { useState } from 'react'
 
+// Componente per la navigazione del sito
 const Navbar = () => {
+  // Ottieni la posizione corrente
   const location = useLocation()
+  // Stato per gestire l'apertura e la chiusura del menu
   const [menuOpen, setMenuOpen] = useState(false)
 
+  // Elementi della navigazione
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/immobili', label: 'Immobili' },
@@ -17,10 +21,12 @@ const Navbar = () => {
     { path: '/contatti', label: 'Contatti' }
   ]
 
+  // Funzione per alternare l'apertura e la chiusura del menu
   const toggleMenu = () => {
     setMenuOpen(!menuOpen)
   }
 
+  // Funzione per chiudere il menu
   const closeMenu = () => {
     setMenuOpen(false)
   }

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import axios from 'axios'
 import { InfoAlert } from '../../commons/Alerts'
 import validateEmail from '../../../helpers/validateEmail'
@@ -7,6 +7,29 @@ import { useParams } from 'react-router-dom'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
+/**
+ * Componente per la modale di richiesta di visita
+ * @param {boolean} isVisible - Indica se la modale è visibile
+ * @param {function} onClose - Funzione per chiudere la modale
+ * @param {string} userName - Nome dell'utente
+ * @param {function} setUserName - Funzione per impostare il nome dell'utente
+ * @param {string} userSurname - Cognome dell'utente
+ * @param {function} setUserSurname - Funzione per impostare il cognome dell'utente
+ * @param {string} userPhone - Numero di telefono dell'utente
+ * @param {function} setUserPhone - Funzione per impostare il numero di telefono dell'utente
+ * @param {string} userEmail - Indirizzo email dell'utente
+ * @param {function} setUserEmail - Funzione per impostare l'indirizzo email dell'utente
+ * @param {string} visitType - Tipo di visita selezionata
+ * @param {function} setVisitType - Funzione per impostare il tipo di visita
+ * @param {Array} dates - Array di oggetti contenenti le date disponibili per la visita
+ * @param {Array} selectedDates - Array di date selezionate dall'utente
+ * @param {function} handleDateChange - Funzione per gestire la selezione delle date
+ * @param {Array} times - Array di oggetti contenenti le fasce orarie disponibili per la visita
+ * @param {Array} selectedTimes - Array di fasce orarie selezionate dall'utente
+ * @param {function} handleTimeChange - Funzione per gestire la selezione delle fasce orarie
+ * @param {boolean} isFormFilled - Indica se tutti i campi del form sono stati compilati correttamente
+ * @returns {JSX.Element} Il componente per la modale di richiesta di visita
+ */
 const VisitModal = ({
   isVisible,
   onClose,
@@ -28,23 +51,31 @@ const VisitModal = ({
   handleTimeChange,
   isFormFilled
 }) => {
+  // Stato per tenere traccia dell'indice di inizio delle date visibili
   const [startIndex, setStartIndex] = useState(0)
+  // Stato per mostrare un messaggio all'utente
   const [message, setMessage] = useState('')
+  // Numero di date visibili contemporaneamente
   const visibleDatesCount = 4
+  // Riferimento al container delle date
   const datesContainerRef = useRef(null)
 
+  // Parametro dell'URL per l'ID dell'immobile
   const { id } = useParams()
 
   if (!isVisible) return null
 
+  // Funzione per scorrere le date a destra
   const handleNext = () => {
     setStartIndex((prevIndex) => Math.min(prevIndex + 1, dates.length - visibleDatesCount))
   }
 
+  // Funzione per scorrere le date a sinistra
   const handlePrev = () => {
     setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0))
   }
 
+  // Funzione per inviare la richiesta di visita
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!validateEmail(userEmail)) {
@@ -52,6 +83,7 @@ const VisitModal = ({
       return
     }
 
+    // Parametri del template per l'email
     const templateParams = {
       nome: userName,
       cognome: userSurname,
@@ -63,6 +95,7 @@ const VisitModal = ({
       id
     }
 
+    // Invia l'email all'agenzia
     try {
       await sendEmail(templateParams)
       onClose()
@@ -71,6 +104,7 @@ const VisitModal = ({
     }
 
     try {
+      // Payload da inviare al server
       const payload = {
         nome: userName,
         cognome: userSurname,
@@ -81,7 +115,9 @@ const VisitModal = ({
         fasceOrarie: selectedTimes,
         id
       }
+      // Invia la richiesta di visita al server
       await axios.post(`${API_URL}/richieste-visite`, payload)
+      // Mostra un messaggio di successo all'utente
       setMessage('Richiesta inviata con successo!')
     } catch (error) {
       console.error('Errore durante l\'invio della richiesta: ', error)

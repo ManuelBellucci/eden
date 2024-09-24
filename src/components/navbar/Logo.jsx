@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+// Componente `Logo` che mostra il logo dell'agenzia e lo collega alla homepage
 const Logo = ({ src }) => {
   return (
     <Link to='/' className='flex items-center space-x-3 rtl:space-x-reverse'>

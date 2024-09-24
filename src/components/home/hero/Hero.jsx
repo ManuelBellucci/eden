@@ -3,6 +3,7 @@ import HeroBackground from './HeroBackground'
 // import PopUp from '../../commons/PopUp'
 // import Browser from "./browser/Browser";
 
+// Componente Hero: mostra il contenuto principale della sezione Hero
 const Hero = () => {
   return (
     <HeroBackground backgroundPosition='25%' backgroundImage='https://res.cloudinary.com/datqybdzt/image/upload/v1722352436/copimnjxryandtfcwumd.webp'>
@@ -22,9 +23,9 @@ const Hero = () => {
             text='La giusta scelta per vendere, comprare e affittare casa.'
             paragraphSizeClasses='text-2xl text-balance'
             paragraph='Con noi troverai la casa dei tuoi sogni, in pochi click. Siamo specializzati in vendite e affitti di immobili a Bologna e provincia.'
-            gradientFrom='rgba(87,239,241,1) 0%'
-            gradientVia='rgba(3, 201, 217, 1) 35%'
-            gradientTo=' rgba(2, 44, 51, 1) 100%'
+            gradientFrom='rgba(87,239,241,1) 0%' // Colore di partenza
+            gradientVia='rgba(3, 201, 217, 1) 35%' // Colore intermedio
+            gradientTo=' rgba(2, 44, 51, 1) 100%' // Colore finale
           />
         </div>
         {/* <Browser /> */}

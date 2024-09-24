@@ -1,11 +1,16 @@
+// Componente ListingDetails che visualizza i dettagli di un annuncio immobiliare
 const ListingDetails = ({ listing }) => {
+  // Funzione per renderizzare le informazioni relative ai piani
   const renderFloor = () => {
+    // Se non ci sono piani disponibili, restituisce 'N/A'
     if (!listing.floor || listing.floor.length === 0) return 'N/A'
     return listing.floor
+      // Mappa i piani, trasformando '0' in 'T' per indicare il piano terra e unendo i piano multipli con un trattino
       .map((floor) => (floor === 0 ? 'T' : floor))
       .join('-')
   }
 
+  // Se la tipologia è "Garage e posti auto", restituisce il contenuto specifico per il garage
   if (listing.tipology === 'Garage e posti auto') {
     // Render the specific content for garage
     return (
@@ -47,6 +52,7 @@ const ListingDetails = ({ listing }) => {
     )
   }
 
+  // Lista delle caratteristiche extra
   const extraFeatures = [
     { label: 'Aria condizionata', value: listing.airConditioning },
     { label: 'Arredato', value: listing.furnished },
@@ -56,6 +62,8 @@ const ListingDetails = ({ listing }) => {
     { label: 'Caminetto', value: listing.chimney },
     { label: 'Videocitofono', value: listing.videoIntercom }
   ]
+
+  // Determina l'esposizione dell'immobile
   let exposureTag = null
   if (listing.internalExposure && listing.externalExposure) {
     exposureTag = 'Esposizione mista'
@@ -65,6 +73,7 @@ const ListingDetails = ({ listing }) => {
     exposureTag = 'Esposizione esterna'
   }
 
+  // Restituisce il layout principale con le informazioni dell'annuncio
   return (
     <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-4'>
       {/* Main Information */}

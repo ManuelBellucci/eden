@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+// Pagina 404
 const Page404 = () => {
   return (
     <div className='text-center mt-20 text-primary-50'>
