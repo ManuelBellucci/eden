@@ -6,6 +6,9 @@
  * @returns {JSX.Element} - Elemento React per la visualizzazione di una paginazione.
  */
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+  console.log('Rendering Pagination')
+  console.log('Current Page:', currentPage)
+  console.log('Total Pages:', totalPages)
   return (
     <div className='mt-8 flex justify-center items-center'>
       {Array.from({ length: totalPages }, (_, index) => (

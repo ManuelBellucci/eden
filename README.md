@@ -6,9 +6,10 @@ v1
 - VIEW [] /terminiecondizioni
 - VIEW [] /informativa
 - FEATURE [] messaggi di errore
-- DOCUMENTARE [ ]
 v2
 - VIEW [] /blog
 - VIEW [] /scaricabili
 
 
+
+- DOCUMENTARE [x]
