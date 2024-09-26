@@ -1,11 +1,9 @@
-import { useState, useContext, useMemo, useCallback } from 'react'
+import { useContext, useMemo } from 'react'
 import useFetchListings from './useFetchListings'
 import { FiltersContext } from '../contexts/FiltersContext'
 
 // Hook per gestire le proprietà delle liste
 const useListings = (listingsPerPage = 9) => {
-  const [currentPage, setCurrentPage] = useState(1) // Stato per la pagina corrente
-
   // Estrae i valori dal contesto dei filtri
   const {
     contract,
@@ -34,23 +32,13 @@ const useListings = (listingsPerPage = 9) => {
   }), [contract, tipology, price, size, rooms, bathrooms, floor, extras])
 
   // Utilizza l'hook useFetchListings per recuperare le proprietà
-  const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters)
-
-  const totalPages = Math.ceil(totalListings / listingsPerPage) // Calcola il numero totale di pagine
-
-  // Gestisce il cambiamento di pagina
-  const handlePageChange = useCallback((page) => {
-    setCurrentPage(page)
-  }, [])
+  const { listings: immobili, totalListings, loading, error } = useFetchListings(listingsPerPage, filters)
 
   return {
     immobili,
     totalListings,
     loading,
-    error,
-    currentPage,
-    totalPages,
-    handlePageChange
+    error
   }
 }
 
