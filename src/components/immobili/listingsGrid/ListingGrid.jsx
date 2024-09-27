@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext } from 'react'
 // Hook personalizzato per recuperare le proprietà in base ai filtri
 import useFetchListings from '../../../hooks/useFetchListings'
 // Componente per mostrare uno scheletro di caricamento mentre gli immobili vengono caricati
@@ -32,18 +32,7 @@ const ListingGrid = () => {
   }
 
   // Hook per recuperare gli immobili in base alla pagina e ai filtri
-  const { listings: immobili, totalListings, totalPages, loading, error } = useFetchListings(currentPage, listingsPerPage, filters)
-
-  // Log per vedere se i dati vengono recuperati correttamente
-  useEffect(() => {
-    console.log('Current Page:', currentPage)
-    console.log('Total Listings:', totalListings)
-    console.log('Listings Per Page:', listingsPerPage)
-    console.log('Listings:', immobili)
-    console.log('Loading:', loading)
-    console.log('Error:', error)
-    console.log('Total Pages:', totalPages) // Log del numero totale di pagine
-  }, [immobili, totalListings, loading, error, currentPage, totalPages])
+  const { listings: immobili, totalPages, loading, error } = useFetchListings(currentPage, listingsPerPage, filters)
 
   // Funzione per cambiare pagina
   const handlePageChange = (page) => {
