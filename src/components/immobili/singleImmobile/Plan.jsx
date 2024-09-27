@@ -9,7 +9,7 @@ const Plan = ({ listing }) => {
     // Crea un nuovo elemento immagine per il fullscreen
     const fullScreenImage = document.createElement('img')
     fullScreenImage.src = e.target.src // Usa l'immagine cliccata
-    fullScreenImage.className = 'h-screen w-screen object-cover' // Aggiungi classi Tailwind per il fullscreen
+    fullScreenImage.className = 'h-screen w-screen object-fit' // Aggiungi classi Tailwind per il fullscreen
 
     // Aggiungi il nuovo elemento al body
     document.body.appendChild(fullScreenImage)
