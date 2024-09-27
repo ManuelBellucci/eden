@@ -32,11 +32,24 @@ const PropertyIcons = ({ listing }) => {
         label='Floor'
         value={listing.floor.map(f => f === 0 ? 'T' : f).join('-')}
       />
-      <PropertyIcon
-        src='/elevator.svg'
-        label='Elevator'
-        value={listing.elevator ? 'Si' : 'No'}
-      />
+      {
+        listing.floor !== 0 && (
+          <PropertyIcon
+            src='/elevator.svg'
+            label='Elevator'
+            value={listing.elevator ? 'Si' : 'No'}
+          />
+        )
+      }
+      {
+        listing.floor === 0 && listing.privateGarden === true && (
+          <PropertyIcon
+            src='/garden.svg'
+            label='Garden'
+            value='Si'
+          />
+        )
+      }
     </div>
   )
 }
