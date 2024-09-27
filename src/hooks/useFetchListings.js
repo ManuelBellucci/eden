@@ -9,6 +9,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 const useFetchListings = (page, listingsPerPage, filters = {}) => {
   const [listings, setListings] = useState([]) // Stato per le liste di proprietà
   const [totalListings, setTotalListings] = useState(0) // Stato per il numero totale di proprietà
+  const [totalPages, setTotalPages] = useState(0) // Stato per il numero totale di pagine
   const [error, setError] = useState(null) // Stato per gli errori
   const [loading, setLoading] = useState(false) // Stato di caricamento
   const [cache, setCache] = useState({}) // Cache per i dati delle proprietà
@@ -36,6 +37,7 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
       if (cache[cacheKey]) {
         setListings(cache[cacheKey].listings.filter(listing => listing.active)) // Filtra solo le proprietà attive
         setTotalListings(cache[cacheKey].totalListings)
+        setTotalPages(cache[cacheKey].totalPages) // Usa le pagine totali dalla cache
         return
       }
 
@@ -46,13 +48,15 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
         if (isMounted) {
           const activeListings = response.data.listings.filter(listing => listing.active) // Filtra le proprietà attive
           setListings(activeListings)
-          setTotalListings(response.data.total) // Aggiorna il numero totale di listings basato sulla risposta dell'API
+          setTotalListings(response.data.totalListings) // Imposta il numero totale di listings
+          setTotalPages(response.data.totalPages) // Imposta il numero totale di pagine dal backend
           setError(null)
 
           // Aggiorna la cache
           updateCache(cacheKey, {
             listings: activeListings,
-            totalListings: response.data.total
+            totalListings: response.data.totalListings,
+            totalPages: response.data.totalPages
           })
         }
       } catch (err) {
@@ -74,7 +78,7 @@ const useFetchListings = (page, listingsPerPage, filters = {}) => {
     }
   }, [queryString, cacheKey, cache, updateCache])
 
-  return { listings, totalListings, error, loading } // Ritorna i dati delle proprietà e gli stati
+  return { listings, totalListings, totalPages, error, loading } // Ritorna i dati delle proprietà e gli stati
 }
 
 export default useFetchListings

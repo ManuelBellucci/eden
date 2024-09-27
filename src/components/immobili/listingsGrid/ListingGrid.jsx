@@ -31,7 +31,8 @@ const ListingGrid = () => {
     ...extras
   }
 
-  const { listings: immobili, totalListings, loading, error } = useFetchListings(currentPage, listingsPerPage, filters)
+  // Hook per recuperare gli immobili in base alla pagina e ai filtri
+  const { listings: immobili, totalListings, totalPages, loading, error } = useFetchListings(currentPage, listingsPerPage, filters)
 
   // Log per vedere se i dati vengono recuperati correttamente
   useEffect(() => {
@@ -41,16 +42,15 @@ const ListingGrid = () => {
     console.log('Listings:', immobili)
     console.log('Loading:', loading)
     console.log('Error:', error)
-  }, [immobili, totalListings, loading, error, currentPage])
-
-  // Calcola il numero totale di pagine
-  const totalPages = Math.ceil(totalListings / listingsPerPage)
+    console.log('Total Pages:', totalPages) // Log del numero totale di pagine
+  }, [immobili, totalListings, loading, error, currentPage, totalPages])
 
   // Funzione per cambiare pagina
   const handlePageChange = (page) => {
     console.log('Page changed to:', page)
     setCurrentPage(page)
   }
+
   // Crea dei segnaposto per lo scheletro durante il caricamento
   const skeletonPlaceholders = [...Array(listingsPerPage).keys()]
 
