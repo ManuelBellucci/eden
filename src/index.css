@@ -15,11 +15,6 @@
   font-family: 'CatchyMager', sans-serif;
 }
 
-/* Stile per l'immagine in fullscreen */
-:fullscreen img {
-  @apply w-screen h-screen object-contain; /* Utilizza Tailwind per fullscreen */
-}
-
 #autocomplete-input-mobile {
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
