@@ -1,10 +1,10 @@
 import { PlanCarousel } from './PlanCarousel'
 import { useRef } from 'react'
 
+// Componente Plan
 const Plan = ({ listing }) => {
-  // Verifica se l'annuncio ha più di una planimetria
   const hasMultiplePlans = listing.plan && listing.plan.length > 1
-  const imgRef = useRef(null) // Riferimento all'elemento immagine
+  const imgRef = useRef(null)
 
   // Funzione per entrare in modalità fullscreen
   const handleImageClick = () => {
@@ -25,24 +25,34 @@ const Plan = ({ listing }) => {
   return (
     <div className='py-6 px-6 md:pr-0 rounded-lg'>
       <div className='flex justify-center h-full rounded-lg shadow-md bg-primary-50 p-4'>
-        {/* Carosello delle planimetrie se ce ne sono più di una, altrimenti mostra la singola planimetria */}
         {hasMultiplePlans
           ? (
             <PlanCarousel images={listing.plan} />
             )
           : (
             <img
-              ref={imgRef} // Associa il riferimento all'elemento immagine
+              ref={imgRef}
               loading='lazy'
-              className='rounded-lg h-full w-full object-cover cursor-pointer' // Aggiungi il cursore cliccabile
+              className='rounded-lg h-full w-full object-cover cursor-pointer transition-transform duration-300 transform hover:scale-105' // Aggiungi effetto hover
               src={listing.plan[0]?.url}
               alt='Plan'
-              onClick={handleImageClick} // Aggiungi il gestore del click
+              onClick={handleImageClick}
             />
             )}
       </div>
     </div>
   )
 }
+
+// Aggiungi un listener per lo stile di fullscreen
+document.addEventListener('fullscreenchange', () => {
+  if (document.fullscreenElement) {
+    // Quando l'immagine è in fullscreen, applica uno stile specifico
+    document.body.classList.add('overflow-hidden') // Nasconde lo scroll
+  } else {
+    // Quando esce dalla modalità fullscreen, ripristina lo stile
+    document.body.classList.remove('overflow-hidden')
+  }
+})
 
 export default Plan
