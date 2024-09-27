@@ -14,7 +14,7 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
   // Array di opzioni disponibili per la selezione della tipologia
   const tipologyOptions = [
     'Indifferente', 'Appartamenti', 'Attici', 'Ville e villini',
-    'Nuove costruzioni', 'Garage e posti auto', 'Uffici e negozi', 'Magazzini'
+    'Nuova costruzione', 'Garage e posti auto', 'Uffici e negozi', 'Magazzini'
   ]
 
   /**
