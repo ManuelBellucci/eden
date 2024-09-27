@@ -33,7 +33,8 @@ const PropertyIcons = ({ listing }) => {
         value={listing.floor.map(f => f === 0 ? 'T' : f).join('-')}
       />
       {
-        listing.floor !== 0 && (
+        // Mostra l'ascensore se l'immobile non è al piano terra
+        listing.floor.length > 0 && !listing.floor.includes(0) && (
           <PropertyIcon
             src='/elevator.svg'
             label='Elevator'
@@ -42,7 +43,8 @@ const PropertyIcons = ({ listing }) => {
         )
       }
       {
-        listing.floor === 0 && listing.privateGarden === true && (
+        // Mostra il giardino se c'è il piano terra e un giardino privato
+        listing.floor.includes(0) && listing.privateGarden === true && (
           <PropertyIcon
             src='/garden.svg'
             label='Garden'
