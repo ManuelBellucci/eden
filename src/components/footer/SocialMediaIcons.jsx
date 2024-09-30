@@ -62,7 +62,7 @@ const SocialMediaIcons = () => {
   return (
     <>
       <div className='text-white text-center mb-4 px-10 text-pretty'>
-        <p className='font-sans'>P.IVA 123456789 Cod. Fisc 123456789 | Sede legale: Via Saragozza n.112/O - 40135 Bologna (BO)
+        <p className='font-sans'>P.IVA 04206151203 Cod. Fisc 04206151203 | Sede legale: Via Saragozza n.112/O - 40135 Bologna (BO)
         </p>
         <p className='font-sans'>edenhousebologna@gmail.com</p>
       </div>
