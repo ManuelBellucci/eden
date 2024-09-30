@@ -25,27 +25,19 @@ const ListingDetails = ({ listing }) => {
             </div>
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Bocca
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.numGarage}
+                {listing.garageMouth}
               </small>
             </div>
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Altezza
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.numGarage}
+                {listing.garageHeight}
               </small>
             </div>
             <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Larghezza porta
               <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.numGarage}
+                {listing.garageDoorWidth}
               </small>
             </div>
-            {listing.floor && listing.floor.length > 0 && (
-              <div className='text-xl lg:text-2xl font-extrabold'>Piano
-                <small className='font-normal font-sans ms-2 text-primary-800'>
-                  {renderFloor()}
-                </small>
-              </div>
-            )}
-
           </div>
         </div>
       </div>
