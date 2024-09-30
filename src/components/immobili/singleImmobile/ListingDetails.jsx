@@ -10,63 +10,29 @@ const ListingDetails = ({ listing }) => {
       .join('-')
   }
 
-  // Se la tipologia è "Garage", restituisce il contenuto specifico per il garage
-  if (listing.tipology === 'Garage') {
-    // Render the specific content for garage
-    return (
-      <div className='mt-10 '>
-        <div className='mb-5 pb-5 text-center h-full bg-primary-50 rounded-lg p-4 shadow-md'>
-          <h3 className='mb-4 text-2xl  leading-none text-primary-950 md:text-3xl lg:text-4xl uppercase'>Specifiche del garage</h3>
-          <div className='flex flex-col'>
-            <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Superficie
-              <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.garageSqm} m²
-              </small>
-            </div>
-            <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Bocca
-              <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.garageMouth}
-              </small>
-            </div>
-            <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Altezza
-              <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.garageHeight}
-              </small>
-            </div>
-            <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Larghezza porta
-              <small className='font-normal font-sans ms-2 text-primary-800'>
-                {listing.garageDoorWidth}
-              </small>
-            </div>
+  const renderGarageDetails = () => (
+    <div className='mt-10'>
+      <div className='mb-5 pb-5 text-center h-full bg-primary-50 rounded-lg p-4 shadow-md'>
+        <h3 className='mb-4 text-2xl leading-none text-primary-950 md:text-3xl lg:text-4xl uppercase'>Specifiche del garage</h3>
+        <div className='flex flex-col'>
+          <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Superficie
+            <small className='font-normal font-sans ms-2 text-primary-800'>{listing.garageSqm} m²</small>
+          </div>
+          <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Bocca
+            <small className='font-normal font-sans ms-2 text-primary-800'>{listing.garageMouth}</small>
+          </div>
+          <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Altezza
+            <small className='font-normal font-sans ms-2 text-primary-800'>{listing.garageHeight}</small>
+          </div>
+          <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Larghezza porta
+            <small className='font-normal font-sans ms-2 text-primary-800'>{listing.garageDoorWidth}</small>
           </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 
-  // Lista delle caratteristiche extra
-  const extraFeatures = [
-    { label: 'Aria condizionata', value: listing.airConditioning },
-    { label: 'Arredato', value: listing.furnished },
-    { label: 'Porta blindata', value: listing.armouredDoor },
-    { label: 'Armadio a muro', value: listing.builtinWardrobe },
-    { label: 'Portineria', value: listing.concierge },
-    { label: 'Caminetto', value: listing.chimney },
-    { label: 'Videocitofono', value: listing.videoIntercom }
-  ]
-
-  // Determina l'esposizione dell'immobile
-  let exposureTag = null
-  if (listing.internalExposure && listing.externalExposure) {
-    exposureTag = 'Esposizione mista'
-  } else if (listing.internalExposure) {
-    exposureTag = 'Esposizione interna'
-  } else if (listing.externalExposure) {
-    exposureTag = 'Esposizione esterna'
-  }
-
-  // Restituisce il layout principale con le informazioni dell'annuncio
-  return (
+  const renderResidentialDetails = () => (
     <div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-4'>
       {/* Main Information */}
       <div className='mb-5 pb-5 h-full bg-primary-50 rounded-lg p-4 shadow-md'>
@@ -418,6 +384,34 @@ const ListingDetails = ({ listing }) => {
       </div>
     </div>
   )
+
+  // Lista delle caratteristiche extra
+  const extraFeatures = [
+    { label: 'Aria condizionata', value: listing.airConditioning },
+    { label: 'Arredato', value: listing.furnished },
+    { label: 'Porta blindata', value: listing.armouredDoor },
+    { label: 'Armadio a muro', value: listing.builtinWardrobe },
+    { label: 'Portineria', value: listing.concierge },
+    { label: 'Caminetto', value: listing.chimney },
+    { label: 'Videocitofono', value: listing.videoIntercom }
+  ]
+
+  // Determina l'esposizione dell'immobile
+  let exposureTag = null
+  if (listing.internalExposure && listing.externalExposure) {
+    exposureTag = 'Esposizione mista'
+  } else if (listing.internalExposure) {
+    exposureTag = 'Esposizione interna'
+  } else if (listing.externalExposure) {
+    exposureTag = 'Esposizione esterna'
+  }
+
+  // Restituisce il layout principale con le informazioni dell'annuncio
+  if (listing.tipology === 'Garage') {
+    return renderGarageDetails()
+  } else {
+    return renderResidentialDetails()
+  }
 }
 
 export default ListingDetails
