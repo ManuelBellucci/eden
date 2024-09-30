@@ -13,7 +13,7 @@ const ListingDetails = ({ listing }) => {
   const renderGarageDetails = () => (
     <div className='mt-10'>
       <div className='mb-5 pb-5 text-center h-full bg-primary-50 rounded-lg p-4 shadow-md'>
-        <h3 className='mb-4 text-2xl leading-none text-primary-950 md:text-3xl lg:text-4xl uppercase'>Specifiche del garage</h3>
+        <h3 className='mb-4 text-2xl font-extrabold leading-none text-primary-500 md:text-3xl lg:text-4xl uppercase'>Specifiche del garage</h3>
         <div className='flex flex-col'>
           {listing.type && (
             <div className='text-xl lg:text-2xl font-extrabold'>
