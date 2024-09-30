@@ -5,7 +5,7 @@ const Terms = () => {
         Termini e Condizioni di Utilizzo
       </h2>
       <p className='font-sans text-primary-50 text-2xl'>
-        Benvenuti su <span className='font-bold'>Eden House</span>, gestito da Eden House con sede legale in Via Saragozza 112/O, Bologna (BO),
+        Benvenuti su <span className='font-bold'>Eden House</span>, gestito da Eden srl con sede legale in Via Saragozza 112/O, Bologna (BO),
         P.IVA 04206151203, email:
         <span className='text-primary-500 italic'>
           <a href='mailto:edenhousebologna@gmail.com'> edenhousebologna@gmail.com</a>
