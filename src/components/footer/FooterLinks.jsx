@@ -53,8 +53,8 @@ const links = [
   {
     title: 'Privacy',
     links: [
-      { text: 'Privacy Policy', href: '/privacy' },
-      { text: 'Cookie Policy', href: '/cookies' },
+      { text: 'Privacy Policy', href: 'https://www.iubenda.com/privacy-policy/29502028' },
+      { text: 'Cookie Policy', href: 'https://www.iubenda.com/privacy-policy/29502028/cookie-policy' },
       { text: 'Termini e condizioni', href: '/terms' },
       { text: 'Informativa sui dati', href: '/informativa' }
     ]
