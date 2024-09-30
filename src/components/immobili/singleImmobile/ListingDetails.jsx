@@ -15,6 +15,26 @@ const ListingDetails = ({ listing }) => {
       <div className='mb-5 pb-5 text-center h-full bg-primary-50 rounded-lg p-4 shadow-md'>
         <h3 className='mb-4 text-2xl leading-none text-primary-950 md:text-3xl lg:text-4xl uppercase'>Specifiche del garage</h3>
         <div className='flex flex-col'>
+          {listing.type && (
+            <div className='text-xl lg:text-2xl font-extrabold'>
+              Contratto
+              <small className='font-sans font-normal ms-2 text-primary-800'>
+                {listing.type !== null && listing.type.charAt(0).toUpperCase() + listing.type.slice(1)}
+              </small>
+            </div>
+          )}
+          {listing.tipology && (
+            <div className='text-xl lg:text-2xl font-extrabold'>Tipologia
+              <small className='font-normal font-sans ms-2 text-primary-800'>
+                {listing.tipology !== null && listing.tipology.charAt(0).toUpperCase() + listing.tipology.slice(1)}
+              </small>
+            </div>
+          )}
+          <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Prezzo
+            <small className='font-normal font-sans ms-2 text-primary-800'>
+              € {listing.pubPrice.toLocaleString()},00
+            </small>
+          </div>
           <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Superficie
             <small className='font-normal font-sans ms-2 text-primary-800'>{listing.garageSqm} m²</small>
           </div>
@@ -27,6 +47,13 @@ const ListingDetails = ({ listing }) => {
           <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Larghezza porta
             <small className='font-normal font-sans ms-2 text-primary-800'>{listing.garageDoorWidth}</small>
           </div>
+          {listing.monthlyCondominiumFees !== null && (
+            <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Spese condominiali
+              <small className='font-normal font-sans ms-2 text-primary-800'>
+                {listing.monthlyCondominiumFees === null || listing.monthlyCondominiumFees === 0 ? 'Assente' : `€ ${listing.monthlyCondominiumFees},00 / mese`}
+              </small>
+            </div>
+          )}
         </div>
       </div>
     </div>
