@@ -102,7 +102,7 @@ const ImageGallery = ({ listing }) => {
               className='absolute top-0 right-0 lg:right-1 text-3xl font-extrabold text-black'
               onClick={closeModal}
             >
-              &times
+              &times;
             </button>
             <SingleCarousel images={listing.images} id={listing._id} />
           </div>
