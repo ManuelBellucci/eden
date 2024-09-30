@@ -13,7 +13,7 @@ const TipologieCard = ({ title, subtitle, href, imgSrc }) => {
         search: href.split('?')[1]
       }}
       target='_blank'
-      rel='noreferrer'  
+      rel='noreferrer'
       className='flex w-full flex-col justify-center overflow-hidden rounded-lg sm:mx-auto sm:max-w-lg'
     >
       <div className='group relative m-0 flex h-72 w-full xl:h-96'>
