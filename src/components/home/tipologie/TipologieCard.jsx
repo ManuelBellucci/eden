@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 /** TipologieCard - Componente per visualizzare una singola scheda di tipologia
 * @param {string} title - Titolo della tipologia
 * @param {string} subtitle - Sottotitolo della tipologia
@@ -9,11 +7,13 @@ import { Link } from 'react-router-dom'
 */
 const TipologieCard = ({ title, subtitle, href, imgSrc }) => {
   return (
-    <Link
-      to={{
+    <a
+      href={{
         pathname: href.split('?')[0],
         search: href.split('?')[1]
       }}
+      target='_blank'
+      rel='noreferrer'  
       className='flex w-full flex-col justify-center overflow-hidden rounded-lg sm:mx-auto sm:max-w-lg'
     >
       <div className='group relative m-0 flex h-72 w-full xl:h-96'>
@@ -23,7 +23,7 @@ const TipologieCard = ({ title, subtitle, href, imgSrc }) => {
           <p className='font-sans text-xl text-primary-950'>{subtitle}</p>
         </div>
       </div>
-    </Link>
+    </a>
   )
 }
 
