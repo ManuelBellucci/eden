@@ -1,8 +1,7 @@
 import { memo, useCallback } from 'react'
 
 /**
- * Componente per il dropdown di selezione della tipologia.
- *
+ * Componente per il dropdown di selezione della tipologia
  * @param {Object} props - Le proprietà del componente.
  * @param {boolean} props.isOpen - Indica se il dropdown è aperto.
  * @param {function} props.toggle - Funzione per alternare lo stato di apertura del dropdown.
@@ -19,7 +18,6 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
 
   /**
    * Seleziona una tipologia specifica e chiude il dropdown.
-   *
    * @param {string} tipology - La tipologia selezionata.
    */
   const selectTipology = useCallback((tipology) => {
@@ -34,7 +32,6 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
 
   /**
    * Restituisce l'etichetta per la tipologia selezionata.
-   *
    * @returns {string} L'etichetta della tipologia selezionata o 'Tipologia' se nessuna è selezionata.
    */
   const getTipologyLabel = () => {
@@ -43,7 +40,6 @@ const TipologyFilterDropdown = ({ isOpen, toggle, selectedTipology, setSelectedT
 
   /**
    * Verifica se una tipologia è selezionata.
-   *
    * @param {string} tipology - La tipologia da verificare.
    * @returns {boolean} True se la tipologia è selezionata, False altrimenti.
    */
