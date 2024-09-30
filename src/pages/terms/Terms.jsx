@@ -35,7 +35,7 @@ const Terms = () => {
 
       <h3 className='text-primary-500 text-2xl font-bold mt-4'>5. Modifiche ai Termini</h3>
       <p className='font-sans text-primary-50 text-2xl'>
-        Eden House si riserva il diritto di modificare i presenti Termini. Gli utenti saranno informati delle modifiche tramite pubblicazione sul sito.
+        Eden House si riserva il diritto di modificare i presenti Termini. Gli utenti saranno informati delle modifiche tramite pubblicazione sul proprio profilo instagram @edenhouse.bo.
       </p>
 
       <h3 className='text-primary-500 text-2xl font-bold mt-4'>6. Legge Applicabile e Foro Competente</h3>
