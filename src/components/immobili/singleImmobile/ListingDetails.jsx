@@ -54,6 +54,9 @@ const ListingDetails = ({ listing }) => {
               </small>
             </div>
           )}
+          <div className='text-xl lg:text-2xl font-extrabold text-primary-950 '>Pavimento
+            <small className='font-normal font-sans ms-2 text-primary-800'>{listing.floorType}</small>
+          </div>
         </div>
       </div>
     </div>
