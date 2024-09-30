@@ -1,6 +1,6 @@
 import TipologieCard from './TipologieCard'
 
-// Componente principale per visualizzare le tipologie di proprietà
+// Componente principale per visualizzare 4 tipologie di immobili già filtrate
 const Tipologie = ({ tipologieData }) => {
   // Raggruppa i dati delle tipologie in base al gruppo
   const groupedData = tipologieData.reduce((acc, card) => {
@@ -20,7 +20,7 @@ const Tipologie = ({ tipologieData }) => {
         {Object.values(groupedData).map((group, index) => (
           <div key={index} className='flex flex-col md:flex-row gap-4 md:gap-2'>
             {group.map(card => (
-              <TipologieCard key={card.title} {...card} /> // Renderizza il componente TipologieCard per ogni proprietà
+              <TipologieCard key={card.title} {...card} />
             ))}
           </div>
         ))}
