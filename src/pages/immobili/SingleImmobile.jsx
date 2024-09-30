@@ -110,7 +110,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
 
       {/* Piano e video dell'immobile */}
       <div className={`my-4 rounded-lg ${listing.video ? 'grid grid-cols-1 md:grid-cols-2' : 'flex justify-center'} gap-0 md:gap-4 mx-4 xl:mx-40 bg-primary-900 shadow-md`}>
-        <div className={`${listing.plan.length >= 1 ? 'w-full max-h-44' : 'w-full flex justify-center'}`}>
+        <div className={`${listing.plan.length >= 1 ? 'w-full' : 'w-full flex justify-center'}`}>
           {listing.plan.length >= 1 && (
             <Suspense fallback={<div>Loading...</div>}>
               <Plan listing={listing} /> {/* Piano dell'immobile */}
