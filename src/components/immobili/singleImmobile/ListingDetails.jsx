@@ -407,7 +407,7 @@ const ListingDetails = ({ listing }) => {
   }
 
   // Restituisce il layout principale con le informazioni dell'annuncio
-  if (listing.tipology === 'Garage') {
+  if (listing.tipology === 'garage') {
     return renderGarageDetails()
   } else {
     return renderResidentialDetails()
