@@ -99,7 +99,7 @@ const Browser = () => {
         <MultiChoiceDropdown
           label='Tipologia'
           className='w-full'
-          options={['Appartamenti', 'Attici', 'Ville e villette', 'Uffici e negozi', 'Garage e posti auto']}
+          options={['Appartamenti', 'Attici', 'Ville e villette', 'Uffici e negozi', 'Garage']}
           selectedOptions={selectedTipology}
           setSelectedOptions={setSelectedTipology}
           isSingleSelection

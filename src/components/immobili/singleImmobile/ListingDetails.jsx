@@ -10,8 +10,8 @@ const ListingDetails = ({ listing }) => {
       .join('-')
   }
 
-  // Se la tipologia è "Garage e posti auto", restituisce il contenuto specifico per il garage
-  if (listing.tipology === 'Garage e posti auto') {
+  // Se la tipologia è "Garage", restituisce il contenuto specifico per il garage
+  if (listing.tipology === 'Garage') {
     // Render the specific content for garage
     return (
       <div className='mt-10 '>
