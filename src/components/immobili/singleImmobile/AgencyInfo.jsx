@@ -61,7 +61,10 @@ const AgencyInfo = ({
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
                 />
-                <label className='absolute left-0 top-1 text-primary-50 transition-all'>Nome</label>
+                <label
+                  className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-primary-50/75 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-primary-50/75 transition-all -top-1.5 peer-placeholder-shown:text-base text-[14px] peer-focus:text-[14px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t-2 peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t-2 peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-primary-50 peer-focus:text-primary-50 before:border-primary-50 peer-focus:before:!border-blue-600 after:border-primary-50 peer-focus:after:!border-blue-600 transition-all ease-in"
+                >Nome
+                </label>
               </div>
 
               <div className='relative w-full'>
@@ -74,7 +77,10 @@ const AgencyInfo = ({
                   value={userSurname}
                   onChange={(e) => setUserSurname(e.target.value)}
                 />
-                <label className='absolute left-0 top-1 text-primary-50 transition-all'>Cognome</label>
+                <label
+                  className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-primary-50/75 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-primary-50/75 transition-all -top-1.5 peer-placeholder-shown:text-base text-[14px] peer-focus:text-[14px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t-2 peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t-2 peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-primary-50 peer-focus:text-primary-50 before:border-primary-50 peer-focus:before:!border-blue-600 after:border-primary-50 peer-focus:after:!border-blue-600 transition-all ease-in"
+                >Cognome
+                </label>
               </div>
             </div>
 
@@ -90,7 +96,10 @@ const AgencyInfo = ({
                   value={userPhone}
                   onChange={(e) => setUserPhone(e.target.value)}
                 />
-                <label className='absolute left-0 top-1 text-primary-50 transition-all'>Telefono</label>
+                <label
+                  className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-primary-50/75 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-primary-50/75 transition-all -top-1.5 peer-placeholder-shown:text-base text-[14px] peer-focus:text-[14px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t-2 peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t-2 peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-primary-50 peer-focus:text-primary-50 before:border-primary-50 peer-focus:before:!border-blue-600 after:border-primary-50 peer-focus:after:!border-blue-600 transition-all ease-in"
+                >Telefono
+                </label>
               </div>
 
               <div className='relative w-full'>
@@ -103,7 +112,10 @@ const AgencyInfo = ({
                   value={userEmail}
                   onChange={(e) => setUserEmail(e.target.value)}
                 />
-                <label className='absolute left-0 top-1 text-primary-50 transition-all'>Email</label>
+                <label
+                  className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-primary-50/75 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-primary-50/75 transition-all -top-1.5 peer-placeholder-shown:text-base text-[14px] peer-focus:text-[14px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t-2 peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t-2 peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-primary-50 peer-focus:text-primary-50 before:border-primary-50 peer-focus:before:!border-blue-600 after:border-primary-50 peer-focus:after:!border-blue-600 transition-all ease-in"
+                >Email
+                </label>
               </div>
             </div>
           </div>
