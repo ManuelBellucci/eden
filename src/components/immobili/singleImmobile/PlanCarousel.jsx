@@ -67,7 +67,7 @@ export function PlanCarousel ({ images }) {
   return (
     <Suspense fallback={<div>Caricando...</div>}>
       <Carousel
-        className='rounded-lg relative h-full'
+        className='rounded-lg relative h-[500px]'
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <NavigationDots totalSlides={length} activeIndex={activeIndex} setActiveIndex={setActiveIndex} visibleDots={5} />
         )}
@@ -91,12 +91,12 @@ export function PlanCarousel ({ images }) {
         )}
       >
         {images.map((image, index) => (
-          <div key={index} className='h-full w-full flex justify-center items-center'>
+          <div key={index} className='h-[500px] w-full flex justify-center items-center'>  {/* Fixed height for each slide */}
             <img
               loading='lazy'
               src={image.url}
               alt={`Plan ${index + 1}`}
-              className='h-full w-full object-contain rounded-lg'
+              className='h-full w-auto object-contain rounded-lg'
             />
           </div>
         ))}
