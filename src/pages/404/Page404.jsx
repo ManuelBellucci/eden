@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Page404 = () => {
   return (
     <div className='text-center mt-20 text-primary-50'>
-      <h1 className='text-5xl text-primary-500 font-extrabold'>404</h1>
+      <h1 className='text-5xl text-primary-500  '>404</h1>
       <p className='font-sans text-xl'>
         La pagina che stai cercando non esiste. <br /> Torna alla <Link to='/' className='text-primary-500 hover:underline'>home</Link>.
         <Link to='/' className='flex justify-center'>

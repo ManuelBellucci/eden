@@ -62,7 +62,7 @@ const Browser = () => {
 
   return (
     <div className='w-full'>
-      <div className='flex text-xl font-bold justify-center text-primary-50'>
+      <div className='flex text-xl   justify-center text-primary-50'>
         {/* Pulsante per Vendita */}
         <button
           aria-label='Vendita'

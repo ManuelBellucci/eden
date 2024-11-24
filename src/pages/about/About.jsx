@@ -41,7 +41,7 @@ const About = () => {
             role='Co-Founder Eden House' // Ruolo dell'autore
           />
           <Caption
-            text='La casa è il nostro Eden personale, un rifugio di serenità e felicità, il nostro angolo di paradiso.' // Testo della didascalia
+            text='Costruiamo insieme il tuo Eden, rispecchiando i tuoi desideri e dove ogni dettaglio è pensato per te.' // Testo della didascalia
             name='Matteo Lolli' // Nome dell'autore della didascalia
             role='Co-Founder Eden House' // Ruolo dell'autore
           />

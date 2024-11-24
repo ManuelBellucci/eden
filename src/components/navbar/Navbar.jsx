@@ -47,7 +47,7 @@ const Navbar = () => {
           <HamburgerMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
         </div>
         <div className={`items-center justify-between w-full xl:flex xl:w-auto xl:order-1 ${menuOpen ? 'block' : 'hidden'}`} id='navbar-cta'>
-          <ul className='flex flex-col items-center justify-center xl:flex-row absolute top-0 h-screen left-0 w-screen xl:w-auto xl:relative xl:h-auto p-4 bg-primary-950 text-primary-50 font-bold text-6xl xl:text-xl xl:bg-transparent rounded-lg xl:space-x-8 rtl:space-x-reverse'>
+          <ul className='flex flex-col items-center justify-center xl:flex-row absolute top-0 h-screen left-0 w-screen xl:w-auto xl:relative xl:h-auto p-4 bg-primary-950 text-primary-50   text-6xl xl:text-xl xl:bg-transparent rounded-lg xl:space-x-8 rtl:space-x-reverse'>
             {navItems.map(item => (
               <li key={item.path} onClick={closeMenu}>
                 <Link

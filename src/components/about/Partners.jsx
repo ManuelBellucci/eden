@@ -11,10 +11,10 @@ const Partners = ({ partners }) => {
       <div className='absolute w-3 h-3 bg-primary-500 rounded-full mt-3 -start-2 border-2 border-primary-50' />
 
       {/* Titolo della sezione */}
-      <time className='mb-1 text-xl md:text-2xl lg:text-3xl font-bold leading-none text-primary-500 uppercase'>I nostri partner</time>
+      <time className='mb-1 text-xl md:text-2xl lg:text-3xl   leading-none text-primary-500 uppercase'>I nostri partner</time>
 
       {/* Sottotitolo descrittivo per la sezione */}
-      <h3 className='text-lg md:text-xl lg:text-2xl font-semibold text-primary-50 mb-4'>
+      <h3 className='text-lg md:text-xl lg:text-2xl   text-primary-50 mb-4'>
         Chi ci supporta
       </h3>
 

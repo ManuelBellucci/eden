@@ -46,7 +46,7 @@ const CallToAction = ({
   preventDefault = false
 }) => {
   // Classi base per il pulsante/link
-  const baseClasses = 'text-primary-50 bg-primary-500 hover:bg-primary-600 active:bg-primary-700 transition-all font-bold text-center'
+  const baseClasses = 'text-primary-50 bg-primary-500 hover:bg-primary-600 active:bg-primary-700 transition-all   text-center'
   const sizeClass = sizeStyles[size] || sizeStyles.md
   const roundedClass = roundedStyles[rounded] || roundedStyles.lg
   const combinedClasses = `${baseClasses} ${sizeClass} ${roundedClass} ${className}`

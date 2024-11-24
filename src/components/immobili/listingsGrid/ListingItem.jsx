@@ -17,7 +17,7 @@ const ListingItem = ({ listing }) => {
       {/* Link che porta al dettaglio dell'annuncio */}
       <Link to={`/immobili/${listing._id}`}>
         <hgroup className='mt-4'>
-          <h3 className='text-xl lg:text-2xl font-bold text-primary-50 line-clamp-1'> {/* Limit title to 2 lines */}
+          <h3 className='text-xl lg:text-2xl   text-primary-50 line-clamp-1'> {/* Limit title to 2 lines */}
             {listing.title}
           </h3>
           {/* Mostra l'indirizzo e il riferimento dell'annuncio */}
@@ -28,7 +28,7 @@ const ListingItem = ({ listing }) => {
           {/* Mostra le icone delle caratteristiche e il prezzo */}
           <div className='border-t mt-2 pt-2 text-lg flex justify-between'>
             <PropertyIcons listing={listing} />
-            <span className='text-lg xl:text-xl self-center font-extrabold text-primary-50'>
+            <span className='text-lg xl:text-xl self-center   text-primary-50'>
               {listing.pubPrice.toLocaleString()}€
             </span>
           </div>

@@ -3,7 +3,7 @@ import StatBlock from './StatBlock'
 // Componente per visualizzare un insieme di statistiche
 const Stats = ({ statsData }) => (
   <div className='bg-primary-950 m-14 pt-24'>
-    <h2 className='text-center text-balance mb-4 text-3xl font-extrabold leading-none text-primary-50 lg:text-4xl'>
+    <h2 className='text-center text-balance mb-4 text-3xl   leading-none text-primary-50 lg:text-4xl'>
       <span className='text-primary-500'>Professionalità dimostrata</span> dopo
       anni di esperienza e soddisfazione dei nostri clienti
     </h2>

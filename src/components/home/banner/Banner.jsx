@@ -17,7 +17,7 @@ const Banner = ({ bgImage, title, description, buttonText, buttonLink }) => {
     >
       {/* Contenitore centrale con padding e stile flessibile */}
       <div className='p-32 flex flex-col items-center text-center gap-6 justify-center'>
-        <h2 className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold max-w-2xl text-primary-950'>{title}</h2>
+        <h2 className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl   max-w-2xl text-primary-950'>{title}</h2>
         <p className='font-sans text-2xl md:text-3xl lg:text-4xl text-primary-950'>{description}</p>
         <CallToAction
           href={buttonLink} // Link per il pulsante

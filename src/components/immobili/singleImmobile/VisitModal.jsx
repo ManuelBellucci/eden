@@ -210,7 +210,7 @@ const VisitModal = ({
           </div>
 
           <div className='mt-4'>
-            <h4 className='font-bold text-center mt-6 mb-2'>Scegli come visitare l'immobile</h4>
+            <h4 className='  text-center mt-6 mb-2'>Scegli come visitare l'immobile</h4>
             <div className='flex'>
               <button
                 aria-label='Visita fisica'
@@ -232,7 +232,7 @@ const VisitModal = ({
           </div>
 
           <div className='mt-4'>
-            <h4 className='font-bold text-center mt-6 mb-2'>Seleziona le tue disponibilità</h4>
+            <h4 className='  text-center mt-6 mb-2'>Seleziona le tue disponibilità</h4>
             <div className='flex items-center gap-2 relative'>
               <span onClick={handlePrev} className={`px-3 py-2 absolute -left-9 z-50 ${startIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}>
                 &lArr;
@@ -253,7 +253,7 @@ const VisitModal = ({
                     >
                       <div className='flex flex-col'>
                         <span className='text-sm'>{date.label.split(' ')[0]}</span>
-                        <span className='text-xl font-bold'>{date.label.split(' ')[1]}</span>
+                        <span className='text-xl  '>{date.label.split(' ')[1]}</span>
                         <span className='text-sm'>{date.label.split(' ')[2]}</span>
                       </div>
                     </button>
@@ -266,7 +266,7 @@ const VisitModal = ({
             </div>
           </div>
           <div className='mt-4'>
-            <h4 className='font-bold text-center mt-6 mb-2'>Seleziona le fasce orarie</h4>
+            <h4 className='  text-center mt-6 mb-2'>Seleziona le fasce orarie</h4>
             <div className='flex gap-2 overflow-x-auto'>
               {times.map((time) => (
                 <button

@@ -29,7 +29,7 @@ const useDynamicClasses = (color) => {
   ].join(' '), [textColor, ringColor])
 
   const linkClasses = useMemo(() => [
-    'font-semibold',
+    ' ',
     'text-primary-800',
     'hover:text-primary-700',
     'transition-all'

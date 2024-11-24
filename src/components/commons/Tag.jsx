@@ -35,7 +35,7 @@ const Tag = ({
   const positionClasses = positions[position] || positions.topLeft
   const sizeClasses = sizes[size] || sizes.md
   // Classi combinate
-  const combinedClasses = `absolute text-primary-50 font-bold rounded-lg z-10 ${positionClasses} ${sizeClasses} ${color}`
+  const combinedClasses = `absolute text-primary-50   rounded-lg z-10 ${positionClasses} ${sizeClasses} ${color}`
 
   return (
     <div className={combinedClasses} style={style}>

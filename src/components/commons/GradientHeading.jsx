@@ -67,7 +67,7 @@ const GradientHeading = ({
   return (
     <div className='mb-8'>
       <h2 className={headingClass}>
-        <span className='font-extrabold text-[100px]' style={gradientStyle}>{` ${gradientPhrase} `}</span>
+        <span className=' mt-20 md:mt-0 text-[100px]' style={gradientStyle}>{` ${gradientPhrase} `}</span>
         <p>{text}</p>
       </h2>
       <p className={paragraphClass}>{paragraph}</p>

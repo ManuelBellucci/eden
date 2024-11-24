@@ -15,7 +15,7 @@ const HowItWorks = ({ processSteps }) => {
 
   return (
     <div className='m-14 mb-48 pt-24'>
-      <h2 className='text-center text-balance mb-4 text-3xl font-extrabold leading-none text-primary-50 lg:text-4xl'>
+      <h2 className='text-center text-balance mb-4 text-3xl   leading-none text-primary-50 lg:text-4xl'>
         Come funziona?{' '}
         <span className='text-primary-500'>acquisto e vendita</span> di immobili
       </h2>

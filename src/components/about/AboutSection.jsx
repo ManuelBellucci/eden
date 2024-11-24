@@ -13,12 +13,12 @@ const AboutSection = ({ title, text, body }) => {
       <div className='absolute w-3 h-3 bg-primary-500 rounded-full mt-3 -start-2 border-2 border-primary-50' />
 
       {/* Titolo della sezione (es. nome o data), visualizzato in grassetto e grande */}
-      <time className='mb-1 text-xl md:text-2xl lg:text-3xl font-bold leading-none text-primary-500 uppercase'>
+      <time className='mb-1 text-xl md:text-2xl lg:text-3xl   bold leading-none text-primary-500 uppercase'>
         {title}
       </time>
 
       {/* Testo descrittivo per la sezione */}
-      <h3 className='text-lg md:text-xl lg:text-2xl font-semibold text-primary-50'>
+      <h3 className='text-lg md:text-xl lg:text-2xl   text-primary-50'>
         {text}
       </h3>
 

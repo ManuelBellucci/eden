@@ -26,7 +26,7 @@ const AgencyInfoMobile = ({ isMobile, userName, setUserName, userSurname, setUse
         {/* Nome e indirizzo dell'agenzia */}
         <h5 className='mb-1 text-3xl font-medium text-primary-50'>Eden House</h5>
         <span className='text-xl   text-primary-50'>Via Saragozza 112/O, Bologna (BO)</span>
-        <span className='text-xl   text-primary-50 font-bold'>051 541 541</span>
+        <span className='text-xl   text-primary-50  '>051 541 541</span>
 
         {/* Modulo per l'inserimento dell'utente */}
         <form className='mt-10'>

@@ -55,7 +55,7 @@ const Filters = () => {
 
   return (
     <div className='h-full p-10 flex flex-col gap-6 justify-center items-center'>
-      <h2 className='text-4xl font-extrabold text-center text-nowrap leading-none text-primary-50 md:text-6xl uppercase xl:text-7xl'>I nostri immobili</h2>
+      <h2 className='text-4xl   text-center text-nowrap leading-none text-primary-50 md:text-6xl uppercase xl:text-7xl'>I nostri immobili</h2>
 
       {/* Bottone per pulire i filtri (versione desktop) */}
       {areFiltersSet() && (

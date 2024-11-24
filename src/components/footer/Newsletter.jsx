@@ -15,7 +15,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 const InfoBlock = ({ iconSrc, title, description }) => (
   <div className='flex flex-col items-start'>
     <dl>
-      <dt className='mt-4 font-semibold text-3xl text-primary-50'>
+      <dt className='mt-4   text-3xl text-primary-50'>
         <div className='rounded-lg bg-primary-50/5 p-2 ring-1 inline-flex ring-primary-50/10'>
           <div className='h-10 w-10' aria-hidden='true'>
             <img loading='lazy' src={iconSrc} alt={`${title} icon`} />
@@ -110,7 +110,7 @@ const NewsletterForm = () => {
         text='Iscriviti'
         rounded='md'
         size='lg'
-        className='flex-none px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 !bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
+        className='flex-none px-3.5 py-2.5 text-sm   shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 !bg-primary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
       />
       {message && <p className='mt-2 text-primary-50'>{message}</p>}
     </form>
@@ -138,7 +138,7 @@ const Newsletter = () => {
       <div className='mx-auto max-w-7xl'>
         <div className='grid max-w-2xl grid-cols-1 gap-y-16 lg:max-w-none 2xl:grid-cols-2'>
           <div className='max-w-xl p-8 lg:max-w-lg'>
-            <h2 className='font-bold text-primary-50 text-3xl'>Iscriviti alla Nostra Newsletter.</h2>
+            <h2 className='  text-primary-50 text-3xl'>Iscriviti alla Nostra Newsletter.</h2>
             <p className='font-sans mt-4 text-xl leading-8 text-primary-50/75'>
               Informati sulle ultime novità e promozioni, immobili nuovi, notizie, agevolazioni e molte altre situazioni di interesse, gratuitamente. Non invieremo spam, promesso!
             </p>

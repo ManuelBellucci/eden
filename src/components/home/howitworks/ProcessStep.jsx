@@ -59,7 +59,7 @@ const ProcessStep = ({ title, description, src, index, activeStep, setActiveStep
         <img loading='lazy' className='h-14 w-14' src={src} alt={title} />
       </div>
       <h2
-        className={`text-xl md:text-2xl lg:text-3xl font-semibold mt-2 ${isActive ? 'text-primary-500' : 'text-primary-50'
+        className={`text-xl md:text-2xl lg:text-3xl   mt-2 ${isActive ? 'text-primary-500' : 'text-primary-50'
           }`}
       >
         {title}

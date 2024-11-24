@@ -56,7 +56,7 @@ const StatBlock = ({ icon, number, description }) => {
         <dd>
           <img loading='lazy' className='h-10 w-10 mb-4' src={icon} alt='icon' />
         </dd>
-        <dd className='font-bold text-primary-50 text-6xl'>{count}</dd>
+        <dd className='  text-primary-50 text-6xl'>{count}</dd>
         <dt className='font-sans text-2xl leading-7 text-primary-950'>{description}</dt>
       </dl>
     </div>

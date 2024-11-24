@@ -64,14 +64,14 @@ const ImageGallery = ({ listing }) => {
           </div>
           {listing.images.length > 4 && (
             <span
-              className='absolute text-primary-50 font-bold hover:text-primary-950 bottom-2 right-2 p-2 m-2 lg:p-4 lg:m-4 text-xs border border-primary-500 hover:bg-primary-500 active:bg-primary-600 cursor-pointer rounded-lg transition-all ease-in'
+              className='absolute text-primary-50   hover:text-primary-950 bottom-2 right-2 p-2 m-2 lg:p-4 lg:m-4 text-xs border border-primary-500 hover:bg-primary-500 active:bg-primary-600 cursor-pointer rounded-lg transition-all ease-in'
               onClick={openModal}
             >
               Guarda {listing.images.length} foto
             </span>
           )}
           <div className='absolute top-0 left-0'>
-            <p className='text-center text-xl md:text-2xl lg:text-3xl mt-4 max-w-xl mx-auto text-gray-100 font-bold bg-primary-500 p-2 md:p-3 lg:p-4 rounded-lg ms-4'>
+            <p className='text-center text-xl md:text-2xl lg:text-3xl mt-4 max-w-xl mx-auto text-gray-100   bg-primary-500 p-2 md:p-3 lg:p-4 rounded-lg ms-4'>
               {listing.pubPrice.toLocaleString()},00€ {listing.type === 'affitto' && '/ mese'}
             </p>
           </div>
@@ -99,7 +99,7 @@ const ImageGallery = ({ listing }) => {
           <div className='relative bg-white p-4 rounded-none lg:rounded-lg w-full h-full overflow-y-auto lg:w-11/12 lg:max-w-[11/12] lg:h-5/6'>
             <button
               aria-label='Close modal'
-              className='absolute top-0 right-0 lg:right-1 text-3xl font-extrabold text-black'
+              className='absolute top-0 right-0 lg:right-1 text-3xl   text-black'
               onClick={closeModal}
             >
               &times;
@@ -109,7 +109,7 @@ const ImageGallery = ({ listing }) => {
           {showRotateMessage && (
             <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50'>
               <div className='bg-white p-4 rounded-lg text-center flex flex-col justify-center items-center'>
-                <p className='text-lg font-bold'>Per una migliore visualizzazione, ruota il tuo dispositivo.</p>
+                <p className='text-lg  '>Per una migliore visualizzazione, ruota il tuo dispositivo.</p>
                 <img src={rotateGif} alt='Rotate phone' className='w-16 h-16' />
               </div>
             </div>
