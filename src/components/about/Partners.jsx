@@ -23,7 +23,7 @@ const Partners = ({ partners }) => {
         {partners.map((partner, index) => (
           <div key={index} className='flex items-center gap-4'>
             {/* Immagine del partner */}
-            <img className='w-10 h-10 rounded-full border-2 border-primary-500' src={partner.imgSrc} alt={partner.name} loading='lazy' />
+            <img className='w-14 h-14 rounded-full object-cover border-2 border-primary-500' src={partner.imgSrc} alt={partner.name} loading='lazy' />
             {/* Nome e ruolo del partner */}
             <div className='font-medium text-primary-500'>
               <div className='text-nowrap'>{partner.name}</div>

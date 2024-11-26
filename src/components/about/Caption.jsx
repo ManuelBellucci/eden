@@ -6,7 +6,7 @@
  * @returns {JSX.Element} - Componente per la visualizzazione di una citazione.
  */
 
-const Caption = ({ text, name, role }) => {
+const Caption = ({ text, name, role, url }) => {
   return (
     <figure className='max-w-screen-md mx-auto text-center m-4 p-4'>
 
@@ -23,8 +23,8 @@ const Caption = ({ text, name, role }) => {
       {/* Informazioni sull'autore della citazione */}
       <figcaption className='flex items-center justify-center mt-6 space-x-3 rtl:space-x-reverse'>
         <img
-          className='w-8 lg:w-16 h-8 lg:h-16 rounded-full border-2 border-primary-500'
-          src='https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png'
+          className='w-16 h-16 object-cover rounded-full border-2 border-primary-500'
+          src={url}
           alt='profile picture'
           loading='lazy'
         />

@@ -23,7 +23,7 @@ const Team = ({ members }) => {
         {members.map((member, index) => (
           <div key={index} className='flex items-center gap-4'>
             {/* Immagine del membro del team */}
-            <img className='w-10 h-10 rounded-full border-2 border-primary-500' src={member.imgSrc} alt={member.name} loading='lazy' />
+            <img className='w-14 h-14 rounded-full border-2 border-primary-500 object-cover' src={member.imgSrc} alt={member.name} loading='lazy' />
             {/* Nome e ruolo del membro del team */}
             <div className='font-medium text-primary-500'>
               <div className='text-nowrap'>{member.name}</div>

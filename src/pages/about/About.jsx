@@ -8,19 +8,19 @@ const Partners = lazy(() => import('../../components/about/Partners'))
 
 // Array di membri del team con informazioni chiave
 const teamMembers = [
-  { name: 'Giulio A. Stefanini', role: 'Co-Founder', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
-  { name: 'Matteo Lolli', role: 'Co-Founder', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
-  { name: 'Davide Taruscio', role: 'Amministrativo', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
-  { name: 'Angelo Sposato', role: 'Back-Office', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
-  { name: 'Davide Dalbagno', role: 'Agente', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
-  { name: 'Manuel Bellucci', role: 'Developer', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' }
+  { name: 'Giulio A. Stefanini', role: 'Co-Founder', imgSrc: '/GIULIO_FACCIA.jpg' },
+  { name: 'Matteo Lolli', role: 'Co-Founder', imgSrc: '/MATTE_FACCIA.jpg' },
+  { name: 'Davide Taruscio', role: 'Amministrativo', imgSrc: '/TARUSCIO_FACCIA.jpg' },
+  { name: 'Angelo Sposato', role: 'Back-Office', imgSrc: '/ANGELO_FACCIA.jpg' },
+  { name: 'Davide Dalbagno', role: 'Agente', imgSrc: '/DDB_FACCIA.jpg' },
+  { name: 'Manuel Bellucci', role: 'Developer', imgSrc: '/MANUEL_FACCIA.jpg' }
 ]
 
 // Array di partner con informazioni chiave
 const partners = [
   { name: 'Studio Photozen', role: 'Fotografi', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
-  { name: 'Credipass', role: 'Consulenza finanziaria', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
-  { name: 'Chiara Masinara', role: 'Ingegnere e architetto', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' }
+  { name: 'Credipass', role: 'Consulenza finanziaria', imgSrc: '/CREDIPASS_LOGO.png' },
+  { name: 'Chiara Masinara', role: 'Ingegnere e architetto', imgSrc: '/CHIARA_FACCIA.jpg' }
 ]
 
 // Componente principale per la sezione "Chi Siamo"
@@ -39,12 +39,17 @@ const About = () => {
             text='La casa è il nostro Eden personale, un rifugio di serenità e felicità, il nostro angolo di paradiso.' // Testo della didascalia
             name='Giulio A. Stefanini' // Nome dell'autore della didascalia
             role='Co-Founder Eden House' // Ruolo dell'autore
+            url='/GIULIO_FACCIA.jpg'
           />
           <Caption
             text='Costruiamo insieme il tuo Eden, rispecchiando i tuoi desideri e dove ogni dettaglio è pensato per te.' // Testo della didascalia
             name='Matteo Lolli' // Nome dell'autore della didascalia
             role='Co-Founder Eden House' // Ruolo dell'autore
+            url='/MATTE_FACCIA.jpg'
           />
+        </div>
+        <div className='w-full h-full object-cover'>
+          <img src='/TITOLARI.jpg' alt='titolari' className='md:p-20 max-w-6xl mx-auto xl w-full h-full' />
         </div>
       </Suspense>
       <ol className='relative border-s-4 border-primary-500 p-4 m-4 max-w-2xl'>
@@ -67,6 +72,9 @@ const About = () => {
           <Partners partners={partners} /> {/* Componente per visualizzare i partner */}
         </Suspense>
       </ol>
+      <div className='mt-8 w-full h-full object-cover'>
+        <img src='/UFFICIO.jpg' alt='Ufficio' className='md:p-20 max-w-6xl mx-auto xl w-full h-full' />
+      </div>
     </div>
   )
 }
