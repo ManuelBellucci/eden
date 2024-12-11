@@ -144,7 +144,7 @@ const Filters = () => {
           <div className='bg-primary-50 h-full max-h-full flex flex-col relative pt-10 p-6 rounded-lg shadow-lg w-full max-w-lg overflow-y-auto'>
             <div className='flex justify-between items-center mb-4'>
               <button
-                className='text-xl px-4 py-2 absolute top-5 right-5 text-primary-50 bg-red-500 rounded-lg shadow hover:bg-red-600 active:bg-red-700'
+                className='text-5xl px-4 py-2 absolute top-5 right-5 text-primary-950'
                 onClick={toggleModal} // Chiude il modal
               >
                 &times;
@@ -210,7 +210,7 @@ const Filters = () => {
                 setSelectedExtras={(value) => handleFilterChange(setExtras, value)}
               />
             </div>
-            <div className='flex gap-4 mt-4'>
+            <div className='flex gap-4 mt-4 mx-auto'>
               <button
                 className='px-4 py-2 bg-green-500 text-primary-50 rounded-lg shadow hover:bg-green-600'
                 onClick={toggleModal} // Chiude il modal
