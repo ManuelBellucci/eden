@@ -15,7 +15,6 @@ const teamMembers = [
   { name: 'Davide Dalbagno', role: 'Agente', imgSrc: '/DDB_FACCIA.jpg' },
   { name: 'Manuel Bellucci', role: 'Developer', imgSrc: '/MANUEL_FACCIA.jpg' }
 ]
-
 // Array di partner con informazioni chiave
 const partners = [
   { name: 'Studio Photozen', role: 'Fotografi', imgSrc: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png' },
