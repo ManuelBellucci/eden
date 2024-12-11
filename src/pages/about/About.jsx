@@ -14,7 +14,7 @@ const teamMembers = [
   { name: 'Angelo Sposato', role: 'Back-Office', imgSrc: '/ANGELO_FACCIA.jpg' },
   { name: 'Davide Dalbagno', role: 'Agente', imgSrc: '/DDB_FACCIA.jpg' },
   { name: 'Manuel Bellucci', role: 'Developer', imgSrc: '/MANUEL_FACCIA.jpg' }
-]
+] 
 
 // Array di partner con informazioni chiave
 const partners = [
