@@ -123,7 +123,7 @@ const AgencyInfo = ({
           {/* Pulsanti per inviare richiesta tramite WhatsApp o modulo */}
           <div className='flex flex-col mt-4 gap-2'>
             <a
-              href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+chiedere+un+informazione+in+merito+all'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
+              href={`https://wa.me/393339471915?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+chiedere+un+informazione+in+merito+all'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
               className={`font-sans flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-center text-primary-950 bg-primary-50 rounded-lg hover:bg-primary-500 focus:outline-none ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
               onClick={(e) => !isFormFilled && e.preventDefault()}
@@ -133,7 +133,7 @@ const AgencyInfo = ({
 
             {/* Richiesta di una visita tramite WhatsApp */}
             <a
-              href={`https://wa.me/393517404147?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+prenotare+una+visione+per+l'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
+              href={`https://wa.me/393339471915?text=Salve,+sono+${encodeURIComponent(userName)}+${encodeURIComponent(userSurname)}+e+vorrei+prenotare+una+visione+per+l'immobile+con+riferimento+${listing._id},+che+ho+visto+sul+vostro+sito.`}
               className={`font-sans flex items-center justify-between py-2 px-4 text-sm font-medium text-center text-primary-900 focus:outline-none bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-100/75 hover:text-primary-70 ${isFormFilled ? '' : 'opacity-50 cursor-not-allowed'}`}
               disabled={!isFormFilled}
               onClick={(e) => !isFormFilled && e.preventDefault()}
@@ -154,7 +154,7 @@ const AgencyInfo = ({
             {/* Pulsante di chiamata visibile solo su dispositivi mobili */}
             {isMobile && (
               <a
-                href='tel:+393517404147'
+                href='tel:+390510375731'
                 className='font-sans flex justify-between items-center py-2 px-4 text-sm font-medium text-primary-950 bg-primary-50 rounded-lg border w-full border-gray-200 hover:bg-primary-500 hover:text-primary-50'
               >
                 Chiamaci <img loading='lazy' src='/call.svg' alt='call icon' className='w-6 h-6 ml-2' />
