@@ -36,14 +36,14 @@ const Navbar = () => {
       <div className='flex flex-wrap items-center justify-between mx-auto p-4'>
         <Logo src='/edenlogoandtitle.svg' />
         <div className='flex xl:order-2 gap-4 rtl:space-x-reverse items-center relative'>
-          <CallToAction
+          {/* <CallToAction
             anchor
             href='https://eden-landing-page.vercel.app/'
             text='Valutare casa'
             size='lg'
             rounded='xl'
             className='!bg-secondary-500 hover:!bg-primary-600 active:!bg-primary-700 !text-primary-50'
-          />
+          /> */}
           <HamburgerMenu menuOpen={menuOpen} toggleMenu={toggleMenu} />
         </div>
         <div className={`items-center justify-between w-full xl:flex xl:w-auto xl:order-1 ${menuOpen ? 'block' : 'hidden'}`} id='navbar-cta'>
