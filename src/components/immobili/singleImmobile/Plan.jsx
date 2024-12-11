@@ -9,22 +9,30 @@ const Plan = ({ listing }) => {
     // Crea un nuovo elemento immagine per il fullscreen
     const fullScreenImage = document.createElement('img')
     fullScreenImage.src = e.target.src // Usa l'immagine cliccata
-    fullScreenImage.className = 'h-screen w-screen object-fit' // Aggiungi classi Tailwind per il fullscreen
+    fullScreenImage.className = 'fixed top-0 left-0 h-screen w-screen object-contain bg-black z-50 cursor-pointer' // Classi Tailwind per fullscreen con sfondo nero
 
     // Aggiungi il nuovo elemento al body
     document.body.appendChild(fullScreenImage)
 
-    // Attiva il fullscreen
-    fullScreenImage.requestFullscreen()
-
-    // Gestisci l'uscita dal fullscreen al click sull'immagine
-    fullScreenImage.onclick = () => {
-      if (document.fullscreenElement) {
-        document.exitFullscreen()
-      }
+    // Aggiungi un listener per la chiusura
+    const closeImage = () => {
       // Rimuovi l'immagine dal body
       document.body.removeChild(fullScreenImage)
+      // Rimuovi l'eventuale listener
+      document.removeEventListener('keydown', handleEscape)
     }
+
+    // Gestisci l'uscita al click sull'immagine
+    fullScreenImage.onclick = closeImage
+
+    // Chiudi l'immagine anche premendo il tasto "Esc"
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeImage()
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
   }
 
   return (
