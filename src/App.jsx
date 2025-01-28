@@ -4,6 +4,7 @@ import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import { FiltersProvider } from './contexts/FiltersContext'
 import ScrollToTop from './helpers/scrollToTop'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 // Lazy load the route components
 const Home = lazy(() => import('./pages/home/Home'))
@@ -41,6 +42,7 @@ function App () {
           <Footer />
         </FiltersProvider>
       </BrowserRouter>
+      <SpeedInsights />
     </div>
   )
 }
