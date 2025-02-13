@@ -30,10 +30,10 @@ const About = () => {
   return (
     <div className='flex flex-col items-center'> {/* Contenitore principale per allineare gli elementi al centro */}
       <img
-        Caricando='lazy' // Ottimizzazione del caricamento dell'immagine
-        src='/NEGATIVO_VERTICALE_SENZA_SFONDO.webp' // Percorso dell'immagine
-        alt='Image' // Testo alternativo per l'immagine
-        className='object-cover center h-96 ' // Classi per lo stile dell'immagine
+        Caricando='lazy'
+        src='/NEGATIVO_VERTICALE_SENZA_SFONDO.webp'
+        alt='Image'
+        className='object-cover center h-96'
       />
       <Suspense fallback={<div>Caricando...</div>}>
         <div className='flex flex-col md:flex-row gap-4'> {/* Contenitore per le didascalie */}
