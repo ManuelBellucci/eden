@@ -7,7 +7,7 @@ const Team = lazy(() => import('../../components/about/Team'))
 const Partners = lazy(() => import('../../components/about/Partners'))
 
 // Array di membri del team con informazioni chiave
-const teamMembers = [ 
+const teamMembers = [
   { name: 'Giulio A. Stefanini', role: 'Co-Founder', imgSrc: '/GIULIO_FACCIA.jpg' },
   { name: 'Matteo Lolli', role: 'Co-Founder', imgSrc: '/MATTE_FACCIA.jpg' },
   { name: 'Davide Taruscio', role: 'Amministrativo', imgSrc: '/TARUSCIO_FACCIA.jpg' },
