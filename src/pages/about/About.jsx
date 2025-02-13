@@ -13,7 +13,7 @@ const teamMembers = [
   { name: 'Davide Taruscio', role: 'Amministrativo', imgSrc: '/TARUSCIO_FACCIA.jpg' },
   { name: 'Angelo Sposato', role: 'Back-Office', imgSrc: '/ANGELO_FACCIA.jpg' },
   { name: 'Davide Dalbagno', role: 'Agente', imgSrc: '/DDB_FACCIA.jpg' },
-  { name: 'Manuel Bellucci', role: 'Developer', imgSrc: '/MANUEL_FACCIA.jpg' }, 
+  { name: 'Manuel Bellucci', role: 'Developer', imgSrc: '/MANUEL_FACCIA.jpg' },
   { name: 'Vincenzo Grisolia', role: 'Consulente', imgSrc: '/VINCE_FACCIA.jpg' },
   { name: 'Lorenzo Lolli', role: 'Consulente', imgSrc: '/LORENZO_FACCIA.jpg' },
   { name: 'Francesco Pinto', role: 'Consulente', imgSrc: '/FRANCESCO_FACCIA.jpg' }
