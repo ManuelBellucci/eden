@@ -80,6 +80,9 @@ export function SingleCarousel ({ images, id }) {
                 loading='lazy'
                 src={image.url}
                 alt={`image ${index + 1}`}
+                onError={(e) => {
+                  e.target.src = '/image-error.png' // Immagine di default
+                }}
                 className='h-full w-full object-cover'
               />
             </div>
