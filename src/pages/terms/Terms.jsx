@@ -8,7 +8,7 @@ const Terms = () => {
         Benvenuti su <span className=' '>Eden House</span>, gestito da Eden srl con sede legale in Via Saragozza 112/O, Bologna (BO),
         P.IVA 04206151203, email:
         <span className='text-primary-500 italic'>
-          <a href='mailto:edenhousebologna@gmail.com'> edenhousebologna@gmail.com</a>
+          <a href='mailto:info@edenhouse.me'> info@edenhouse.me</a>
         </span>.
         Utilizzando questo sito, accettate di essere vincolati dai seguenti Termini e Condizioni di Utilizzo.
       </p>

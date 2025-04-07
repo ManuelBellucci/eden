@@ -8,7 +8,7 @@ const Informativa = () => {
       <p className='font-sans text-primary-50 text-xl'>
         In conformità con il Regolamento (UE) 2016/679 (GDPR), <span className=' '>Eden House</span>, con sede legale in Via Saragozza 112/O, Bologna (BO), P.IVA 04206151203, email:
         <span className='text-primary-500 italic'>
-          <a href='mailto:edenhousebologna@gmail.com'> edenhousebologna@gmail.com</a>
+          <a href='mailto:info@edenhouse.me'> info@edenhouse.me</a>
         </span>, in qualità di titolare del trattamento, desidera informare gli utenti riguardo al trattamento dei loro dati personali.
       </p>
 
@@ -16,7 +16,7 @@ const Informativa = () => {
       <p className='font-sans text-primary-50 text-xl'>
         Il titolare del trattamento dei dati è Eden srl, con sede in Via Saragozza 112/O, Bologna (BO). Per informazioni, contattaci via email a
         <span className='text-primary-500 italic'>
-          <a href='mailto:edenhousebologna@gmail.com'> edenhousebologna@gmail.com</a>
+          <a href='mailto:info@edenhouse.me'> info@edenhouse.me</a>
         </span>.
       </p>
 
@@ -49,7 +49,7 @@ const Informativa = () => {
       <p className='font-sans text-primary-50 text-xl'>
         Gli utenti possono esercitare i diritti di accesso, rettifica, cancellazione, limitazione e portabilità dei propri dati contattandoci a
         <span className='text-primary-500 italic'>
-          <a href='mailto:edenhousebologna@gmail.com'>edenhousebologna@gmail.com</a>
+          <a href='mailto:info@edenhouse.me'>info@edenhouse.me</a>
         </span>.
       </p>
 
