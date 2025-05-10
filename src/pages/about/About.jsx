@@ -51,7 +51,7 @@ const About = () => {
           />
         </div>
         <div className='w-full h-full object-cover'>
-          <img src='/TITOLARI2.jpg' alt='titolari' className='md:p-20 max-w-6xl mx-auto xl w-full h-full' />
+          <img src='/TITOLARI3.jpg' alt='titolari' className='md:p-20 max-w-6xl mx-auto xl w-full h-full' />
         </div>
       </Suspense>
       <ol className='relative border-s-4 border-primary-500 p-4 m-4 max-w-2xl'>
