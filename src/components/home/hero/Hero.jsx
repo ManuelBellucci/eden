@@ -6,7 +6,10 @@ import HeroBackground from './HeroBackground'
 // Componente Hero: mostra il contenuto principale della sezione Hero
 const Hero = () => {
   return (
-    <HeroBackground backgroundPosition='25%' backgroundImage='https://res.cloudinary.com/datqybdzt/image/upload/v1722352436/copimnjxryandtfcwumd.webp'>
+    <HeroBackground
+      backgroundPosition='25%'
+      // backgroundImage='https://res.cloudinary.com/datqybdzt/image/upload/v1722352436/copimnjxryandtfcwumd.webp'
+    >
       <div className='flex flex-col items-center text-center gap-6 mx-8'>
         <div className='mx-auto max-w-2xl py-10 sm:py-12 lg:py-14'>
 
