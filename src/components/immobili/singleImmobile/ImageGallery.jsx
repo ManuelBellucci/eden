@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react'
 import { SingleCarousel } from '../../home/featured/SingleCarousel'
 import rotateGif from '../../../assets/rotate.gif'
+import { withFallback, safeOnErrorSwap, FALLBACK_IMG } from '../../../helpers/media'
 
 const ImageGallery = ({ listing }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [showRotateMessage, setShowRotateMessage] = useState(false)
+  const baseImages = Array.isArray(listing?.images) ? listing.images : []
+  const images = withFallback(baseImages, FALLBACK_IMG)
+  const thumb = images[0] || { url: FALLBACK_IMG, alt: 'Anteprima non disponibile' }
+  const extra = images.length > 1 ? images.slice(1, 4) : []
 
   const openModal = () => {
     setIsModalOpen(true)
@@ -58,35 +63,39 @@ const ImageGallery = ({ listing }) => {
             <img
               loading='lazy'
               className='h-full max-w-2xl mx-auto w-full rounded-lg'
-              src={listing.images[0].url}
-              alt=''
+              src={thumb?.url || FALLBACK_IMG}
+              alt={thumb?.alt || 'Anteprima non disponibile'}
+              onError={safeOnErrorSwap}
             />
           </div>
-          {listing.images.length > 4 && (
+          {images?.length > 4 && (
             <span
               className='absolute text-primary-50   hover:text-primary-950 bottom-2 right-2 p-2 m-2 lg:p-4 lg:m-4 text-xs border border-primary-500 hover:bg-primary-500 active:bg-primary-600 cursor-pointer rounded-lg transition-all ease-in'
               onClick={openModal}
             >
-              Guarda {listing.images.length} foto
+              Guarda {images.length} foto
             </span>
           )}
           <div className='absolute top-0 left-0'>
             <p className='text-center text-xl md:text-2xl lg:text-3xl mt-4 max-w-xl mx-auto text-gray-100   bg-primary-500 p-2 md:p-3 lg:p-4 rounded-lg ms-4'>
-              {listing.pubPrice.toLocaleString()},00€ {listing.type === 'affitto' && '/ mese'}
+              {(Number(listing?.pubPrice) || 0).toLocaleString()},00€
+              {' '}
+              {listing?.type === 'affitto' && '/ mese'}
             </p>
           </div>
         </div>
 
         {/* Conditional rendering based on tipology */}
-        {listing.tipology !== 'garage' && (
+        {(listing?.tipology || '') !== 'garage' && (
           <div className='grid grid-cols-3 gap-4 max-w-2xl mx-auto'>
-            {listing.images.slice(1, 4).map((image, index) => (
+            {(extra || []).map((image, index) => (
               <div key={index} className='bg-primary-50 p-1 shadow-md rounded-lg'>
                 <img
                   loading='lazy'
                   className='h-full object-cover max-w-full w-full rounded-lg'
-                  src={image.url}
-                  alt=''
+                  src={image?.url || FALLBACK_IMG}
+                  alt={image?.alt || ''}
+                  onError={safeOnErrorSwap}
                 />
               </div>
             ))}
@@ -104,7 +113,7 @@ const ImageGallery = ({ listing }) => {
             >
               &times;
             </button>
-            <SingleCarousel images={listing.images} id={listing._id} />
+            <SingleCarousel images={images} id={listing._id} />
           </div>
           {showRotateMessage && (
             <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50'>

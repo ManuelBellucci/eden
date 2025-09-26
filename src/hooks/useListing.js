@@ -4,6 +4,26 @@ import { useEffect, useState } from 'react'
 // Costante per l'URL dell'API
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
+const sanitizeListing = (raw = {}) => {
+  const toObj = (x, i, altBase) =>
+    typeof x === 'string' ? { url: x, alt: `${altBase} ${i + 1}` } : (x || {})
+  const arr = (a) => Array.isArray(a) ? a.filter(Boolean) : []
+
+  const images = arr(raw.images).map((x, i) => toObj(x, i, 'image'))
+  const plan = arr(raw.plan).map((x, i) => toObj(x, i, 'plan'))
+  const virtualTour = arr(raw.virtualTour).map((x, i) => toObj(x, i, 'vt'))
+
+  return {
+    ...raw,
+    images,
+    plan,
+    virtualTour,
+    video: typeof raw.video === 'string' ? raw.video : '',
+    pubPrice: Number.isFinite(raw.pubPrice) ? raw.pubPrice : 0,
+    active: !!raw.active
+  }
+}
+
 // Hook per recuperare una singola proprietà
 const useListing = (id) => {
   const [listing, setListing] = useState(null) // Stato per la proprietà
@@ -14,7 +34,7 @@ const useListing = (id) => {
     const fetchListing = async () => {
       try {
         const response = await axios.get(`${API_URL}/listings/${id}`) // Richiesta API per la proprietà
-        setListing(response.data) // Imposta la proprietà recuperata
+        setListing(sanitizeListing(response.data)) // Imposta la proprietà recuperata
       } catch (error) {
         setError(error) // Imposta l'errore in caso di fallimento
       } finally {

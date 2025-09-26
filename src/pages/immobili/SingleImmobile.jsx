@@ -109,15 +109,15 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
       </div>
 
       {/* Piano e video dell'immobile */}
-      <div className={`my-4 rounded-lg ${listing.video ? 'grid grid-cols-1 md:grid-cols-2' : 'flex justify-center'} gap-0 md:gap-4 mx-4 xl:mx-40 bg-primary-900 shadow-md`}>
-        <div className={`${listing.plan.length >= 1 ? 'max-w-xl' : 'max-w-xl flex justify-center'}`}>
-          {listing.plan.length >= 1 && (
+      <div className={`my-4 rounded-lg ${listing?.video ? 'grid grid-cols-1 md:grid-cols-2' : 'flex justify-center'} gap-0 md:gap-4 mx-4 xl:mx-40 bg-primary-900 shadow-md`}>
+        <div className={`${(listing?.plan?.length || 0) >= 1 ? 'max-w-xl' : 'max-w-xl flex justify-center'}`}>
+          {(listing?.plan?.length || 0) >= 1 && (
             <Suspense fallback={<div>Loading...</div>}>
               <Plan listing={listing} /> {/* Piano dell'immobile */}
             </Suspense>
           )}
         </div>
-        {listing.video && (
+        {listing?.video && (
           <div className='pt-0 pb-6 md:pt-6 px-6 md:pl-0 rounded-lg'>
             <div className='flex justify-center h-full rounded-lg shadow-md bg-primary-50 p-4'>
               <video
@@ -127,7 +127,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
                 autoPlay
                 loop
               >
-                <source src={listing.video} type='video/mp4' />
+                <source src={listing?.video} type='video/mp4' />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -136,7 +136,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
       </div>
 
       {/* Tour virtuale se disponibile */}
-      {listing.virtualTour.length > 0 && (
+      {listing?.virtualTour?.length > 0 && (
         <div className='my-4 bg-primary-900 shadow-md px-2 py-2 mx-4 xl:mx-40 rounded-lg'>
           <button
             aria-label='Open virtual tour'
@@ -195,7 +195,7 @@ const SingleImmobile = ({ setIsNavbarVisible }) => {
         <VirtualTour
           isVisible={isTourModalVisible} // Visibilità del modale del tour virtuale
           onClose={() => handleTourModalVisibility(false)} // Chiudi il modale
-          images={listing.virtualTour} // Immagini del tour virtuale
+          images={listing?.virtualTour || []} // Immagini del tour virtuale
           currentSceneIndex={currentSceneIndex} // Indice dell'immagine attuale
           setCurrentSceneIndex={setCurrentSceneIndex} // Gestore per cambiare immagine
         />

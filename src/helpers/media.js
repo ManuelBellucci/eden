@@ -1,6 +1,6 @@
 // src/utils/media.js
 
-export const FALLBACK_IMG = '/fallback-listing.jpg'
+export const FALLBACK_IMG = '/image-error.png'
 export const ERROR_IMG = '/image-error.png'
 
 /**

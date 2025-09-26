@@ -15,18 +15,20 @@ import CallToAction from '../../commons/CallToAction'
 const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrentSceneIndex }) => {
   // Se il tour virtuale non è visibile, restituisci null
   if (!isVisible) return null
+  const safeImages = Array.isArray(images) ? images : []
+  const current = safeImages[currentSceneIndex] || null
 
   // Funzione per passare alla scena successiva
   const handleNext = () => {
     setTimeout(() => {
-      setCurrentSceneIndex((prevIndex) => (prevIndex + 1) % images.length)
+      setCurrentSceneIndex((prevIndex) => safeImages.length ? (prevIndex + 1) % safeImages.length : 0)
     }, 500)
   }
 
   // Funzione per passare alla scena precedente
   const handlePrev = () => {
     setTimeout(() => {
-      setCurrentSceneIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
+      setCurrentSceneIndex((prevIndex) => safeImages.length ? (prevIndex - 1 + safeImages.length) % safeImages.length : 0)
     }, 500)
   }
 
@@ -48,18 +50,13 @@ const VirtualTour = ({ isVisible, onClose, images, currentSceneIndex, setCurrent
           <TransitionGroup className='h-full'>
             <CSSTransition key={currentSceneIndex} timeout={500} classNames='fade' className='h-full'>
               <div className='h-full'>
-                <Pannellum
-                  width='100%' // Larghezza del tour virtuale
-                  height='100%' // Altezza del tour virtuale
-                  image={images[currentSceneIndex].url} // URL dell'immagine
-                  pitch={0} // Inclinazione dell'immagine
-                  yaw={180} // Angolo di rotazione dell'immagine
-                  hfov={100} // Campo visivo orizzontale
-                  minHfov={90} // Campo visivo orizzontale minimo
-                  maxHfov={110} // Campo visivo orizzontale massimo
-                  autoLoad // Carica automaticamente l'immagine
-                  showZoomCtrl={false} // Nasconde il controllo dello zoom
-                />
+                {current
+                  ? (
+                    <Pannellum image={current.url} width='100%' height='100%' pitch={0} yaw={180} hfov={100} minHfov={90} maxHfov={110} autoLoad showZoomCtrl={false} />
+                    )
+                  : (
+                    <div className='w-full h-full flex items-center justify-center text-gray-500'>Nessuna scena</div>
+                    )}
               </div>
             </CSSTransition>
           </TransitionGroup>

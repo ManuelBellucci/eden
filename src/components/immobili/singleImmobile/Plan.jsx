@@ -1,9 +1,12 @@
 import { PlanCarousel } from './PlanCarousel'
+import { FALLBACK_IMG } from '../../../helpers/media'
 
 // Plan - Componente che renderizza la planimetria dell'immobile
 const Plan = ({ listing }) => {
   // Verifica se l'annuncio ha più di una planimetria
-  const hasMultiplePlans = listing.plan && listing.plan.length > 1
+  const plans = Array.isArray(listing?.plan) ? listing.plan : []
+  const hasMultiplePlans = plans.length > 1
+  const firstPlan = plans[0] || { url: FALLBACK_IMG }
 
   const handleImageClick = (e) => {
     // Crea un nuovo elemento immagine per il fullscreen
@@ -41,13 +44,13 @@ const Plan = ({ listing }) => {
         {/* Carosello delle planimetrie se ce ne sono più di una, altrimenti mostra la singola planimetria */}
         {hasMultiplePlans
           ? (
-            <PlanCarousel images={listing.plan} />
+            <PlanCarousel images={plans} />
             )
           : (
             <img
               loading='lazy'
               className='rounded-lg h-full w-full object-cover cursor-pointer' // Aggiungi il cursore pointer
-              src={listing.plan[0]?.url}
+              src={firstPlan?.url || FALLBACK_IMG}
               alt='Plan'
               onClick={handleImageClick} // Aggiungi il gestore di eventi
             />
