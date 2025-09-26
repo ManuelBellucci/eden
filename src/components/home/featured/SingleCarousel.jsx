@@ -12,6 +12,10 @@ const Carousel = lazy(() => import('@material-tailwind/react').then(module => ({
  * @props {number} visibleDots - Numero di punti di navigazione visibili
  * @returns {JSX.Element} - Elemento React per la visualizzazione dei punti di navigazione
 */
+
+const ERROR_IMG = '/image-error.png'
+const FALLBACK_IMG = '/image-error.png'
+
 const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots = 5 }) => {
   const createDots = () => {
     const dots = []
@@ -64,6 +68,15 @@ const NavigationDots = ({ activeIndex, setActiveIndex, totalSlides, visibleDots 
  * @returns {JSX.Element} - Elemento React per la visualizzazione di un carosello
  */
 export function SingleCarousel ({ images, id }) {
+  const normalized = Array.isArray(images)
+    ? images
+      .map((img, i) => (typeof img === 'string' ? { url: img, alt: `image ${i + 1}` } : img))
+      .filter(x => x && x.url)
+    : []
+
+  // si no hay imágenes, mete fallback
+  const slides = normalized.length ? normalized : [{ url: FALLBACK_IMG, alt: 'Anteprima non disponibile' }]
+
   return (
     // Messaggio di caricamento
     <Suspense fallback={<div>Caricando...</div>}>
@@ -73,7 +86,7 @@ export function SingleCarousel ({ images, id }) {
           <NavigationDots totalSlides={length} activeIndex={activeIndex} setActiveIndex={setActiveIndex} visibleDots={5} />
         )} // Imposta i punti di navigazione
       >
-        {images.map((image, index) => (
+        {slides.map((image, index) => (
           <Link key={`${id}-${index}`} to={`/immobili/${id}`}>
             <div className='h-full overflow-hidden rounded-lg'>
               <img
@@ -81,7 +94,10 @@ export function SingleCarousel ({ images, id }) {
                 src={image.url}
                 alt={`image ${index + 1}`}
                 onError={(e) => {
-                  e.target.src = '/image-error.png' // Immagine di default
+                  const el = e.currentTarget
+                  if (el.dataset.fallbackApplied === '1') return
+                  el.src = ERROR_IMG
+                  el.dataset.fallbackApplied = '1' // evita bucle si la de error falla
                 }}
                 className='h-full w-full object-cover'
               />
